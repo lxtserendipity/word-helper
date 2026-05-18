@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>单词记忆助手</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide 图标库 -->
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.544.0/dist/umd/lucide.min.js"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#64748b',
+                        success: '#10b981',
+                        warning: '#f59e0b',
+                        danger: '#ef4444',
+                        info: '#06b6d4',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* 基础设置 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            -webkit-tap-highlight-color: transparent;
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 隐藏滚动条但允许滚动 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        /* 动画类 */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        .animate-shake { animation: shake 0.3s ease-in-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+        .pulse-animation { animation: pulse 1s ease-in-out infinite; }
+        
+        @keyframes errorPulse {
+            0%, 100% { background-color: rgba(239, 68, 68, 0.05); }
+            50% { background-color: rgba(239, 68, 68, 0.15); }
+        }
+        .error-pulse { animation: errorPulse 1.5s ease-in-out infinite; }
+
+        /* 自定义组件样式 */
+        .btn-primary {
+            background-color: #3b82f6; color: white; border-radius: 0.75rem;
+            transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.2);
+        }
+        .btn-primary:active { transform: scale(0.98); box-shadow: 0 2px 4px -1px rgba(59, 130, 246, 0.1); }
+
+        .btn-secondary {
+            background-color: #e2e8f0; color: #475569; border-radius: 0.75rem; transition: all 0.2s;
+        }
+        .btn-secondary:active { background-color: #cbd5e1; }
+
+        .btn-success {
+            background-color: #86efac; color: #14532d; border-radius: 0.75rem; transition: all 0.2s;
+        }
+        .btn-success:active { background-color: #4ade80; }
+
+        .btn-warning {
+            background-color: #fef08a; color: #854d0e; border-radius: 0.75rem; transition: all 0.2s;
+        }
+        .btn-warning:active { background-color: #fde047; }
+
+        .btn-info {
+            background-color: #a5f3fc; color: #083344; border-radius: 0.75rem; transition: all 0.2s;
+        }
+        .btn-info:active { background-color: #22d3ee; }
+
+        /* 输入框样式 */
+        .input-word {
+            border: none; border-radius: 0; background: transparent;
+            text-align: center; font-size: 2.5rem; color: #3b82f6; transition: all 0.3s ease;
+            outline: none; width: 100%; padding-bottom: 0.25rem; margin-bottom: 0;
+            font-weight: 700; height: auto; min-height: 3.5rem; line-height: 1.2;
+        }
+        .input-word::placeholder { color: #3b82f6; opacity: 0.7; font-weight: 500; }
+        .input-word.error { color: #ef4444; animation: shake 0.5s; }
+        .input-word.error::placeholder { color: #ef4444; }
+
+        /* 音节颜色 - 支持20个音节 */
+        .syllable-1 { color: #f59e0b; }
+        .syllable-2 { color: #10b981; }
+        .syllable-3 { color: #DC2626; }
+        .syllable-4 { color: #ec4899; }
+        .syllable-5 { color: #06b6d4; }
+        .syllable-6 { color: #ef4444; }
+        .syllable-7 { color: #f97316; }
+        .syllable-8 { color: #14b8a6; }
+        .syllable-9 { color: #f43f5e; }
+        .syllable-10 { color: #22c55e; }
+        .syllable-11 { color: #eab308; }
+        .syllable-12 { color: #a855f7; }
+        .syllable-13 { color: #06b6d4; }
+        .syllable-14 { color: #10b981; }
+        .syllable-15 { color: #f97316; }
+        .syllable-16 { color: #8b5cf6; }
+        .syllable-17 { color: #ec4899; }
+        .syllable-18 { color: #f59e0b; }
+        .syllable-19 { color: #06b6d4; }
+        .syllable-20 { color: #14b8a6; }
+
+        /* 弹窗遮罩 */
+        .modal-overlay { background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- 主界面 -->
+    <div id="app-main" class="flex-1 flex flex-col relative overflow-hidden">
+        <!-- 内容区域 -->
+        <main class="flex-1 overflow-auto p-2 flex flex-col items-center justify-start relative w-full max-w-md mx-auto">
+            <!-- 单词输入区 -->
+            <div class="w-full mb-1 text-center relative mt-9">
+                <div class="flex justify-center items-center">
+                    <input type="text" id="word-input" class="input-word" placeholder="输入单词" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                </div>
+                <!-- 进度条 -->
+                <div class="w-full px-4 mb-0.2 relative">
+                    <div class="w-full bg-blue-500 rounded-full h-0.5">
+                        <div id="progress-bar" class="bg-red-600 h-0.5 rounded-full transition-all duration-300 ease-out" style="width: 20%"></div>
+                    </div>
+                    <div class="absolute right-4 -top-5">
+                        <span id="progress-text" class="text-xs font-medium text-slate-500">1/5</span>
+                    </div>
+                </div>
+                <div id="validation-msg" class="text-red-500 text-xs h-3 font-medium opacity-0 transition-opacity mb-0.5" style="opacity: 0;">
+                    拼写错误
+                </div>
+            </div>
+
+            <!-- 音标与释义区 -->
+            <div class="w-full text-center mb-2">
+                <div class="flex items-center justify-center gap-2 mb-0.5">
+                    <span id="word-phonetic" class="text-slate-500 font-mono text-sm">/ˈtiːtʃə/</span>
+                    <button onclick="playCurrentWord()" class="p-1 rounded-full bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        <i data-lucide="volume-2" class="w-3 h-3"></i>
+                    </button>
+                </div>
+                <div id="hint-container" class="mb-0.2 min-h-[0.25rem] flex justify-center items-center px-2"></div>
+                <h2 id="word-meaning" class="text-base font-semibold text-slate-800 mb-1">老师</h2>
+
+                <!-- 例句卡片 -->
+                <div class="bg-white rounded-lg p-2.5 shadow-sm border border-slate-100 relative mb-1">
+                    <p id="word-example-en" class="text-slate-700 text-xs mb-0.5 italic">My teacher is very kind.</p>
+                    <p id="word-example-cn" class="text-slate-400 text-[10px] mb-0">我的老师很友善。</p>
+                    <button onclick="playCurrentExample()" class="absolute right-2 top-1/2 -translate-y-1/2 p-1 rounded-full bg-slate-50 text-slate-400 hover:bg-slate-100">
+                        <i data-lucide="volume-2" class="w-3 h-3"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 操作按钮区 -->
+            <div class="w-full flex flex-col space-y-4 py-0 mb-0">
+                <!-- 第一行：上一个/下一个 -->
+                <div class="grid grid-cols-2 gap-4 px-1">
+                    <button onclick="prevWord()" class="btn-secondary py-4 px-3 text-center font-medium text-sm flex items-center justify-center gap-2 h-[64px]">
+                        <i data-lucide="chevron-left" class="w-4 h-4"></i>
+                        上一个
+                    </button>
+                    <button onclick="nextWord()" class="btn-primary py-4 px-3 text-center font-medium text-sm flex items-center justify-center gap-2 h-[64px]">
+                        下一个
+                        <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+
+                <!-- 第二行：认识/提示 -->
+                <div class="grid grid-cols-2 gap-4 px-1">
+                    <button onclick="markWord('known')" class="btn-success py-4 px-3 text-center font-medium text-sm flex items-center justify-center h-[64px]">
+                        认识
+                    </button>
+                    <button onclick="showHint()" class="btn-warning py-4 px-3 text-center font-medium text-sm flex items-center justify-center h-[64px]">
+                        提示
+                    </button>
+                </div>
+            </div>
+
+            <!-- 词汇统计卡片 -->
+            <div class="w-full grid grid-cols-3 gap-4 px-1 mb-4 mt-4">
+                <button onclick="toggleWordLibrary('all')" class="bg-white rounded-lg p-4 shadow-sm border border-slate-100 text-center h-[64px] flex flex-col justify-center">
+                    <p id="total-words-count" class="text-lg font-bold text-blue-600">5</p>
+                    <p class="text-xs text-slate-500" style="line-height: 16px;">总词汇</p>
+                </button>
+                <button onclick="toggleWordLibrary('known')" class="bg-white rounded-lg p-4 shadow-sm border border-slate-100 text-center h-[64px] flex flex-col justify-center">
+                    <p id="known-words-count" class="text-lg font-bold text-green-600">0</p>
+                    <p class="text-xs text-slate-500" style="line-height: 16px;">已掌握</p>
+                </button>
+                <button onclick="toggleWordLibrary('fuzzy')" class="bg-white rounded-lg p-4 shadow-sm border border-slate-100 text-center h-[64px] flex flex-col justify-center">
+                    <p id="fuzzy-words-count" class="text-lg font-bold text-red-600">0</p>
+                    <p class="text-xs text-slate-500" style="line-height: 16px;">待复习</p>
+                </button>
+            </div>
+            
+            <!-- 设置按钮 -->
+            <div class="w-full px-1 mb-4">
+                <button id="settings-btn" onclick="toggleSettings()" class="w-full btn-secondary py-4 px-3 text-center font-medium text-sm flex items-center justify-center gap-2 h-[64px]">
+                    <i data-lucide="settings" class="w-4 h-4"></i>
+                    设置
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- 设置弹窗 -->
+    <div id="settings-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black bg-opacity-50" onclick="toggleSettings()"></div>
+        <div class="relative w-[85%] max-w-md bg-white rounded-2xl shadow-lg z-10 p-6 animate-fade-in">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold text-slate-800">设置</h2>
+                <button onclick="toggleSettings()" class="p-1 rounded-full hover:bg-slate-100">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- 学习模式 -->
+                <div>
+                    <h3 class="text-sm font-medium text-slate-700 mb-2">学习模式</h3>
+                    <select id="mode-select" onchange="setMode(this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                        <option value="test">测试模式</option>
+                        <option value="review">复习模式</option>
+                    </select>
+                </div>
+                
+                <!-- 学习分类 -->
+                <div>
+                    <h3 class="text-sm font-medium text-slate-700 mb-2">学习分类</h3>
+                    <select id="category-select" onchange="setStudyCategory(this.value)" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                        <option value="all">全部单词</option>
+                        <option value="new">新添加</option>
+                        <option value="known">已掌握</option>
+                        <option value="fuzzy">待复习</option>
+                    </select>
+                </div>
+                
+                <!-- 自动发音 -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-sm font-medium text-slate-700">自动发音</h3>
+                        <p class="text-xs text-slate-500">切换单词时自动播放发音</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="auto-play-toggle" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                </div>
+                
+                <!-- 显示音节 -->
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h3 class="text-sm font-medium text-slate-700">显示音节</h3>
+                        <p class="text-xs text-slate-500">在复习模式下显示音节划分</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="show-syllables-toggle" class="sr-only peer" checked>
+                        <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                </div>
+                
+                <!-- 数据管理 -->
+                <div class="space-y-2 pt-2">
+                    <h3 class="text-sm font-medium text-slate-700 mb-1">数据管理</h3>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="importCSV()" class="py-2.5 px-4 text-center text-sm font-medium text-green-600 border border-green-200 rounded-lg hover:bg-green-50 transition-colors flex items-center justify-center gap-1">
+                            <i data-lucide="upload" class="w-3 h-3"></i>
+                            导入CSV
+                        </button>
+                        <button onclick="exportCSV()" class="py-2.5 px-4 text-center text-sm font-medium text-purple-600 border border-purple-200 rounded-lg hover:bg-purple-50 transition-colors flex items-center justify-center gap-1">
+                            <i data-lucide="download" class="w-3 h-3"></i>
+                            导出CSV
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 重置学习进度 -->
+                <button onclick="showResetConfirmModal()" class="w-full py-2.5 px-4 text-center text-sm font-medium text-red-600 border border-red-200 rounded-lg hover:bg-red-50 transition-colors">
+                    重置学习进度
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 单词库弹窗 -->
+    <div id="word-library-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0" onclick="toggleWordLibrary()"></div>
+        <div class="relative w-[90%] max-w-md bg-white rounded-xl shadow-lg z-10 animate-fade-in" style="width: 370px; height: 720px; display: flex; flex-direction: column;">
+            <div class="flex justify-between items-center p-5 pb-0 sticky top-0 bg-white z-10">
+                <h2 class="text-lg font-bold text-slate-800">单词库</h2>
+                <button onclick="toggleWordLibrary()" class="p-1 rounded-full hover:bg-slate-100">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="p-5 pt-3 flex-1 flex flex-col overflow-hidden">
+                <!-- 添加单词按钮 -->
+                <div class="w-full mb-2">
+                    <button onclick="toggleAddWordModal()" class="w-full py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 text-sm font-medium flex items-center justify-center gap-1">
+                        <i data-lucide="plus" class="w-3 h-3"></i>
+                        添加单词
+                    </button>
+                </div>
+                
+                <!-- 分类标签 -->
+                <div class="flex space-x-0 pb-1 mb-2">
+                    <button onclick="switchWordCategory('all')" id="category-all" class="flex-1 py-1.5 bg-blue-500 text-white rounded-l-lg rounded-r-none text-sm font-medium text-center">
+                        全部<span class="ml-1 text-xs opacity-80">5</span>
+                    </button>
+                    <button onclick="switchWordCategory('new')" id="category-new" class="flex-1 py-1.5 bg-blue-100 text-blue-600 rounded-none text-sm font-medium text-center border-x border-blue-200">
+                        新添加<span class="ml-1 text-xs opacity-80">5</span>
+                    </button>
+                    <button onclick="switchWordCategory('known')" id="category-known" class="flex-1 py-1.5 bg-green-100 text-green-600 rounded-none text-sm font-medium text-center border-x border-green-200">
+                        已掌握<span class="ml-1 text-xs opacity-80">0</span>
+                    </button>
+                    <button onclick="switchWordCategory('fuzzy')" id="category-fuzzy" class="flex-1 py-1.5 bg-yellow-100 text-yellow-600 rounded-r-lg rounded-l-none text-sm font-medium text-center">
+                        待复习<span class="ml-1 text-xs opacity-80">0</span>
+                    </button>
+                </div>
+                
+                <!-- 操作按钮 -->
+                <div class="flex justify-end space-x-4 mb-3">
+                    <button id="batch-delete-btn" onclick="batchDeleteWords()" class="text-xs text-red-600 hover:underline hidden">
+                        删除
+                    </button>
+                    <button id="batch-move-btn" onclick="showMoveOptions()" class="text-xs text-blue-600 hover:underline hidden">
+                        移动
+                    </button>
+                    <button onclick="toggleSelectAll()" id="select-all-btn" class="text-xs text-blue-600 hover:underline">
+                        全选
+                    </button>
+                </div>
+                
+                <!-- 单词列表 -->
+                <div id="word-list" class="space-y-2 flex-1 overflow-y-auto">
+                    <!-- 单词列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加/编辑单词弹窗 -->
+    <div id="add-word-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black bg-opacity-50" onclick="toggleAddWordModal()"></div>
+        <div class="relative w-[85%] max-w-md bg-white rounded-2xl shadow-lg z-10 p-6 animate-fade-in">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="add-word-title" class="text-lg font-bold text-slate-800">添加单词</h2>
+                <button onclick="toggleAddWordModal()" class="p-1 rounded-full hover:bg-slate-100">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <form id="add-word-form" onsubmit="saveWord(event)">
+                <div class="space-y-4">
+                    <div>
+                        <label for="new-word-input" class="block text-sm font-medium text-slate-700 mb-1">单词</label>
+                        <input type="text" id="new-word-input" name="word" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入单词" required autocomplete="off">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label for="phonetic-input" class="block text-sm font-medium text-slate-700 mb-1">音标</label>
+                            <input type="text" id="phonetic-input" name="phonetic" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入音标" autocomplete="off">
+                        </div>
+                        <div>
+                            <label for="syllables-input" class="block text-sm font-medium text-slate-700 mb-1">音节划分</label>
+                            <input type="text" id="syllables-input" name="syllables" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="如：tea,cher" autocomplete="off">
+                        </div>
+                    </div>
+                    <div>
+                        <label for="meaning-input" class="block text-sm font-medium text-slate-700 mb-1">释义</label>
+                        <input type="text" id="meaning-input" name="meaning" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入释义" required autocomplete="off">
+                    </div>
+                    <div>
+                        <label for="example-en-input" class="block text-sm font-medium text-slate-700 mb-1">英文例句</label>
+                        <input type="text" id="example-en-input" name="exampleEn" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入英文例句" autocomplete="off">
+                    </div>
+                    <div>
+                        <label for="example-cn-input" class="block text-sm font-medium text-slate-700 mb-1">中文例句</label>
+                        <input type="text" id="example-cn-input" name="exampleCn" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入中文例句" autocomplete="off">
+                    </div>
+                    <div class="pt-2 grid grid-cols-2 gap-3">
+                        <button type="button" onclick="toggleAddWordModal()" class="py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors">
+                            取消
+                        </button>
+                        <button type="submit" class="py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
+                            保存
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- CSV导入弹窗 -->
+    <div id="csv-import-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black bg-opacity-50" onclick="toggleCSVImportModal()"></div>
+        <div class="relative w-[85%] max-w-md bg-white rounded-2xl shadow-lg z-10 p-6 animate-fade-in">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-lg font-bold text-slate-800">导入CSV</h2>
+                <button onclick="toggleCSVImportModal()" class="p-1 rounded-full hover:bg-slate-100">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label for="csv-file-input" class="block text-sm font-medium text-slate-700 mb-1">选择CSV文件</label>
+                    <input type="file" id="csv-file-input" accept=".csv" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                    <p class="text-xs text-slate-500 mt-1">支持的格式：word,phonetic,meaning,example_en,example_cn,syllables</p>
+                    <p class="text-xs text-blue-500 mt-0.5">注意：音节划分请用英文逗号分隔，如：in,ter,na,tion,al</p>
+                </div>
+                
+                <div class="flex justify-end space-x-2 pt-2">
+                    <button onclick="toggleCSVImportModal()" class="px-4 py-2 text-sm text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50">
+                        取消
+                    </button>
+                    <button onclick="processCSVImport()" class="px-4 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+                        导入
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 移动选项弹窗 -->
+    <div id="move-options-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0" onclick="toggleMoveOptionsModal()"></div>
+        <div class="relative w-[80%] max-w-xs bg-white rounded-xl shadow-lg z-10 p-5 animate-fade-in">
+            <h3 class="text-lg font-bold text-slate-800 mb-4 text-center">移动到</h3>
+            <div class="space-y-2">
+                <button onclick="moveSelectedWords('known')" class="w-full py-3 flex items-center justify-center gap-3 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors">
+                    <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                    <span class="text-green-700 font-medium">已掌握</span>
+                </button>
+                <button onclick="moveSelectedWords('fuzzy')" class="w-full py-3 flex items-center justify-center gap-3 bg-yellow-50 border border-yellow-200 rounded-lg hover:bg-yellow-100 transition-colors">
+                    <div class="w-2 h-2 rounded-full bg-yellow-500"></div>
+                    <span class="text-yellow-700 font-medium">待复习</span>
+                </button>
+                <button onclick="moveSelectedWords('new')" class="w-full py-3 flex items-center justify-center gap-3 bg-blue-50 border border-blue-200 rounded-lg hover:bg-blue-100 transition-colors">
+                    <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+                    <span class="text-slate-700 font-medium">新添加</span>
+                </button>
+            </div>
+            <button onclick="toggleMoveOptionsModal()" class="w-full mt-4 py-2 text-white bg-red-500 border border-red-300 rounded-lg hover:bg-red-600">
+                取消
+            </button>
+        </div>
+    </div>
+
+    <!-- 删除确认弹窗 -->
+    <div id="delete-confirm-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="relative w-[85%] max-w-sm bg-white rounded-2xl shadow-lg z-10 p-6 animate-fade-in">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="trash-2" class="w-8 h-8 text-red-500"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-2">确认删除</h3>
+                <p id="delete-confirm-text" class="text-slate-600 mb-6">确定要删除选中的单词吗？</p>
+                <div class="flex gap-3">
+                    <button onclick="cancelDelete()" class="flex-1 py-3 text-center text-sm font-medium text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50">
+                        取消
+                    </button>
+                    <button onclick="confirmDelete()" class="flex-1 py-3 text-center text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600">
+                        确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 提示弹窗 -->
+    <div id="info-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black bg-opacity-50" onclick="hideInfoModal()"></div>
+        <div class="relative w-[85%] max-w-sm bg-white rounded-2xl shadow-lg z-10 p-6 animate-fade-in">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="info" class="w-8 h-8 text-blue-500"></i>
+                </div>
+                <h3 id="info-modal-title" class="text-lg font-bold text-slate-800 mb-2">提示</h3>
+                <p id="info-modal-message" class="text-slate-600 mb-6">消息内容</p>
+                <button onclick="hideInfoModal()" class="w-full py-3 text-center text-sm font-medium text-white bg-blue-500 rounded-lg hover:bg-blue-600">
+                    确定
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 重置进度确认弹窗 -->
+    <div id="reset-confirm-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
+        <div class="modal-overlay absolute inset-0 bg-black bg-opacity-50" onclick="hideResetConfirmModal()"></div>
+        <div class="relative w-[85%] max-w-sm bg-white rounded-2xl shadow-lg z-10 p-6 animate-fade-in">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i data-lucide="refresh-cw" class="w-8 h-8 text-red-500"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800 mb-2">确认重置</h3>
+                <p class="text-slate-600 mb-6">确定要重置所有学习进度吗？此操作不可恢复。</p>
+                <div class="flex gap-3">
+                    <button onclick="hideResetConfirmModal()" class="flex-1 py-3 text-center text-sm font-medium text-slate-600 border border-slate-200 rounded-lg hover:bg-slate-50">
+                        取消
+                    </button>
+                    <button onclick="confirmResetProgress()" class="flex-1 py-3 text-center text-sm font-medium text-white bg-red-500 rounded-lg hover:bg-red-600">
+                        确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ================= 数据层 (localStorage + IndexedDB) =================
+        
+        // 数据库名称和版本
+        const DB_NAME = 'WordMemoryApp';
+        const DB_VERSION = 1;
+        let db = null;
+
+        // 存储键名
+        const STORAGE_KEYS = {
+            WORDS: 'wordMemoryApp_words',
+            STATUS: 'wordMemoryApp_wordStatus',
+            SETTINGS: 'wordMemoryApp_settings'
+        };
+
+        // 全局变量
+        let wordList = [];
+        let filteredWordList = [];
+        let currentIndex = 0;
+        let mode = 'test';
+        let settings = { autoPlay: true, studyCategory: 'all' };
+        let currentCategory = 'all';
+        let selectedWordIds = new Set();
+        let currentEditId = null;
+        let dbReady = false;
+
+        // 示例单词数据
+        const sampleWords = [
+            { word: "teacher", phonetic: "/ˈtiːtʃə/", meaning: "老师", example_en: "My teacher is very kind.", example_cn: "我的老师很友善。", syllables: "tea,cher" },
+            { word: "student", phonetic: "/ˈstjuːdənt/", meaning: "学生", example_en: "He is a good student.", example_cn: "他是一个好学生。", syllables: "stu,dent" },
+            { word: "book", phonetic: "/bʊk/", meaning: "书", example_en: "I like reading books.", example_cn: "我喜欢读书。", syllables: "book" },
+            { word: "computer", phonetic: "/kəmˈpjuːtə/", meaning: "电脑", example_en: "I use my computer every day.", example_cn: "我每天都用电脑。", syllables: "com,pu,ter" },
+            { word: "friend", phonetic: "/frend/", meaning: "朋友", example_en: "He is my best friend.", example_cn: "他是我最好的朋友。", syllables: "friend" }
+        ];
+
+        // 初始化数据库
+        function initDatabase() {
+            return new Promise((resolve, reject) => {
+                // 先尝试使用IndexedDB
+                if ('indexedDB' in window) {
+                    const request = indexedDB.open(DB_NAME, DB_VERSION);
+
+                    request.onerror = (event) => {
+                        console.error('IndexedDB打开失败:', event.target.error);
+                        // 降级到localStorage
+                        console.log('降级到localStorage');
+                        dbReady = true;
+                        resolve();
+                    };
+
+                    request.onsuccess = (event) => {
+                        db = event.target.result;
+                        console.log('IndexedDB连接成功');
+                        dbReady = true;
+                        resolve();
+                    };
+
+                    request.onupgradeneeded = (event) => {
+                        db = event.target.result;
+                        
+                        // 创建单词表
+                        if (!db.objectStoreNames.contains('words')) {
+                            const wordsStore = db.createObjectStore('words', { keyPath: 'id' });
+                            wordsStore.createIndex('word', 'word', { unique: false });
+                            wordsStore.createIndex('createdAt', 'createdAt', { unique: false });
+                        }
+                        
+                        // 创建状态表
+                        if (!db.objectStoreNames.contains('wordStatus')) {
+                            const statusStore = db.createObjectStore('wordStatus', { keyPath: 'wordId' });
+                            statusStore.createIndex('status', 'status', { unique: false });
+                        }
+                        
+                        console.log('IndexedDB升级完成');
+                    };
+                } else {
+                    // 不支持IndexedDB，使用localStorage
+                    console.log('浏览器不支持IndexedDB，使用localStorage');
+                    dbReady = true;
+                    resolve();
+                }
+            });
+        }
+
+        // IndexedDB操作封装
+        const dbOps = {
+            // 获取所有单词
+            getAllWords: () => {
+                return new Promise((resolve, reject) => {
+                    // 如果使用localStorage
+                    if (!db || !db.objectStoreNames.contains('words')) {
+                        try {
+                            const wordsJson = localStorage.getItem(STORAGE_KEYS.WORDS);
+                            const words = wordsJson ? JSON.parse(wordsJson) : [];
+                            resolve(words);
+                        } catch (error) {
+                            console.error('从localStorage读取单词失败:', error);
+                            resolve([]);
+                        }
+                        return;
+                    }
+
+                    // 使用IndexedDB
+                    const transaction = db.transaction(['words'], 'readonly');
+                    const store = transaction.objectStore('words');
+                    const request = store.getAll();
+
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            },
+
+            // 获取所有状态
+            getAllStatus: () => {
+                return new Promise((resolve, reject) => {
+                    // 如果使用localStorage
+                    if (!db || !db.objectStoreNames.contains('wordStatus')) {
+                        try {
+                            const statusJson = localStorage.getItem(STORAGE_KEYS.STATUS);
+                            const status = statusJson ? JSON.parse(statusJson) : [];
+                            resolve(status);
+                        } catch (error) {
+                            console.error('从localStorage读取状态失败:', error);
+                            resolve([]);
+                        }
+                        return;
+                    }
+
+                    // 使用IndexedDB
+                    const transaction = db.transaction(['wordStatus'], 'readonly');
+                    const store = transaction.objectStore('wordStatus');
+                    const request = store.getAll();
+
+                    request.onsuccess = () => resolve(request.result);
+                    request.onerror = () => reject(request.error);
+                });
+            },
+
+            // 保存单词
+            saveWord: (word) => {
+                return new Promise((resolve, reject) => {
+                    // 如果使用localStorage
+                    if (!db || !db.objectStoreNames.contains('words')) {
+                        try {
+                            const wordsJson = localStorage.getItem(STORAGE_KEYS.WORDS);
+                            const words = wordsJson ? JSON.parse(wordsJson) : [];
+                            
+                            // 查找是否已存在
+                            const index = words.findIndex(w => w.id === word.id);
+                            if (index >= 0) {
+                                words[index] = word;
+                            } else {
+                                words.push(word);
+                            }
+                            
+                            localStorage.setItem(STORAGE_KEYS.WORDS, JSON.stringify(words));
+                            resolve();
+                        } catch (error) {
+                            console.error('保存单词到localStorage失败:', error);
+                            reject(error);
+                        }
+                        return;
+                    }
+
+                    // 使用IndexedDB
+                    const transaction = db.transaction(['words'], 'readwrite');
+                    const store = transaction.objectStore('words');
+                    const request = store.put(word);
+
+                    request.onsuccess = () => resolve();
+                    request.onerror = () => reject(request.error);
+                });
+            },
+
+            // 保存状态
+            saveStatus: (status) => {
+                return new Promise((resolve, reject) => {
+                    // 如果使用localStorage
+                    if (!db || !db.objectStoreNames.contains('wordStatus')) {
+                        try {
+                            const statusJson = localStorage.getItem(STORAGE_KEYS.STATUS);
+                            const statusList = statusJson ? JSON.parse(statusJson) : [];
+                            
+                            // 查找是否已存在
+                            const index = statusList.findIndex(s => s.wordId === status.wordId);
+                            if (index >= 0) {
+                                statusList[index] = status;
+                            } else {
+                                statusList.push(status);
+                            }
+                            
+                            localStorage.setItem(STORAGE_KEYS.STATUS, JSON.stringify(statusList));
+                            resolve();
+                        } catch (error) {
+                            console.error('保存状态到localStorage失败:', error);
+                            reject(error);
+                        }
+                        return;
+                    }
+
+                    // 使用IndexedDB
+                    const transaction = db.transaction(['wordStatus'], 'readwrite');
+                    const store = transaction.objectStore('wordStatus');
+                    const request = store.put(status);
+
+                    request.onsuccess = () => resolve();
+                    request.onerror = () => reject(request.error);
+                });
+            },
+
+            // 删除单词
+            deleteWord: (id) => {
+                return new Promise((resolve, reject) => {
+                    // 如果使用localStorage
+                    if (!db || !db.objectStoreNames.contains('words')) {
+                        try {
+                            const wordsJson = localStorage.getItem(STORAGE_KEYS.WORDS);
+                            if (wordsJson) {
+                                const words = JSON.parse(wordsJson);
+                                const filteredWords = words.filter(w => w.id !== id);
+                                localStorage.setItem(STORAGE_KEYS.WORDS, JSON.stringify(filteredWords));
+                            }
+                            resolve();
+                        } catch (error) {
+                            console.error('从localStorage删除单词失败:', error);
+                            reject(error);
+                        }
+                        return;
+                    }
+
+                    // 使用IndexedDB
+                    const transaction = db.transaction(['words'], 'readwrite');
+                    const store = transaction.objectStore('words');
+                    const request = store.delete(id);
+
+                    request.onsuccess = () => resolve();
+                    request.onerror = () => reject(request.error);
+                });
+            },
+
+            // 删除状态
+            deleteStatus: (wordId) => {
+                return new Promise((resolve, reject) => {
+                    // 如果使用localStorage
+                    if (!db || !db.objectStoreNames.contains('wordStatus')) {
+                        try {
+                            const statusJson = localStorage.getItem(STORAGE_KEYS.STATUS);
+                            if (statusJson) {
+                                const statusList = JSON.parse(statusJson);
+                                const filteredStatus = statusList.filter(s => s.wordId !== wordId);
+                                localStorage.setItem(STORAGE_KEYS.STATUS, JSON.stringify(filteredStatus));
+                            }
+                            resolve();
+                        } catch (error) {
+                            console.error('从localStorage删除状态失败:', error);
+                            reject(error);
+                        }
+                        return;
+                    }
+
+                    // 使用IndexedDB
+                    const transaction = db.transaction(['wordStatus'], 'readwrite');
+                    const store = transaction.objectStore('wordStatus');
+                    const request = store.delete(wordId);
+
+                    request.onsuccess = () => resolve();
+                    request.onerror = () => reject(request.error);
+                });
+            }
+        };
+
+        // 设置相关操作
+        const settingsOps = {
+            // 加载设置
+            load: () => {
+                try {
+                    const settingsJson = localStorage.getItem(STORAGE_KEYS.SETTINGS);
+                    if (settingsJson) {
+                        return JSON.parse(settingsJson);
+                    }
+                    return { autoPlay: true, studyCategory: 'all' };
+                } catch (error) {
+                    console.error('加载设置失败:', error);
+                    return { autoPlay: true, studyCategory: 'all' };
+                }
+            },
+
+            // 保存设置
+            save: (settings) => {
+                try {
+                    localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+                } catch (error) {
+                    console.error('保存设置失败:', error);
+                }
+            }
+        };
+
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                // 初始化数据库
+                await initDatabase();
+                
+                // 加载设置
+                settings = settingsOps.load();
+                
+                // 加载单词
+                await loadWords();
+                
+                // 显示第一个单词
+                if (wordList.length > 0) {
+                    showWord(currentIndex);
+                }
+                
+                // 更新统计信息
+                await updateStats();
+                
+                // 初始化图标
+                lucide.createIcons();
+                
+                // 添加输入监听
+                document.getElementById('word-input').addEventListener('input', handleInput);
+                
+                // 更新设置UI
+                updateSettingsUI();
+                
+            } catch (error) {
+                console.error('应用初始化失败:', error);
+                showInfoModal('错误', '初始化失败，请刷新页面重试。');
+            }
+        });
+
+        // 初始化示例数据
+        async function initializeSampleData() {
+            try {
+                // 检查是否已有数据
+                const words = await dbOps.getAllWords();
+                
+                // 如果没有数据，添加示例数据
+                if (words.length === 0) {
+                    console.log('初始化示例数据...');
+                    for (let i = 0; i < sampleWords.length; i++) {
+                        const word = sampleWords[i];
+                        const id = Date.now() + i;
+                        
+                        // 保存单词
+                        await dbOps.saveWord({
+                            id,
+                            ...word,
+                            createdAt: new Date().toISOString()
+                        });
+                        
+                        // 保存状态
+                        await dbOps.saveStatus({
+                            wordId: id,
+                            status: 'new',
+                            lastReviewed: new Date().toISOString(),
+                            reviewCount: 0
+                        });
+                    }
+                }
+            } catch (error) {
+                console.error('初始化示例数据失败:', error);
+                throw error;
+            }
+        }
+
+        // 加载单词
+        async function loadWords() {
+            try {
+                // 初始化示例数据（如果需要）
+                await initializeSampleData();
+                
+                // 获取所有单词和状态
+                const words = await dbOps.getAllWords();
+                const statusList = await dbOps.getAllStatus();
+                
+                // 创建状态映射表
+                const statusMap = new Map();
+                statusList.forEach(status => {
+                    statusMap.set(status.wordId, status);
+                });
+                
+                // 合并单词和状态
+                wordList = words.map(word => {
+                    const status = statusMap.get(word.id);
+                    return {
+                        ...word,
+                        status: status ? status.status : 'new',
+                        reviewCount: status ? status.reviewCount : 0,
+                        lastReviewed: status ? status.lastReviewed : null
+                    };
+                });
+                
+                // 按创建时间排序
+                wordList.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+                
+                // 根据学习分类筛选单词
+                filterWordsByCategory();
+                
+            } catch (error) {
+                console.error('加载单词失败:', error);
+                throw error;
+            }
+        }
+        
+        // 根据学习分类筛选单词
+        function filterWordsByCategory() {
+            const category = settings.studyCategory;
+            
+            if (category === 'all') {
+                filteredWordList = [...wordList];
+            } else {
+                filteredWordList = wordList.filter(word => word.status === category);
+            }
+            
+            // 重置当前索引
+            currentIndex = 0;
+        }
+
+        // 显示单词
+        function showWord(index) {
+            const word = filteredWordList[index];
+            if (!word) return;
+            
+            const wordInput = document.getElementById('word-input');
+            const validationMsg = document.getElementById('validation-msg');
+            const hintContainer = document.getElementById('hint-container');
+            
+            // 重置状态
+            validationMsg.style.opacity = '0';
+            hintContainer.innerHTML = '';
+            
+            if (mode === 'test') {
+                wordInput.value = '';
+                wordInput.placeholder = '输入单词';
+            } else {
+                wordInput.value = word.word;
+                wordInput.placeholder = '';
+            }
+            
+            // 根据模式决定是否显示音节
+            if (mode === 'review' && word.syllables) {
+                const syllables = processSyllables(word.syllables, word.word);
+                
+                if (syllables.length > 1) {
+                    const syllablesHtml = syllables.map((syllable, i) => {
+                        // 使用模运算循环使用颜色类，确保支持任意数量的音节
+                        const colorIndex = (i % 20) + 1;
+                        return `<span class="syllable-${colorIndex}">${syllable}</span>`;
+                    }).join('·');
+                    
+                    hintContainer.innerHTML = `<div class="text-center"><div class="text-lg font-bold">${syllablesHtml}</div></div>`;
+                } else {
+                    // 如果只有一个音节，也使用彩色显示
+                    const colorIndex = 1; // 使用第一个颜色类
+                    const coloredWord = `<span class="syllable-${colorIndex}">${word.word}</span>`;
+                    hintContainer.innerHTML = `<div class="text-center"><div class="text-lg font-bold">${coloredWord}</div></div>`;
+                }
+            } else {
+                hintContainer.innerHTML = '';
+            }
+            
+            wordInput.classList.remove('error');
+            
+            // 更新界面显示
+            document.getElementById('word-phonetic').textContent = word.phonetic || '/?/';
+            document.getElementById('word-meaning').textContent = word.meaning;
+            document.getElementById('word-example-en').textContent = word.example_en || '无例句';
+            document.getElementById('word-example-cn').textContent = word.example_cn || '';
+            
+            // 更新进度
+            updateProgress();
+            
+            // 自动发音
+            if (settings.autoPlay) {
+                // 停止当前正在播放的语音，然后播放新单词
+                speechSynthesis.cancel();
+                setTimeout(() => playWord(word.word), 300);
+            }
+        }
+
+        // 处理输入
+        function handleInput(event) {
+            const input = event.target.value.trim().toLowerCase();
+            const currentWord = filteredWordList[currentIndex];
+            
+            if (!currentWord) return;
+            
+            const validationMsg = document.getElementById('validation-msg');
+            
+            // 只有当输入长度达到或超过单词长度时才进行验证
+            if (input.length >= currentWord.word.length) {
+                if (input === currentWord.word.toLowerCase()) {
+                    // 拼写正确
+                    validationMsg.style.opacity = '0';
+                    event.target.classList.remove('error');
+                    
+                    // 只有当单词状态不是待复习时，才标记为已掌握
+                    setTimeout(async () => {
+                        if (currentWord.status !== 'fuzzy') {
+                            await markWord('known');
+                        } else {
+                            // 如果已经是待复习状态，保持不变并直接跳转到下一个单词
+                            nextWord();
+                        }
+                    }, 500);
+                } else {
+                    // 拼写错误
+                    validationMsg.style.opacity = '1';
+                    event.target.classList.add('error');
+                    
+                    // 即时标记为待复习
+                    setTimeout(async () => {
+                        const word = filteredWordList[currentIndex];
+                        if (word) {
+                            await dbOps.saveStatus({
+                                wordId: word.id,
+                                status: 'fuzzy',
+                                lastReviewed: new Date().toISOString(),
+                                reviewCount: (word.reviewCount || 0) + 1
+                            });
+                            
+                            word.status = 'fuzzy';
+                            await updateStats();
+                        }
+                    }, 300);
+                }
+            } else if (input.length > 0) {
+                // 输入长度不足，不显示错误状态，让用户继续输入
+                validationMsg.style.opacity = '0';
+                event.target.classList.remove('error');
+            } else {
+                // 清空输入
+                validationMsg.style.opacity = '0';
+                event.target.classList.remove('error');
+            }
+        }
+
+        // 标记单词状态
+        async function markWord(status) {
+            if (currentIndex >= filteredWordList.length) return;
+            
+            const word = filteredWordList[currentIndex];
+            
+            // 找到原单词列表中的对应单词
+            const originalWord = wordList.find(w => w.id === word.id);
+            if (!originalWord) return;
+            
+            try {
+                // 更新状态
+                await dbOps.saveStatus({
+                    wordId: word.id,
+                    status: status,
+                    lastReviewed: new Date().toISOString(),
+                    reviewCount: (word.reviewCount || 0) + 1
+                });
+                
+                // 更新内存中的状态
+                word.status = status;
+                originalWord.status = status;
+                
+                // 更新统计
+                await updateStats();
+                
+                // 只有在标记为已掌握时才自动跳转到下一个单词
+                if (status === 'known') {
+                    setTimeout(() => {
+                        nextWord();
+                    }, 800);
+                }
+                // 标记为待复习时不自动跳转，让用户可以继续尝试
+                
+            } catch (error) {
+                console.error('标记单词状态失败:', error);
+                showInfoModal('错误', '操作失败，请重试。');
+            }
+        }
+
+        // 显示提示
+        async function showHint() {
+            const word = filteredWordList[currentIndex];
+            const hintContainer = document.getElementById('hint-container');
+            
+            if (!word) return;
+            
+            try {
+                // 播放单词发音
+                playWord(word.word);
+                
+                // 显示音节提示
+                const syllables = processSyllables(word.syllables, word.word);
+                const syllablesHtml = syllables.map((syllable, index) => {
+                    // 使用模运算循环使用颜色类，确保支持任意数量的音节
+                    const colorIndex = (index % 20) + 1;
+                    return `<span class="syllable-${colorIndex}">${syllable}</span>`;
+                }).join('-');
+                
+                hintContainer.innerHTML = `<div class="text-center"><div class="text-lg font-bold">${syllablesHtml}</div></div>`;
+                
+                // 标记为待复习
+                await dbOps.saveStatus({
+                    wordId: word.id,
+                    status: 'fuzzy',
+                    lastReviewed: new Date().toISOString(),
+                    reviewCount: (word.reviewCount || 0) + 1
+                });
+                
+                word.status = 'fuzzy';
+                await updateStats();
+                
+            } catch (error) {
+                console.error('显示提示失败:', error);
+            }
+        }
+
+        // 处理音节 - 优化版本
+        function processSyllables(syllablesData, wordText) {
+            try {
+                // 如果没有音节数据，返回完整单词
+                if (!syllablesData) {
+                    return [wordText || ''];
+                }
+                
+                // 确保是字符串格式
+                const syllablesStr = String(syllablesData).trim();
+                if (!syllablesStr) {
+                    return [wordText || ''];
+                }
+                
+                // 按逗号分割音节
+                const syllables = syllablesStr.split(',')
+                    .map(s => s.trim())
+                    .filter(s => s.length > 0);
+                
+                // 如果分割后没有有效音节，返回完整单词
+                if (syllables.length === 0) {
+                    return [wordText || ''];
+                }
+                
+                return syllables;
+            } catch (error) {
+                console.error('处理音节时出错:', error);
+                return [wordText || ''];
+            }
+        }
+
+        // 上一个单词
+        function prevWord() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                showWord(currentIndex);
+            }
+        }
+
+        // 下一个单词 - 循环模式
+        function nextWord() {
+            if (filteredWordList.length === 0) return;
+            
+            // 在测试模式下，检查当前单词是否已验证
+            if (mode === 'test') {
+                const wordInput = document.getElementById('word-input');
+                const validationMsg = document.getElementById('validation-msg');
+                const input = wordInput.value.trim().toLowerCase();
+                const currentWord = filteredWordList[currentIndex];
+                
+                if (currentWord && input.length > 0) {
+                    // 不管输入长度，立即对当前输入进行验证
+                    if (input !== currentWord.word.toLowerCase()) {
+                        // 验证错误，显示与自动验证相同的错误样式
+                        validationMsg.style.opacity = '1';
+                        wordInput.classList.add('error');
+                        
+                        // 立即标记为待复习
+                        markWord('fuzzy');
+                        return; // 不跳转，等待标记完成
+                    }
+                    // 验证正确，允许跳转
+                }
+                // 如果输入为空，也允许跳转
+            }
+            
+            // 执行跳转逻辑，确保只跳转到下一个单词
+            currentIndex++;
+            if (currentIndex >= filteredWordList.length) {
+                currentIndex = 0;
+            }
+            showWord(currentIndex);
+        }
+
+        // 播放当前单词
+        function playCurrentWord() {
+            const word = filteredWordList[currentIndex];
+            if (word) {
+                playWord(word.word);
+            }
+        }
+
+        // 播放当前例句
+        function playCurrentExample() {
+            const word = filteredWordList[currentIndex];
+            if (word && word.example_en) {
+                playWord(word.example_en);
+            }
+        }
+
+        // 播放单词或句子
+        function playWord(text) {
+            if (!text) return;
+            
+            try {
+                // 停止当前正在播放的语音
+                speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = 0.9;
+                speechSynthesis.speak(utterance);
+            } catch (error) {
+                console.error('语音播放失败:', error);
+            }
+        }
+
+        // 更新进度
+        function updateProgress() {
+            const total = filteredWordList.length;
+            const current = currentIndex + 1;
+            const percentage = Math.round((current / total) * 100);
+            
+            document.getElementById('progress-text').textContent = `${current}/${total}`;
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+        }
+
+        // 更新统计
+        async function updateStats() {
+            try {
+                const total = wordList.length;
+                const known = wordList.filter(w => w.status === 'known').length;
+                const fuzzy = wordList.filter(w => w.status === 'fuzzy').length;
+                const newWords = wordList.filter(w => w.status === 'new').length;
+                
+                document.getElementById('total-words-count').textContent = total;
+                document.getElementById('known-words-count').textContent = known;
+                document.getElementById('fuzzy-words-count').textContent = fuzzy;
+                
+                // 更新分类标签计数
+                document.getElementById('category-all').innerHTML = `全部<span class="ml-1 text-xs opacity-80">${total}</span>`;
+                document.getElementById('category-new').innerHTML = `新添加<span class="ml-1 text-xs opacity-80">${newWords}</span>`;
+                document.getElementById('category-known').innerHTML = `已掌握<span class="ml-1 text-xs opacity-80">${known}</span>`;
+                document.getElementById('category-fuzzy').innerHTML = `待复习<span class="ml-1 text-xs opacity-80">${fuzzy}</span>`;
+                
+            } catch (error) {
+                console.error('更新统计失败:', error);
+            }
+        }
+
+        // 设置模式
+        function setMode(newMode) {
+            mode = newMode;
+            showWord(currentIndex);
+        }
+        
+        // 设置学习分类
+        function setStudyCategory(category) {
+            settings.studyCategory = category;
+            
+            // 保存设置
+            settingsOps.save(settings);
+            
+            // 重新筛选单词
+            filterWordsByCategory();
+            
+            // 更新界面
+            updateStats();
+            
+            // 显示第一个单词
+            if (filteredWordList.length > 0) {
+                showWord(0);
+            } else {
+                // 如果没有单词，显示提示
+                const wordInput = document.getElementById('word-input');
+                wordInput.value = '';
+                wordInput.placeholder = '该分类暂无单词';
+                document.getElementById('word-phonetic').textContent = '/?/';
+                document.getElementById('word-meaning').textContent = '请选择其他分类或添加单词';
+                document.getElementById('word-example-en').textContent = '';
+                document.getElementById('word-example-cn').textContent = '';
+                document.getElementById('hint-container').innerHTML = '';
+                updateProgress();
+            }
+        }
+
+        // 切换设置弹窗
+        function toggleSettings() {
+            const modal = document.getElementById('settings-modal');
+            modal.classList.toggle('hidden');
+            
+            if (!modal.classList.contains('hidden')) {
+                updateSettingsUI();
+                lucide.createIcons();
+            }
+        }
+
+        // 切换单词库弹窗
+        function toggleWordLibrary(category = 'all') {
+            const modal = document.getElementById('word-library-modal');
+            modal.classList.toggle('hidden');
+            
+            if (!modal.classList.contains('hidden')) {
+                currentCategory = category;
+                renderWordList();
+                lucide.createIcons();
+            }
+        }
+
+        // 渲染单词列表
+        function renderWordList() {
+            const wordListElement = document.getElementById('word-list');
+            let filteredWords = wordList;
+            
+            // 根据分类筛选
+            if (currentCategory !== 'all') {
+                filteredWords = wordList.filter(w => {
+                    if (currentCategory === 'new') {
+                        return w.status === 'new';
+                    } else {
+                        return w.status === currentCategory;
+                    }
+                });
+            }
+            
+            if (filteredWords.length === 0) {
+                wordListElement.innerHTML = '<div class="text-center text-slate-500 py-8">暂无单词</div>';
+                return;
+            }
+            
+            const html = filteredWords.map(word => `
+                <div class="bg-white rounded-lg p-3 shadow-sm border border-slate-100">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" data-word-id="${word.id}" onchange="toggleWordSelection(${word.id}, this.checked)" class="w-4 h-4 text-blue-500 rounded border-slate-300 focus:ring-blue-500">
+                            <div>
+                                <h3 class="font-bold text-slate-800">${word.word}</h3>
+                                <p class="text-sm text-slate-700">${word.meaning}</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2">
+                            <button onclick="editWord(${word.id})" class="text-xs text-blue-500 hover:text-blue-600">
+                                编辑
+                            </button>
+                            <button onclick="playWord('${word.word}')" class="p-1 text-slate-400 hover:text-slate-600">
+                                <i data-lucide="volume-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            wordListElement.innerHTML = html;
+            lucide.createIcons();
+        }
+
+        // 切换单词选择
+        function toggleWordSelection(wordId, checked) {
+            if (checked) {
+                selectedWordIds.add(wordId);
+            } else {
+                selectedWordIds.delete(wordId);
+            }
+            
+            updateBatchButtons();
+        }
+
+        // 更新批量操作按钮状态
+        function updateBatchButtons() {
+            const hasSelection = selectedWordIds.size > 0;
+            const deleteBtn = document.getElementById('batch-delete-btn');
+            const moveBtn = document.getElementById('batch-move-btn');
+            const selectAllBtn = document.getElementById('select-all-btn');
+            const checkboxes = document.querySelectorAll('#word-list input[type="checkbox"]');
+            const allChecked = checkboxes.length > 0 && Array.from(checkboxes).every(cb => cb.checked);
+            
+            if (hasSelection) {
+                deleteBtn.classList.remove('hidden');
+                moveBtn.classList.remove('hidden');
+                selectAllBtn.textContent = allChecked ? '取消全选' : '取消勾选';
+                selectAllBtn.classList.remove('text-blue-600');
+                selectAllBtn.classList.add('text-red-600');
+            } else {
+                deleteBtn.classList.add('hidden');
+                moveBtn.classList.add('hidden');
+                selectAllBtn.textContent = '全选';
+                selectAllBtn.classList.remove('text-red-600');
+                selectAllBtn.classList.add('text-blue-600');
+            }
+        }
+
+        // 切换全选/取消全选
+        function toggleSelectAll() {
+            const checkboxes = document.querySelectorAll('#word-list input[type="checkbox"]');
+            const hasSelection = selectedWordIds.size > 0;
+            
+            checkboxes.forEach(cb => {
+                cb.checked = !hasSelection;
+                // 从checkbox的data属性获取wordId，更可靠
+                const wordId = parseInt(cb.dataset.wordId);
+                if (!isNaN(wordId)) {
+                    toggleWordSelection(wordId, !hasSelection);
+                }
+            });
+        }
+
+        // 切换添加单词弹窗
+        function toggleAddWordModal() {
+            const modal = document.getElementById('add-word-modal');
+            modal.classList.toggle('hidden');
+            
+            if (!modal.classList.contains('hidden')) {
+                document.getElementById('add-word-form').reset();
+                document.getElementById('add-word-title').textContent = '添加单词';
+                currentEditId = null;
+                lucide.createIcons();
+            }
+        }
+
+        // 编辑单词
+        function editWord(wordId) {
+            const word = wordList.find(w => w.id === wordId);
+            if (!word) return;
+            
+            currentEditId = wordId;
+            
+            // 填充表单
+            document.getElementById('new-word-input').value = word.word;
+            document.getElementById('phonetic-input').value = word.phonetic || '';
+            document.getElementById('syllables-input').value = word.syllables || '';
+            document.getElementById('meaning-input').value = word.meaning;
+            document.getElementById('example-en-input').value = word.example_en || '';
+            document.getElementById('example-cn-input').value = word.example_cn || '';
+            
+            document.getElementById('add-word-title').textContent = '编辑单词';
+            
+            // 显示弹窗
+            document.getElementById('add-word-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 保存单词
+        async function saveWord(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const wordData = {
+                word: formData.get('word').trim(),
+                phonetic: formData.get('phonetic').trim(),
+                meaning: formData.get('meaning').trim(),
+                syllables: formData.get('syllables').trim(),
+                example_en: formData.get('exampleEn').trim(),
+                example_cn: formData.get('exampleCn').trim()
+            };
+            
+            if (!wordData.word || !wordData.meaning) {
+                showInfoModal('错误', '单词和释义不能为空');
+                return;
+            }
+            
+            try {
+                // 检查单词是否重复（不区分大小写）
+                const wordExists = wordList.some(w => 
+                    w.word.toLowerCase().trim() === wordData.word.toLowerCase().trim() && 
+                    w.id !== currentEditId
+                );
+                
+                if (wordExists) {
+                    showInfoModal('错误', '该单词已存在!');
+                    return;
+                }
+                
+                if (currentEditId) {
+                    // 编辑现有单词
+                    const existingWord = wordList.find(w => w.id === currentEditId);
+                    if (existingWord) {
+                        const updatedWord = {
+                            ...existingWord,
+                            ...wordData,
+                            updatedAt: new Date().toISOString()
+                        };
+                        
+                        await dbOps.saveWord(updatedWord);
+                        
+                        // 更新内存中的数据
+                        Object.assign(existingWord, updatedWord);
+                        
+                        showInfoModal('成功', '单词更新成功！');
+                    }
+                } else {
+                    // 添加新单词
+                    const id = Date.now();
+                    const newWord = {
+                        id,
+                        ...wordData,
+                        createdAt: new Date().toISOString(),
+                        addedAt: Date.now() // 添加时间戳用于排序
+                    };
+                    
+                    await dbOps.saveWord(newWord);
+                    
+                    // 保存状态
+                    await dbOps.saveStatus({
+                        wordId: id,
+                        status: 'new',
+                        lastReviewed: new Date().toISOString(),
+                        reviewCount: 0
+                    });
+                    
+                    // 添加到内存并重新排序
+                    wordList.push({
+                        ...newWord,
+                        status: 'new'
+                    });
+                    
+                    // 重新排序以保持新单词置顶
+                    wordList.sort((a, b) => b.addedAt - a.addedAt);
+                    
+                    showInfoModal('成功', '单词添加成功！');
+                }
+                
+                // 更新统计和列表
+                await updateStats();
+                if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
+                    renderWordList();
+                }
+                
+                toggleAddWordModal();
+                
+            } catch (error) {
+                console.error('保存单词失败:', error);
+                showInfoModal('错误', '保存失败，请重试。');
+            }
+        }
+
+        // 显示批量删除确认
+        function batchDeleteWords() {
+            if (selectedWordIds.size === 0) return;
+            
+            document.getElementById('delete-confirm-text').textContent = `确定要删除选中的 ${selectedWordIds.size} 个单词吗？`;
+            document.getElementById('delete-confirm-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 确认删除
+        async function confirmDelete() {
+            if (selectedWordIds.size === 0) return;
+            
+            try {
+                if (currentCategory === 'all') {
+                    // 在"全部"类别下删除是真正删除单词
+                    for (const wordId of selectedWordIds) {
+                        await dbOps.deleteWord(wordId);
+                        await dbOps.deleteStatus(wordId);
+                    }
+                    
+                    // 从内存中删除
+                    wordList = wordList.filter(w => !selectedWordIds.has(w.id));
+                    
+                    // 如果删除了当前显示的单词，显示下一个
+                    if (currentIndex >= wordList.length && wordList.length > 0) {
+                        currentIndex = Math.min(currentIndex, wordList.length - 1);
+                        showWord(currentIndex);
+                    }
+                } else {
+                    // 在其他类别下删除只是移除学习状态（从当前列表移除）
+                    for (const wordId of selectedWordIds) {
+                        // 移除状态记录，使单词从当前分类列表中消失
+                        await dbOps.deleteStatus(wordId);
+                        
+                        // 更新内存中的状态
+                        const word = wordList.find(w => w.id === wordId);
+                        if (word) {
+                            // 清除状态，使其不再显示在当前分类中
+                            delete word.status;
+                        }
+                    }
+                }
+                
+                // 清空选择
+                selectedWordIds.clear();
+                
+                // 更新UI
+                await updateStats();
+                renderWordList();
+                updateBatchButtons();
+                
+                // 关闭弹窗
+                document.getElementById('delete-confirm-modal').classList.add('hidden');
+                
+            } catch (error) {
+                console.error('删除操作失败:', error);
+                showInfoModal('错误', '操作失败，请重试。');
+            }
+        }
+
+        // 取消删除
+        function cancelDelete() {
+            document.getElementById('delete-confirm-modal').classList.add('hidden');
+        }
+
+        // 显示移动选项
+        function showMoveOptions() {
+            if (selectedWordIds.size === 0) return;
+            document.getElementById('move-options-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 移动选中单词
+        async function moveSelectedWords(status) {
+            if (selectedWordIds.size === 0) return;
+            
+            try {
+                for (const wordId of selectedWordIds) {
+                    await dbOps.saveStatus({
+                        wordId,
+                        status,
+                        lastReviewed: new Date().toISOString(),
+                        reviewCount: 0
+                    });
+                    
+                    // 更新内存中的状态
+                    const word = wordList.find(w => w.id === wordId);
+                    if (word) {
+                        word.status = status;
+                    }
+                }
+                
+                // 清空选择
+                selectedWordIds.clear();
+                
+                // 更新UI
+                await updateStats();
+                
+                // 移动后自动跳转到目标类别
+                switchWordCategory(status);
+                
+                updateBatchButtons();
+                
+                // 关闭弹窗
+                toggleMoveOptionsModal();
+                
+            } catch (error) {
+                console.error('移动单词失败:', error);
+                showInfoModal('错误', '操作失败，请重试。');
+            }
+        }
+
+        // 关闭移动选项弹窗
+        function toggleMoveOptionsModal() {
+            document.getElementById('move-options-modal').classList.add('hidden');
+        }
+
+        // 切换CSV导入弹窗
+        function importCSV() {
+            const modal = document.getElementById('csv-import-modal');
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 关闭CSV导入弹窗
+        function toggleCSVImportModal() {
+            const modal = document.getElementById('csv-import-modal');
+            modal.classList.add('hidden');
+            document.getElementById('csv-file-input').value = '';
+        }
+
+        // 处理CSV导入
+        async function processCSVImport() {
+            const fileInput = document.getElementById('csv-file-input');
+            
+            if (!fileInput.files || fileInput.files.length === 0) {
+                showInfoModal('错误', '请选择CSV文件');
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = async (e) => {
+                try {
+                    const csvText = e.target.result;
+                    const lines = csvText.split('\n').filter(line => line.trim());
+                    
+                    if (lines.length < 2) {
+                        showInfoModal('错误', 'CSV文件格式不正确');
+                        return;
+                    }
+                    
+                    const headers = parseCSVLine(lines[0]).map(h => h.trim().toLowerCase());
+                    const requiredColumns = ['word', 'meaning'];
+                    
+                    const missingColumns = requiredColumns.filter(col => !headers.includes(col));
+                    if (missingColumns.length > 0) {
+                        showInfoModal('错误', `缺少必需的列: ${missingColumns.join(', ')}`);
+                        return;
+                    }
+                    
+                    let importedCount = 0;
+                    
+                    for (let i = 1; i < lines.length; i++) {
+                        const values = parseCSVLine(lines[i]);
+                        if (values.length < headers.length) continue;
+                        
+                        const wordData = {};
+                        headers.forEach((header, index) => {
+                            wordData[header] = values[index]?.trim() || '';
+                        });
+                        
+
+                        if (wordData.word && wordData.meaning) {
+                            const id = Date.now() + i;
+                            
+                            // 确保音节划分字段正确处理
+                            let syllables = wordData.syllables || '';
+
+                            
+                            // 处理CSV中的音节划分字段，确保正确解析多个音节
+                            if (syllables) {
+                                // 移除可能的引号包围
+                                if (syllables.startsWith('"') && syllables.endsWith('"')) {
+                                    syllables = syllables.substring(1, syllables.length - 1);
+                                }
+                                
+                                // 分割并清理音节部分
+                                const syllableParts = syllables.split(',')
+                                    .map(s => s.trim())
+                                    .filter(s => s.length > 0);
+                                
+                                // 重新组合音节，确保格式正确
+                                if (syllableParts.length > 0) {
+                                    syllables = syllableParts.join(',');
+                                } else {
+                                    syllables = '';
+                                }
+                            }
+                            
+                            await dbOps.saveWord({
+                                id,
+                                word: wordData.word,
+                                phonetic: wordData.phonetic || '',
+                                meaning: wordData.meaning,
+                                syllables: syllables,
+                                example_en: wordData.example_en || '',
+                                example_cn: wordData.example_cn || '',
+                                createdAt: new Date().toISOString()
+                            });
+                            
+                            await dbOps.saveStatus({
+                                wordId: id,
+                                status: 'new',
+                                lastReviewed: new Date().toISOString(),
+                                reviewCount: 0
+                            });
+                            
+                            importedCount++;
+                        }
+                    }
+                    
+                    if (importedCount === 0) {
+                        showInfoModal('错误', '没有有效的单词数据');
+                        return;
+                    }
+                    
+                    // 重新加载数据
+                    await loadWords();
+                    await updateStats();
+                    
+                    if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
+                        renderWordList();
+                    }
+                    
+                    toggleCSVImportModal();
+                    showInfoModal('成功', `成功导入 ${importedCount} 个单词`);
+                    
+                } catch (error) {
+                    console.error('CSV导入失败:', error);
+                    showInfoModal('错误', 'CSV解析失败');
+                }
+            };
+            
+            reader.readAsText(file, 'UTF-8');
+        }
+
+        // 解析CSV行 - 增强版本，专门处理音节字段包含逗号的情况
+        function parseCSVLine(line) {
+            // 首先按逗号分割
+            const parts = line.split(',');
+            const result = [];
+            let currentField = '';
+            let fieldCount = 0;
+            
+            // 预期的字段数：word,phonetic,meaning,example_en,example_cn,syllables
+            const expectedFields = 6;
+            
+            for (let i = 0; i < parts.length; i++) {
+                const part = parts[i];
+                
+                if (fieldCount < expectedFields - 1) {
+                    // 前5个字段，正常处理
+                    result.push(part.trim());
+                    fieldCount++;
+                } else {
+                    // 最后一个字段（音节），合并所有剩余部分
+                    if (currentField) currentField += ',';
+                    currentField += part;
+                }
+            }
+            
+            // 添加最后一个字段（音节）
+            if (currentField) {
+                result.push(currentField.trim());
+            }
+            
+            // 如果字段数不足，补充空字符串
+            while (result.length < expectedFields) {
+                result.push('');
+            }
+            
+            return result;
+        }
+
+        // 导出CSV
+        async function exportCSV() {
+            try {
+                if (wordList.length === 0) {
+                    showInfoModal('提示', '没有单词可以导出');
+                    return;
+                }
+                
+                const headers = ['word', 'phonetic', 'meaning', 'example_en', 'example_cn', 'syllables'];
+                const csvContent = [
+                    headers.join(','),
+                    ...wordList.map(word => 
+                        headers.map(header => {
+                            const value = word[header] || '';
+                            return value.includes(',') || value.includes('"') ? `"${value.replace(/"/g, '""')}"` : value;
+                        }).join(',')
+                    )
+                ].join('\n');
+                
+                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                
+                link.setAttribute('href', url);
+                link.setAttribute('download', `words_${new Date().toISOString().split('T')[0]}.csv`);
+                link.style.visibility = 'hidden';
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+            } catch (error) {
+                console.error('导出CSV失败:', error);
+                showInfoModal('错误', '导出失败，请重试。');
+            }
+        }
+
+        // 切换分类
+        function switchWordCategory(category) {
+            currentCategory = category;
+            
+            // 重置所有分类标签样式
+            const categoryStyles = {
+                'all': ['bg-blue-100', 'text-blue-600'],
+                'new': ['bg-blue-100', 'text-blue-600'],
+                'known': ['bg-green-100', 'text-green-600'],
+                'fuzzy': ['bg-yellow-100', 'text-yellow-600']
+            };
+            
+            const activeStyles = {
+                'all': ['bg-blue-500', 'text-white'],
+                'new': ['bg-blue-500', 'text-white'],
+                'known': ['bg-green-600', 'text-white'],
+                'fuzzy': ['bg-yellow-500', 'text-white']
+            };
+            
+            document.querySelectorAll('[id^="category-"]').forEach(btn => {
+                const cat = btn.id.replace('category-', '');
+                
+                // 移除所有可能的样式类
+                btn.classList.remove(
+                    'bg-blue-500', 'bg-green-600', 'bg-yellow-500', 
+                    'bg-blue-100', 'bg-green-100', 'bg-yellow-100',
+                    'text-white', 'text-blue-600', 'text-green-600', 'text-yellow-600'
+                );
+                
+                // 添加默认样式
+                if (categoryStyles[cat]) {
+                    btn.classList.add(...categoryStyles[cat]);
+                }
+            });
+            
+            // 设置当前选中分类的样式
+            const activeBtn = document.getElementById(`category-${category}`);
+            if (activeBtn && activeStyles[category]) {
+                activeBtn.classList.remove(...categoryStyles[category]);
+                activeBtn.classList.add(...activeStyles[category]);
+            }
+            
+            renderWordList();
+        }
+
+        // 重置学习进度
+        function resetProgress() {
+            document.getElementById('reset-confirm-modal').classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 确认重置进度
+        async function confirmResetProgress() {
+            try {
+                for (const word of wordList) {
+                    await dbOps.saveStatus({
+                        wordId: word.id,
+                        status: 'new',
+                        lastReviewed: new Date().toISOString(),
+                        reviewCount: 0
+                    });
+                    
+                    word.status = 'new';
+                }
+                
+                await updateStats();
+                
+                if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
+                    renderWordList();
+                }
+                
+                hideResetConfirmModal();
+                showInfoModal('成功', '学习进度已重置！');
+                
+            } catch (error) {
+                console.error('重置进度失败:', error);
+                showInfoModal('错误', '重置失败，请重试。');
+            }
+        }
+
+        // 隐藏重置确认弹窗
+        function hideResetConfirmModal() {
+            document.getElementById('reset-confirm-modal').classList.add('hidden');
+        }
+
+        // 显示信息弹窗
+        function showInfoModal(title, message) {
+            const modal = document.getElementById('info-modal');
+            document.getElementById('info-modal-title').textContent = title;
+            document.getElementById('info-modal-message').textContent = message;
+            
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 隐藏信息弹窗
+        function hideInfoModal() {
+            const modal = document.getElementById('info-modal');
+            modal.classList.add('hidden');
+        }
+
+        // 显示重置确认弹窗
+        function showResetConfirmModal() {
+            const modal = document.getElementById('reset-confirm-modal');
+            modal.classList.remove('hidden');
+            lucide.createIcons();
+        }
+
+        // 隐藏重置确认弹窗
+        function hideResetConfirmModal() {
+            const modal = document.getElementById('reset-confirm-modal');
+            modal.classList.add('hidden');
+        }
+
+        // 监听设置变化
+        document.getElementById('auto-play-toggle').addEventListener('change', async (e) => {
+            settings.autoPlay = e.target.checked;
+            settingsOps.save(settings);
+        });
+
+        // 更新设置UI
+        function updateSettingsUI() {
+            document.getElementById('auto-play-toggle').checked = settings.autoPlay;
+            document.getElementById('mode-select').value = mode;
+            document.getElementById('category-select').value = settings.studyCategory || 'all';
+        }
+
+    </script>
+</body>
+</html>
