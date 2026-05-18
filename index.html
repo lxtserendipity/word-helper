@@ -549,7 +549,8 @@
         const STORAGE_KEYS = {
             WORDS: 'wordMemoryApp_words',
             STATUS: 'wordMemoryApp_wordStatus',
-            SETTINGS: 'wordMemoryApp_settings'
+            SETTINGS: 'wordMemoryApp_settings',
+            STATE: 'wordMemoryApp_state'
         };
 
         // 全局变量
@@ -834,6 +835,42 @@
             }
         };
 
+        // 保存应用状态
+        function saveAppState() {
+            try {
+                const state = {
+                    currentIndex,
+                    mode,
+                    currentCategory
+                };
+                localStorage.setItem(STORAGE_KEYS.STATE, JSON.stringify(state));
+            } catch (error) {
+                console.error('保存应用状态失败:', error);
+            }
+        }
+
+        // 加载应用状态
+        function loadAppState() {
+            try {
+                const stateJson = localStorage.getItem(STORAGE_KEYS.STATE);
+                if (stateJson) {
+                    const state = JSON.parse(stateJson);
+                    // 验证索引是否有效
+                    if (state.currentIndex !== undefined && state.currentIndex >= 0 && state.currentIndex < filteredWordList.length) {
+                        currentIndex = state.currentIndex;
+                    }
+                    if (state.mode === 'test' || state.mode === 'review') {
+                        mode = state.mode;
+                    }
+                    if (state.currentCategory) {
+                        currentCategory = state.currentCategory;
+                    }
+                }
+            } catch (error) {
+                console.error('加载应用状态失败:', error);
+            }
+        }
+
         // 初始化应用
         document.addEventListener('DOMContentLoaded', async () => {
             try {
@@ -846,7 +883,10 @@
                 // 加载单词
                 await loadWords();
                 
-                // 显示第一个单词
+                // 加载应用状态
+                loadAppState();
+                
+                // 显示当前单词
                 if (wordList.length > 0) {
                     showWord(currentIndex);
                 }
@@ -862,6 +902,9 @@
                 
                 // 更新设置UI
                 updateSettingsUI();
+                
+                // 监听页面卸载事件，保存状态
+                window.addEventListener('beforeunload', saveAppState);
                 
             } catch (error) {
                 console.error('应用初始化失败:', error);
@@ -1189,6 +1232,7 @@
             if (currentIndex > 0) {
                 currentIndex--;
                 showWord(currentIndex);
+                saveAppState();
             }
         }
 
@@ -1225,6 +1269,7 @@
                 currentIndex = 0;
             }
             showWord(currentIndex);
+            saveAppState();
         }
 
         // 播放当前单词
@@ -1297,6 +1342,7 @@
         function setMode(newMode) {
             mode = newMode;
             showWord(currentIndex);
+            saveAppState();
         }
         
         // 设置学习分类
