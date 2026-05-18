@@ -2013,7 +2013,22 @@
                     word.status = 'new';
                 }
                 
+                // 重置当前索引到第一个单词
+                currentIndex = 0;
+                
+                // 重新筛选单词
+                filterWordsByCategory();
+                
+                // 更新统计和界面
                 await updateStats();
+                
+                // 显示第一个单词
+                if (filteredWordList.length > 0) {
+                    showWord(currentIndex);
+                }
+                
+                // 保存状态
+                saveAppState();
                 
                 if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
                     renderWordList();
