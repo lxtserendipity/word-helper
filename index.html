@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>单词记忆助手</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -130,6 +130,33 @@
         .syllable-18 { color: #f59e0b; }
         .syllable-19 { color: #06b6d4; }
         .syllable-20 { color: #14b8a6; }
+
+        /* 小屏与弹窗适配 */
+        @supports (height: 100dvh) {
+            body { height: 100dvh; }
+        }
+        #word-library-modal > div.relative {
+            width: min(370px, 92vw) !important;
+            height: min(720px, 88dvh) !important;
+            max-height: 88vh;
+        }
+        #settings-modal > div.relative,
+        #add-word-modal > div.relative,
+        #csv-import-modal > div.relative {
+            max-height: 88vh;
+            max-height: 88dvh;
+            overflow-y: auto;
+        }
+        button:focus-visible, input:focus-visible, select:focus-visible {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
 
         /* 弹窗遮罩 */
         .modal-overlay { background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(4px); }
@@ -268,7 +295,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <h3 class="text-sm font-medium text-slate-700">自动发音</h3>
-                        <p class="text-xs text-slate-500">切换单词时自动播放发音</p>
+                        <p class="text-xs text-slate-500">打开页面或切换分类时播放；导航按钮始终播放</p>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
                         <input type="checkbox" id="auto-play-toggle" class="sr-only peer" checked>
@@ -300,7 +327,17 @@
                             <i data-lucide="download" class="w-3 h-3"></i>
                             导出CSV
                         </button>
+                        <button onclick="exportBackup()" class="py-2.5 px-4 text-center text-sm font-medium text-blue-600 border border-blue-200 rounded-lg hover:bg-blue-50 transition-colors flex items-center justify-center gap-1">
+                            <i data-lucide="archive" class="w-3 h-3"></i>
+                            完整备份
+                        </button>
+                        <button onclick="restoreBackup()" class="py-2.5 px-4 text-center text-sm font-medium text-orange-600 border border-orange-200 rounded-lg hover:bg-orange-50 transition-colors flex items-center justify-center gap-1">
+                            <i data-lucide="rotate-ccw" class="w-3 h-3"></i>
+                            恢复备份
+                        </button>
                     </div>
+                    <input type="file" id="backup-file-input" accept=".json,application/json" class="hidden">
+                    <p class="text-xs text-slate-400">CSV 仅保存词条；完整备份还包含学习进度与设置。</p>
                 </div>
                 
                 <!-- 重置学习进度 -->
@@ -329,6 +366,12 @@
                         <i data-lucide="plus" class="w-3 h-3"></i>
                         添加单词
                     </button>
+                </div>
+
+                <!-- 搜索 -->
+                <div class="w-full mb-3">
+                    <label for="word-search-input" class="sr-only">搜索单词或释义</label>
+                    <input type="search" id="word-search-input" placeholder="搜索单词、音标或释义" autocomplete="off" class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
                 </div>
                 
                 <!-- 分类标签 -->
@@ -383,7 +426,14 @@
                 <div class="space-y-4">
                     <div>
                         <label for="new-word-input" class="block text-sm font-medium text-slate-700 mb-1">单词</label>
-                        <input type="text" id="new-word-input" name="word" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入单词" required autocomplete="off">
+                        <div class="flex gap-2">
+                            <input type="text" id="new-word-input" name="word" class="flex-1 min-w-0 px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入单词" required autocomplete="off" oninput="invalidateSmartFetch()">
+                            <button type="button" id="smart-fetch-button" onclick="smartFillWord()" class="shrink-0 px-3 py-2 border border-blue-200 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1">
+                                <i data-lucide="wand-sparkles" class="w-4 h-4"></i>
+                                <span id="smart-fetch-label">智能获取</span>
+                            </button>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-1">音标、释义与双语例句取自金山词霸，音节自动拆分</p>
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
@@ -406,6 +456,7 @@
                     <div>
                         <label for="example-cn-input" class="block text-sm font-medium text-slate-700 mb-1">中文例句</label>
                         <input type="text" id="example-cn-input" name="exampleCn" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all" placeholder="请输入中文例句" autocomplete="off">
+                        <p id="smart-example-source" class="text-xs text-slate-400 mt-1 hidden"></p>
                     </div>
                     <div class="pt-2 grid grid-cols-2 gap-3">
                         <button type="button" onclick="toggleAddWordModal()" class="py-2 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300 transition-colors">
@@ -436,7 +487,15 @@
                     <label for="csv-file-input" class="block text-sm font-medium text-slate-700 mb-1">选择CSV文件</label>
                     <input type="file" id="csv-file-input" accept=".csv" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
                     <p class="text-xs text-slate-500 mt-1">支持的格式：word,phonetic,meaning,example_en,example_cn,syllables</p>
-                    <p class="text-xs text-blue-500 mt-0.5">注意：音节划分请用英文逗号分隔，如：in,ter,na,tion,al</p>
+                    <p class="text-xs text-blue-500 mt-0.5">支持标准 CSV 引号、逗号和换行；音节请用英文逗号分隔。</p>
+                </div>
+                <div>
+                    <label for="csv-duplicate-mode" class="block text-sm font-medium text-slate-700 mb-1">遇到同名单词</label>
+                    <select id="csv-duplicate-mode" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
+                        <option value="skip">跳过，保留现有词条</option>
+                        <option value="overwrite">覆盖词条内容，保留学习进度</option>
+                        <option value="add">仍然添加为新词条</option>
+                    </select>
                 </div>
                 
                 <div class="flex justify-end space-x-2 pt-2">
@@ -455,7 +514,7 @@
     <div id="move-options-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center">
         <div class="modal-overlay absolute inset-0" onclick="toggleMoveOptionsModal()"></div>
         <div class="relative w-[80%] max-w-xs bg-white rounded-xl shadow-lg z-10 p-5 animate-fade-in">
-            <h3 class="text-lg font-bold text-slate-800 mb-4 text-center">移动到</h3>
+            <h3 id="move-options-title" class="text-lg font-bold text-slate-800 mb-4 text-center">移动到</h3>
             <div class="space-y-2">
                 <button onclick="moveSelectedWords('known')" class="w-full py-3 flex items-center justify-center gap-3 bg-green-50 border border-green-200 rounded-lg hover:bg-green-100 transition-colors">
                     <div class="w-2 h-2 rounded-full bg-green-500"></div>
@@ -538,1557 +597,1846 @@
     </div>
 
     <script>
-        // ================= 数据层 (localStorage + IndexedDB) =================
-        
-        // 数据库名称和版本
+        // ================= 数据层 (IndexedDB + localStorage) =================
         const DB_NAME = 'WordMemoryApp';
         const DB_VERSION = 1;
-        let db = null;
-
-        // 存储键名
         const STORAGE_KEYS = {
             WORDS: 'wordMemoryApp_words',
             STATUS: 'wordMemoryApp_wordStatus',
             SETTINGS: 'wordMemoryApp_settings',
-            STATE: 'wordMemoryApp_state'
+            SAMPLE_INITIALIZED: 'wordMemoryApp_sampleInitialized'
         };
+        const DEFAULT_SETTINGS = {
+            autoPlay: true,
+            studyCategory: 'all',
+            showSyllables: true,
+            mode: 'test'
+        };
+        const VALID_CATEGORIES = ['all', 'new', 'known', 'fuzzy'];
 
-        // 全局变量
+        let db = null;
         let wordList = [];
         let filteredWordList = [];
         let currentIndex = 0;
         let mode = 'test';
-        let settings = { autoPlay: true, studyCategory: 'all' };
+        let settings = { ...DEFAULT_SETTINGS };
         let currentCategory = 'all';
         let selectedWordIds = new Set();
         let currentEditId = null;
-        let dbReady = false;
+        let librarySearchQuery = '';
+        let answerTimer = null;
+        let speechTimer = null;
+        let speechRequestId = 0;
+        let activeUtterance = null;
+        let activeAudio = null;
+        let cachedEnglishVoice = null;
+        let answerToken = 0;
+        let lastWrongSignature = '';
+        const submittingWordIds = new Set();
+        let smartFetchRequestId = 0;
 
-        // 示例单词数据
         const sampleWords = [
-            { word: "teacher", phonetic: "/ˈtiːtʃə/", meaning: "老师", example_en: "My teacher is very kind.", example_cn: "我的老师很友善。", syllables: "tea,cher" },
-            { word: "student", phonetic: "/ˈstjuːdənt/", meaning: "学生", example_en: "He is a good student.", example_cn: "他是一个好学生。", syllables: "stu,dent" },
-            { word: "book", phonetic: "/bʊk/", meaning: "书", example_en: "I like reading books.", example_cn: "我喜欢读书。", syllables: "book" },
-            { word: "computer", phonetic: "/kəmˈpjuːtə/", meaning: "电脑", example_en: "I use my computer every day.", example_cn: "我每天都用电脑。", syllables: "com,pu,ter" },
-            { word: "friend", phonetic: "/frend/", meaning: "朋友", example_en: "He is my best friend.", example_cn: "他是我最好的朋友。", syllables: "friend" }
+            { word: 'teacher', phonetic: '/ˈtiːtʃə/', meaning: '老师', example_en: 'My teacher is very kind.', example_cn: '我的老师很友善。', syllables: 'tea,cher' },
+            { word: 'student', phonetic: '/ˈstjuːdənt/', meaning: '学生', example_en: 'He is a good student.', example_cn: '他是一个好学生。', syllables: 'stu,dent' },
+            { word: 'book', phonetic: '/bʊk/', meaning: '书', example_en: 'I like reading books.', example_cn: '我喜欢读书。', syllables: 'book' },
+            { word: 'computer', phonetic: '/kəmˈpjuːtə/', meaning: '电脑', example_en: 'I use my computer every day.', example_cn: '我每天都用电脑。', syllables: 'com,pu,ter' },
+            { word: 'friend', phonetic: '/frend/', meaning: '朋友', example_en: 'He is my best friend.', example_cn: '他是我最好的朋友。', syllables: 'friend' }
         ];
 
-        // 初始化数据库
+        function refreshIcons() {
+            if (window.lucide && typeof window.lucide.createIcons === 'function') {
+                window.lucide.createIcons();
+            }
+        }
+
+        function createId() {
+            return Date.now() * 1000 + Math.floor(Math.random() * 1000);
+        }
+
+        const CATEGORY_LABELS = { new: '新添加', known: '已掌握', fuzzy: '待复习' };
+        // 前 20 色沿用原版顺序，并扩充到 32 色；超多音节时循环使用。
+        const SYLLABLE_COLORS = [
+            '#f59e0b', '#10b981', '#dc2626', '#ec4899',
+            '#06b6d4', '#ef4444', '#f97316', '#14b8a6',
+            '#f43f5e', '#22c55e', '#eab308', '#a855f7',
+            '#0ea5e9', '#84cc16', '#d946ef', '#2563eb',
+            '#059669', '#ca8a04', '#db2777', '#0891b2',
+            '#9333ea', '#65a30d', '#e11d48', '#7c3aed',
+            '#b45309', '#047857', '#be123c', '#1d4ed8',
+            '#0f766e', '#c2410c', '#15803d', '#6d28d9'
+        ];
+
+        function normalizeCategories(categories, fallbackStatus = 'new') {
+            const source = Array.isArray(categories) ? categories : [fallbackStatus];
+            return [...new Set(source.filter(category => ['new', 'known', 'fuzzy'].includes(category)))];
+        }
+
+        function hasCategory(word, category) {
+            return category === 'all' || normalizeCategories(word.categories, word.status).includes(category);
+        }
+
+        function addCategory(categories, target) {
+            return [...new Set([...normalizeCategories(categories), target])];
+        }
+
+        function removeCategory(categories, target) {
+            return normalizeCategories(categories).filter(category => category !== target);
+        }
+
+        function categoriesForLearning(categories, status) {
+            const current = normalizeCategories(categories);
+            if (!['known', 'fuzzy'].includes(status)) return current;
+            const opposite = status === 'known' ? 'fuzzy' : 'known';
+            return addCategory(current.filter(category => category !== opposite), status);
+        }
+
+        function categoriesForManualMove(categories, source, target) {
+            if (source === 'all') return addCategory(categories, target);
+            return addCategory(removeCategory(categories, source), target);
+        }
+
+        function defaultProgress() {
+            return {
+                status: 'new',
+                categories: ['new'],
+                lastReviewed: null,
+                reviewCount: 0,
+                correctStreak: 0,
+                wrongCount: 0,
+                hintCount: 0,
+                dueAt: null
+            };
+        }
+
+        function normalizeProgress(progress = {}) {
+            const base = defaultProgress();
+            const merged = { ...base, ...progress };
+            merged.status = ['new', 'known', 'fuzzy'].includes(merged.status) ? merged.status : 'new';
+            merged.categories = normalizeCategories(progress.categories, merged.status);
+            ['reviewCount', 'correctStreak', 'wrongCount', 'hintCount'].forEach(key => {
+                const value = Number(merged[key]);
+                merged[key] = Number.isFinite(value) && value >= 0 ? Math.floor(value) : 0;
+            });
+            return merged;
+        }
+
+        function progressFromWord(word) {
+            return normalizeProgress({
+                status: word.status,
+                categories: word.categories,
+                lastReviewed: word.lastReviewed,
+                reviewCount: word.reviewCount,
+                correctStreak: word.correctStreak,
+                wrongCount: word.wrongCount,
+                hintCount: word.hintCount,
+                dueAt: word.dueAt
+            });
+        }
+
+        function progressForCategoryRemoval(currentProgress, category) {
+            const progress = normalizeProgress(currentProgress);
+            const categories = removeCategory(progress.categories, category);
+            let status = progress.status;
+            if (!categories.includes(status)) {
+                status = categories.includes('fuzzy') ? 'fuzzy' : categories.includes('known') ? 'known' : 'new';
+            }
+            return { ...progress, categories, status };
+        }
+
+        function progressForManualMove(currentProgress, source, target) {
+            const progress = normalizeProgress(currentProgress);
+            const next = {
+                ...progress,
+                categories: categoriesForManualMove(progress.categories, source, target),
+                status: target
+            };
+            if (target === 'new') {
+                next.correctStreak = 0;
+                next.dueAt = null;
+            } else if (target === 'known') {
+                next.correctStreak = Math.max(2, next.correctStreak);
+                next.dueAt = new Date(Date.now() + 3 * 86400000).toISOString();
+            } else {
+                next.correctStreak = 0;
+                next.dueAt = new Date().toISOString();
+            }
+            return next;
+        }
+
+        function wordRecordFromWord(word) {
+            return {
+                id: word.id,
+                word: word.word,
+                phonetic: word.phonetic || '',
+                meaning: word.meaning,
+                syllables: word.syllables || '',
+                example_en: word.example_en || '',
+                example_cn: word.example_cn || '',
+                createdAt: word.createdAt || new Date().toISOString(),
+                updatedAt: word.updatedAt || null
+            };
+        }
+
+        function calculateReview(currentProgress, result, now = new Date()) {
+            const progress = normalizeProgress(currentProgress);
+            const timestamp = now.toISOString();
+            const next = { ...progress, lastReviewed: timestamp };
+
+            if (result === 'hint') {
+                next.status = 'fuzzy';
+                next.categories = categoriesForLearning(next.categories, 'fuzzy');
+                next.correctStreak = 0;
+                next.hintCount += 1;
+                next.dueAt = new Date(now.getTime() + 5 * 60 * 1000).toISOString();
+                return next;
+            }
+
+            next.reviewCount += 1;
+            if (result === 'wrong') {
+                next.status = 'fuzzy';
+                next.categories = categoriesForLearning(next.categories, 'fuzzy');
+                next.correctStreak = 0;
+                next.wrongCount += 1;
+                next.dueAt = new Date(now.getTime() + 10 * 60 * 1000).toISOString();
+                return next;
+            }
+
+            next.correctStreak += 1;
+            if (next.correctStreak >= 2 || progress.status === 'known') {
+                next.status = 'known';
+                next.categories = categoriesForLearning(next.categories, 'known');
+                const intervals = [1, 3, 7, 16, 35, 90, 180, 365];
+                const intervalIndex = Math.min(Math.max(next.correctStreak - 2, 0), intervals.length - 1);
+                next.dueAt = new Date(now.getTime() + intervals[intervalIndex] * 86400000).toISOString();
+            } else {
+                next.status = progress.status === 'fuzzy' ? 'fuzzy' : 'new';
+                next.categories = categoriesForLearning(next.categories, next.status);
+                next.dueAt = new Date(now.getTime() + 10 * 60 * 1000).toISOString();
+            }
+            return next;
+        }
+
+        function manualProgress(currentProgress, status, now = new Date()) {
+            const next = calculateReview(currentProgress, status === 'known' ? 'correct' : 'wrong', now);
+            next.status = status;
+            next.categories = categoriesForLearning(next.categories, status);
+            if (status === 'known') {
+                next.correctStreak = Math.max(2, next.correctStreak);
+                next.dueAt = new Date(now.getTime() + 3 * 86400000).toISOString();
+            }
+            return next;
+        }
+
         function initDatabase() {
-            return new Promise((resolve, reject) => {
-                // 先尝试使用IndexedDB
-                if ('indexedDB' in window) {
-                    const request = indexedDB.open(DB_NAME, DB_VERSION);
-
-                    request.onerror = (event) => {
-                        console.error('IndexedDB打开失败:', event.target.error);
-                        // 降级到localStorage
-                        console.log('降级到localStorage');
-                        dbReady = true;
-                        resolve();
-                    };
-
-                    request.onsuccess = (event) => {
-                        db = event.target.result;
-                        console.log('IndexedDB连接成功');
-                        dbReady = true;
-                        resolve();
-                    };
-
-                    request.onupgradeneeded = (event) => {
-                        db = event.target.result;
-                        
-                        // 创建单词表
-                        if (!db.objectStoreNames.contains('words')) {
-                            const wordsStore = db.createObjectStore('words', { keyPath: 'id' });
-                            wordsStore.createIndex('word', 'word', { unique: false });
-                            wordsStore.createIndex('createdAt', 'createdAt', { unique: false });
-                        }
-                        
-                        // 创建状态表
-                        if (!db.objectStoreNames.contains('wordStatus')) {
-                            const statusStore = db.createObjectStore('wordStatus', { keyPath: 'wordId' });
-                            statusStore.createIndex('status', 'status', { unique: false });
-                        }
-                        
-                        console.log('IndexedDB升级完成');
-                    };
-                } else {
-                    // 不支持IndexedDB，使用localStorage
-                    console.log('浏览器不支持IndexedDB，使用localStorage');
-                    dbReady = true;
+            return new Promise(resolve => {
+                if (!('indexedDB' in window)) {
                     resolve();
+                    return;
+                }
+
+                const request = indexedDB.open(DB_NAME, DB_VERSION);
+                request.onerror = () => {
+                    console.warn('IndexedDB 打开失败，已降级到 localStorage。', request.error);
+                    db = null;
+                    resolve();
+                };
+                request.onsuccess = event => {
+                    db = event.target.result;
+                    db.onversionchange = () => db.close();
+                    resolve();
+                };
+                request.onupgradeneeded = event => {
+                    const database = event.target.result;
+                    if (!database.objectStoreNames.contains('words')) {
+                        const wordsStore = database.createObjectStore('words', { keyPath: 'id' });
+                        wordsStore.createIndex('word', 'word', { unique: false });
+                        wordsStore.createIndex('createdAt', 'createdAt', { unique: false });
+                    }
+                    if (!database.objectStoreNames.contains('wordStatus')) {
+                        const statusStore = database.createObjectStore('wordStatus', { keyPath: 'wordId' });
+                        statusStore.createIndex('status', 'status', { unique: false });
+                    }
+                };
+            });
+        }
+
+        function readLocalArray(key) {
+            try {
+                const value = localStorage.getItem(key);
+                const parsed = value ? JSON.parse(value) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (error) {
+                console.error('读取本地数据失败:', error);
+                return [];
+            }
+        }
+
+        function writeLocalArray(key, value) {
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+
+        function transact(storeNames, mode, operation) {
+            return new Promise((resolve, reject) => {
+                if (!db || !storeNames.every(name => db.objectStoreNames.contains(name))) {
+                    reject(new Error('IndexedDB 不可用'));
+                    return;
+                }
+                const transaction = db.transaction(storeNames, mode);
+                transaction.oncomplete = () => resolve();
+                transaction.onerror = () => reject(transaction.error);
+                transaction.onabort = () => reject(transaction.error || new Error('数据库事务已中止'));
+                try {
+                    operation(transaction);
+                } catch (error) {
+                    transaction.abort();
+                    reject(error);
                 }
             });
         }
 
-        // IndexedDB操作封装
         const dbOps = {
-            // 获取所有单词
-            getAllWords: () => {
+            getAllWords: async () => {
+                if (!db || !db.objectStoreNames.contains('words')) return readLocalArray(STORAGE_KEYS.WORDS);
                 return new Promise((resolve, reject) => {
-                    // 如果使用localStorage
-                    if (!db || !db.objectStoreNames.contains('words')) {
-                        try {
-                            const wordsJson = localStorage.getItem(STORAGE_KEYS.WORDS);
-                            const words = wordsJson ? JSON.parse(wordsJson) : [];
-                            resolve(words);
-                        } catch (error) {
-                            console.error('从localStorage读取单词失败:', error);
-                            resolve([]);
-                        }
-                        return;
-                    }
-
-                    // 使用IndexedDB
-                    const transaction = db.transaction(['words'], 'readonly');
-                    const store = transaction.objectStore('words');
-                    const request = store.getAll();
-
-                    request.onsuccess = () => resolve(request.result);
+                    const request = db.transaction(['words'], 'readonly').objectStore('words').getAll();
+                    request.onsuccess = () => resolve(request.result || []);
                     request.onerror = () => reject(request.error);
                 });
             },
-
-            // 获取所有状态
-            getAllStatus: () => {
+            getAllStatus: async () => {
+                if (!db || !db.objectStoreNames.contains('wordStatus')) return readLocalArray(STORAGE_KEYS.STATUS);
                 return new Promise((resolve, reject) => {
-                    // 如果使用localStorage
-                    if (!db || !db.objectStoreNames.contains('wordStatus')) {
-                        try {
-                            const statusJson = localStorage.getItem(STORAGE_KEYS.STATUS);
-                            const status = statusJson ? JSON.parse(statusJson) : [];
-                            resolve(status);
-                        } catch (error) {
-                            console.error('从localStorage读取状态失败:', error);
-                            resolve([]);
-                        }
-                        return;
-                    }
-
-                    // 使用IndexedDB
-                    const transaction = db.transaction(['wordStatus'], 'readonly');
-                    const store = transaction.objectStore('wordStatus');
-                    const request = store.getAll();
-
-                    request.onsuccess = () => resolve(request.result);
+                    const request = db.transaction(['wordStatus'], 'readonly').objectStore('wordStatus').getAll();
+                    request.onsuccess = () => resolve(request.result || []);
                     request.onerror = () => reject(request.error);
                 });
             },
-
-            // 保存单词
-            saveWord: (word) => {
-                return new Promise((resolve, reject) => {
-                    // 如果使用localStorage
-                    if (!db || !db.objectStoreNames.contains('words')) {
-                        try {
-                            const wordsJson = localStorage.getItem(STORAGE_KEYS.WORDS);
-                            const words = wordsJson ? JSON.parse(wordsJson) : [];
-                            
-                            // 查找是否已存在
-                            const index = words.findIndex(w => w.id === word.id);
-                            if (index >= 0) {
-                                words[index] = word;
-                            } else {
-                                words.push(word);
-                            }
-                            
-                            localStorage.setItem(STORAGE_KEYS.WORDS, JSON.stringify(words));
-                            resolve();
-                        } catch (error) {
-                            console.error('保存单词到localStorage失败:', error);
-                            reject(error);
-                        }
-                        return;
-                    }
-
-                    // 使用IndexedDB
-                    const transaction = db.transaction(['words'], 'readwrite');
-                    const store = transaction.objectStore('words');
-                    const request = store.put(word);
-
-                    request.onsuccess = () => resolve();
-                    request.onerror = () => reject(request.error);
+            saveWord: async word => {
+                if (!db || !db.objectStoreNames.contains('words')) {
+                    const words = readLocalArray(STORAGE_KEYS.WORDS);
+                    const index = words.findIndex(item => item.id === word.id);
+                    if (index >= 0) words[index] = word;
+                    else words.push(word);
+                    writeLocalArray(STORAGE_KEYS.WORDS, words);
+                    return;
+                }
+                await transact(['words'], 'readwrite', transaction => transaction.objectStore('words').put(word));
+            },
+            saveStatus: async status => {
+                if (!db || !db.objectStoreNames.contains('wordStatus')) {
+                    const statuses = readLocalArray(STORAGE_KEYS.STATUS);
+                    const index = statuses.findIndex(item => item.wordId === status.wordId);
+                    if (index >= 0) statuses[index] = status;
+                    else statuses.push(status);
+                    writeLocalArray(STORAGE_KEYS.STATUS, statuses);
+                    return;
+                }
+                await transact(['wordStatus'], 'readwrite', transaction => transaction.objectStore('wordStatus').put(status));
+            },
+            saveWordWithProgress: async (word, progress) => {
+                const status = { wordId: word.id, ...normalizeProgress(progress) };
+                if (!db || !db.objectStoreNames.contains('words') || !db.objectStoreNames.contains('wordStatus')) {
+                    const words = readLocalArray(STORAGE_KEYS.WORDS);
+                    const statuses = readLocalArray(STORAGE_KEYS.STATUS);
+                    const wordIndex = words.findIndex(item => item.id === word.id);
+                    const statusIndex = statuses.findIndex(item => item.wordId === word.id);
+                    if (wordIndex >= 0) words[wordIndex] = word;
+                    else words.push(word);
+                    if (statusIndex >= 0) statuses[statusIndex] = status;
+                    else statuses.push(status);
+                    writeLocalArray(STORAGE_KEYS.WORDS, words);
+                    writeLocalArray(STORAGE_KEYS.STATUS, statuses);
+                    return;
+                }
+                await transact(['words', 'wordStatus'], 'readwrite', transaction => {
+                    transaction.objectStore('words').put(word);
+                    transaction.objectStore('wordStatus').put(status);
                 });
             },
-
-            // 保存状态
-            saveStatus: (status) => {
-                return new Promise((resolve, reject) => {
-                    // 如果使用localStorage
-                    if (!db || !db.objectStoreNames.contains('wordStatus')) {
-                        try {
-                            const statusJson = localStorage.getItem(STORAGE_KEYS.STATUS);
-                            const statusList = statusJson ? JSON.parse(statusJson) : [];
-                            
-                            // 查找是否已存在
-                            const index = statusList.findIndex(s => s.wordId === status.wordId);
-                            if (index >= 0) {
-                                statusList[index] = status;
-                            } else {
-                                statusList.push(status);
-                            }
-                            
-                            localStorage.setItem(STORAGE_KEYS.STATUS, JSON.stringify(statusList));
-                            resolve();
-                        } catch (error) {
-                            console.error('保存状态到localStorage失败:', error);
-                            reject(error);
-                        }
-                        return;
-                    }
-
-                    // 使用IndexedDB
-                    const transaction = db.transaction(['wordStatus'], 'readwrite');
-                    const store = transaction.objectStore('wordStatus');
-                    const request = store.put(status);
-
-                    request.onsuccess = () => resolve();
-                    request.onerror = () => reject(request.error);
+            deleteWords: async ids => {
+                const idSet = new Set(ids);
+                if (!db || !db.objectStoreNames.contains('words') || !db.objectStoreNames.contains('wordStatus')) {
+                    writeLocalArray(STORAGE_KEYS.WORDS, readLocalArray(STORAGE_KEYS.WORDS).filter(item => !idSet.has(item.id)));
+                    writeLocalArray(STORAGE_KEYS.STATUS, readLocalArray(STORAGE_KEYS.STATUS).filter(item => !idSet.has(item.wordId)));
+                    return;
+                }
+                await transact(['words', 'wordStatus'], 'readwrite', transaction => {
+                    ids.forEach(id => {
+                        transaction.objectStore('words').delete(id);
+                        transaction.objectStore('wordStatus').delete(id);
+                    });
                 });
             },
-
-            // 删除单词
-            deleteWord: (id) => {
-                return new Promise((resolve, reject) => {
-                    // 如果使用localStorage
-                    if (!db || !db.objectStoreNames.contains('words')) {
-                        try {
-                            const wordsJson = localStorage.getItem(STORAGE_KEYS.WORDS);
-                            if (wordsJson) {
-                                const words = JSON.parse(wordsJson);
-                                const filteredWords = words.filter(w => w.id !== id);
-                                localStorage.setItem(STORAGE_KEYS.WORDS, JSON.stringify(filteredWords));
-                            }
-                            resolve();
-                        } catch (error) {
-                            console.error('从localStorage删除单词失败:', error);
-                            reject(error);
-                        }
-                        return;
-                    }
-
-                    // 使用IndexedDB
-                    const transaction = db.transaction(['words'], 'readwrite');
-                    const store = transaction.objectStore('words');
-                    const request = store.delete(id);
-
-                    request.onsuccess = () => resolve();
-                    request.onerror = () => reject(request.error);
-                });
-            },
-
-            // 删除状态
-            deleteStatus: (wordId) => {
-                return new Promise((resolve, reject) => {
-                    // 如果使用localStorage
-                    if (!db || !db.objectStoreNames.contains('wordStatus')) {
-                        try {
-                            const statusJson = localStorage.getItem(STORAGE_KEYS.STATUS);
-                            if (statusJson) {
-                                const statusList = JSON.parse(statusJson);
-                                const filteredStatus = statusList.filter(s => s.wordId !== wordId);
-                                localStorage.setItem(STORAGE_KEYS.STATUS, JSON.stringify(filteredStatus));
-                            }
-                            resolve();
-                        } catch (error) {
-                            console.error('从localStorage删除状态失败:', error);
-                            reject(error);
-                        }
-                        return;
-                    }
-
-                    // 使用IndexedDB
-                    const transaction = db.transaction(['wordStatus'], 'readwrite');
-                    const store = transaction.objectStore('wordStatus');
-                    const request = store.delete(wordId);
-
-                    request.onsuccess = () => resolve();
-                    request.onerror = () => reject(request.error);
+            importRecords: async records => {
+                if (!db || !db.objectStoreNames.contains('words') || !db.objectStoreNames.contains('wordStatus')) {
+                    const words = readLocalArray(STORAGE_KEYS.WORDS);
+                    const statuses = readLocalArray(STORAGE_KEYS.STATUS);
+                    records.forEach(({ word, progress }) => {
+                        const status = { wordId: word.id, ...normalizeProgress(progress) };
+                        const wordIndex = words.findIndex(item => item.id === word.id);
+                        const statusIndex = statuses.findIndex(item => item.wordId === word.id);
+                        if (wordIndex >= 0) words[wordIndex] = word;
+                        else words.push(word);
+                        if (statusIndex >= 0) statuses[statusIndex] = status;
+                        else statuses.push(status);
+                    });
+                    writeLocalArray(STORAGE_KEYS.WORDS, words);
+                    writeLocalArray(STORAGE_KEYS.STATUS, statuses);
+                    return;
+                }
+                await transact(['words', 'wordStatus'], 'readwrite', transaction => {
+                    records.forEach(({ word, progress }) => {
+                        transaction.objectStore('words').put(word);
+                        transaction.objectStore('wordStatus').put({ wordId: word.id, ...normalizeProgress(progress) });
+                    });
                 });
             }
         };
 
-        // 设置相关操作
         const settingsOps = {
-            // 加载设置
             load: () => {
                 try {
-                    const settingsJson = localStorage.getItem(STORAGE_KEYS.SETTINGS);
-                    if (settingsJson) {
-                        return JSON.parse(settingsJson);
-                    }
-                    return { autoPlay: true, studyCategory: 'all' };
+                    const saved = JSON.parse(localStorage.getItem(STORAGE_KEYS.SETTINGS) || '{}');
+                    return { ...DEFAULT_SETTINGS, ...saved };
                 } catch (error) {
                     console.error('加载设置失败:', error);
-                    return { autoPlay: true, studyCategory: 'all' };
+                    return { ...DEFAULT_SETTINGS };
                 }
             },
-
-            // 保存设置
-            save: (settings) => {
+            save: value => {
                 try {
-                    localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(settings));
+                    localStorage.setItem(STORAGE_KEYS.SETTINGS, JSON.stringify(value));
                 } catch (error) {
                     console.error('保存设置失败:', error);
+                    showInfoModal('提示', '设置保存失败，请检查浏览器存储权限。');
                 }
             }
         };
 
-        // 保存应用状态
-        function saveAppState() {
-            try {
-                const state = {
-                    currentIndex,
-                    mode,
-                    currentCategory
-                };
-                localStorage.setItem(STORAGE_KEYS.STATE, JSON.stringify(state));
-            } catch (error) {
-                console.error('保存应用状态失败:', error);
-            }
-        }
-
-        // 加载应用状态
-        function loadAppState() {
-            try {
-                const stateJson = localStorage.getItem(STORAGE_KEYS.STATE);
-                if (stateJson) {
-                    const state = JSON.parse(stateJson);
-                    // 验证索引是否有效
-                    if (state.currentIndex !== undefined && state.currentIndex >= 0 && state.currentIndex < filteredWordList.length) {
-                        currentIndex = state.currentIndex;
-                    }
-                    if (state.mode === 'test' || state.mode === 'review') {
-                        mode = state.mode;
-                    }
-                    if (state.currentCategory) {
-                        currentCategory = state.currentCategory;
-                    }
-                }
-            } catch (error) {
-                console.error('加载应用状态失败:', error);
-            }
-        }
-
-        // 初始化应用
-        document.addEventListener('DOMContentLoaded', async () => {
-            try {
-                // 初始化数据库
-                await initDatabase();
-                
-                // 加载设置
-                settings = settingsOps.load();
-                
-                // 加载单词
-                await loadWords();
-                
-                // 加载应用状态
-                loadAppState();
-                
-                // 显示当前单词
-                if (wordList.length > 0) {
-                    showWord(currentIndex);
-                }
-                
-                // 更新统计信息
-                await updateStats();
-                
-                // 初始化图标
-                lucide.createIcons();
-                
-                // 添加输入监听
-                document.getElementById('word-input').addEventListener('input', handleInput);
-                
-                // 更新设置UI
-                updateSettingsUI();
-                
-                // 监听页面卸载事件，保存状态
-                window.addEventListener('beforeunload', saveAppState);
-                
-            } catch (error) {
-                console.error('应用初始化失败:', error);
-                showInfoModal('错误', '初始化失败，请刷新页面重试。');
-            }
-        });
-
-        // 初始化示例数据
+        // ================= 加载、筛选与学习状态 =================
         async function initializeSampleData() {
-            try {
-                // 检查是否已有数据
-                const words = await dbOps.getAllWords();
-                
-                // 如果没有数据，添加示例数据
-                if (words.length === 0) {
-                    console.log('初始化示例数据...');
-                    for (let i = 0; i < sampleWords.length; i++) {
-                        const word = sampleWords[i];
-                        const id = Date.now() + i;
-                        
-                        // 保存单词
-                        await dbOps.saveWord({
-                            id,
-                            ...word,
-                            createdAt: new Date().toISOString()
-                        });
-                        
-                        // 保存状态
-                        await dbOps.saveStatus({
-                            wordId: id,
-                            status: 'new',
-                            lastReviewed: new Date().toISOString(),
-                            reviewCount: 0
-                        });
-                    }
+            const words = await dbOps.getAllWords();
+            const initialized = localStorage.getItem(STORAGE_KEYS.SAMPLE_INITIALIZED) === 'true';
+            if (words.length > 0) {
+                localStorage.setItem(STORAGE_KEYS.SAMPLE_INITIALIZED, 'true');
+                return;
+            }
+            if (initialized) return;
+
+            const now = new Date().toISOString();
+            const records = sampleWords.map((word, index) => ({
+                word: { id: createId() + index, ...word, createdAt: now, updatedAt: null },
+                progress: defaultProgress()
+            }));
+            await dbOps.importRecords(records);
+            localStorage.setItem(STORAGE_KEYS.SAMPLE_INITIALIZED, 'true');
+        }
+
+        async function loadWords(options = {}) {
+            if (!options.skipSampleInit) await initializeSampleData();
+            const [words, statuses] = await Promise.all([dbOps.getAllWords(), dbOps.getAllStatus()]);
+            const statusMap = new Map(statuses.map(status => [status.wordId, status]));
+            wordList = words.map(word => ({
+                ...word,
+                ...normalizeProgress(statusMap.get(word.id))
+            }));
+            wordList.sort((a, b) => {
+                const aTime = Date.parse(a.createdAt) || 0;
+                const bTime = Date.parse(b.createdAt) || 0;
+                return bTime - aTime || String(a.word).localeCompare(String(b.word));
+            });
+            refilterWords({ preferredId: options.preferredId || null, reset: options.reset === true });
+            showCurrentOrEmpty({ suppressAutoPlay: options.suppressAutoPlay === true });
+        }
+
+        async function reloadWordsSilently(options = {}) {
+            stopSpeech();
+            await loadWords({ ...options, skipSampleInit: true, suppressAutoPlay: true });
+        }
+
+        function refilterWords({ preferredId = null, reset = false } = {}) {
+            const previousIndex = currentIndex;
+            const previousId = preferredId || filteredWordList[currentIndex]?.id || null;
+            filteredWordList = settings.studyCategory === 'all'
+                ? [...wordList]
+                : wordList.filter(word => hasCategory(word, settings.studyCategory));
+
+            if (reset || filteredWordList.length === 0) {
+                currentIndex = 0;
+                return;
+            }
+            const preferredIndex = filteredWordList.findIndex(word => word.id === previousId);
+            currentIndex = preferredIndex >= 0
+                ? preferredIndex
+                : Math.min(previousIndex, filteredWordList.length - 1);
+        }
+
+        function showCurrentOrEmpty(options = {}) {
+            if (filteredWordList.length > 0) showWord(currentIndex, options);
+            else renderEmptyStudy();
+        }
+
+        function renderEmptyStudy() {
+            cancelPendingAnswer();
+            stopSpeech();
+            const wordInput = document.getElementById('word-input');
+            wordInput.value = '';
+            wordInput.placeholder = '该分类暂无单词';
+            wordInput.readOnly = true;
+            wordInput.classList.remove('error');
+            document.getElementById('validation-msg').style.opacity = '0';
+            document.getElementById('word-phonetic').textContent = '/?/';
+            document.getElementById('word-meaning').textContent = '请选择其他分类或添加单词';
+            document.getElementById('word-example-en').textContent = '';
+            document.getElementById('word-example-cn').textContent = '';
+            document.getElementById('hint-container').replaceChildren();
+            updateProgress();
+        }
+
+        function escapeRegExp(value) {
+            return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        function maskTargetWord(example, target) {
+            if (!example || !target) return example || '';
+            return String(example).replace(new RegExp(escapeRegExp(target), 'gi'), '_____');
+        }
+
+        function revealTargetInExample(container, example, target) {
+            const text = String(example || '无例句');
+            container.replaceChildren();
+            if (!target) {
+                container.textContent = text;
+                return;
+            }
+            const regex = new RegExp(escapeRegExp(target), 'gi');
+            let cursor = 0;
+            let match;
+            let found = false;
+            while ((match = regex.exec(text)) !== null) {
+                if (match.index > cursor) {
+                    container.appendChild(document.createTextNode(text.slice(cursor, match.index)));
                 }
-            } catch (error) {
-                console.error('初始化示例数据失败:', error);
-                throw error;
+                const targetSpan = document.createElement('span');
+                targetSpan.className = 'font-bold';
+                targetSpan.style.color = '#dc2626';
+                targetSpan.textContent = match[0];
+                container.appendChild(targetSpan);
+                cursor = match.index + match[0].length;
+                found = true;
+            }
+            if (!found) {
+                container.textContent = text;
+                return;
+            }
+            if (cursor < text.length) {
+                container.appendChild(document.createTextNode(text.slice(cursor)));
             }
         }
 
-        // 加载单词
-        async function loadWords() {
-            try {
-                // 初始化示例数据（如果需要）
-                await initializeSampleData();
-                
-                // 获取所有单词和状态
-                const words = await dbOps.getAllWords();
-                const statusList = await dbOps.getAllStatus();
-                
-                // 创建状态映射表
-                const statusMap = new Map();
-                statusList.forEach(status => {
-                    statusMap.set(status.wordId, status);
-                });
-                
-                // 合并单词和状态
-                wordList = words.map(word => {
-                    const status = statusMap.get(word.id);
-                    return {
-                        ...word,
-                        status: status ? status.status : 'new',
-                        reviewCount: status ? status.reviewCount : 0,
-                        lastReviewed: status ? status.lastReviewed : null
-                    };
-                });
-                
-                // 按创建时间排序
-                wordList.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-                
-                // 根据学习分类筛选单词
-                filterWordsByCategory();
-                
-            } catch (error) {
-                console.error('加载单词失败:', error);
-                throw error;
-            }
-        }
-        
-        // 根据学习分类筛选单词
-        function filterWordsByCategory() {
-            const category = settings.studyCategory;
-            
-            if (category === 'all') {
-                filteredWordList = [...wordList];
-            } else {
-                filteredWordList = wordList.filter(word => word.status === category);
-            }
-            
-            // 重置当前索引
-            currentIndex = 0;
+        function processSyllables(syllablesData, wordText) {
+            if (!syllablesData) return [wordText || ''];
+            const syllables = String(syllablesData).split(',').map(item => item.trim()).filter(Boolean);
+            return syllables.length ? syllables : [wordText || ''];
         }
 
-        // 显示单词
-        function showWord(index) {
+        function renderSyllables(container, word, separator = '·') {
+            container.replaceChildren();
+            const wrapper = document.createElement('div');
+            wrapper.className = 'text-center text-lg font-bold';
+            processSyllables(word.syllables, word.word).forEach((syllable, index, array) => {
+                const span = document.createElement('span');
+                span.className = 'syllable-color';
+                span.style.color = SYLLABLE_COLORS[index % SYLLABLE_COLORS.length];
+                span.dataset.syllableIndex = String(index);
+                span.textContent = syllable;
+                wrapper.appendChild(span);
+                if (index < array.length - 1) {
+                    const separatorSpan = document.createElement('span');
+                    separatorSpan.style.color = '#94a3b8';
+                    separatorSpan.style.margin = '0 0.12em';
+                    separatorSpan.textContent = separator;
+                    wrapper.appendChild(separatorSpan);
+                }
+            });
+            container.appendChild(wrapper);
+        }
+
+        function showWord(index, { speak = false, suppressAutoPlay = false } = {}) {
             const word = filteredWordList[index];
-            if (!word) return;
-            
+            if (!word) {
+                renderEmptyStudy();
+                return;
+            }
+            cancelPendingAnswer();
+            currentIndex = index;
+            lastWrongSignature = '';
+
             const wordInput = document.getElementById('word-input');
             const validationMsg = document.getElementById('validation-msg');
             const hintContainer = document.getElementById('hint-container');
-            
-            // 重置状态
             validationMsg.style.opacity = '0';
-            hintContainer.innerHTML = '';
-            
-            if (mode === 'test') {
-                wordInput.value = '';
-                wordInput.placeholder = '输入单词';
-            } else {
-                wordInput.value = word.word;
-                wordInput.placeholder = '';
-            }
-            
-            // 根据模式决定是否显示音节
-            if (mode === 'review' && word.syllables) {
-                const syllables = processSyllables(word.syllables, word.word);
-                
-                if (syllables.length > 1) {
-                    const syllablesHtml = syllables.map((syllable, i) => {
-                        // 使用模运算循环使用颜色类，确保支持任意数量的音节
-                        const colorIndex = (i % 20) + 1;
-                        return `<span class="syllable-${colorIndex}">${syllable}</span>`;
-                    }).join('·');
-                    
-                    hintContainer.innerHTML = `<div class="text-center"><div class="text-lg font-bold">${syllablesHtml}</div></div>`;
-                } else {
-                    // 如果只有一个音节，也使用彩色显示
-                    const colorIndex = 1; // 使用第一个颜色类
-                    const coloredWord = `<span class="syllable-${colorIndex}">${word.word}</span>`;
-                    hintContainer.innerHTML = `<div class="text-center"><div class="text-lg font-bold">${coloredWord}</div></div>`;
-                }
-            } else {
-                hintContainer.innerHTML = '';
-            }
-            
+            hintContainer.replaceChildren();
             wordInput.classList.remove('error');
-            
-            // 更新界面显示
+            wordInput.readOnly = mode === 'review';
+            wordInput.value = mode === 'review' ? word.word : '';
+            wordInput.placeholder = mode === 'review' ? '' : '输入单词';
+
+            if (mode === 'review' && settings.showSyllables) {
+                renderSyllables(hintContainer, word);
+            }
+
             document.getElementById('word-phonetic').textContent = word.phonetic || '/?/';
             document.getElementById('word-meaning').textContent = word.meaning;
-            document.getElementById('word-example-en').textContent = word.example_en || '无例句';
+            document.getElementById('word-example-en').textContent = mode === 'test'
+                ? maskTargetWord(word.example_en || '无例句', word.word)
+                : (word.example_en || '无例句');
             document.getElementById('word-example-cn').textContent = word.example_cn || '';
-            
-            // 更新进度
             updateProgress();
-            
-            // 自动发音
-            if (settings.autoPlay) {
-                // 停止当前正在播放的语音，然后播放新单词
-                speechSynthesis.cancel();
-                setTimeout(() => playWord(word.word), 300);
-            }
-        }
 
-        // 处理输入
-        function handleInput(event) {
-            const input = event.target.value.trim().toLowerCase();
-            const currentWord = filteredWordList[currentIndex];
-            
-            if (!currentWord) return;
-            
-            const validationMsg = document.getElementById('validation-msg');
-            
-            // 只有当输入长度达到或超过单词长度时才进行验证
-            if (input.length >= currentWord.word.length) {
-                if (input === currentWord.word.toLowerCase()) {
-                    // 拼写正确
-                    validationMsg.style.opacity = '0';
-                    event.target.classList.remove('error');
-                    
-                    // 只有当单词状态不是待复习时，才标记为已掌握
-                    setTimeout(async () => {
-                        if (currentWord.status !== 'fuzzy') {
-                            await markWord('known');
-                        } else {
-                            // 如果已经是待复习状态，保持不变并直接跳转到下一个单词
-                            nextWord();
-                        }
-                    }, 500);
-                } else {
-                    // 拼写错误
-                    validationMsg.style.opacity = '1';
-                    event.target.classList.add('error');
-                    
-                    // 即时标记为待复习
-                    setTimeout(async () => {
-                        const word = filteredWordList[currentIndex];
-                        if (word) {
-                            await dbOps.saveStatus({
-                                wordId: word.id,
-                                status: 'fuzzy',
-                                lastReviewed: new Date().toISOString(),
-                                reviewCount: (word.reviewCount || 0) + 1
-                            });
-                            
-                            word.status = 'fuzzy';
-                            await updateStats();
-                        }
-                    }, 300);
-                }
-            } else if (input.length > 0) {
-                // 输入长度不足，不显示错误状态，让用户继续输入
-                validationMsg.style.opacity = '0';
-                event.target.classList.remove('error');
+            if (!suppressAutoPlay && (speak || settings.autoPlay)) {
+                playWord(word.word);
             } else {
-                // 清空输入
-                validationMsg.style.opacity = '0';
-                event.target.classList.remove('error');
+                stopSpeech();
             }
         }
 
-        // 标记单词状态
-        async function markWord(status) {
-            if (currentIndex >= filteredWordList.length) return;
-            
-            const word = filteredWordList[currentIndex];
-            
-            // 找到原单词列表中的对应单词
-            const originalWord = wordList.find(w => w.id === word.id);
-            if (!originalWord) return;
-            
+        function cancelPendingAnswer() {
+            clearTimeout(answerTimer);
+            answerTimer = null;
+            answerToken += 1;
+        }
+
+        function handleInput(event) {
+            if (mode === 'review') return;
+            const currentWord = filteredWordList[currentIndex];
+            if (!currentWord) return;
+
+            const input = event.target.value.trim().toLowerCase();
+            const expected = currentWord.word.trim().toLowerCase();
+            const validationMsg = document.getElementById('validation-msg');
+            cancelPendingAnswer();
+            const token = answerToken;
+            const wordId = currentWord.id;
+            clearTimeout(answerTimer);
+
+            event.target.classList.remove('error');
+            validationMsg.style.opacity = '0';
+            if (!input || input.length < expected.length) return;
+
+            const isCorrect = input === expected;
+            if (!isCorrect) {
+                validationMsg.style.opacity = '1';
+                event.target.classList.add('error');
+            }
+            answerTimer = setTimeout(() => {
+                submitAnswer(wordId, input, { advance: isCorrect, token });
+            }, isCorrect ? 300 : 650);
+        }
+
+        async function submitAnswer(wordId, input, { advance = true, token = null, speakOnAdvance = false } = {}) {
+            if (token !== null && token !== answerToken) return;
+            const word = wordList.find(item => item.id === wordId);
+            if (!word || submittingWordIds.has(wordId)) return;
+            if (filteredWordList[currentIndex]?.id !== wordId) return;
+
+            const normalizedInput = String(input || '').trim().toLowerCase();
+            const expected = word.word.trim().toLowerCase();
+            const isCorrect = normalizedInput === expected;
+            const signature = `${wordId}:${normalizedInput}`;
+            if (!isCorrect && signature === lastWrongSignature) return;
+
+            const operationToken = answerToken;
+            submittingWordIds.add(wordId);
             try {
-                // 更新状态
-                await dbOps.saveStatus({
-                    wordId: word.id,
-                    status: status,
-                    lastReviewed: new Date().toISOString(),
-                    reviewCount: (word.reviewCount || 0) + 1
-                });
-                
-                // 更新内存中的状态
-                word.status = status;
-                originalWord.status = status;
-                
-                // 更新统计
+                const nextProgress = calculateReview(progressFromWord(word), isCorrect ? 'correct' : 'wrong');
+                await dbOps.saveStatus({ wordId, ...nextProgress });
+                Object.assign(word, nextProgress);
+                if (!isCorrect) lastWrongSignature = signature;
                 await updateStats();
-                
-                // 只有在标记为已掌握时才自动跳转到下一个单词
-                if (status === 'known') {
-                    setTimeout(() => {
-                        nextWord();
-                    }, 800);
+                refreshOpenWordLibrary();
+                if (operationToken !== answerToken || filteredWordList[currentIndex]?.id !== wordId) return;
+
+                if (isCorrect && advance) {
+                    advanceAfterProgress(wordId, { speak: speakOnAdvance });
+                } else {
+                    const stillVisible = hasCategory({ ...word, ...nextProgress }, settings.studyCategory);
+                    if (!stillVisible) {
+                        refilterWords();
+                        showCurrentOrEmpty();
+                    }
                 }
-                // 标记为待复习时不自动跳转，让用户可以继续尝试
-                
+            } catch (error) {
+                console.error('保存答题结果失败:', error);
+                showInfoModal('错误', '答题结果保存失败，请重试。');
+            } finally {
+                submittingWordIds.delete(wordId);
+            }
+        }
+
+        function advanceAfterProgress(wordId, { speak = false } = {}) {
+            const previousIndex = currentIndex;
+            refilterWords({ preferredId: wordId });
+            if (filteredWordList.length === 0) {
+                showCurrentOrEmpty();
+                return;
+            }
+            const currentWordPosition = filteredWordList.findIndex(word => word.id === wordId);
+            currentIndex = currentWordPosition >= 0
+                ? (currentWordPosition + 1) % filteredWordList.length
+                : Math.min(previousIndex, filteredWordList.length - 1);
+            showWord(currentIndex, { speak });
+        }
+
+        async function markWord(status) {
+            const word = filteredWordList[currentIndex];
+            if (!word || !['known', 'fuzzy'].includes(status) || submittingWordIds.has(word.id)) return;
+            cancelPendingAnswer();
+            const operationToken = answerToken;
+            submittingWordIds.add(word.id);
+            try {
+                const nextProgress = manualProgress(progressFromWord(word), status);
+                await dbOps.saveStatus({ wordId: word.id, ...nextProgress });
+                Object.assign(word, nextProgress);
+                await updateStats();
+                refreshOpenWordLibrary();
+                if (operationToken !== answerToken || filteredWordList[currentIndex]?.id !== word.id) return;
+                if (status === 'known') advanceAfterProgress(word.id, { speak: true });
+                else {
+                    refilterWords({ preferredId: word.id });
+                    showCurrentOrEmpty();
+                }
             } catch (error) {
                 console.error('标记单词状态失败:', error);
                 showInfoModal('错误', '操作失败，请重试。');
+            } finally {
+                submittingWordIds.delete(word.id);
             }
         }
 
-        // 显示提示
         async function showHint() {
             const word = filteredWordList[currentIndex];
-            const hintContainer = document.getElementById('hint-container');
-            
             if (!word) return;
-            
-            try {
-                // 播放单词发音
-                playWord(word.word);
-                
-                // 显示音节提示
-                const syllables = processSyllables(word.syllables, word.word);
-                const syllablesHtml = syllables.map((syllable, index) => {
-                    // 使用模运算循环使用颜色类，确保支持任意数量的音节
-                    const colorIndex = (index % 20) + 1;
-                    return `<span class="syllable-${colorIndex}">${syllable}</span>`;
-                }).join('-');
-                
-                hintContainer.innerHTML = `<div class="text-center"><div class="text-lg font-bold">${syllablesHtml}</div></div>`;
-                
-                // 标记为待复习
-                await dbOps.saveStatus({
-                    wordId: word.id,
-                    status: 'fuzzy',
-                    lastReviewed: new Date().toISOString(),
-                    reviewCount: (word.reviewCount || 0) + 1
-                });
-                
-                word.status = 'fuzzy';
-                await updateStats();
-                
-            } catch (error) {
-                console.error('显示提示失败:', error);
-            }
-        }
-
-        // 处理音节 - 优化版本
-        function processSyllables(syllablesData, wordText) {
-            try {
-                // 如果没有音节数据，返回完整单词
-                if (!syllablesData) {
-                    return [wordText || ''];
-                }
-                
-                // 确保是字符串格式
-                const syllablesStr = String(syllablesData).trim();
-                if (!syllablesStr) {
-                    return [wordText || ''];
-                }
-                
-                // 按逗号分割音节
-                const syllables = syllablesStr.split(',')
-                    .map(s => s.trim())
-                    .filter(s => s.length > 0);
-                
-                // 如果分割后没有有效音节，返回完整单词
-                if (syllables.length === 0) {
-                    return [wordText || ''];
-                }
-                
-                return syllables;
-            } catch (error) {
-                console.error('处理音节时出错:', error);
-                return [wordText || ''];
-            }
-        }
-
-        // 上一个单词
-        function prevWord() {
-            if (currentIndex > 0) {
-                currentIndex--;
-                showWord(currentIndex);
-                saveAppState();
-            }
-        }
-
-        // 下一个单词 - 循环模式
-        function nextWord() {
-            if (filteredWordList.length === 0) return;
-            
-            // 在测试模式下，检查当前单词是否已验证
+            cancelPendingAnswer();
             if (mode === 'test') {
-                const wordInput = document.getElementById('word-input');
-                const validationMsg = document.getElementById('validation-msg');
-                const input = wordInput.value.trim().toLowerCase();
-                const currentWord = filteredWordList[currentIndex];
-                
-                if (currentWord && input.length > 0) {
-                    // 不管输入长度，立即对当前输入进行验证
-                    if (input !== currentWord.word.toLowerCase()) {
-                        // 验证错误，显示与自动验证相同的错误样式
-                        validationMsg.style.opacity = '1';
-                        wordInput.classList.add('error');
-                        
-                        // 立即标记为待复习
-                        markWord('fuzzy');
-                        return; // 不跳转，等待标记完成
-                    }
-                    // 验证正确，允许跳转
+                revealTargetInExample(document.getElementById('word-example-en'), word.example_en, word.word);
+            }
+            renderSyllables(document.getElementById('hint-container'), word, '-');
+            playWord(word.word);
+
+            // 语音与保存分离：连续点击也会重新朗读，不会被上一次保存阻塞。
+            if (submittingWordIds.has(word.id)) return;
+            const operationToken = answerToken;
+            submittingWordIds.add(word.id);
+            try {
+                const nextProgress = calculateReview(progressFromWord(word), 'hint');
+                await dbOps.saveStatus({ wordId: word.id, ...nextProgress });
+                Object.assign(word, nextProgress);
+                await updateStats();
+                refreshOpenWordLibrary();
+                if (operationToken !== answerToken || filteredWordList[currentIndex]?.id !== word.id) return;
+                const stillVisible = hasCategory({ ...word, ...nextProgress }, settings.studyCategory);
+                if (!stillVisible) {
+                    refilterWords();
+                    showCurrentOrEmpty({ suppressAutoPlay: true });
                 }
-                // 如果输入为空，也允许跳转
+            } catch (error) {
+                console.error('保存提示记录失败:', error);
+            } finally {
+                submittingWordIds.delete(word.id);
             }
-            
-            // 执行跳转逻辑，确保只跳转到下一个单词
-            currentIndex++;
-            if (currentIndex >= filteredWordList.length) {
-                currentIndex = 0;
-            }
-            showWord(currentIndex);
-            saveAppState();
         }
 
-        // 播放当前单词
+        function prevWord() {
+            if (currentIndex <= 0 || filteredWordList.length === 0) return;
+            cancelPendingAnswer();
+            showWord(currentIndex - 1, { speak: true });
+        }
+
+        function nextWord() {
+            const word = filteredWordList[currentIndex];
+            if (!word || submittingWordIds.has(word.id)) return;
+            cancelPendingAnswer();
+            const input = document.getElementById('word-input').value.trim();
+            if (mode === 'test' && input) {
+                submitAnswer(word.id, input, { advance: true, speakOnAdvance: true });
+                return;
+            }
+            currentIndex = (currentIndex + 1) % filteredWordList.length;
+            showWord(currentIndex, { speak: true });
+        }
+
         function playCurrentWord() {
             const word = filteredWordList[currentIndex];
-            if (word) {
-                playWord(word.word);
-            }
+            if (word) playWord(word.word);
         }
 
-        // 播放当前例句
         function playCurrentExample() {
             const word = filteredWordList[currentIndex];
-            if (word && word.example_en) {
-                playWord(word.example_en);
-            }
+            if (word?.example_en) playOnlineAudio(word.example_en, 0.68);
         }
 
-        // 播放单词或句子
-        function playWord(text) {
-            if (!text) return;
-            
+        function stopSpeech() {
+            const hadScheduledSpeech = speechTimer !== null;
+            const hadActiveUtterance = activeUtterance !== null;
+            const hadActiveAudio = activeAudio !== null;
+            speechRequestId += 1;
+            clearTimeout(speechTimer);
+            speechTimer = null;
+            activeUtterance = null;
+
+            if (activeAudio) {
+                activeAudio.pause();
+                activeAudio.currentTime = 0;
+                activeAudio = null;
+            }
+            if (!('speechSynthesis' in window)) {
+                return hadScheduledSpeech || hadActiveUtterance || hadActiveAudio;
+            }
+
+            let needsRestartDelay = hadScheduledSpeech || hadActiveUtterance || hadActiveAudio;
             try {
-                // 停止当前正在播放的语音
-                speechSynthesis.cancel();
-                
-                const utterance = new SpeechSynthesisUtterance(text);
-                utterance.lang = 'en-US';
-                utterance.rate = 0.9;
-                speechSynthesis.speak(utterance);
+                const synthesis = window.speechSynthesis;
+                if (hadActiveUtterance || synthesis.speaking || synthesis.pending) {
+                    synthesis.cancel();
+                    needsRestartDelay = true;
+                }
             } catch (error) {
-                console.error('语音播放失败:', error);
+                console.warn('停止语音失败:', error);
+            }
+            return needsRestartDelay;
+        }
+
+        function getEnglishVoice() {
+            if (!('speechSynthesis' in window)) return null;
+            const voices = window.speechSynthesis.getVoices();
+            if (cachedEnglishVoice && voices.includes(cachedEnglishVoice)) return cachedEnglishVoice;
+            cachedEnglishVoice = voices.find(voice => voice.lang === 'en-US' && voice.localService)
+                || voices.find(voice => voice.lang === 'en-US')
+                || voices.find(voice => voice.lang.toLowerCase().startsWith('en-'))
+                || null;
+            return cachedEnglishVoice;
+        }
+
+        function playSpeech(text) {
+            const content = String(text || '').trim();
+            if (!content || !('speechSynthesis' in window)) return;
+            const needsRestartDelay = stopSpeech();
+            const requestId = speechRequestId;
+            const startDelay = needsRestartDelay ? 450 : 200;
+
+            // 仅在确有旧朗读时 cancel，并给音频设备留出恢复时间，避免丢失开头音节。
+            speechTimer = setTimeout(() => {
+                if (requestId !== speechRequestId) return;
+                try {
+                    const utterance = new SpeechSynthesisUtterance(content);
+                    const voice = getEnglishVoice();
+                    if (voice) utterance.voice = voice;
+                    utterance.lang = 'en-US';
+                    utterance.rate = 0.72;
+                    utterance.pitch = 1;
+                    utterance.volume = 1;
+                    utterance.onend = () => {
+                        if (requestId === speechRequestId) activeUtterance = null;
+                    };
+                    utterance.onerror = event => {
+                        if (requestId !== speechRequestId) return;
+                        activeUtterance = null;
+                        if (!['canceled', 'interrupted'].includes(event.error)) {
+                            console.warn('语音播放失败:', event.error);
+                        }
+                    };
+                    activeUtterance = utterance;
+                    window.speechSynthesis.resume();
+                    window.speechSynthesis.speak(utterance);
+                } catch (error) {
+                    console.error('语音播放失败:', error);
+                }
+            }, startDelay);
+        }
+
+        async function playOnlineAudio(text, playbackRate = 0.82) {
+            const content = String(text || '').trim();
+            if (!content) return;
+            if (typeof Audio === 'undefined') {
+                playSpeech(content);
+                return;
+            }
+            stopSpeech();
+            const requestId = speechRequestId;
+            const audio = new Audio();
+            activeAudio = audio;
+            audio.preload = 'auto';
+            audio.defaultPlaybackRate = playbackRate;
+            audio.playbackRate = playbackRate;
+            audio.preservesPitch = true;
+            audio.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(content)}&type=2`;
+            audio.onended = () => {
+                if (requestId === speechRequestId) activeAudio = null;
+            };
+            audio.onerror = () => {
+                if (requestId === speechRequestId) playSpeech(content);
+            };
+            try {
+                await audio.play();
+            } catch (error) {
+                if (requestId === speechRequestId && error.name !== 'AbortError') playSpeech(content);
             }
         }
 
-        // 更新进度
+        function playWord(text) {
+            const content = String(text || '').trim();
+            if (content) playOnlineAudio(content);
+        }
+
         function updateProgress() {
             const total = filteredWordList.length;
-            const current = currentIndex + 1;
-            const percentage = Math.round((current / total) * 100);
-            
+            const current = total > 0 ? currentIndex + 1 : 0;
+            const percentage = total > 0 ? Math.round((current / total) * 100) : 0;
             document.getElementById('progress-text').textContent = `${current}/${total}`;
             document.getElementById('progress-bar').style.width = `${percentage}%`;
         }
 
-        // 更新统计
+        function setCategoryCount(id, label, count) {
+            const button = document.getElementById(id);
+            const span = document.createElement('span');
+            span.className = 'ml-1 text-xs opacity-80';
+            span.textContent = String(count);
+            button.replaceChildren(document.createTextNode(label), span);
+        }
+
         async function updateStats() {
-            try {
-                const total = wordList.length;
-                const known = wordList.filter(w => w.status === 'known').length;
-                const fuzzy = wordList.filter(w => w.status === 'fuzzy').length;
-                const newWords = wordList.filter(w => w.status === 'new').length;
-                
-                document.getElementById('total-words-count').textContent = total;
-                document.getElementById('known-words-count').textContent = known;
-                document.getElementById('fuzzy-words-count').textContent = fuzzy;
-                
-                // 更新分类标签计数
-                document.getElementById('category-all').innerHTML = `全部<span class="ml-1 text-xs opacity-80">${total}</span>`;
-                document.getElementById('category-new').innerHTML = `新添加<span class="ml-1 text-xs opacity-80">${newWords}</span>`;
-                document.getElementById('category-known').innerHTML = `已掌握<span class="ml-1 text-xs opacity-80">${known}</span>`;
-                document.getElementById('category-fuzzy').innerHTML = `待复习<span class="ml-1 text-xs opacity-80">${fuzzy}</span>`;
-                
-            } catch (error) {
-                console.error('更新统计失败:', error);
-            }
+            const counts = {
+                all: wordList.length,
+                known: wordList.filter(word => hasCategory(word, 'known')).length,
+                fuzzy: wordList.filter(word => hasCategory(word, 'fuzzy')).length,
+                new: wordList.filter(word => hasCategory(word, 'new')).length
+            };
+            document.getElementById('total-words-count').textContent = counts.all;
+            document.getElementById('known-words-count').textContent = counts.known;
+            document.getElementById('fuzzy-words-count').textContent = counts.fuzzy;
+            setCategoryCount('category-all', '全部', counts.all);
+            setCategoryCount('category-new', '新添加', counts.new);
+            setCategoryCount('category-known', '已掌握', counts.known);
+            setCategoryCount('category-fuzzy', '待复习', counts.fuzzy);
         }
 
-        // 设置模式
         function setMode(newMode) {
-            mode = newMode;
-            showWord(currentIndex);
-            saveAppState();
-        }
-        
-        // 设置学习分类
-        function setStudyCategory(category) {
-            settings.studyCategory = category;
-            
-            // 保存设置
+            mode = newMode === 'review' ? 'review' : 'test';
+            settings.mode = mode;
             settingsOps.save(settings);
-            
-            // 重新筛选单词
-            filterWordsByCategory();
-            
-            // 更新界面
-            updateStats();
-            
-            // 显示第一个单词
-            if (filteredWordList.length > 0) {
-                showWord(0);
-            } else {
-                // 如果没有单词，显示提示
-                const wordInput = document.getElementById('word-input');
-                wordInput.value = '';
-                wordInput.placeholder = '该分类暂无单词';
-                document.getElementById('word-phonetic').textContent = '/?/';
-                document.getElementById('word-meaning').textContent = '请选择其他分类或添加单词';
-                document.getElementById('word-example-en').textContent = '';
-                document.getElementById('word-example-cn').textContent = '';
-                document.getElementById('hint-container').innerHTML = '';
-                updateProgress();
-            }
+            showCurrentOrEmpty({ suppressAutoPlay: true });
         }
 
-        // 切换设置弹窗
+        function setStudyCategory(category) {
+            settings.studyCategory = VALID_CATEGORIES.includes(category) ? category : 'all';
+            settingsOps.save(settings);
+            refilterWords({ reset: true });
+            showCurrentOrEmpty({ suppressAutoPlay: true });
+        }
+
+        // ================= 弹窗与单词库 =================
         function toggleSettings() {
             const modal = document.getElementById('settings-modal');
             modal.classList.toggle('hidden');
-            
             if (!modal.classList.contains('hidden')) {
                 updateSettingsUI();
-                lucide.createIcons();
+                refreshIcons();
             }
         }
 
-        // 切换单词库弹窗
         function toggleWordLibrary(category = 'all') {
             const modal = document.getElementById('word-library-modal');
+            const willOpen = modal.classList.contains('hidden');
             modal.classList.toggle('hidden');
-            
-            if (!modal.classList.contains('hidden')) {
-                currentCategory = category;
+            if (willOpen) {
+                currentCategory = VALID_CATEGORIES.includes(category) ? category : 'all';
+                selectedWordIds.clear();
+                librarySearchQuery = '';
+                const search = document.getElementById('word-search-input');
+                if (search) search.value = '';
+                switchWordCategory(currentCategory);
+                refreshIcons();
+            }
+        }
+
+        function refreshOpenWordLibrary() {
+            if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
                 renderWordList();
-                lucide.createIcons();
             }
         }
 
-        // 渲染单词列表
-        function renderWordList() {
-            const wordListElement = document.getElementById('word-list');
-            let filteredWords = wordList;
-            
-            // 根据分类筛选
-            if (currentCategory !== 'all') {
-                filteredWords = wordList.filter(w => {
-                    if (currentCategory === 'new') {
-                        return w.status === 'new';
-                    } else {
-                        return w.status === currentCategory;
-                    }
-                });
-            }
-            
-            if (filteredWords.length === 0) {
-                wordListElement.innerHTML = '<div class="text-center text-slate-500 py-8">暂无单词</div>';
-                return;
-            }
-            
-            const html = filteredWords.map(word => `
-                <div class="bg-white rounded-lg p-3 shadow-sm border border-slate-100">
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-2">
-                            <input type="checkbox" data-word-id="${word.id}" onchange="toggleWordSelection(${word.id}, this.checked)" class="w-4 h-4 text-blue-500 rounded border-slate-300 focus:ring-blue-500">
-                            <div>
-                                <h3 class="font-bold text-slate-800">${word.word}</h3>
-                                <p class="text-sm text-slate-700">${word.meaning}</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-2">
-                            <button onclick="editWord(${word.id})" class="text-xs text-blue-500 hover:text-blue-600">
-                                编辑
-                            </button>
-                            <button onclick="playWord('${word.word}')" class="p-1 text-slate-400 hover:text-slate-600">
-                                <i data-lucide="volume-2" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `).join('');
-            
-            wordListElement.innerHTML = html;
-            lucide.createIcons();
-        }
-
-        // 切换单词选择
-        function toggleWordSelection(wordId, checked) {
-            if (checked) {
-                selectedWordIds.add(wordId);
-            } else {
-                selectedWordIds.delete(wordId);
-            }
-            
-            updateBatchButtons();
-        }
-
-        // 更新批量操作按钮状态
-        function updateBatchButtons() {
-            const hasSelection = selectedWordIds.size > 0;
-            const deleteBtn = document.getElementById('batch-delete-btn');
-            const moveBtn = document.getElementById('batch-move-btn');
-            const selectAllBtn = document.getElementById('select-all-btn');
-            const checkboxes = document.querySelectorAll('#word-list input[type="checkbox"]');
-            const allChecked = checkboxes.length > 0 && Array.from(checkboxes).every(cb => cb.checked);
-            
-            if (hasSelection) {
-                deleteBtn.classList.remove('hidden');
-                moveBtn.classList.remove('hidden');
-                selectAllBtn.textContent = allChecked ? '取消全选' : '取消勾选';
-                selectAllBtn.classList.remove('text-blue-600');
-                selectAllBtn.classList.add('text-red-600');
-            } else {
-                deleteBtn.classList.add('hidden');
-                moveBtn.classList.add('hidden');
-                selectAllBtn.textContent = '全选';
-                selectAllBtn.classList.remove('text-red-600');
-                selectAllBtn.classList.add('text-blue-600');
-            }
-        }
-
-        // 切换全选/取消全选
-        function toggleSelectAll() {
-            const checkboxes = document.querySelectorAll('#word-list input[type="checkbox"]');
-            const hasSelection = selectedWordIds.size > 0;
-            
-            checkboxes.forEach(cb => {
-                cb.checked = !hasSelection;
-                // 从checkbox的data属性获取wordId，更可靠
-                const wordId = parseInt(cb.dataset.wordId);
-                if (!isNaN(wordId)) {
-                    toggleWordSelection(wordId, !hasSelection);
-                }
+        function getVisibleLibraryWords() {
+            const query = librarySearchQuery.trim().toLowerCase();
+            return wordList.filter(word => {
+                const categoryMatches = hasCategory(word, currentCategory);
+                const searchMatches = !query || [word.word, word.meaning, word.phonetic]
+                    .some(value => String(value || '').toLowerCase().includes(query));
+                return categoryMatches && searchMatches;
             });
         }
 
-        // 切换添加单词弹窗
-        function toggleAddWordModal() {
-            const modal = document.getElementById('add-word-modal');
-            modal.classList.toggle('hidden');
-            
-            if (!modal.classList.contains('hidden')) {
-                document.getElementById('add-word-form').reset();
-                document.getElementById('add-word-title').textContent = '添加单词';
-                currentEditId = null;
-                lucide.createIcons();
+        function renderWordList() {
+            const listElement = document.getElementById('word-list');
+            const visibleWords = getVisibleLibraryWords();
+            listElement.replaceChildren();
+
+            if (visibleWords.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'text-center text-slate-500 py-8';
+                empty.textContent = librarySearchQuery ? '没有匹配的单词' : '暂无单词';
+                listElement.appendChild(empty);
+                updateBatchButtons();
+                return;
+            }
+
+            visibleWords.forEach(word => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg p-3 shadow-sm border border-slate-100';
+                const row = document.createElement('div');
+                row.className = 'flex justify-between items-center gap-2';
+                const left = document.createElement('div');
+                left.className = 'flex items-center gap-2 min-w-0';
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.dataset.wordId = String(word.id);
+                checkbox.checked = selectedWordIds.has(word.id);
+                checkbox.className = 'w-4 h-4 text-blue-500 rounded border-slate-300 focus:ring-blue-500 shrink-0';
+                checkbox.setAttribute('aria-label', `选择 ${word.word}`);
+                checkbox.addEventListener('change', () => toggleWordSelection(word.id, checkbox.checked));
+
+                const textWrapper = document.createElement('div');
+                textWrapper.className = 'min-w-0';
+                const title = document.createElement('h3');
+                title.className = 'font-bold text-slate-800 break-words';
+                title.textContent = word.word;
+                const meaning = document.createElement('p');
+                meaning.className = 'text-sm text-slate-700 break-words';
+                meaning.textContent = word.meaning;
+                const meta = document.createElement('p');
+                meta.className = 'text-xs text-slate-400';
+                const membershipText = normalizeCategories(word.categories, word.status)
+                    .map(category => CATEGORY_LABELS[category]).join('、') || '仅全部';
+                meta.textContent = `${membershipText} · 复习 ${word.reviewCount || 0} 次 · 连续答对 ${word.correctStreak || 0} 次`;
+                textWrapper.append(title, meaning, meta);
+                left.append(checkbox, textWrapper);
+
+                const actions = document.createElement('div');
+                actions.className = 'flex gap-2 items-center shrink-0';
+                const editButton = document.createElement('button');
+                editButton.className = 'text-xs text-blue-500 hover:text-blue-600';
+                editButton.textContent = '编辑';
+                editButton.addEventListener('click', () => editWord(word.id));
+                const playButton = document.createElement('button');
+                playButton.className = 'p-1 text-slate-400 hover:text-slate-600';
+                playButton.setAttribute('aria-label', `播放 ${word.word}`);
+                const icon = document.createElement('i');
+                icon.dataset.lucide = 'volume-2';
+                icon.className = 'w-4 h-4';
+                playButton.appendChild(icon);
+                playButton.addEventListener('click', () => playWord(word.word));
+                actions.append(editButton, playButton);
+                row.append(left, actions);
+                card.appendChild(row);
+                listElement.appendChild(card);
+            });
+            updateBatchButtons();
+            refreshIcons();
+        }
+
+        function toggleWordSelection(wordId, checked) {
+            if (checked) selectedWordIds.add(wordId);
+            else selectedWordIds.delete(wordId);
+            updateBatchButtons();
+        }
+
+        function updateBatchButtons() {
+            const hasSelection = selectedWordIds.size > 0;
+            const checkboxes = Array.from(document.querySelectorAll('#word-list input[type="checkbox"]'));
+            const allChecked = checkboxes.length > 0 && checkboxes.every(checkbox => checkbox.checked);
+            document.getElementById('batch-delete-btn').classList.toggle('hidden', !hasSelection);
+            document.getElementById('batch-move-btn').classList.toggle('hidden', !hasSelection);
+            document.getElementById('batch-delete-btn').textContent = '删除';
+            document.getElementById('batch-move-btn').textContent = '移动';
+            const selectAllButton = document.getElementById('select-all-btn');
+            selectAllButton.textContent = allChecked ? '取消全选' : '全选';
+            selectAllButton.classList.toggle('text-red-600', allChecked);
+            selectAllButton.classList.toggle('text-blue-600', !allChecked);
+        }
+
+        function toggleSelectAll() {
+            const checkboxes = Array.from(document.querySelectorAll('#word-list input[type="checkbox"]'));
+            const allChecked = checkboxes.length > 0 && checkboxes.every(checkbox => checkbox.checked);
+            checkboxes.forEach(checkbox => {
+                const wordId = Number(checkbox.dataset.wordId);
+                checkbox.checked = !allChecked;
+                if (!Number.isNaN(wordId)) {
+                    if (!allChecked) selectedWordIds.add(wordId);
+                    else selectedWordIds.delete(wordId);
+                }
+            });
+            updateBatchButtons();
+        }
+
+        function setSmartFetchLoading(loading) {
+            const button = document.getElementById('smart-fetch-button');
+            const label = document.getElementById('smart-fetch-label');
+            if (button) button.disabled = loading;
+            if (label) label.textContent = loading ? '获取中…' : '智能获取';
+        }
+
+        function resetSmartSourceNote() {
+            const note = document.getElementById('smart-example-source');
+            if (note) {
+                note.classList.add('hidden');
+                note.textContent = '';
             }
         }
 
-        // 编辑单词
+        function invalidateSmartFetch() {
+            smartFetchRequestId += 1;
+            setSmartFetchLoading(false);
+            resetSmartSourceNote();
+        }
+
+        async function fetchOfficialWordInfo(word, timeoutMs = 12000) {
+            const controller = typeof AbortController !== 'undefined'
+                ? new AbortController()
+                : { signal: undefined, abort: () => {} };
+            const timer = setTimeout(() => controller.abort(), timeoutMs);
+            try {
+                const response = await fetch(`https://www.iciba.com/word?w=${encodeURIComponent(word.toLowerCase())}`, { signal: controller.signal });
+                if (!response.ok) {
+                    const error = new Error(`词典请求失败（${response.status}）`);
+                    error.status = response.status;
+                    throw error;
+                }
+                const html = await response.text();
+                const match = html.match(/<script id="__NEXT_DATA__" type="application\/json">([\s\S]*?)<\/script>/);
+                if (!match) throw new Error('词典数据暂时不可用，请稍后重试');
+                let data;
+                try {
+                    data = JSON.parse(match[1]);
+                } catch {
+                    throw new Error('词典数据解析失败，请稍后重试');
+                }
+                const info = data?.props?.pageProps?.initialReduxState?.word?.wordInfo;
+                if (!info?.baesInfo) throw new Error('暂未找到该单词，请检查拼写');
+                return info;
+            } finally {
+                clearTimeout(timer);
+            }
+        }
+
+        function guessSyllables(word) {
+            const text = String(word || '').toLowerCase().replace(/[^a-z]/g, '');
+            if (!text || text.length <= 3) return text;
+            const consonantLe = /[^aeiouy]le$/.test(text);
+            if (consonantLe && (text.match(/[aeiouy]+/g) || []).length === 2) {
+                const splitAt = text.length - 3;
+                return `${text.slice(0, splitAt)},${text.slice(splitAt)}`;
+            }
+
+            let groups = Array.from(text.matchAll(/[aeiouy]+/g), match => ({
+                start: match.index,
+                end: match.index + match[0].length
+            }));
+            if (groups.length > 1 && /e$/.test(text) && !/(ee|ye)$/.test(text)) groups = groups.slice(0, -1);
+            if (groups.length <= 1) return text;
+
+            const digraphs = new Set(['ch', 'sh', 'th', 'ph', 'wh', 'ck', 'ng', 'qu']);
+            const splits = [];
+            for (let index = 0; index < groups.length - 1; index++) {
+                const previous = groups[index];
+                const next = groups[index + 1];
+                const consonants = text.slice(previous.end, next.start);
+                let splitAt = previous.end;
+                if (consonants.length >= 2 && !(consonants.length === 2 && digraphs.has(consonants))) {
+                    splitAt += 1;
+                }
+                if (splitAt > 0 && splitAt < text.length) splits.push(splitAt);
+            }
+            const parts = [];
+            let start = 0;
+            [...new Set(splits)].sort((a, b) => a - b).forEach(splitAt => {
+                parts.push(text.slice(start, splitAt));
+                start = splitAt;
+            });
+            parts.push(text.slice(start));
+            return parts.filter(Boolean).join(',');
+        }
+
+        function cleanOfficialText(value) {
+            return String(value || '')
+                .replace(/<[^>]*>/g, '')
+                .replace(/&quot;/g, '"')
+                .replace(/&#39;|&apos;/g, "'")
+                .replace(/&nbsp;/g, ' ')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&amp;/g, '&')
+                .replace(/\s+/g, ' ')
+                .trim();
+        }
+
+        function extractOfficialWordInfo(wordInfo, requestedWord) {
+            const symbol = wordInfo?.baesInfo?.symbols?.[0];
+            if (!symbol) throw new Error('暂未找到该单词，请检查拼写');
+            const phoneticText = cleanOfficialText(symbol.ph_am || symbol.ph_en || '');
+            const meaning = (symbol.parts || []).map(part => {
+                const values = (part.means || []).map(cleanOfficialText).filter(Boolean).slice(0, 4);
+                return values.length ? `${cleanOfficialText(part.part)} ${values.join('，')}`.trim() : '';
+            }).filter(Boolean).join('；');
+            if (!meaning) throw new Error('未找到常用中文释义，请手动填写');
+
+            const buildExample = (sentence, source, rank) => {
+                const en = cleanOfficialText(sentence?.en);
+                const cn = cleanOfficialText(sentence?.cn);
+                const wordCount = en.split(/\s+/).filter(Boolean).length;
+                if (!cn || wordCount < 3 || en.length > 100 || !/[.!?]$/.test(en) || /\.\.\.|…/.test(en)) return null;
+                return { en, cn, source: cleanOfficialText(source), rank };
+            };
+            const dictionaryExamples = [];
+            (wordInfo.bidec?.parts || []).forEach((part, partIndex) => {
+                (part.means || []).forEach((meaningItem, meaningIndex) => {
+                    (meaningItem.sentences || []).forEach(sentence => {
+                        const example = buildExample(sentence, '《简明英汉词典》', partIndex * 10 + meaningIndex);
+                        if (example) dictionaryExamples.push(example);
+                    });
+                });
+            });
+            dictionaryExamples.sort((a, b) => a.rank - b.rank || a.en.length - b.en.length);
+            let example = dictionaryExamples[0];
+
+            if (!example) {
+                const modernExamples = (wordInfo.new_sentence || []).flatMap(group => group.sentences || [])
+                    .map(sentence => buildExample(sentence, sentence.from || '金山词霸', sentence.from === '金山词霸' ? 0 : 10))
+                    .filter(Boolean)
+                    .sort((a, b) => a.rank - b.rank || a.en.length - b.en.length);
+                example = modernExamples[0];
+            }
+            if (!example) throw new Error('未找到完整的词典双语例句，请手动填写');
+
+            return {
+                phonetic: phoneticText ? `/${phoneticText.replace(/^\/+|\/+$/g, '')}/` : '',
+                meaning,
+                exampleEn: example.en,
+                exampleCn: example.cn,
+                exampleSource: example.source,
+                syllables: guessSyllables(requestedWord)
+            };
+        }
+
+        async function smartFillWord() {
+            const wordInput = document.getElementById('new-word-input');
+            const requestedWord = String(wordInput.value || '').trim();
+            if (!/^[A-Za-z]+(?:[-'][A-Za-z]+)*$/.test(requestedWord)) {
+                showInfoModal('提示', '请先输入正确的英文单词，再点击智能获取。');
+                return;
+            }
+
+            const requestId = ++smartFetchRequestId;
+            resetSmartSourceNote();
+            setSmartFetchLoading(true);
+            try {
+                const wordInfo = await fetchOfficialWordInfo(requestedWord);
+                if (requestId !== smartFetchRequestId) return;
+                const info = extractOfficialWordInfo(wordInfo, requestedWord);
+                if (requestId !== smartFetchRequestId || String(wordInput.value || '').trim().toLowerCase() !== requestedWord.toLowerCase()) return;
+
+                document.getElementById('phonetic-input').value = info.phonetic;
+                document.getElementById('syllables-input').value = info.syllables;
+                document.getElementById('meaning-input').value = info.meaning;
+                document.getElementById('example-en-input').value = info.exampleEn;
+                document.getElementById('example-cn-input').value = info.exampleCn;
+                const sourceNote = document.getElementById('smart-example-source');
+                sourceNote.textContent = `释义来源：金山词霸；例句来源：${info.exampleSource}`;
+                sourceNote.classList.remove('hidden');
+                showInfoModal('智能获取完成', '已采用金山词霸常用释义和原配双语例句，请检查后保存。');
+            } catch (error) {
+                if (requestId !== smartFetchRequestId) return;
+                console.error('智能获取失败:', error);
+                const message = error.name === 'AbortError'
+                    ? '网络请求超时，请稍后重试，或手动填写。'
+                    : (error.status === 404
+                        ? '暂未找到该单词，请检查拼写。'
+                        : (error.name === 'TypeError'
+                            ? '无法连接金山词霸，请检查网络后重试，或手动填写。'
+                            : (error.message || '获取失败，请稍后重试，或手动填写。')));
+                showInfoModal('智能获取失败', message);
+            } finally {
+                if (requestId === smartFetchRequestId) setSmartFetchLoading(false);
+            }
+        }
+
+        function toggleAddWordModal() {
+            invalidateSmartFetch();
+            const modal = document.getElementById('add-word-modal');
+            const willOpen = modal.classList.contains('hidden');
+            modal.classList.toggle('hidden');
+            if (willOpen) {
+                document.getElementById('add-word-form').reset();
+                document.getElementById('add-word-title').textContent = '添加单词';
+                currentEditId = null;
+                refreshIcons();
+                setTimeout(() => document.getElementById('new-word-input').focus(), 0);
+            }
+        }
+
         function editWord(wordId) {
-            const word = wordList.find(w => w.id === wordId);
+            invalidateSmartFetch();
+            const word = wordList.find(item => item.id === wordId);
             if (!word) return;
-            
             currentEditId = wordId;
-            
-            // 填充表单
             document.getElementById('new-word-input').value = word.word;
             document.getElementById('phonetic-input').value = word.phonetic || '';
             document.getElementById('syllables-input').value = word.syllables || '';
             document.getElementById('meaning-input').value = word.meaning;
             document.getElementById('example-en-input').value = word.example_en || '';
             document.getElementById('example-cn-input').value = word.example_cn || '';
-            
             document.getElementById('add-word-title').textContent = '编辑单词';
-            
-            // 显示弹窗
             document.getElementById('add-word-modal').classList.remove('hidden');
-            lucide.createIcons();
+            refreshIcons();
         }
 
-        // 保存单词
         async function saveWord(event) {
             event.preventDefault();
-            
             const formData = new FormData(event.target);
             const wordData = {
-                word: formData.get('word').trim(),
-                phonetic: formData.get('phonetic').trim(),
-                meaning: formData.get('meaning').trim(),
-                syllables: formData.get('syllables').trim(),
-                example_en: formData.get('exampleEn').trim(),
-                example_cn: formData.get('exampleCn').trim()
+                word: String(formData.get('word') || '').trim(),
+                phonetic: String(formData.get('phonetic') || '').trim(),
+                meaning: String(formData.get('meaning') || '').trim(),
+                syllables: String(formData.get('syllables') || '').trim(),
+                example_en: String(formData.get('exampleEn') || '').trim(),
+                example_cn: String(formData.get('exampleCn') || '').trim()
             };
-            
             if (!wordData.word || !wordData.meaning) {
                 showInfoModal('错误', '单词和释义不能为空');
                 return;
             }
-            
+            const duplicate = wordList.some(item =>
+                item.word.toLowerCase().trim() === wordData.word.toLowerCase() && item.id !== currentEditId
+            );
+            if (duplicate) {
+                showInfoModal('错误', '该单词已存在！');
+                return;
+            }
+
+            const editingId = currentEditId;
+            const preferredId = filteredWordList[currentIndex]?.id;
             try {
-                // 检查单词是否重复（不区分大小写）
-                const wordExists = wordList.some(w => 
-                    w.word.toLowerCase().trim() === wordData.word.toLowerCase().trim() && 
-                    w.id !== currentEditId
-                );
-                
-                if (wordExists) {
-                    showInfoModal('错误', '该单词已存在!');
-                    return;
-                }
-                
-                if (currentEditId) {
-                    // 编辑现有单词
-                    const existingWord = wordList.find(w => w.id === currentEditId);
-                    if (existingWord) {
-                        const updatedWord = {
-                            ...existingWord,
-                            ...wordData,
-                            updatedAt: new Date().toISOString()
-                        };
-                        
-                        await dbOps.saveWord(updatedWord);
-                        
-                        // 更新内存中的数据
-                        Object.assign(existingWord, updatedWord);
-                        
-                        showInfoModal('成功', '单词更新成功！');
-                    }
+                if (editingId) {
+                    const existing = wordList.find(item => item.id === editingId);
+                    if (!existing) throw new Error('单词不存在');
+                    const updated = { ...wordRecordFromWord(existing), ...wordData, updatedAt: new Date().toISOString() };
+                    await dbOps.saveWord(updated);
+                    Object.assign(existing, updated);
                 } else {
-                    // 添加新单词
-                    const id = Date.now();
                     const newWord = {
-                        id,
+                        id: createId(),
                         ...wordData,
                         createdAt: new Date().toISOString(),
-                        addedAt: Date.now() // 添加时间戳用于排序
+                        updatedAt: null
                     };
-                    
-                    await dbOps.saveWord(newWord);
-                    
-                    // 保存状态
-                    await dbOps.saveStatus({
-                        wordId: id,
-                        status: 'new',
-                        lastReviewed: new Date().toISOString(),
-                        reviewCount: 0
-                    });
-                    
-                    // 添加到内存并重新排序
-                    wordList.push({
-                        ...newWord,
-                        status: 'new'
-                    });
-                    
-                    // 重新排序以保持新单词置顶
-                    wordList.sort((a, b) => b.addedAt - a.addedAt);
-                    
-                    showInfoModal('成功', '单词添加成功！');
+                    await dbOps.saveWordWithProgress(newWord, defaultProgress());
                 }
-                
-                // 更新统计和列表
+                document.getElementById('add-word-modal').classList.add('hidden');
+                invalidateSmartFetch();
+                currentEditId = null;
+                await reloadWordsSilently({ preferredId: preferredId });
                 await updateStats();
-                if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
-                    renderWordList();
-                }
-                
-                toggleAddWordModal();
-                
+                renderWordList();
+                showInfoModal('成功', editingId ? '单词更新成功！' : '单词添加成功！');
             } catch (error) {
                 console.error('保存单词失败:', error);
                 showInfoModal('错误', '保存失败，请重试。');
             }
         }
 
-        // 显示批量删除确认
-        function batchDeleteWords() {
-            if (selectedWordIds.size === 0) return;
-            
-            document.getElementById('delete-confirm-text').textContent = `确定要删除选中的 ${selectedWordIds.size} 个单词吗？`;
-            document.getElementById('delete-confirm-modal').classList.remove('hidden');
-            lucide.createIcons();
+        function switchWordCategory(category) {
+            currentCategory = VALID_CATEGORIES.includes(category) ? category : 'all';
+            selectedWordIds.clear();
+            const categoryStyles = {
+                all: ['bg-blue-100', 'text-blue-600'],
+                new: ['bg-blue-100', 'text-blue-600'],
+                known: ['bg-green-100', 'text-green-600'],
+                fuzzy: ['bg-yellow-100', 'text-yellow-600']
+            };
+            const activeStyles = {
+                all: ['bg-blue-500', 'text-white'],
+                new: ['bg-blue-500', 'text-white'],
+                known: ['bg-green-600', 'text-white'],
+                fuzzy: ['bg-yellow-500', 'text-white']
+            };
+            document.querySelectorAll('[id^="category-"]').forEach(button => {
+                const cat = button.id.replace('category-', '');
+                if (!categoryStyles[cat]) return;
+                button.classList.remove(
+                    'bg-blue-500', 'bg-green-600', 'bg-yellow-500',
+                    'bg-blue-100', 'bg-green-100', 'bg-yellow-100',
+                    'text-white', 'text-blue-600', 'text-green-600', 'text-yellow-600'
+                );
+                button.classList.add(...categoryStyles[cat]);
+            });
+            const activeButton = document.getElementById(`category-${currentCategory}`);
+            if (activeButton) {
+                activeButton.classList.remove(...categoryStyles[currentCategory]);
+                activeButton.classList.add(...activeStyles[currentCategory]);
+            }
+            renderWordList();
         }
 
-        // 确认删除
+        function batchDeleteWords() {
+            if (selectedWordIds.size === 0) return;
+            document.getElementById('delete-confirm-text').textContent = currentCategory === 'all'
+                ? `确定要永久删除选中的 ${selectedWordIds.size} 个单词吗？词条及其所有分类记录都会被删除。`
+                : `确定将选中的 ${selectedWordIds.size} 个单词移出“${CATEGORY_LABELS[currentCategory]}”吗？它们仍会保留在“全部”中。`;
+            document.getElementById('delete-confirm-modal').classList.remove('hidden');
+            refreshIcons();
+        }
+
         async function confirmDelete() {
             if (selectedWordIds.size === 0) return;
-            
+            const ids = Array.from(selectedWordIds);
             try {
                 if (currentCategory === 'all') {
-                    // 在"全部"类别下删除是真正删除单词
-                    for (const wordId of selectedWordIds) {
-                        await dbOps.deleteWord(wordId);
-                        await dbOps.deleteStatus(wordId);
-                    }
-                    
-                    // 从内存中删除
-                    wordList = wordList.filter(w => !selectedWordIds.has(w.id));
-                    
-                    // 如果删除了当前显示的单词，显示下一个
-                    if (currentIndex >= wordList.length && wordList.length > 0) {
-                        currentIndex = Math.min(currentIndex, wordList.length - 1);
-                        showWord(currentIndex);
-                    }
+                    await dbOps.deleteWords(ids);
+                    localStorage.setItem(STORAGE_KEYS.SAMPLE_INITIALIZED, 'true');
                 } else {
-                    // 在其他类别下删除只是移除学习状态（从当前列表移除）
-                    for (const wordId of selectedWordIds) {
-                        // 移除状态记录，使单词从当前分类列表中消失
-                        await dbOps.deleteStatus(wordId);
-                        
-                        // 更新内存中的状态
-                        const word = wordList.find(w => w.id === wordId);
-                        if (word) {
-                            // 清除状态，使其不再显示在当前分类中
-                            delete word.status;
-                        }
+                    for (const wordId of ids) {
+                        const word = wordList.find(item => item.id === wordId);
+                        if (!word) continue;
+                        const next = progressForCategoryRemoval(progressFromWord(word), currentCategory);
+                        await dbOps.saveStatus({ wordId, ...next });
                     }
                 }
-                
-                // 清空选择
                 selectedWordIds.clear();
-                
-                // 更新UI
+                document.getElementById('delete-confirm-modal').classList.add('hidden');
+                await reloadWordsSilently({ reset: true });
                 await updateStats();
                 renderWordList();
-                updateBatchButtons();
-                
-                // 关闭弹窗
-                document.getElementById('delete-confirm-modal').classList.add('hidden');
-                
             } catch (error) {
                 console.error('删除操作失败:', error);
                 showInfoModal('错误', '操作失败，请重试。');
             }
         }
 
-        // 取消删除
         function cancelDelete() {
             document.getElementById('delete-confirm-modal').classList.add('hidden');
         }
 
-        // 显示移动选项
         function showMoveOptions() {
             if (selectedWordIds.size === 0) return;
+            document.getElementById('move-options-title').textContent = '移动到';
             document.getElementById('move-options-modal').classList.remove('hidden');
-            lucide.createIcons();
+            refreshIcons();
         }
 
-        // 移动选中单词
         async function moveSelectedWords(status) {
-            if (selectedWordIds.size === 0) return;
-            
+            if (selectedWordIds.size === 0 || !['new', 'known', 'fuzzy'].includes(status)) return;
+            const ids = Array.from(selectedWordIds);
             try {
-                for (const wordId of selectedWordIds) {
-                    await dbOps.saveStatus({
-                        wordId,
-                        status,
-                        lastReviewed: new Date().toISOString(),
-                        reviewCount: 0
-                    });
-                    
-                    // 更新内存中的状态
-                    const word = wordList.find(w => w.id === wordId);
-                    if (word) {
-                        word.status = status;
-                    }
+                for (const wordId of ids) {
+                    const word = wordList.find(item => item.id === wordId);
+                    if (!word) continue;
+                    const next = progressForManualMove(progressFromWord(word), currentCategory, status);
+                    await dbOps.saveStatus({ wordId, ...next });
                 }
-                
-                // 清空选择
                 selectedWordIds.clear();
-                
-                // 更新UI
+                document.getElementById('move-options-modal').classList.add('hidden');
+                await reloadWordsSilently({ reset: true });
                 await updateStats();
-                
-                // 移动后自动跳转到目标类别
                 switchWordCategory(status);
-                
-                updateBatchButtons();
-                
-                // 关闭弹窗
-                toggleMoveOptionsModal();
-                
             } catch (error) {
                 console.error('移动单词失败:', error);
-                showInfoModal('错误', '操作失败，请重试。');
+                showInfoModal('错误', '移动失败，请重试。');
             }
         }
 
-        // 关闭移动选项弹窗
         function toggleMoveOptionsModal() {
             document.getElementById('move-options-modal').classList.add('hidden');
         }
 
-        // 切换CSV导入弹窗
+        // ================= CSV 与完整备份 =================
         function importCSV() {
-            const modal = document.getElementById('csv-import-modal');
-            modal.classList.remove('hidden');
-            lucide.createIcons();
+            document.getElementById('csv-import-modal').classList.remove('hidden');
+            refreshIcons();
         }
 
-        // 关闭CSV导入弹窗
         function toggleCSVImportModal() {
-            const modal = document.getElementById('csv-import-modal');
-            modal.classList.add('hidden');
+            document.getElementById('csv-import-modal').classList.add('hidden');
             document.getElementById('csv-file-input').value = '';
         }
 
-        // 处理CSV导入
+        function parseCSV(text) {
+            const source = String(text || '').replace(/^\uFEFF/, '');
+            const rows = [];
+            let row = [];
+            let field = '';
+            let inQuotes = false;
+
+            for (let index = 0; index < source.length; index++) {
+                const char = source[index];
+                if (inQuotes) {
+                    if (char === '"') {
+                        if (source[index + 1] === '"') {
+                            field += '"';
+                            index++;
+                        } else {
+                            inQuotes = false;
+                        }
+                    } else {
+                        field += char;
+                    }
+                    continue;
+                }
+                if (char === '"' && field === '') {
+                    inQuotes = true;
+                } else if (char === ',') {
+                    row.push(field);
+                    field = '';
+                } else if (char === '\n' || char === '\r') {
+                    if (char === '\r' && source[index + 1] === '\n') index++;
+                    row.push(field);
+                    if (row.some(value => String(value).trim() !== '')) rows.push(row);
+                    row = [];
+                    field = '';
+                } else {
+                    field += char;
+                }
+            }
+            if (inQuotes) throw new Error('CSV 中存在未闭合的引号');
+            row.push(field);
+            if (row.some(value => String(value).trim() !== '')) rows.push(row);
+            return rows;
+        }
+
+        function normalizeImportedWord(raw) {
+            return {
+                word: String(raw.word || '').trim(),
+                phonetic: String(raw.phonetic || '').trim(),
+                meaning: String(raw.meaning || '').trim(),
+                example_en: String(raw.example_en || '').trim(),
+                example_cn: String(raw.example_cn || '').trim(),
+                syllables: String(raw.syllables || '').split(',').map(item => item.trim()).filter(Boolean).join(',')
+            };
+        }
+
         async function processCSVImport() {
             const fileInput = document.getElementById('csv-file-input');
-            
-            if (!fileInput.files || fileInput.files.length === 0) {
-                showInfoModal('错误', '请选择CSV文件');
+            const file = fileInput.files?.[0];
+            if (!file) {
+                showInfoModal('错误', '请选择 CSV 文件');
                 return;
             }
-            
-            const file = fileInput.files[0];
-            const reader = new FileReader();
-            
-            reader.onload = async (e) => {
-                try {
-                    const csvText = e.target.result;
-                    const lines = csvText.split('\n').filter(line => line.trim());
-                    
-                    if (lines.length < 2) {
-                        showInfoModal('错误', 'CSV文件格式不正确');
-                        return;
-                    }
-                    
-                    const headers = parseCSVLine(lines[0]).map(h => h.trim().toLowerCase());
-                    const requiredColumns = ['word', 'meaning'];
-                    
-                    const missingColumns = requiredColumns.filter(col => !headers.includes(col));
-                    if (missingColumns.length > 0) {
-                        showInfoModal('错误', `缺少必需的列: ${missingColumns.join(', ')}`);
-                        return;
-                    }
-                    
-                    let importedCount = 0;
-                    
-                    for (let i = 1; i < lines.length; i++) {
-                        const values = parseCSVLine(lines[i]);
-                        if (values.length < headers.length) continue;
-                        
-                        const wordData = {};
-                        headers.forEach((header, index) => {
-                            wordData[header] = values[index]?.trim() || '';
-                        });
-                        
-
-                        if (wordData.word && wordData.meaning) {
-                            const id = Date.now() + i;
-                            
-                            // 确保音节划分字段正确处理
-                            let syllables = wordData.syllables || '';
-
-                            
-                            // 处理CSV中的音节划分字段，确保正确解析多个音节
-                            if (syllables) {
-                                // 移除可能的引号包围
-                                if (syllables.startsWith('"') && syllables.endsWith('"')) {
-                                    syllables = syllables.substring(1, syllables.length - 1);
-                                }
-                                
-                                // 分割并清理音节部分
-                                const syllableParts = syllables.split(',')
-                                    .map(s => s.trim())
-                                    .filter(s => s.length > 0);
-                                
-                                // 重新组合音节，确保格式正确
-                                if (syllableParts.length > 0) {
-                                    syllables = syllableParts.join(',');
-                                } else {
-                                    syllables = '';
-                                }
-                            }
-                            
-                            await dbOps.saveWord({
-                                id,
-                                word: wordData.word,
-                                phonetic: wordData.phonetic || '',
-                                meaning: wordData.meaning,
-                                syllables: syllables,
-                                example_en: wordData.example_en || '',
-                                example_cn: wordData.example_cn || '',
-                                createdAt: new Date().toISOString()
-                            });
-                            
-                            await dbOps.saveStatus({
-                                wordId: id,
-                                status: 'new',
-                                lastReviewed: new Date().toISOString(),
-                                reviewCount: 0
-                            });
-                            
-                            importedCount++;
-                        }
-                    }
-                    
-                    if (importedCount === 0) {
-                        showInfoModal('错误', '没有有效的单词数据');
-                        return;
-                    }
-                    
-                    // 重新加载数据
-                    await loadWords();
-                    await updateStats();
-                    
-                    if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
-                        renderWordList();
-                    }
-                    
-                    toggleCSVImportModal();
-                    showInfoModal('成功', `成功导入 ${importedCount} 个单词`);
-                    
-                } catch (error) {
-                    console.error('CSV导入失败:', error);
-                    showInfoModal('错误', 'CSV解析失败');
-                }
-            };
-            
-            reader.readAsText(file, 'UTF-8');
-        }
-
-        // 解析CSV行 - 增强版本，专门处理音节字段包含逗号的情况
-        function parseCSVLine(line) {
-            // 首先按逗号分割
-            const parts = line.split(',');
-            const result = [];
-            let currentField = '';
-            let fieldCount = 0;
-            
-            // 预期的字段数：word,phonetic,meaning,example_en,example_cn,syllables
-            const expectedFields = 6;
-            
-            for (let i = 0; i < parts.length; i++) {
-                const part = parts[i];
-                
-                if (fieldCount < expectedFields - 1) {
-                    // 前5个字段，正常处理
-                    result.push(part.trim());
-                    fieldCount++;
-                } else {
-                    // 最后一个字段（音节），合并所有剩余部分
-                    if (currentField) currentField += ',';
-                    currentField += part;
-                }
-            }
-            
-            // 添加最后一个字段（音节）
-            if (currentField) {
-                result.push(currentField.trim());
-            }
-            
-            // 如果字段数不足，补充空字符串
-            while (result.length < expectedFields) {
-                result.push('');
-            }
-            
-            return result;
-        }
-
-        // 导出CSV
-        async function exportCSV() {
             try {
-                if (wordList.length === 0) {
-                    showInfoModal('提示', '没有单词可以导出');
+                const rows = parseCSV(await file.text());
+                if (rows.length < 2) throw new Error('CSV 文件没有可导入的数据');
+                const headers = rows[0].map(header => header.trim().toLowerCase());
+                const missing = ['word', 'meaning'].filter(column => !headers.includes(column));
+                if (missing.length) throw new Error(`缺少必需的列：${missing.join(', ')}`);
+
+                const duplicateMode = document.getElementById('csv-duplicate-mode')?.value || 'skip';
+                const existingByWord = new Map(wordList.map(word => [word.word.trim().toLowerCase(), word]));
+                const planned = new Map();
+                let duplicateCount = 0;
+                let invalidCount = 0;
+
+                for (let rowIndex = 1; rowIndex < rows.length; rowIndex++) {
+                    const raw = {};
+                    headers.forEach((header, columnIndex) => {
+                        raw[header] = rows[rowIndex][columnIndex] ?? '';
+                    });
+                    const wordData = normalizeImportedWord(raw);
+                    if (!wordData.word || !wordData.meaning) {
+                        invalidCount++;
+                        continue;
+                    }
+                    const key = wordData.word.toLowerCase();
+                    const existing = existingByWord.get(key);
+                    if (existing && duplicateMode === 'skip') {
+                        duplicateCount++;
+                        continue;
+                    }
+                    if (existing && duplicateMode === 'overwrite') {
+                        planned.set(key, {
+                            word: { ...wordRecordFromWord(existing), ...wordData, updatedAt: new Date().toISOString() },
+                            progress: progressFromWord(existing)
+                        });
+                    } else {
+                        const record = {
+                            word: {
+                                id: createId() + rowIndex,
+                                ...wordData,
+                                createdAt: new Date().toISOString(),
+                                updatedAt: null
+                            },
+                            progress: defaultProgress()
+                        };
+                        const plannedKey = duplicateMode === 'add' ? `${key}:${rowIndex}` : key;
+                        planned.set(plannedKey, record);
+                        existingByWord.set(key, { ...record.word, ...record.progress });
+                    }
+                }
+
+                if (planned.size === 0) {
+                    showInfoModal('提示', `没有可导入的数据${duplicateCount ? `，已跳过 ${duplicateCount} 个重复单词` : ''}。`);
                     return;
                 }
-                
-                const headers = ['word', 'phonetic', 'meaning', 'example_en', 'example_cn', 'syllables'];
-                const csvContent = [
-                    headers.join(','),
-                    ...wordList.map(word => 
-                        headers.map(header => {
-                            const value = word[header] || '';
-                            return value.includes(',') || value.includes('"') ? `"${value.replace(/"/g, '""')}"` : value;
-                        }).join(',')
-                    )
-                ].join('\n');
-                
-                const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-                const link = document.createElement('a');
-                const url = URL.createObjectURL(blob);
-                
-                link.setAttribute('href', url);
-                link.setAttribute('download', `words_${new Date().toISOString().split('T')[0]}.csv`);
-                link.style.visibility = 'hidden';
-                
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-                
+                await dbOps.importRecords(Array.from(planned.values()));
+                toggleCSVImportModal();
+                await reloadWordsSilently({ reset: true });
+                await updateStats();
+                refreshOpenWordLibrary();
+                const details = [
+                    `成功处理 ${planned.size} 个单词`,
+                    duplicateCount ? `跳过重复 ${duplicateCount} 个` : '',
+                    invalidCount ? `无效行 ${invalidCount} 行` : ''
+                ].filter(Boolean).join('，');
+                showInfoModal('成功', details);
             } catch (error) {
-                console.error('导出CSV失败:', error);
-                showInfoModal('错误', '导出失败，请重试。');
+                console.error('CSV 导入失败:', error);
+                showInfoModal('CSV 导入失败', error.message || '请检查文件格式。');
             }
         }
 
-        // 切换分类
-        function switchWordCategory(category) {
-            currentCategory = category;
-            
-            // 重置所有分类标签样式
-            const categoryStyles = {
-                'all': ['bg-blue-100', 'text-blue-600'],
-                'new': ['bg-blue-100', 'text-blue-600'],
-                'known': ['bg-green-100', 'text-green-600'],
-                'fuzzy': ['bg-yellow-100', 'text-yellow-600']
+        function csvEscape(value) {
+            const text = String(value ?? '');
+            return /[",\r\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+        }
+
+        function downloadBlob(content, type, filename) {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }
+
+        async function exportCSV() {
+            if (wordList.length === 0) {
+                showInfoModal('提示', '没有单词可以导出');
+                return;
+            }
+            const headers = ['word', 'phonetic', 'meaning', 'example_en', 'example_cn', 'syllables'];
+            const lines = [headers.join(','), ...wordList.map(word => headers.map(header => csvEscape(word[header])).join(','))];
+            downloadBlob(`\uFEFF${lines.join('\r\n')}`, 'text/csv;charset=utf-8;', `words_${new Date().toISOString().split('T')[0]}.csv`);
+        }
+
+        function exportBackup() {
+            const backup = {
+                app: 'WordMemoryApp',
+                version: 2,
+                exportedAt: new Date().toISOString(),
+                settings: { ...settings, mode },
+                words: wordList.map(word => ({
+                    ...wordRecordFromWord(word),
+                    progress: progressFromWord(word)
+                }))
             };
-            
-            const activeStyles = {
-                'all': ['bg-blue-500', 'text-white'],
-                'new': ['bg-blue-500', 'text-white'],
-                'known': ['bg-green-600', 'text-white'],
-                'fuzzy': ['bg-yellow-500', 'text-white']
-            };
-            
-            document.querySelectorAll('[id^="category-"]').forEach(btn => {
-                const cat = btn.id.replace('category-', '');
-                
-                // 移除所有可能的样式类
-                btn.classList.remove(
-                    'bg-blue-500', 'bg-green-600', 'bg-yellow-500', 
-                    'bg-blue-100', 'bg-green-100', 'bg-yellow-100',
-                    'text-white', 'text-blue-600', 'text-green-600', 'text-yellow-600'
-                );
-                
-                // 添加默认样式
-                if (categoryStyles[cat]) {
-                    btn.classList.add(...categoryStyles[cat]);
+            downloadBlob(JSON.stringify(backup, null, 2), 'application/json;charset=utf-8;', `word-helper-backup_${new Date().toISOString().split('T')[0]}.json`);
+        }
+
+        function restoreBackup() {
+            document.getElementById('backup-file-input').value = '';
+            document.getElementById('backup-file-input').click();
+        }
+
+        async function processBackupRestore(file) {
+            if (!file) return;
+            try {
+                const backup = JSON.parse(await file.text());
+                if (backup.app !== 'WordMemoryApp' || !Array.isArray(backup.words)) {
+                    throw new Error('这不是有效的单词助手备份文件');
                 }
-            });
-            
-            // 设置当前选中分类的样式
-            const activeBtn = document.getElementById(`category-${category}`);
-            if (activeBtn && activeStyles[category]) {
-                activeBtn.classList.remove(...categoryStyles[category]);
-                activeBtn.classList.add(...activeStyles[category]);
+                if (!window.confirm(`备份包含 ${backup.words.length} 个单词。恢复时将合并词库，同名单词以备份为准，不会删除现有单词。是否继续？`)) return;
+
+                const existingByWord = new Map(wordList.map(word => [word.word.trim().toLowerCase(), word]));
+                const usedIds = new Set(wordList.map(word => word.id));
+                const records = [];
+                for (const item of backup.words) {
+                    const wordData = normalizeImportedWord(item);
+                    if (!wordData.word || !wordData.meaning) continue;
+                    const existing = existingByWord.get(wordData.word.toLowerCase());
+                    let id = existing?.id || Number(item.id) || createId();
+                    while (usedIds.has(id) && !existing) id = createId() + records.length + 1;
+                    usedIds.add(id);
+                    const progress = normalizeProgress(item.progress || (existing ? progressFromWord(existing) : defaultProgress()));
+                    records.push({
+                        word: {
+                            id,
+                            ...wordData,
+                            createdAt: item.createdAt || existing?.createdAt || new Date().toISOString(),
+                            updatedAt: new Date().toISOString()
+                        },
+                        progress
+                    });
+                }
+                if (records.length === 0) throw new Error('备份中没有有效单词');
+                await dbOps.importRecords(records);
+                if (backup.settings && typeof backup.settings === 'object') {
+                    settings = { ...DEFAULT_SETTINGS, ...backup.settings };
+                    settings.studyCategory = VALID_CATEGORIES.includes(settings.studyCategory) ? settings.studyCategory : 'all';
+                    mode = settings.mode === 'review' ? 'review' : 'test';
+                    settings.mode = mode;
+                    settingsOps.save(settings);
+                }
+                updateSettingsUI();
+                await reloadWordsSilently({ reset: true });
+                await updateStats();
+                refreshOpenWordLibrary();
+                showInfoModal('成功', `已恢复 ${records.length} 个单词及其学习进度。`);
+            } catch (error) {
+                console.error('恢复备份失败:', error);
+                showInfoModal('恢复失败', error.message || '备份文件格式不正确。');
             }
-            
-            renderWordList();
         }
 
-        // 重置学习进度
-        function resetProgress() {
+        // ================= 重置、设置与通用交互 =================
+        function showResetConfirmModal() {
             document.getElementById('reset-confirm-modal').classList.remove('hidden');
-            lucide.createIcons();
+            refreshIcons();
         }
 
-        // 确认重置进度
+        function hideResetConfirmModal() {
+            document.getElementById('reset-confirm-modal').classList.add('hidden');
+        }
+
         async function confirmResetProgress() {
             try {
                 for (const word of wordList) {
-                    await dbOps.saveStatus({
-                        wordId: word.id,
-                        status: 'new',
-                        lastReviewed: new Date().toISOString(),
-                        reviewCount: 0
-                    });
-                    
-                    word.status = 'new';
+                    await dbOps.saveStatus({ wordId: word.id, ...defaultProgress(), lastReviewed: new Date().toISOString() });
                 }
-                
-                // 重置当前索引到第一个单词
-                currentIndex = 0;
-                
-                // 重新筛选单词
-                filterWordsByCategory();
-                
-                // 更新统计和界面
-                await updateStats();
-                
-                // 显示第一个单词
-                if (filteredWordList.length > 0) {
-                    showWord(currentIndex);
-                }
-                
-                // 保存状态
-                saveAppState();
-                
-                if (!document.getElementById('word-library-modal').classList.contains('hidden')) {
-                    renderWordList();
-                }
-                
                 hideResetConfirmModal();
+                await loadWords({ reset: true, skipSampleInit: true });
+                await updateStats();
+                refreshOpenWordLibrary();
                 showInfoModal('成功', '学习进度已重置！');
-                
             } catch (error) {
                 console.error('重置进度失败:', error);
                 showInfoModal('错误', '重置失败，请重试。');
             }
         }
 
-        // 隐藏重置确认弹窗
-        function hideResetConfirmModal() {
-            document.getElementById('reset-confirm-modal').classList.add('hidden');
-        }
-
-        // 显示信息弹窗
         function showInfoModal(title, message) {
-            const modal = document.getElementById('info-modal');
             document.getElementById('info-modal-title').textContent = title;
             document.getElementById('info-modal-message').textContent = message;
-            
-            modal.classList.remove('hidden');
-            lucide.createIcons();
+            document.getElementById('info-modal').classList.remove('hidden');
+            refreshIcons();
         }
 
-        // 隐藏信息弹窗
         function hideInfoModal() {
-            const modal = document.getElementById('info-modal');
-            modal.classList.add('hidden');
+            document.getElementById('info-modal').classList.add('hidden');
         }
 
-        // 显示重置确认弹窗
-        function showResetConfirmModal() {
-            const modal = document.getElementById('reset-confirm-modal');
-            modal.classList.remove('hidden');
-            lucide.createIcons();
-        }
-
-        // 隐藏重置确认弹窗
-        function hideResetConfirmModal() {
-            const modal = document.getElementById('reset-confirm-modal');
-            modal.classList.add('hidden');
-        }
-
-        // 监听设置变化
-        document.getElementById('auto-play-toggle').addEventListener('change', async (e) => {
-            settings.autoPlay = e.target.checked;
-            settingsOps.save(settings);
-        });
-
-        // 更新设置UI
         function updateSettingsUI() {
-            document.getElementById('auto-play-toggle').checked = settings.autoPlay;
+            document.getElementById('auto-play-toggle').checked = settings.autoPlay !== false;
+            document.getElementById('show-syllables-toggle').checked = settings.showSyllables !== false;
             document.getElementById('mode-select').value = mode;
             document.getElementById('category-select').value = settings.studyCategory || 'all';
         }
+
+        function closeModalById(id) {
+            const actions = {
+                'settings-modal': toggleSettings,
+                'word-library-modal': toggleWordLibrary,
+                'add-word-modal': toggleAddWordModal,
+                'csv-import-modal': toggleCSVImportModal,
+                'move-options-modal': toggleMoveOptionsModal,
+                'delete-confirm-modal': cancelDelete,
+                'info-modal': hideInfoModal,
+                'reset-confirm-modal': hideResetConfirmModal
+            };
+            actions[id]?.();
+        }
+
+        function setupAccessibility() {
+            document.querySelectorAll('.fixed.inset-0.z-50').forEach(modal => {
+                modal.setAttribute('role', 'dialog');
+                modal.setAttribute('aria-modal', 'true');
+            });
+            document.querySelector('button[onclick="playCurrentWord()"]')?.setAttribute('aria-label', '播放单词发音');
+            document.querySelector('button[onclick="playCurrentExample()"]')?.setAttribute('aria-label', '播放例句发音');
+
+            document.addEventListener('keydown', event => {
+                const visibleModals = Array.from(document.querySelectorAll('.fixed.inset-0.z-50:not(.hidden)'));
+                const topModal = visibleModals[visibleModals.length - 1];
+                if (event.key === 'Escape' && topModal) {
+                    event.preventDefault();
+                    closeModalById(topModal.id);
+                    return;
+                }
+                if (event.key === 'Tab' && topModal) {
+                    const focusable = Array.from(topModal.querySelectorAll('button, input, select, [tabindex]:not([tabindex="-1"])'))
+                        .filter(element => !element.disabled && element.offsetParent !== null);
+                    if (focusable.length === 0) return;
+                    const first = focusable[0];
+                    const last = focusable[focusable.length - 1];
+                    if (event.shiftKey && document.activeElement === first) {
+                        event.preventDefault();
+                        last.focus();
+                    } else if (!event.shiftKey && document.activeElement === last) {
+                        event.preventDefault();
+                        first.focus();
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            setupAccessibility();
+            if ('speechSynthesis' in window) {
+                const refreshVoices = () => {
+                    cachedEnglishVoice = null;
+                    getEnglishVoice();
+                };
+                window.speechSynthesis.addEventListener?.('voiceschanged', refreshVoices);
+                refreshVoices();
+            }
+            document.getElementById('word-input').addEventListener('input', handleInput);
+            document.getElementById('word-input').addEventListener('keydown', event => {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    nextWord();
+                }
+            });
+            document.getElementById('auto-play-toggle').addEventListener('change', event => {
+                settings.autoPlay = event.target.checked;
+                settingsOps.save(settings);
+                if (!settings.autoPlay) stopSpeech();
+            });
+            document.getElementById('show-syllables-toggle').addEventListener('change', event => {
+                settings.showSyllables = event.target.checked;
+                settingsOps.save(settings);
+                showCurrentOrEmpty();
+            });
+            document.getElementById('word-search-input')?.addEventListener('input', event => {
+                librarySearchQuery = event.target.value;
+                renderWordList();
+            });
+            document.getElementById('backup-file-input')?.addEventListener('change', event => {
+                processBackupRestore(event.target.files?.[0]);
+            });
+
+            try {
+                await initDatabase();
+                settings = settingsOps.load();
+                settings.studyCategory = VALID_CATEGORIES.includes(settings.studyCategory) ? settings.studyCategory : 'all';
+                mode = settings.mode === 'review' ? 'review' : 'test';
+                await loadWords();
+                await updateStats();
+                updateSettingsUI();
+                refreshIcons();
+            } catch (error) {
+                console.error('应用初始化失败:', error);
+                showInfoModal('错误', '初始化失败，请刷新页面重试。');
+            }
+        });
 
     </script>
 </body>
