@@ -1438,7 +1438,7 @@
                     const voice = getEnglishVoice();
                     if (voice) utterance.voice = voice;
                     utterance.lang = 'en-US';
-                    utterance.rate = 0.72;
+                    utterance.rate = 1;
                     utterance.pitch = 1;
                     utterance.volume = 1;
                     utterance.onend = () => {
@@ -1460,7 +1460,7 @@
             }, startDelay);
         }
 
-        async function playOnlineAudio(text, playbackRate = 0.82, preferredAudioUrl = '') {
+        async function playOnlineAudio(text, playbackRate = 1, preferredAudioUrl = '') {
             const content = String(text || '').trim();
             if (!content) return;
             if (typeof Audio === 'undefined') {
@@ -1497,7 +1497,7 @@
 
         function playWord(text, preferredAudioUrl = '') {
             const content = String(text || '').trim();
-            if (content) playOnlineAudio(content, 0.82, preferredAudioUrl);
+            if (content) playOnlineAudio(content, 1, preferredAudioUrl);
         }
 
         async function ensurePackAudio(word) {
@@ -1523,7 +1523,7 @@
                 await ensurePackAudio(word);
                 if (requestId !== speechRequestId) return;
             }
-            if (isExample) playOnlineAudio(text, 0.68, word.example_audio);
+            if (isExample) playOnlineAudio(text, 1, word.example_audio);
             else playWord(text, word.word_audio);
         }
 
