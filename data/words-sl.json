@@ -1,0 +1,13 @@
+{
+  "sleep": {
+    "word": "sleep",
+    "phonetic": "/sliːp/",
+    "meaning": "v. 睡觉；n. 睡眠",
+    "example_en": "I sleep eight hours every night.",
+    "example_cn": "我每晚睡八个小时。",
+    "syllables": "sleep",
+    "word_audio": "audio/words/sleep.mp3",
+    "example_audio": "audio/examples/sleep.mp3",
+    "source": "内置100词样板库"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "bird": {
+    "word": "bird",
+    "phonetic": "/bɜːrd/",
+    "meaning": "n. 鸟",
+    "example_en": "A bird is singing in the tree.",
+    "example_cn": "一只鸟正在树上唱歌。",
+    "syllables": "bird",
+    "word_audio": "audio/words/bird.mp3",
+    "example_audio": "audio/examples/bird.mp3",
+    "source": "内置100词样板库"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "run": {
+    "word": "run",
+    "phonetic": "/rʌn/",
+    "meaning": "v. 跑；跑步",
+    "example_en": "I run in the park every morning.",
+    "example_cn": "我每天早上在公园跑步。",
+    "syllables": "run",
+    "word_audio": "audio/words/run.mp3",
+    "example_audio": "audio/examples/run.mp3",
+    "source": "内置100词样板库"
+  }
+}

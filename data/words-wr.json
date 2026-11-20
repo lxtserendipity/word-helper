@@ -1,0 +1,13 @@
+{
+  "write": {
+    "word": "write",
+    "phonetic": "/raɪt/",
+    "meaning": "v. 写；写字",
+    "example_en": "Please write your name here.",
+    "example_cn": "请在这里写下你的名字。",
+    "syllables": "write",
+    "word_audio": "audio/words/write.mp3",
+    "example_audio": "audio/examples/write.mp3",
+    "source": "内置100词样板库"
+  }
+}

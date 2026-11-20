@@ -1,0 +1,24 @@
+{
+  "sing": {
+    "word": "sing",
+    "phonetic": "/sɪŋ/",
+    "meaning": "v. 唱歌",
+    "example_en": "The girls sing a song together.",
+    "example_cn": "女孩们合唱一首歌。",
+    "syllables": "sing",
+    "word_audio": "audio/words/sing.mp3",
+    "example_audio": "audio/examples/sing.mp3",
+    "source": "内置100词样板库"
+  },
+  "sister": {
+    "word": "sister",
+    "phonetic": "/ˈsɪstər/",
+    "meaning": "n. 姐姐；妹妹",
+    "example_en": "My sister likes to sing.",
+    "example_cn": "我的姐姐喜欢唱歌。",
+    "syllables": "sis,ter",
+    "word_audio": "audio/words/sister.mp3",
+    "example_audio": "audio/examples/sister.mp3",
+    "source": "内置100词样板库"
+  }
+}

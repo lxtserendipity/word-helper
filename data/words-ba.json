@@ -1,0 +1,13 @@
+{
+  "banana": {
+    "word": "banana",
+    "phonetic": "/bəˈnænə/",
+    "meaning": "n. 香蕉",
+    "example_en": "The banana is yellow.",
+    "example_cn": "这根香蕉是黄色的。",
+    "syllables": "ba,na,na",
+    "word_audio": "audio/words/banana.mp3",
+    "example_audio": "audio/examples/banana.mp3",
+    "source": "内置100词样板库"
+  }
+}

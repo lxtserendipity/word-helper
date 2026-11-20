@@ -1,0 +1,46 @@
+{
+  "walk": {
+    "word": "walk",
+    "phonetic": "/wɔːk/",
+    "meaning": "v. 步行；散步",
+    "example_en": "We walk to school together.",
+    "example_cn": "我们一起步行去学校。",
+    "syllables": "walk",
+    "word_audio": "audio/words/walk.mp3",
+    "example_audio": "audio/examples/walk.mp3",
+    "source": "内置100词样板库"
+  },
+  "want": {
+    "word": "want",
+    "phonetic": "/wɑːnt/",
+    "meaning": "v. 想要",
+    "example_en": "I want a glass of water.",
+    "example_cn": "我想要一杯水。",
+    "syllables": "want",
+    "word_audio": "audio/words/want.mp3",
+    "example_audio": "audio/examples/want.mp3",
+    "source": "内置100词样板库"
+  },
+  "watch": {
+    "word": "watch",
+    "phonetic": "/wɑːtʃ/",
+    "meaning": "v. 观看；注视",
+    "example_en": "We watch a movie on Friday night.",
+    "example_cn": "我们星期五晚上看电影。",
+    "syllables": "watch",
+    "word_audio": "audio/words/watch.mp3",
+    "example_audio": "audio/examples/watch.mp3",
+    "source": "内置100词样板库"
+  },
+  "water": {
+    "word": "water",
+    "phonetic": "/ˈwɔːtər/",
+    "meaning": "n. 水",
+    "example_en": "Please drink some water.",
+    "example_cn": "请喝一些水。",
+    "syllables": "wa,ter",
+    "word_audio": "audio/words/water.mp3",
+    "example_audio": "audio/examples/water.mp3",
+    "source": "内置100词样板库"
+  }
+}

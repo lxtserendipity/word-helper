@@ -1,0 +1,13 @@
+{
+  "tiger": {
+    "word": "tiger",
+    "phonetic": "/ˈtaɪɡər/",
+    "meaning": "n. 老虎",
+    "example_en": "The tiger is a strong animal.",
+    "example_cn": "老虎是一种强壮的动物。",
+    "syllables": "ti,ger",
+    "word_audio": "audio/words/tiger.mp3",
+    "example_audio": "audio/examples/tiger.mp3",
+    "source": "内置100词样板库"
+  }
+}

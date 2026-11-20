@@ -1,0 +1,13 @@
+{
+  "play": {
+    "word": "play",
+    "phonetic": "/pleɪ/",
+    "meaning": "v. 玩；参加（运动）；演奏",
+    "example_en": "They play football after school.",
+    "example_cn": "他们放学后踢足球。",
+    "syllables": "play",
+    "word_audio": "audio/words/play.mp3",
+    "example_audio": "audio/examples/play.mp3",
+    "source": "内置100词样板库"
+  }
+}

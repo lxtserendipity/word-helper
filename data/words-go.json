@@ -1,0 +1,13 @@
+{
+  "go": {
+    "word": "go",
+    "phonetic": "/ɡoʊ/",
+    "meaning": "v. 去；走",
+    "example_en": "We go home at five o'clock.",
+    "example_cn": "我们五点钟回家。",
+    "syllables": "go",
+    "word_audio": "audio/words/go.mp3",
+    "example_audio": "audio/examples/go.mp3",
+    "source": "内置100词样板库"
+  }
+}

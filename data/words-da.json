@@ -1,0 +1,24 @@
+{
+  "dance": {
+    "word": "dance",
+    "phonetic": "/dæns/",
+    "meaning": "v. 跳舞",
+    "example_en": "The children dance happily.",
+    "example_cn": "孩子们开心地跳舞。",
+    "syllables": "dance",
+    "word_audio": "audio/words/dance.mp3",
+    "example_audio": "audio/examples/dance.mp3",
+    "source": "内置100词样板库"
+  },
+  "day": {
+    "word": "day",
+    "phonetic": "/deɪ/",
+    "meaning": "n. 一天；白天",
+    "example_en": "Today is a sunny day.",
+    "example_cn": "今天是晴朗的一天。",
+    "syllables": "day",
+    "word_audio": "audio/words/day.mp3",
+    "example_audio": "audio/examples/day.mp3",
+    "source": "内置100词样板库"
+  }
+}

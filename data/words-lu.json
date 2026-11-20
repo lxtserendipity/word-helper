@@ -1,0 +1,13 @@
+{
+  "lunch": {
+    "word": "lunch",
+    "phonetic": "/lʌntʃ/",
+    "meaning": "n. 午餐",
+    "example_en": "We have lunch at school.",
+    "example_cn": "我们在学校吃午餐。",
+    "syllables": "lunch",
+    "word_audio": "audio/words/lunch.mp3",
+    "example_audio": "audio/examples/lunch.mp3",
+    "source": "内置100词样板库"
+  }
+}

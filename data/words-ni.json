@@ -1,0 +1,13 @@
+{
+  "night": {
+    "word": "night",
+    "phonetic": "/naɪt/",
+    "meaning": "n. 夜晚；夜间",
+    "example_en": "The stars are bright at night.",
+    "example_cn": "夜晚星星很明亮。",
+    "syllables": "night",
+    "word_audio": "audio/words/night.mp3",
+    "example_audio": "audio/examples/night.mp3",
+    "source": "内置100词样板库"
+  }
+}

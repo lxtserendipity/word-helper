@@ -1,0 +1,13 @@
+{
+  "happy": {
+    "word": "happy",
+    "phonetic": "/ˈhæpi/",
+    "meaning": "adj. 快乐的；幸福的",
+    "example_en": "The happy children are playing outside.",
+    "example_cn": "快乐的孩子们正在外面玩。",
+    "syllables": "hap,py",
+    "word_audio": "audio/words/happy.mp3",
+    "example_audio": "audio/examples/happy.mp3",
+    "source": "内置100词样板库"
+  }
+}

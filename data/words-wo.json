@@ -1,0 +1,13 @@
+{
+  "work": {
+    "word": "work",
+    "phonetic": "/wɜːrk/",
+    "meaning": "v. 工作；n. 工作",
+    "example_en": "My parents work hard every day.",
+    "example_cn": "我的父母每天努力工作。",
+    "syllables": "work",
+    "word_audio": "audio/words/work.mp3",
+    "example_audio": "audio/examples/work.mp3",
+    "source": "内置100词样板库"
+  }
+}

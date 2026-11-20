@@ -1,0 +1,24 @@
+{
+  "panda": {
+    "word": "panda",
+    "phonetic": "/ˈpændə/",
+    "meaning": "n. 熊猫",
+    "example_en": "The panda eats bamboo.",
+    "example_cn": "这只熊猫吃竹子。",
+    "syllables": "pan,da",
+    "word_audio": "audio/words/panda.mp3",
+    "example_audio": "audio/examples/panda.mp3",
+    "source": "内置100词样板库"
+  },
+  "parent": {
+    "word": "parent",
+    "phonetic": "/ˈperənt/",
+    "meaning": "n. 父亲或母亲；家长",
+    "example_en": "Every parent cares about their child.",
+    "example_cn": "每位家长都关心自己的孩子。",
+    "syllables": "par,ent",
+    "word_audio": "audio/words/parent.mp3",
+    "example_audio": "audio/examples/parent.mp3",
+    "source": "内置100词样板库"
+  }
+}

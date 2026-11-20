@@ -1,0 +1,13 @@
+{
+  "evening": {
+    "word": "evening",
+    "phonetic": "/ˈiːvnɪŋ/",
+    "meaning": "n. 傍晚；晚上",
+    "example_en": "My family watches TV in the evening.",
+    "example_cn": "我的家人晚上看电视。",
+    "syllables": "eve,ning",
+    "word_audio": "audio/words/evening.mp3",
+    "example_audio": "audio/examples/evening.mp3",
+    "source": "内置100词样板库"
+  }
+}

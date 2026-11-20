@@ -1,0 +1,13 @@
+{
+  "book": {
+    "word": "book",
+    "phonetic": "/bʊk/",
+    "meaning": "n. 书；书籍",
+    "example_en": "This book is very interesting.",
+    "example_cn": "这本书很有趣。",
+    "syllables": "book",
+    "word_audio": "audio/words/book.mp3",
+    "example_audio": "audio/examples/book.mp3",
+    "source": "内置100词样板库"
+  }
+}

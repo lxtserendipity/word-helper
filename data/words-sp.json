@@ -1,0 +1,24 @@
+{
+  "speak": {
+    "word": "speak",
+    "phonetic": "/spiːk/",
+    "meaning": "v. 说；讲话",
+    "example_en": "She can speak English well.",
+    "example_cn": "她英语说得很好。",
+    "syllables": "speak",
+    "word_audio": "audio/words/speak.mp3",
+    "example_audio": "audio/examples/speak.mp3",
+    "source": "内置100词样板库"
+  },
+  "spring": {
+    "word": "spring",
+    "phonetic": "/sprɪŋ/",
+    "meaning": "n. 春天",
+    "example_en": "Flowers bloom in spring.",
+    "example_cn": "花儿在春天开放。",
+    "syllables": "spring",
+    "word_audio": "audio/words/spring.mp3",
+    "example_audio": "audio/examples/spring.mp3",
+    "source": "内置100词样板库"
+  }
+}

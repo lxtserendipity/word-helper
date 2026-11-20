@@ -1,0 +1,35 @@
+{
+  "like": {
+    "word": "like",
+    "phonetic": "/laɪk/",
+    "meaning": "v. 喜欢",
+    "example_en": "I like my new school.",
+    "example_cn": "我喜欢我的新学校。",
+    "syllables": "like",
+    "word_audio": "audio/words/like.mp3",
+    "example_audio": "audio/examples/like.mp3",
+    "source": "内置100词样板库"
+  },
+  "lion": {
+    "word": "lion",
+    "phonetic": "/ˈlaɪən/",
+    "meaning": "n. 狮子",
+    "example_en": "The lion lives in Africa.",
+    "example_cn": "这头狮子生活在非洲。",
+    "syllables": "li,on",
+    "word_audio": "audio/words/lion.mp3",
+    "example_audio": "audio/examples/lion.mp3",
+    "source": "内置100词样板库"
+  },
+  "listen": {
+    "word": "listen",
+    "phonetic": "/ˈlɪsən/",
+    "meaning": "v. 听；倾听",
+    "example_en": "Listen to the teacher carefully.",
+    "example_cn": "认真听老师讲课。",
+    "syllables": "lis,ten",
+    "word_audio": "audio/words/listen.mp3",
+    "example_audio": "audio/examples/listen.mp3",
+    "source": "内置100词样板库"
+  }
+}

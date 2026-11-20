@@ -1,0 +1,13 @@
+{
+  "fish": {
+    "word": "fish",
+    "phonetic": "/fɪʃ/",
+    "meaning": "n. 鱼",
+    "example_en": "The fish swims in the water.",
+    "example_cn": "那条鱼在水里游。",
+    "syllables": "fish",
+    "word_audio": "audio/words/fish.mp3",
+    "example_audio": "audio/examples/fish.mp3",
+    "source": "内置100词样板库"
+  }
+}

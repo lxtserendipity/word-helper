@@ -1,0 +1,13 @@
+{
+  "buy": {
+    "word": "buy",
+    "phonetic": "/baɪ/",
+    "meaning": "v. 买；购买",
+    "example_en": "I want to buy a new book.",
+    "example_cn": "我想买一本新书。",
+    "syllables": "buy",
+    "word_audio": "audio/words/buy.mp3",
+    "example_audio": "audio/examples/buy.mp3",
+    "source": "内置100词样板库"
+  }
+}

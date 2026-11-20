@@ -1,0 +1,13 @@
+{
+  "green": {
+    "word": "green",
+    "phonetic": "/ɡriːn/",
+    "meaning": "adj. 绿色的；n. 绿色",
+    "example_en": "The leaves are green in spring.",
+    "example_cn": "春天叶子是绿色的。",
+    "syllables": "green",
+    "word_audio": "audio/words/green.mp3",
+    "example_audio": "audio/examples/green.mp3",
+    "source": "内置100词样板库"
+  }
+}

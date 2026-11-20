@@ -1,0 +1,13 @@
+{
+  "meat": {
+    "word": "meat",
+    "phonetic": "/miːt/",
+    "meaning": "n. 肉",
+    "example_en": "This meat is fresh.",
+    "example_cn": "这肉很新鲜。",
+    "syllables": "meat",
+    "word_audio": "audio/words/meat.mp3",
+    "example_audio": "audio/examples/meat.mp3",
+    "source": "内置100词样板库"
+  }
+}

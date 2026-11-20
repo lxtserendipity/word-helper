@@ -1,0 +1,24 @@
+{
+  "summer": {
+    "word": "summer",
+    "phonetic": "/ˈsʌmər/",
+    "meaning": "n. 夏天",
+    "example_en": "We often swim in summer.",
+    "example_cn": "我们经常在夏天游泳。",
+    "syllables": "sum,mer",
+    "word_audio": "audio/words/summer.mp3",
+    "example_audio": "audio/examples/summer.mp3",
+    "source": "内置100词样板库"
+  },
+  "sunny": {
+    "word": "sunny",
+    "phonetic": "/ˈsʌni/",
+    "meaning": "adj. 晴朗的",
+    "example_en": "It is a sunny day.",
+    "example_cn": "这是晴朗的一天。",
+    "syllables": "sun,ny",
+    "word_audio": "audio/words/sunny.mp3",
+    "example_audio": "audio/examples/sunny.mp3",
+    "source": "内置100词样板库"
+  }
+}

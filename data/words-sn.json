@@ -1,0 +1,13 @@
+{
+  "snowy": {
+    "word": "snowy",
+    "phonetic": "/ˈsnoʊi/",
+    "meaning": "adj. 下雪的；多雪的",
+    "example_en": "The children like snowy days.",
+    "example_cn": "孩子们喜欢下雪天。",
+    "syllables": "snow,y",
+    "word_audio": "audio/words/snowy.mp3",
+    "example_audio": "audio/examples/snowy.mp3",
+    "source": "内置100词样板库"
+  }
+}

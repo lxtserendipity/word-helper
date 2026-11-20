@@ -1,0 +1,13 @@
+{
+  "love": {
+    "word": "love",
+    "phonetic": "/lʌv/",
+    "meaning": "v. 爱；热爱；n. 爱",
+    "example_en": "They love their little dog.",
+    "example_cn": "他们爱他们的小狗。",
+    "syllables": "love",
+    "word_audio": "audio/words/love.mp3",
+    "example_audio": "audio/examples/love.mp3",
+    "source": "内置100词样板库"
+  }
+}

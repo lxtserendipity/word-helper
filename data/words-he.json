@@ -1,0 +1,13 @@
+{
+  "help": {
+    "word": "help",
+    "phonetic": "/help/",
+    "meaning": "v. 帮助；n. 帮助",
+    "example_en": "Can you help me, please?",
+    "example_cn": "请问你能帮助我吗？",
+    "syllables": "help",
+    "word_audio": "audio/words/help.mp3",
+    "example_audio": "audio/examples/help.mp3",
+    "source": "内置100词样板库"
+  }
+}

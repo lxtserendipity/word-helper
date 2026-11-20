@@ -1,0 +1,35 @@
+{
+  "color": {
+    "word": "color",
+    "phonetic": "/ˈkʌlər/",
+    "meaning": "n. 颜色",
+    "example_en": "What is your favorite color?",
+    "example_cn": "你最喜欢什么颜色？",
+    "syllables": "col,or",
+    "word_audio": "audio/words/color.mp3",
+    "example_audio": "audio/examples/color.mp3",
+    "source": "内置100词样板库"
+  },
+  "come": {
+    "word": "come",
+    "phonetic": "/kʌm/",
+    "meaning": "v. 来；来到",
+    "example_en": "Come and look at this picture.",
+    "example_cn": "过来看看这幅画。",
+    "syllables": "come",
+    "word_audio": "audio/words/come.mp3",
+    "example_audio": "audio/examples/come.mp3",
+    "source": "内置100词样板库"
+  },
+  "computer": {
+    "word": "computer",
+    "phonetic": "/kəmˈpjuːtər/",
+    "meaning": "n. 电脑；计算机",
+    "example_en": "I use my computer every day.",
+    "example_cn": "我每天都使用电脑。",
+    "syllables": "com,pu,ter",
+    "word_audio": "audio/words/computer.mp3",
+    "example_audio": "audio/examples/computer.mp3",
+    "source": "内置100词样板库"
+  }
+}

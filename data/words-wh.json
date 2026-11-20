@@ -1,0 +1,13 @@
+{
+  "white": {
+    "word": "white",
+    "phonetic": "/waɪt/",
+    "meaning": "adj. 白色的；n. 白色",
+    "example_en": "The white cat is cute.",
+    "example_cn": "这只白猫很可爱。",
+    "syllables": "white",
+    "word_audio": "audio/words/white.mp3",
+    "example_audio": "audio/examples/white.mp3",
+    "source": "内置100词样板库"
+  }
+}

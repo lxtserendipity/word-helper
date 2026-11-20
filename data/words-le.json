@@ -1,0 +1,13 @@
+{
+  "learn": {
+    "word": "learn",
+    "phonetic": "/lɜːrn/",
+    "meaning": "v. 学习；学会",
+    "example_en": "We learn new words every day.",
+    "example_cn": "我们每天学习新单词。",
+    "syllables": "learn",
+    "word_audio": "audio/words/learn.mp3",
+    "example_audio": "audio/examples/learn.mp3",
+    "source": "内置100词样板库"
+  }
+}

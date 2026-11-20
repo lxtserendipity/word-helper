@@ -1,0 +1,46 @@
+{
+  "monkey": {
+    "word": "monkey",
+    "phonetic": "/ˈmʌŋki/",
+    "meaning": "n. 猴子",
+    "example_en": "The monkey is climbing a tree.",
+    "example_cn": "那只猴子正在爬树。",
+    "syllables": "mon,key",
+    "word_audio": "audio/words/monkey.mp3",
+    "example_audio": "audio/examples/monkey.mp3",
+    "source": "内置100词样板库"
+  },
+  "month": {
+    "word": "month",
+    "phonetic": "/mʌnθ/",
+    "meaning": "n. 月；月份",
+    "example_en": "December is the last month of the year.",
+    "example_cn": "十二月是一年中的最后一个月。",
+    "syllables": "month",
+    "word_audio": "audio/words/month.mp3",
+    "example_audio": "audio/examples/month.mp3",
+    "source": "内置100词样板库"
+  },
+  "morning": {
+    "word": "morning",
+    "phonetic": "/ˈmɔːrnɪŋ/",
+    "meaning": "n. 早晨；上午",
+    "example_en": "I read English in the morning.",
+    "example_cn": "我早上读英语。",
+    "syllables": "morn,ing",
+    "word_audio": "audio/words/morning.mp3",
+    "example_audio": "audio/examples/morning.mp3",
+    "source": "内置100词样板库"
+  },
+  "mother": {
+    "word": "mother",
+    "phonetic": "/ˈmʌðər/",
+    "meaning": "n. 母亲；妈妈",
+    "example_en": "My mother cooks dinner every evening.",
+    "example_cn": "我的妈妈每天傍晚做晚饭。",
+    "syllables": "mo,ther",
+    "word_audio": "audio/words/mother.mp3",
+    "example_audio": "audio/examples/mother.mp3",
+    "source": "内置100词样板库"
+  }
+}

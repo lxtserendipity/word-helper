@@ -1,0 +1,24 @@
+{
+  "read": {
+    "word": "read",
+    "phonetic": "/riːd/",
+    "meaning": "v. 读；阅读",
+    "example_en": "I read a story every night.",
+    "example_cn": "我每晚读一个故事。",
+    "syllables": "read",
+    "word_audio": "audio/words/read.mp3",
+    "example_audio": "audio/examples/read.mp3",
+    "source": "内置100词样板库"
+  },
+  "red": {
+    "word": "red",
+    "phonetic": "/red/",
+    "meaning": "adj. 红色的；n. 红色",
+    "example_en": "The red flower is beautiful.",
+    "example_cn": "这朵红花很漂亮。",
+    "syllables": "red",
+    "word_audio": "audio/words/red.mp3",
+    "example_audio": "audio/examples/red.mp3",
+    "source": "内置100词样板库"
+  }
+}

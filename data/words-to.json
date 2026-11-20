@@ -1,0 +1,13 @@
+{
+  "today": {
+    "word": "today",
+    "phonetic": "/təˈdeɪ/",
+    "meaning": "adv. 在今天；n. 今天",
+    "example_en": "I am very busy today.",
+    "example_cn": "我今天很忙。",
+    "syllables": "to,day",
+    "word_audio": "audio/words/today.mp3",
+    "example_audio": "audio/examples/today.mp3",
+    "source": "内置100词样板库"
+  }
+}

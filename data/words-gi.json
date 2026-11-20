@@ -1,0 +1,13 @@
+{
+  "give": {
+    "word": "give",
+    "phonetic": "/ɡɪv/",
+    "meaning": "v. 给；给予",
+    "example_en": "Give me the red pen, please.",
+    "example_cn": "请把那支红笔给我。",
+    "syllables": "give",
+    "word_audio": "audio/words/give.mp3",
+    "example_audio": "audio/examples/give.mp3",
+    "source": "内置100词样板库"
+  }
+}

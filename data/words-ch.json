@@ -1,0 +1,13 @@
+{
+  "child": {
+    "word": "child",
+    "phonetic": "/tʃaɪld/",
+    "meaning": "n. 孩子；儿童",
+    "example_en": "The child is playing in the park.",
+    "example_cn": "那个孩子正在公园里玩。",
+    "syllables": "child",
+    "word_audio": "audio/words/child.mp3",
+    "example_audio": "audio/examples/child.mp3",
+    "source": "内置100词样板库"
+  }
+}

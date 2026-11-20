@@ -1,0 +1,24 @@
+{
+  "windy": {
+    "word": "windy",
+    "phonetic": "/ˈwɪndi/",
+    "meaning": "adj. 有风的；多风的",
+    "example_en": "It is too windy to go outside.",
+    "example_cn": "风太大了，不适合外出。",
+    "syllables": "wind,y",
+    "word_audio": "audio/words/windy.mp3",
+    "example_audio": "audio/examples/windy.mp3",
+    "source": "内置100词样板库"
+  },
+  "winter": {
+    "word": "winter",
+    "phonetic": "/ˈwɪntər/",
+    "meaning": "n. 冬天",
+    "example_en": "Winter is the coldest season.",
+    "example_cn": "冬天是最冷的季节。",
+    "syllables": "win,ter",
+    "word_audio": "audio/words/winter.mp3",
+    "example_audio": "audio/examples/winter.mp3",
+    "source": "内置100词样板库"
+  }
+}

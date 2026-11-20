@@ -1,0 +1,13 @@
+{
+  "school": {
+    "word": "school",
+    "phonetic": "/skuːl/",
+    "meaning": "n. 学校",
+    "example_en": "I walk to school every day.",
+    "example_cn": "我每天步行去学校。",
+    "syllables": "school",
+    "word_audio": "audio/words/school.mp3",
+    "example_audio": "audio/examples/school.mp3",
+    "source": "内置100词样板库"
+  }
+}

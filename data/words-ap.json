@@ -1,0 +1,13 @@
+{
+  "apple": {
+    "word": "apple",
+    "phonetic": "/ˈæpəl/",
+    "meaning": "n. 苹果",
+    "example_en": "She eats an apple every day.",
+    "example_cn": "她每天吃一个苹果。",
+    "syllables": "ap,ple",
+    "word_audio": "audio/words/apple.mp3",
+    "example_audio": "audio/examples/apple.mp3",
+    "source": "内置100词样板库"
+  }
+}

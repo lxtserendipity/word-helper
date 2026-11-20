@@ -1,0 +1,24 @@
+{
+  "teach": {
+    "word": "teach",
+    "phonetic": "/tiːtʃ/",
+    "meaning": "v. 教；讲授",
+    "example_en": "Ms. Li will teach us English today.",
+    "example_cn": "李老师今天将教我们英语。",
+    "syllables": "teach",
+    "word_audio": "audio/words/teach.mp3",
+    "example_audio": "audio/examples/teach.mp3",
+    "source": "内置100词样板库"
+  },
+  "teacher": {
+    "word": "teacher",
+    "phonetic": "/ˈtiːtʃər/",
+    "meaning": "n. 老师；教师",
+    "example_en": "My teacher is very kind.",
+    "example_cn": "我的老师很友善。",
+    "syllables": "tea,cher",
+    "word_audio": "audio/words/teacher.mp3",
+    "example_audio": "audio/examples/teacher.mp3",
+    "source": "内置100词样板库"
+  }
+}

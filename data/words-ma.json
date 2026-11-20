@@ -1,0 +1,13 @@
+{
+  "make": {
+    "word": "make",
+    "phonetic": "/meɪk/",
+    "meaning": "v. 制作；使",
+    "example_en": "I make a card for my mother.",
+    "example_cn": "我为妈妈制作一张卡片。",
+    "syllables": "make",
+    "word_audio": "audio/words/make.mp3",
+    "example_audio": "audio/examples/make.mp3",
+    "source": "内置100词样板库"
+  }
+}

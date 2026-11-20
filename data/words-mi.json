@@ -1,0 +1,13 @@
+{
+  "milk": {
+    "word": "milk",
+    "phonetic": "/mɪlk/",
+    "meaning": "n. 牛奶",
+    "example_en": "The milk is fresh.",
+    "example_cn": "这牛奶很新鲜。",
+    "syllables": "milk",
+    "word_audio": "audio/words/milk.mp3",
+    "example_audio": "audio/examples/milk.mp3",
+    "source": "内置100词样板库"
+  }
+}

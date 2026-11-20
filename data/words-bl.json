@@ -1,0 +1,24 @@
+{
+  "black": {
+    "word": "black",
+    "phonetic": "/blæk/",
+    "meaning": "adj. 黑色的；n. 黑色",
+    "example_en": "My shoes are black.",
+    "example_cn": "我的鞋是黑色的。",
+    "syllables": "black",
+    "word_audio": "audio/words/black.mp3",
+    "example_audio": "audio/examples/black.mp3",
+    "source": "内置100词样板库"
+  },
+  "blue": {
+    "word": "blue",
+    "phonetic": "/bluː/",
+    "meaning": "adj. 蓝色的；n. 蓝色",
+    "example_en": "The sky is blue today.",
+    "example_cn": "今天的天空很蓝。",
+    "syllables": "blue",
+    "word_audio": "audio/words/blue.mp3",
+    "example_audio": "audio/examples/blue.mp3",
+    "source": "内置100词样板库"
+  }
+}

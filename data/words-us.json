@@ -1,0 +1,13 @@
+{
+  "use": {
+    "word": "use",
+    "phonetic": "/juːz/",
+    "meaning": "v. 使用；利用",
+    "example_en": "You can use my pencil.",
+    "example_cn": "你可以使用我的铅笔。",
+    "syllables": "use",
+    "word_audio": "audio/words/use.mp3",
+    "example_audio": "audio/examples/use.mp3",
+    "source": "内置100词样板库"
+  }
+}

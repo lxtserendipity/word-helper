@@ -1,0 +1,24 @@
+{
+  "rabbit": {
+    "word": "rabbit",
+    "phonetic": "/ˈræbɪt/",
+    "meaning": "n. 兔子",
+    "example_en": "The rabbit has long ears.",
+    "example_cn": "这只兔子有长耳朵。",
+    "syllables": "rab,bit",
+    "word_audio": "audio/words/rabbit.mp3",
+    "example_audio": "audio/examples/rabbit.mp3",
+    "source": "内置100词样板库"
+  },
+  "rainy": {
+    "word": "rainy",
+    "phonetic": "/ˈreɪni/",
+    "meaning": "adj. 下雨的；多雨的",
+    "example_en": "We stay at home on rainy days.",
+    "example_cn": "下雨天我们待在家里。",
+    "syllables": "rain,y",
+    "word_audio": "audio/words/rainy.mp3",
+    "example_audio": "audio/examples/rainy.mp3",
+    "source": "内置100词样板库"
+  }
+}

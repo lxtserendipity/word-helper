@@ -1,0 +1,13 @@
+{
+  "take": {
+    "word": "take",
+    "phonetic": "/teɪk/",
+    "meaning": "v. 拿；带走",
+    "example_en": "Take your umbrella with you.",
+    "example_cn": "带上你的雨伞。",
+    "syllables": "take",
+    "word_audio": "audio/words/take.mp3",
+    "example_audio": "audio/examples/take.mp3",
+    "source": "内置100词样板库"
+  }
+}

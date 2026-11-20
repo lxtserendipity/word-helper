@@ -1,0 +1,13 @@
+{
+  "eat": {
+    "word": "eat",
+    "phonetic": "/iːt/",
+    "meaning": "v. 吃",
+    "example_en": "Eat your vegetables every day.",
+    "example_cn": "每天都要吃蔬菜。",
+    "syllables": "eat",
+    "word_audio": "audio/words/eat.mp3",
+    "example_audio": "audio/examples/eat.mp3",
+    "source": "内置100词样板库"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "year": {
+    "word": "year",
+    "phonetic": "/jɪr/",
+    "meaning": "n. 年；年份",
+    "example_en": "The new year begins in January.",
+    "example_cn": "新的一年从一月开始。",
+    "syllables": "year",
+    "word_audio": "audio/words/year.mp3",
+    "example_audio": "audio/examples/year.mp3",
+    "source": "内置100词样板库"
+  },
+  "yellow": {
+    "word": "yellow",
+    "phonetic": "/ˈjeloʊ/",
+    "meaning": "adj. 黄色的；n. 黄色",
+    "example_en": "The yellow dress is pretty.",
+    "example_cn": "这条黄色连衣裙很漂亮。",
+    "syllables": "yel,low",
+    "word_audio": "audio/words/yellow.mp3",
+    "example_audio": "audio/examples/yellow.mp3",
+    "source": "内置100词样板库"
+  }
+}

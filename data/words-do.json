@@ -1,0 +1,13 @@
+{
+  "dog": {
+    "word": "dog",
+    "phonetic": "/dɔːɡ/",
+    "meaning": "n. 狗",
+    "example_en": "The dog is running in the park.",
+    "example_cn": "那只狗正在公园里跑。",
+    "syllables": "dog",
+    "word_audio": "audio/words/dog.mp3",
+    "example_audio": "audio/examples/dog.mp3",
+    "source": "内置100词样板库"
+  }
+}

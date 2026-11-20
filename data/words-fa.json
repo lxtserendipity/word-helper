@@ -1,0 +1,24 @@
+{
+  "family": {
+    "word": "family",
+    "phonetic": "/ˈfæməli/",
+    "meaning": "n. 家庭；家人",
+    "example_en": "I love my family.",
+    "example_cn": "我爱我的家人。",
+    "syllables": "fam,i,ly",
+    "word_audio": "audio/words/family.mp3",
+    "example_audio": "audio/examples/family.mp3",
+    "source": "内置100词样板库"
+  },
+  "father": {
+    "word": "father",
+    "phonetic": "/ˈfɑːðər/",
+    "meaning": "n. 父亲；爸爸",
+    "example_en": "My father works in a hospital.",
+    "example_cn": "我的爸爸在医院工作。",
+    "syllables": "fa,ther",
+    "word_audio": "audio/words/father.mp3",
+    "example_audio": "audio/examples/father.mp3",
+    "source": "内置100词样板库"
+  }
+}

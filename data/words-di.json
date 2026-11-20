@@ -1,0 +1,13 @@
+{
+  "dinner": {
+    "word": "dinner",
+    "phonetic": "/ˈdɪnər/",
+    "meaning": "n. 晚餐；正餐",
+    "example_en": "My family has dinner together.",
+    "example_cn": "我的家人一起吃晚饭。",
+    "syllables": "din,ner",
+    "word_audio": "audio/words/dinner.mp3",
+    "example_audio": "audio/examples/dinner.mp3",
+    "source": "内置100词样板库"
+  }
+}

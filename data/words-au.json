@@ -1,0 +1,13 @@
+{
+  "autumn": {
+    "word": "autumn",
+    "phonetic": "/ˈɔːtəm/",
+    "meaning": "n. 秋天",
+    "example_en": "The leaves turn yellow in autumn.",
+    "example_cn": "秋天树叶变黄。",
+    "syllables": "au,tumn",
+    "word_audio": "audio/words/autumn.mp3",
+    "example_audio": "audio/examples/autumn.mp3",
+    "source": "内置100词样板库"
+  }
+}

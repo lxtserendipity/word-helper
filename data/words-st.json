@@ -1,0 +1,24 @@
+{
+  "student": {
+    "word": "student",
+    "phonetic": "/ˈstjuːdənt/",
+    "meaning": "n. 学生",
+    "example_en": "He is a good student.",
+    "example_cn": "他是一个好学生。",
+    "syllables": "stu,dent",
+    "word_audio": "audio/words/student.mp3",
+    "example_audio": "audio/examples/student.mp3",
+    "source": "内置100词样板库"
+  },
+  "study": {
+    "word": "study",
+    "phonetic": "/ˈstʌdi/",
+    "meaning": "v. 学习；n. 学习；书房",
+    "example_en": "I study English at school.",
+    "example_cn": "我在学校学习英语。",
+    "syllables": "stud,y",
+    "word_audio": "audio/words/study.mp3",
+    "example_audio": "audio/examples/study.mp3",
+    "source": "内置100词样板库"
+  }
+}

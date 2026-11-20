@@ -1,0 +1,13 @@
+{
+  "egg": {
+    "word": "egg",
+    "phonetic": "/eɡ/",
+    "meaning": "n. 鸡蛋；蛋",
+    "example_en": "He boiled an egg for breakfast.",
+    "example_cn": "他早餐煮了一个鸡蛋。",
+    "syllables": "egg",
+    "word_audio": "audio/words/egg.mp3",
+    "example_audio": "audio/examples/egg.mp3",
+    "source": "内置100词样板库"
+  }
+}

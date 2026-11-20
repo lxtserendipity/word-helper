@@ -1,0 +1,13 @@
+{
+  "food": {
+    "word": "food",
+    "phonetic": "/fuːd/",
+    "meaning": "n. 食物",
+    "example_en": "The food smells good.",
+    "example_cn": "这食物闻起来很香。",
+    "syllables": "food",
+    "word_audio": "audio/words/food.mp3",
+    "example_audio": "audio/examples/food.mp3",
+    "source": "内置100词样板库"
+  }
+}

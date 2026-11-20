@@ -1,0 +1,13 @@
+{
+  "see": {
+    "word": "see",
+    "phonetic": "/siː/",
+    "meaning": "v. 看见；看到",
+    "example_en": "I see a bird in the tree.",
+    "example_cn": "我看见树上有一只鸟。",
+    "syllables": "see",
+    "word_audio": "audio/words/see.mp3",
+    "example_audio": "audio/examples/see.mp3",
+    "source": "内置100词样板库"
+  }
+}

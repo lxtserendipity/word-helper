@@ -1,0 +1,13 @@
+{
+  "swim": {
+    "word": "swim",
+    "phonetic": "/swɪm/",
+    "meaning": "v. 游泳",
+    "example_en": "She can swim very well.",
+    "example_cn": "她游泳游得很好。",
+    "syllables": "swim",
+    "word_audio": "audio/words/swim.mp3",
+    "example_audio": "audio/examples/swim.mp3",
+    "source": "内置100词样板库"
+  }
+}

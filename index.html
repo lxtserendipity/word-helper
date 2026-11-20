@@ -486,7 +486,7 @@
                 <div>
                     <label for="csv-file-input" class="block text-sm font-medium text-slate-700 mb-1">选择CSV文件</label>
                     <input type="file" id="csv-file-input" accept=".csv" class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all">
-                    <p class="text-xs text-slate-500 mt-1">支持的格式：word,phonetic,meaning,example_en,example_cn,syllables</p>
+                    <p class="text-xs text-slate-500 mt-1">支持的格式：word,phonetic,meaning,example_en,example_cn,syllables,word_audio,example_audio</p>
                     <p class="text-xs text-blue-500 mt-0.5">支持标准 CSV 引号、逗号和换行；音节请用英文逗号分隔。</p>
                 </div>
                 <div>
@@ -634,13 +634,16 @@
         let lastWrongSignature = '';
         const submittingWordIds = new Set();
         let smartFetchRequestId = 0;
+        let staticPackIndexPromise = null;
+        const staticPackShards = new Map();
+        let currentSmartAudio = { word: '', example_en: '', word_audio: '', example_audio: '' };
 
         const sampleWords = [
-            { word: 'teacher', phonetic: '/ˈtiːtʃə/', meaning: '老师', example_en: 'My teacher is very kind.', example_cn: '我的老师很友善。', syllables: 'tea,cher' },
-            { word: 'student', phonetic: '/ˈstjuːdənt/', meaning: '学生', example_en: 'He is a good student.', example_cn: '他是一个好学生。', syllables: 'stu,dent' },
-            { word: 'book', phonetic: '/bʊk/', meaning: '书', example_en: 'I like reading books.', example_cn: '我喜欢读书。', syllables: 'book' },
-            { word: 'computer', phonetic: '/kəmˈpjuːtə/', meaning: '电脑', example_en: 'I use my computer every day.', example_cn: '我每天都用电脑。', syllables: 'com,pu,ter' },
-            { word: 'friend', phonetic: '/frend/', meaning: '朋友', example_en: 'He is my best friend.', example_cn: '他是我最好的朋友。', syllables: 'friend' }
+            { word: 'teacher', phonetic: '/ˈtiːtʃər/', meaning: 'n. 老师；教师', example_en: 'My teacher is very kind.', example_cn: '我的老师很友善。', syllables: 'tea,cher', word_audio: 'audio/words/teacher.mp3', example_audio: 'audio/examples/teacher.mp3' },
+            { word: 'student', phonetic: '/ˈstjuːdənt/', meaning: 'n. 学生', example_en: 'He is a good student.', example_cn: '他是一个好学生。', syllables: 'stu,dent', word_audio: 'audio/words/student.mp3', example_audio: 'audio/examples/student.mp3' },
+            { word: 'book', phonetic: '/bʊk/', meaning: 'n. 书；书籍', example_en: 'This book is very interesting.', example_cn: '这本书很有趣。', syllables: 'book', word_audio: 'audio/words/book.mp3', example_audio: 'audio/examples/book.mp3' },
+            { word: 'computer', phonetic: '/kəmˈpjuːtər/', meaning: 'n. 电脑；计算机', example_en: 'I use my computer every day.', example_cn: '我每天都使用电脑。', syllables: 'com,pu,ter', word_audio: 'audio/words/computer.mp3', example_audio: 'audio/examples/computer.mp3' },
+            { word: 'friend', phonetic: '/frend/', meaning: 'n. 朋友', example_en: 'He is my best friend.', example_cn: '他是我最好的朋友。', syllables: 'friend', word_audio: 'audio/words/friend.mp3', example_audio: 'audio/examples/friend.mp3' }
         ];
 
         function refreshIcons() {
@@ -772,6 +775,8 @@
                 syllables: word.syllables || '',
                 example_en: word.example_en || '',
                 example_cn: word.example_cn || '',
+                word_audio: word.word_audio || '',
+                example_audio: word.example_audio || '',
                 createdAt: word.createdAt || new Date().toISOString(),
                 updatedAt: word.updatedAt || null
             };
@@ -1195,7 +1200,7 @@
             updateProgress();
 
             if (!suppressAutoPlay && (speak || settings.autoPlay)) {
-                playWord(word.word);
+                playRecordAudio(word, 'word');
             } else {
                 stopSpeech();
             }
@@ -1322,7 +1327,7 @@
                 revealTargetInExample(document.getElementById('word-example-en'), word.example_en, word.word);
             }
             renderSyllables(document.getElementById('hint-container'), word, '-');
-            playWord(word.word);
+            playRecordAudio(word, 'word');
 
             // 语音与保存分离：连续点击也会重新朗读，不会被上一次保存阻塞。
             if (submittingWordIds.has(word.id)) return;
@@ -1368,12 +1373,12 @@
 
         function playCurrentWord() {
             const word = filteredWordList[currentIndex];
-            if (word) playWord(word.word);
+            if (word) playRecordAudio(word, 'word');
         }
 
         function playCurrentExample() {
             const word = filteredWordList[currentIndex];
-            if (word?.example_en) playOnlineAudio(word.example_en, 0.68);
+            if (word?.example_en) playRecordAudio(word, 'example');
         }
 
         function stopSpeech() {
@@ -1455,7 +1460,7 @@
             }, startDelay);
         }
 
-        async function playOnlineAudio(text, playbackRate = 0.82) {
+        async function playOnlineAudio(text, playbackRate = 0.82, preferredAudioUrl = '') {
             const content = String(text || '').trim();
             if (!content) return;
             if (typeof Audio === 'undefined') {
@@ -1470,23 +1475,56 @@
             audio.defaultPlaybackRate = playbackRate;
             audio.playbackRate = playbackRate;
             audio.preservesPitch = true;
-            audio.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(content)}&type=2`;
+            audio.src = preferredAudioUrl || `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(content)}&type=2`;
             audio.onended = () => {
                 if (requestId === speechRequestId) activeAudio = null;
             };
-            audio.onerror = () => {
-                if (requestId === speechRequestId) playSpeech(content);
+            let fallbackStarted = false;
+            const fallback = () => {
+                if (fallbackStarted || requestId !== speechRequestId) return;
+                fallbackStarted = true;
+                // 本地音频不存在或无法解码时，退回在线发音；在线发音再失败才使用系统合成。
+                if (preferredAudioUrl) playOnlineAudio(content, playbackRate);
+                else playSpeech(content);
             };
+            audio.onerror = fallback;
             try {
                 await audio.play();
             } catch (error) {
-                if (requestId === speechRequestId && error.name !== 'AbortError') playSpeech(content);
+                if (error.name !== 'AbortError') fallback();
             }
         }
 
-        function playWord(text) {
+        function playWord(text, preferredAudioUrl = '') {
             const content = String(text || '').trim();
-            if (content) playOnlineAudio(content);
+            if (content) playOnlineAudio(content, 0.82, preferredAudioUrl);
+        }
+
+        async function ensurePackAudio(word) {
+            if (!word || (word.word_audio && word.example_audio)) return;
+            const info = await lookupStaticPackWord(word.word);
+            if (!info) return;
+            if (!word.word_audio) word.word_audio = info.wordAudio || '';
+            // 只有例句文本完全一致时才能使用库内例句音频，避免播错用户修改过的句子。
+            if (!word.example_audio && word.example_en === info.exampleEn) {
+                word.example_audio = info.exampleAudio || '';
+            }
+        }
+
+        async function playRecordAudio(word, type) {
+            if (!word) return;
+            const isExample = type === 'example';
+            const text = isExample ? word.example_en : word.word;
+            if (!text) return;
+            stopSpeech();
+            const requestId = speechRequestId;
+            const audioKey = isExample ? 'example_audio' : 'word_audio';
+            if (!word[audioKey]) {
+                await ensurePackAudio(word);
+                if (requestId !== speechRequestId) return;
+            }
+            if (isExample) playOnlineAudio(text, 0.68, word.example_audio);
+            else playWord(text, word.word_audio);
         }
 
         function updateProgress() {
@@ -1634,7 +1672,7 @@
                 icon.dataset.lucide = 'volume-2';
                 icon.className = 'w-4 h-4';
                 playButton.appendChild(icon);
-                playButton.addEventListener('click', () => playWord(word.word));
+                playButton.addEventListener('click', () => playRecordAudio(word, 'word'));
                 actions.append(editButton, playButton);
                 row.append(left, actions);
                 card.appendChild(row);
@@ -1686,6 +1724,7 @@
         }
 
         function resetSmartSourceNote() {
+            currentSmartAudio = { word: '', example_en: '', word_audio: '', example_audio: '' };
             const note = document.getElementById('smart-example-source');
             if (note) {
                 note.classList.add('hidden');
@@ -1697,6 +1736,52 @@
             smartFetchRequestId += 1;
             setSmartFetchLoading(false);
             resetSmartSourceNote();
+        }
+
+        function loadStaticPackIndex() {
+            if (!staticPackIndexPromise) {
+                staticPackIndexPromise = fetch('data/index.json')
+                    .then(response => {
+                        if (!response.ok) throw new Error(`静态词库请求失败（${response.status}）`);
+                        return response.json();
+                    })
+                    .catch(error => {
+                        staticPackIndexPromise = null;
+                        throw error;
+                    });
+            }
+            return staticPackIndexPromise;
+        }
+
+        async function lookupStaticPackWord(requestedWord) {
+            const key = String(requestedWord || '').trim().toLowerCase();
+            if (!key) return null;
+            try {
+                const index = await loadStaticPackIndex();
+                const shardFile = index.words?.[key];
+                if (!shardFile) return null;
+                if (!staticPackShards.has(shardFile)) {
+                    const response = await fetch(`data/${shardFile}`);
+                    if (!response.ok) throw new Error(`词库分片请求失败（${response.status}）`);
+                    staticPackShards.set(shardFile, await response.json());
+                }
+                const item = staticPackShards.get(shardFile)?.[key];
+                if (!item) return null;
+                return {
+                    phonetic: item.phonetic || '',
+                    meaning: item.meaning || '',
+                    exampleEn: item.example_en || '',
+                    exampleCn: item.example_cn || '',
+                    exampleSource: item.source || '内置静态词库',
+                    syllables: item.syllables || '',
+                    wordAudio: item.word_audio || '',
+                    exampleAudio: item.example_audio || ''
+                };
+            } catch (error) {
+                // file:// 双击打开或分片缺失时不阻断添加流程，继续使用在线词典。
+                console.warn('本地词库读取失败，改用在线词典:', error);
+                return null;
+            }
         }
 
         async function fetchOfficialWordInfo(word, timeoutMs = 12000) {
@@ -1817,13 +1902,20 @@
             }
             if (!example) throw new Error('未找到完整的词典双语例句，请手动填写');
 
+            const dictionaryAudio = (symbol.ph_am && symbol.ph_am_mp3)
+                || (symbol.ph_en && symbol.ph_en_mp3)
+                || symbol.ph_tts_mp3
+                || '';
             return {
                 phonetic: phoneticText ? `/${phoneticText.replace(/^\/+|\/+$/g, '')}/` : '',
                 meaning,
                 exampleEn: example.en,
                 exampleCn: example.cn,
                 exampleSource: example.source,
-                syllables: guessSyllables(requestedWord)
+                // 在线词典未提供音节划分，不再用规则猜测，留空由用户核对。
+                syllables: '',
+                wordAudio: dictionaryAudio ? dictionaryAudio.replace(/^http:\/\//, 'https://') : '',
+                exampleAudio: ''
             };
         }
 
@@ -1839,9 +1931,9 @@
             resetSmartSourceNote();
             setSmartFetchLoading(true);
             try {
-                const wordInfo = await fetchOfficialWordInfo(requestedWord);
+                const packedInfo = await lookupStaticPackWord(requestedWord);
                 if (requestId !== smartFetchRequestId) return;
-                const info = extractOfficialWordInfo(wordInfo, requestedWord);
+                const info = packedInfo || extractOfficialWordInfo(await fetchOfficialWordInfo(requestedWord), requestedWord);
                 if (requestId !== smartFetchRequestId || String(wordInput.value || '').trim().toLowerCase() !== requestedWord.toLowerCase()) return;
 
                 document.getElementById('phonetic-input').value = info.phonetic;
@@ -1849,10 +1941,20 @@
                 document.getElementById('meaning-input').value = info.meaning;
                 document.getElementById('example-en-input').value = info.exampleEn;
                 document.getElementById('example-cn-input').value = info.exampleCn;
+                currentSmartAudio = {
+                    word: requestedWord.toLowerCase(),
+                    example_en: info.exampleEn,
+                    word_audio: info.wordAudio || '',
+                    example_audio: info.exampleAudio || ''
+                };
                 const sourceNote = document.getElementById('smart-example-source');
-                sourceNote.textContent = `释义来源：金山词霸；例句来源：${info.exampleSource}`;
+                sourceNote.textContent = packedInfo
+                    ? `来源：${info.exampleSource}；单词和例句均使用库内音频`
+                    : `释义来源：金山词霸；例句来源：${info.exampleSource}；音节请手动填写或核对`;
                 sourceNote.classList.remove('hidden');
-                showInfoModal('智能获取完成', '已采用金山词霸常用释义和原配双语例句，请检查后保存。');
+                showInfoModal('智能获取完成', packedInfo
+                    ? '已从内置词库读取，并关联本地音频，请检查后保存。'
+                    : '已采用金山词霸常用释义和原配双语例句，请检查后保存。');
             } catch (error) {
                 if (requestId !== smartFetchRequestId) return;
                 console.error('智能获取失败:', error);
@@ -1861,7 +1963,7 @@
                     : (error.status === 404
                         ? '暂未找到该单词，请检查拼写。'
                         : (error.name === 'TypeError'
-                            ? '无法连接金山词霸，请检查网络后重试，或手动填写。'
+                            ? '在线词典受到跨域访问限制或暂时不可用，请手动填写，或先将该词加入静态词库。'
                             : (error.message || '获取失败，请稍后重试，或手动填写。')));
                 showInfoModal('智能获取失败', message);
             } finally {
@@ -1894,6 +1996,12 @@
             document.getElementById('meaning-input').value = word.meaning;
             document.getElementById('example-en-input').value = word.example_en || '';
             document.getElementById('example-cn-input').value = word.example_cn || '';
+            currentSmartAudio = {
+                word: word.word.trim().toLowerCase(),
+                example_en: word.example_en || '',
+                word_audio: word.word_audio || '',
+                example_audio: word.example_audio || ''
+            };
             document.getElementById('add-word-title').textContent = '编辑单词';
             document.getElementById('add-word-modal').classList.remove('hidden');
             refreshIcons();
@@ -1908,7 +2016,11 @@
                 meaning: String(formData.get('meaning') || '').trim(),
                 syllables: String(formData.get('syllables') || '').trim(),
                 example_en: String(formData.get('exampleEn') || '').trim(),
-                example_cn: String(formData.get('exampleCn') || '').trim()
+                example_cn: String(formData.get('exampleCn') || '').trim(),
+                word_audio: currentSmartAudio.word === String(formData.get('word') || '').trim().toLowerCase()
+                    ? currentSmartAudio.word_audio : '',
+                example_audio: currentSmartAudio.example_en === String(formData.get('exampleEn') || '').trim()
+                    ? currentSmartAudio.example_audio : ''
             };
             if (!wordData.word || !wordData.meaning) {
                 showInfoModal('错误', '单词和释义不能为空');
@@ -2118,7 +2230,9 @@
                 meaning: String(raw.meaning || '').trim(),
                 example_en: String(raw.example_en || '').trim(),
                 example_cn: String(raw.example_cn || '').trim(),
-                syllables: String(raw.syllables || '').split(',').map(item => item.trim()).filter(Boolean).join(',')
+                syllables: String(raw.syllables || '').split(',').map(item => item.trim()).filter(Boolean).join(','),
+                word_audio: String(raw.word_audio || '').trim(),
+                example_audio: String(raw.example_audio || '').trim()
             };
         }
 
@@ -2223,7 +2337,7 @@
                 showInfoModal('提示', '没有单词可以导出');
                 return;
             }
-            const headers = ['word', 'phonetic', 'meaning', 'example_en', 'example_cn', 'syllables'];
+            const headers = ['word', 'phonetic', 'meaning', 'example_en', 'example_cn', 'syllables', 'word_audio', 'example_audio'];
             const lines = [headers.join(','), ...wordList.map(word => headers.map(header => csvEscape(word[header])).join(','))];
             downloadBlob(`\uFEFF${lines.join('\r\n')}`, 'text/csv;charset=utf-8;', `words_${new Date().toISOString().split('T')[0]}.csv`);
         }

@@ -1,0 +1,35 @@
+{
+  "class": {
+    "word": "class",
+    "phonetic": "/klæs/",
+    "meaning": "n. 班级；课",
+    "example_en": "Our class begins at eight.",
+    "example_cn": "我们的课八点开始。",
+    "syllables": "class",
+    "word_audio": "audio/words/class.mp3",
+    "example_audio": "audio/examples/class.mp3",
+    "source": "内置100词样板库"
+  },
+  "close": {
+    "word": "close",
+    "phonetic": "/kloʊz/",
+    "meaning": "v. 关闭；合上",
+    "example_en": "Please close the door when you leave.",
+    "example_cn": "离开时请关门。",
+    "syllables": "close",
+    "word_audio": "audio/words/close.mp3",
+    "example_audio": "audio/examples/close.mp3",
+    "source": "内置100词样板库"
+  },
+  "cloudy": {
+    "word": "cloudy",
+    "phonetic": "/ˈklaʊdi/",
+    "meaning": "adj. 多云的；阴天的",
+    "example_en": "The sky is cloudy today.",
+    "example_cn": "今天天空多云。",
+    "syllables": "cloud,y",
+    "word_audio": "audio/words/cloudy.mp3",
+    "example_audio": "audio/examples/cloudy.mp3",
+    "source": "内置100词样板库"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "weather": {
+    "word": "weather",
+    "phonetic": "/ˈweðər/",
+    "meaning": "n. 天气",
+    "example_en": "The weather is nice today.",
+    "example_cn": "今天天气很好。",
+    "syllables": "weath,er",
+    "word_audio": "audio/words/weather.mp3",
+    "example_audio": "audio/examples/weather.mp3",
+    "source": "内置100词样板库"
+  },
+  "week": {
+    "word": "week",
+    "phonetic": "/wiːk/",
+    "meaning": "n. 星期；周",
+    "example_en": "There are seven days in a week.",
+    "example_cn": "一周有七天。",
+    "syllables": "week",
+    "word_audio": "audio/words/week.mp3",
+    "example_audio": "audio/examples/week.mp3",
+    "source": "内置100词样板库"
+  }
+}

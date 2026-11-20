@@ -1,0 +1,13 @@
+{
+  "need": {
+    "word": "need",
+    "phonetic": "/niːd/",
+    "meaning": "v. 需要；n. 需要",
+    "example_en": "We need some milk and eggs.",
+    "example_cn": "我们需要一些牛奶和鸡蛋。",
+    "syllables": "need",
+    "word_audio": "audio/words/need.mp3",
+    "example_audio": "audio/examples/need.mp3",
+    "source": "内置100词样板库"
+  }
+}

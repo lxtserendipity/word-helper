@@ -1,0 +1,13 @@
+{
+  "cat": {
+    "word": "cat",
+    "phonetic": "/kæt/",
+    "meaning": "n. 猫",
+    "example_en": "The cat is sleeping under the table.",
+    "example_cn": "那只猫正在桌子下面睡觉。",
+    "syllables": "cat",
+    "word_audio": "audio/words/cat.mp3",
+    "example_audio": "audio/examples/cat.mp3",
+    "source": "内置100词样板库"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "draw": {
+    "word": "draw",
+    "phonetic": "/drɔː/",
+    "meaning": "v. 画；绘画",
+    "example_en": "I draw a picture of my family.",
+    "example_cn": "我画一幅全家福。",
+    "syllables": "draw",
+    "word_audio": "audio/words/draw.mp3",
+    "example_audio": "audio/examples/draw.mp3",
+    "source": "内置100词样板库"
+  },
+  "drink": {
+    "word": "drink",
+    "phonetic": "/drɪŋk/",
+    "meaning": "v. 喝；n. 饮料",
+    "example_en": "Drink some water after running.",
+    "example_cn": "跑步后喝一些水。",
+    "syllables": "drink",
+    "word_audio": "audio/words/drink.mp3",
+    "example_audio": "audio/examples/drink.mp3",
+    "source": "内置100词样板库"
+  }
+}

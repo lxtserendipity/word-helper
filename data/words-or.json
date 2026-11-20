@@ -1,0 +1,13 @@
+{
+  "orange": {
+    "word": "orange",
+    "phonetic": "/ˈɔːrɪndʒ/",
+    "meaning": "n. 橙子；橙色",
+    "example_en": "I drink orange juice in the morning.",
+    "example_cn": "我早上喝橙汁。",
+    "syllables": "or,ange",
+    "word_audio": "audio/words/orange.mp3",
+    "example_audio": "audio/examples/orange.mp3",
+    "source": "内置100词样板库"
+  }
+}

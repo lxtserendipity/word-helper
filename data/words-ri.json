@@ -1,0 +1,13 @@
+{
+  "rice": {
+    "word": "rice",
+    "phonetic": "/raɪs/",
+    "meaning": "n. 米饭；大米",
+    "example_en": "We eat rice for dinner.",
+    "example_cn": "我们晚餐吃米饭。",
+    "syllables": "rice",
+    "word_audio": "audio/words/rice.mp3",
+    "example_audio": "audio/examples/rice.mp3",
+    "source": "内置100词样板库"
+  }
+}

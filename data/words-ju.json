@@ -1,0 +1,13 @@
+{
+  "jump": {
+    "word": "jump",
+    "phonetic": "/dʒʌmp/",
+    "meaning": "v. 跳；跳跃",
+    "example_en": "The boy can jump very high.",
+    "example_cn": "这个男孩能跳得很高。",
+    "syllables": "jump",
+    "word_audio": "audio/words/jump.mp3",
+    "example_audio": "audio/examples/jump.mp3",
+    "source": "内置100词样板库"
+  }
+}

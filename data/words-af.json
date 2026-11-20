@@ -1,0 +1,13 @@
+{
+  "afternoon": {
+    "word": "afternoon",
+    "phonetic": "/ˌæftərˈnuːn/",
+    "meaning": "n. 下午",
+    "example_en": "We play sports in the afternoon.",
+    "example_cn": "我们下午做运动。",
+    "syllables": "af,ter,noon",
+    "word_audio": "audio/words/afternoon.mp3",
+    "example_audio": "audio/examples/afternoon.mp3",
+    "source": "内置100词样板库"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "bread": {
+    "word": "bread",
+    "phonetic": "/bred/",
+    "meaning": "n. 面包",
+    "example_en": "I have bread and milk for breakfast.",
+    "example_cn": "我早餐吃面包、喝牛奶。",
+    "syllables": "bread",
+    "word_audio": "audio/words/bread.mp3",
+    "example_audio": "audio/examples/bread.mp3",
+    "source": "内置100词样板库"
+  },
+  "breakfast": {
+    "word": "breakfast",
+    "phonetic": "/ˈbrekfəst/",
+    "meaning": "n. 早餐",
+    "example_en": "I eat breakfast at seven.",
+    "example_cn": "我七点吃早餐。",
+    "syllables": "break,fast",
+    "word_audio": "audio/words/breakfast.mp3",
+    "example_audio": "audio/examples/breakfast.mp3",
+    "source": "内置100词样板库"
+  },
+  "brother": {
+    "word": "brother",
+    "phonetic": "/ˈbrʌðər/",
+    "meaning": "n. 哥哥；弟弟",
+    "example_en": "My brother plays basketball.",
+    "example_cn": "我的哥哥打篮球。",
+    "syllables": "bro,ther",
+    "word_audio": "audio/words/brother.mp3",
+    "example_audio": "audio/examples/brother.mp3",
+    "source": "内置100词样板库"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "elephant": {
+    "word": "elephant",
+    "phonetic": "/ˈelɪfənt/",
+    "meaning": "n. 大象",
+    "example_en": "The elephant has a long trunk.",
+    "example_cn": "这头大象有长鼻子。",
+    "syllables": "el,e,phant",
+    "word_audio": "audio/words/elephant.mp3",
+    "example_audio": "audio/examples/elephant.mp3",
+    "source": "内置100词样板库"
+  }
+}
