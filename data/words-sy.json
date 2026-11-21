@@ -1,0 +1,50 @@
+{
+  "symbol": {
+    "word": "symbol",
+    "phonetic": "/'simbl/",
+    "meaning": "n. 符号, 象征, 代号, 信条",
+    "example_en": "The belt became a symbol of fear for me.",
+    "example_cn": "这条腰带对我来说成为了恐惧的象征。",
+    "syllables": "sym,bol",
+    "word_audio": "audio/words/symbol.mp3",
+    "example_audio": "audio/examples/symbol.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13236457 (Nuel) / 中文 #13565918 (LeviHighway)",
+    "tags": "zk gk cet4 cet6 ky toefl"
+  },
+  "symptoms": {
+    "word": "symptoms",
+    "phonetic": "/sɪmptəmz/",
+    "meaning": "n. 病徵；症状；症候",
+    "example_en": "For how long will I continue to have these symptoms?",
+    "example_cn": "这种症状在我身上将会持续多久？",
+    "syllables": "symp,toms",
+    "word_audio": "audio/words/symptoms.mp3",
+    "example_audio": "audio/examples/symptoms.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #58446 (jjbraam) / 中文 #686646 (offdare)",
+    "tags": ""
+  },
+  "system": {
+    "word": "system",
+    "phonetic": "/'sistәm/",
+    "meaning": "n. 系统, 体系, 制度, 方式, 秩序, 分类原则",
+    "example_en": "Linux is a free operating system; you should try it.",
+    "example_cn": "Linux是一个免费的操作系统。你应该去试用一下。",
+    "syllables": "sys,tem",
+    "word_audio": "audio/words/system.mp3",
+    "example_audio": "audio/examples/system.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #367130 (sysko) / 中文 #480633 (biglion)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "systems": {
+    "word": "systems",
+    "phonetic": "/sɪstəmz/",
+    "meaning": "n. 体制, 体系；制度；系统（system的复数形式）",
+    "example_en": "The elevators in a skyscraper are vital systems.",
+    "example_cn": "摩天大厦里的电梯是至关重要的。",
+    "syllables": "sys,tems",
+    "word_audio": "audio/words/systems.mp3",
+    "example_audio": "audio/examples/systems.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2186 (buster_blu) / 中文 #718422 (Yashanti)",
+    "tags": "ielts"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "old": {
+    "word": "old",
+    "phonetic": "/әuld/",
+    "meaning": "n. 以前, 往昔；a. 老的, 旧的, 古老的, 年长的, 老练的",
+    "example_en": "My grandfather is five times as old as I am.",
+    "example_cn": "祖父的年龄比我大五倍。",
+    "syllables": "old",
+    "word_audio": "audio/words/old.mp3",
+    "example_audio": "audio/examples/old.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #65096 (CK) / 中文 #346669 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "older": {
+    "word": "older",
+    "phonetic": "/'әuldә/",
+    "meaning": "a. 年长的；较旧的",
+    "example_en": "As people get older, their brain cells become less efficient.",
+    "example_cn": "随著人们年龄的增长，其脑细胞就变得比较没有效率。",
+    "syllables": "old,er",
+    "word_audio": "audio/words/older.mp3",
+    "example_audio": "audio/examples/older.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #810542 (\\N) / 中文 #810619 (Martha)",
+    "tags": ""
+  }
+}

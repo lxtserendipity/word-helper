@@ -1,4 +1,88 @@
 {
+  "giant": {
+    "word": "giant",
+    "phonetic": "/'dʒaiәnt/",
+    "meaning": "n. 巨人, 大力士, 巨大怪物；a. 庞大的, 巨大的",
+    "example_en": "Jupiter is the largest giant planet in the solar system.",
+    "example_cn": "木星是太阳系里最大大行星。",
+    "syllables": "gi,ant",
+    "word_audio": "audio/words/giant.mp3",
+    "example_audio": "audio/examples/giant.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13541646 (LeviHighway) / 中文 #1069014 (tigro1973)",
+    "tags": "cet4 cet6 ky toefl"
+  },
+  "giants": {
+    "word": "giants",
+    "phonetic": "/'dʒaiәnts/",
+    "meaning": "n. 巨人（giant的复数形式）；癸干忒斯；巨人族（希腊神话中常与天上诸神作战的种族）",
+    "example_en": "The solar system has four gas giants: Jupiter, Saturn, Uranus, and Neptune.",
+    "example_cn": "太阳系有四个气态大行星：木星、土星、天王星和海王星。",
+    "syllables": "gi,ants",
+    "word_audio": "audio/words/giants.mp3",
+    "example_audio": "audio/examples/giants.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13541127 (LeviHighway) / 中文 #6961298 (xjjAstrus)",
+    "tags": ""
+  },
+  "gift": {
+    "word": "gift",
+    "phonetic": "/gift/",
+    "meaning": "n. 礼物, 赠予, 天才；vt. 赋予",
+    "example_en": "Mary claimed the bag was a gift from her husband.",
+    "example_cn": "玛莉表示，包包是丈夫送的礼物。",
+    "syllables": "gift",
+    "word_audio": "audio/words/gift.mp3",
+    "example_audio": "audio/examples/gift.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11552107 (weihaiping) / 中文 #13109250 (LeviHighway)",
+    "tags": "zk gk"
+  },
+  "gifts": {
+    "word": "gifts",
+    "phonetic": "/ɡɪfts/",
+    "meaning": "n. 礼品, 赠品；礼物；天赋（gift的复数形式）",
+    "example_en": "Tom bought, for his rendezvous, a flower and some gifts.",
+    "example_cn": "汤姆为约会买了一束花和一些礼物。",
+    "syllables": "gifts",
+    "word_audio": "audio/words/gifts.mp3",
+    "example_audio": "audio/examples/gifts.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6776752 (Eccles17) / 中文 #13561194 (LeviHighway)",
+    "tags": ""
+  },
+  "girl": {
+    "word": "girl",
+    "phonetic": "/gә:l/",
+    "meaning": "n. 女孩, 少女, 女佣",
+    "example_en": "Nancy is a hard girl for me to deal with.",
+    "example_cn": "对我来说，Nancy是个很难相处的女孩。",
+    "syllables": "girl",
+    "word_audio": "audio/words/girl.mp3",
+    "example_audio": "audio/examples/girl.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #36172 (CN) / 中文 #353524 (ruicong)",
+    "tags": "zk gk"
+  },
+  "girlfriend": {
+    "word": "girlfriend",
+    "phonetic": "/ɡɜrlfrɛnd/",
+    "meaning": "n. 女朋友",
+    "example_en": "Santa, I would like a girlfriend for my Christmas present.",
+    "example_cn": "圣诞老人，我想要一个女朋友当圣诞礼物。",
+    "syllables": "girl,friend",
+    "word_audio": "audio/words/girlfriend.mp3",
+    "example_audio": "audio/examples/girlfriend.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3002239 (alester237) / 中文 #8759511 (crescat)",
+    "tags": "ielts"
+  },
+  "girls": {
+    "word": "girls",
+    "phonetic": "/ɡɜrlz/",
+    "meaning": "n. 女孩（girl的复数）",
+    "example_en": "Bob is very timid and blushes when chatting with girls.",
+    "example_cn": "鲍伯非常胆小，和女生聊天时会脸红。",
+    "syllables": "girls",
+    "word_audio": "audio/words/girls.mp3",
+    "example_audio": "audio/examples/girls.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #33213 (CP) / 中文 #13545656 (LeviHighway)",
+    "tags": ""
+  },
   "give": {
     "word": "give",
     "phonetic": "/ɡɪv/",
@@ -9,5 +93,41 @@
     "word_audio": "audio/words/give.mp3",
     "example_audio": "audio/examples/give.mp3",
     "source": "内置100词样板库"
+  },
+  "given": {
+    "word": "given",
+    "phonetic": "/'givәn/",
+    "meaning": "a. 赠予的, 沉溺的, 约定的；give的过去分词",
+    "example_en": "Laozi is an honorific title given to him by others.",
+    "example_cn": "老子是他人对他的尊称。",
+    "syllables": "giv,en",
+    "word_audio": "audio/words/given.mp3",
+    "example_audio": "audio/examples/given.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13947929 (jan_OkulaJu) / 中文 #13947928 (jan_OkulaJu)",
+    "tags": ""
+  },
+  "gives": {
+    "word": "gives",
+    "phonetic": "/ɡɪvz/",
+    "meaning": "n. 付出；弯曲；内幕消息（give的复数）",
+    "example_en": "She gives me a nasty look every time she sees me.",
+    "example_cn": "她每次看见我都给露出厌恶的眼神。",
+    "syllables": "gives",
+    "word_audio": "audio/words/gives.mp3",
+    "example_audio": "audio/examples/gives.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #314306 (CK) / 中文 #5405477 (egg0073)",
+    "tags": ""
+  },
+  "giving": {
+    "word": "giving",
+    "phonetic": "/'giviŋ/",
+    "meaning": "n. 礼物, 给予物",
+    "example_en": "I must think over the matter before giving my answer.",
+    "example_cn": "我在回答之前必须考虑周全。",
+    "syllables": "giv,ing",
+    "word_audio": "audio/words/giving.mp3",
+    "example_audio": "audio/examples/giving.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #256578 (CM) / 中文 #1397109 (mtdot)",
+    "tags": ""
   }
 }

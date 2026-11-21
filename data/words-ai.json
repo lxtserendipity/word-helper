@@ -1,0 +1,98 @@
+{
+  "aid": {
+    "word": "aid",
+    "phonetic": "/eid/",
+    "meaning": "n. 帮助, 外援, 助手；vt. 援助, 帮助, 有助于；vi. 帮助",
+    "example_en": "Don't forget to take the first-aid kit.",
+    "example_cn": "别忘了带上急救箱。",
+    "syllables": "aid",
+    "word_audio": "audio/words/aid.mp3",
+    "example_audio": "audio/examples/aid.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2649680 (sharptoothed) / 中文 #5640745 (verdastelo9604)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "aim": {
+    "word": "aim",
+    "phonetic": "/eim/",
+    "meaning": "n. 目标, 瞄准, 击中目标的能力；vi. 对准目标, 致力, 打算；vt. 瞄准；应用接口模块, 医学人工智能, 相联索引法, 异步接口模块；自动化信息管理, 自动化综合制造, 自动化库存管理",
+    "example_en": "I aim to be a doctor when I grow up.",
+    "example_cn": "我长大了想当医生。",
+    "syllables": "aim",
+    "word_audio": "audio/words/aim.mp3",
+    "example_audio": "audio/examples/aim.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #275756 (CK) / 中文 #12228720 (DaoSeng)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "aimed": {
+    "word": "aimed",
+    "phonetic": "/eɪmd/",
+    "meaning": "目标；目的",
+    "example_en": "I aimed at a sparrow, but shot down a goose.",
+    "example_cn": "瞄准麻雀, 击中鹅。",
+    "syllables": "aimed",
+    "word_audio": "audio/words/aimed.mp3",
+    "example_audio": "audio/examples/aimed.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2169009 (FeuDRenais2) / 中文 #2166047 (sadhen)",
+    "tags": ""
+  },
+  "air": {
+    "word": "air",
+    "phonetic": "/єә/",
+    "meaning": "n. 空气, 旋律, 态度；vt. 晾, 使通风, 夸耀",
+    "example_en": "The air is bad here. Will you open the window?",
+    "example_cn": "这里的空气不是很好。你可以打开窗户吗？",
+    "syllables": "air",
+    "word_audio": "audio/words/air.mp3",
+    "example_audio": "audio/examples/air.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #61655 (CK) / 中文 #7752863 (Leolaaziano)",
+    "tags": "zk gk toefl ielts"
+  },
+  "aircraft": {
+    "word": "aircraft",
+    "phonetic": "/'єәkræft/",
+    "meaning": "n. 航空器, 飞机",
+    "example_en": "China has the means to destroy your aircraft carriers.",
+    "example_cn": "中国有能力摧毁你们的航空母舰。",
+    "syllables": "air,craft",
+    "word_audio": "audio/words/aircraft.mp3",
+    "example_audio": "audio/examples/aircraft.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #9015689 (jaydenms) / 中文 #13556509 (LeviHighway)",
+    "tags": "gk cet4 ky toefl"
+  },
+  "airline": {
+    "word": "airline",
+    "phonetic": "/'єәlain/",
+    "meaning": "n. 航线, 航线的设备, 航空公司",
+    "example_en": "How are this airline's airplanes?",
+    "example_cn": "这个航空公司的飞机怎么样？",
+    "syllables": "air,line",
+    "word_audio": "audio/words/airline.mp3",
+    "example_audio": "audio/examples/airline.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6276469 (Kiwi) / 中文 #6159420 (xjjAstrus)",
+    "tags": "zk gk cet4 ky"
+  },
+  "airplane": {
+    "word": "airplane",
+    "phonetic": "/'єәplein/",
+    "meaning": "n. 飞机",
+    "example_en": "According to newspaper reports, there was an airplane accident last evening.",
+    "example_cn": "根据报载，有一架飞机昨天晚上发生了意外。",
+    "syllables": "air,plane",
+    "word_audio": "audio/words/airplane.mp3",
+    "example_audio": "audio/examples/airplane.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #269460 (CK) / 中文 #830423 (Martha)",
+    "tags": "zk gk cet4"
+  },
+  "airport": {
+    "word": "airport",
+    "phonetic": "/'єәpɒ:t/",
+    "meaning": "n. 飞机场",
+    "example_en": "How far is it from the airport to the hotel?",
+    "example_cn": "从机场到旅馆多远？",
+    "syllables": "air,port",
+    "word_audio": "audio/words/airport.mp3",
+    "example_audio": "audio/examples/airport.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #18223 (J_S) / 中文 #830489 (Martha)",
+    "tags": "zk gk ielts"
+  }
+}

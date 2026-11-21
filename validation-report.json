@@ -1,0 +1,31 @@
+{
+  "target_count": 5000,
+  "actual_count": 5000,
+  "unique_count": 5000,
+  "shard_count": 206,
+  "word_audio_count": 5000,
+  "example_audio_count": 5000,
+  "audio_checked": true,
+  "syllable_blank_count": 456,
+  "errors": [],
+  "status": "passed",
+  "audio_duration_checked": true,
+  "audio_duration_errors": [],
+  "audio_missing_files": 0,
+  "audio_unexpected_files": 0,
+  "audio_temporary_files": 0,
+  "audio_min_seconds": 1.296,
+  "audio_max_seconds": 8.544,
+  "audio_total_bytes": 157894704,
+  "source_counts": {
+    "original": 100,
+    "tatoeba": 4837,
+    "manual": 63
+  },
+  "common_word_regression": "passed",
+  "independent_attribution_audit": "passed",
+  "javascript_syntax_check": "passed",
+  "browser_static_lookup": "passed: years",
+  "browser_word_audio": "passed: database HTTP 200",
+  "browser_example_audio": "passed: database HTTP 200"
+}

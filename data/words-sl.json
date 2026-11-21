@@ -1,4 +1,28 @@
 {
+  "slave": {
+    "word": "slave",
+    "phonetic": "/sleiv/",
+    "meaning": "n. 奴隶, 从动装置, 卑鄙的人；vi. 拼命工作",
+    "example_en": "I refuse to be treated like a slave by you.",
+    "example_cn": "我拒绝被你像奴隶一样对待。",
+    "syllables": "slave",
+    "word_audio": "audio/words/slave.mp3",
+    "example_audio": "audio/examples/slave.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #17451 (CK) / 中文 #796773 (fucongcong)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "slavery": {
+    "word": "slavery",
+    "phonetic": "/'sleivәri/",
+    "meaning": "n. 奴隶的身分, 奴隶状态, 奴隶制度",
+    "example_en": "War is peace. Freedom is slavery. Ignorance is strength.",
+    "example_cn": "战争即和平，自由即奴役，无知即力量。",
+    "syllables": "",
+    "word_audio": "audio/words/slavery.mp3",
+    "example_audio": "audio/examples/slavery.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1421994 (Wadimiy) / 中文 #1423391 (sadhen)",
+    "tags": "gk cet4 cet6"
+  },
   "sleep": {
     "word": "sleep",
     "phonetic": "/sliːp/",
@@ -9,5 +33,125 @@
     "word_audio": "audio/words/sleep.mp3",
     "example_audio": "audio/examples/sleep.mp3",
     "source": "内置100词样板库"
+  },
+  "sleeping": {
+    "word": "sleeping",
+    "phonetic": "/'sli:piŋ/",
+    "meaning": "n. 睡眠；a. 睡着的",
+    "example_en": "When Mike returned to Jane's house, she was sleeping.",
+    "example_cn": "当迈克返回到简的家的时候，她睡得正熟。",
+    "syllables": "sleep,ing",
+    "word_audio": "audio/words/sleeping.mp3",
+    "example_audio": "audio/examples/sleeping.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5068290 (jhomel) / 中文 #5068341 (FeAst)",
+    "tags": "ielts"
+  },
+  "sleeve": {
+    "word": "sleeve",
+    "phonetic": "/sli:v/",
+    "meaning": "n. 袖子, 套管；vt. 缝上袖子",
+    "example_en": "The men are wearing short sleeve shirts.",
+    "example_cn": "男人们穿著短袖上衣。",
+    "syllables": "sleeve",
+    "word_audio": "audio/words/sleeve.mp3",
+    "example_audio": "audio/examples/sleeve.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #388553 (CK) / 中文 #864424 (Martha)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "slept": {
+    "word": "slept",
+    "phonetic": "/slept/",
+    "meaning": "sleep的过去式和过去分词",
+    "example_en": "I often slept on that bench when I was homeless.",
+    "example_cn": "当我无家可归的时候，我常在那张长椅上睡觉。",
+    "syllables": "slept",
+    "word_audio": "audio/words/slept.mp3",
+    "example_audio": "audio/examples/slept.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7105624 (shekitten) / 中文 #7771956 (jiangche)",
+    "tags": ""
+  },
+  "slice": {
+    "word": "slice",
+    "phonetic": "/slais/",
+    "meaning": "n. 薄的切片, 一部分, 菜刀；vt. 切成薄片, 切下；vi. 切",
+    "example_en": "I want to slice these potatoes into strips.",
+    "example_cn": "我想把这些土豆切成丝。",
+    "syllables": "slice",
+    "word_audio": "audio/words/slice.mp3",
+    "example_audio": "audio/examples/slice.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6956699 (znc) / 中文 #6952645 (xjjAstrus)",
+    "tags": "gk cet4 cet6 ky toefl ielts gre"
+  },
+  "slight": {
+    "word": "slight",
+    "phonetic": "/slait/",
+    "meaning": "n. 轻蔑, 怠慢；a. 轻微的, 纤细的, 脆弱的, 苗条的；vt. 轻视, 忽略, 怠慢",
+    "example_en": "Having a slight headache, I went to bed early.",
+    "example_cn": "因为我有点头疼，所以我早早上床睡觉。",
+    "syllables": "slight",
+    "word_audio": "audio/words/slight.mp3",
+    "example_audio": "audio/examples/slight.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #267770 (CM) / 中文 #1227107 (tsayng)",
+    "tags": "gk cet4 cet6 ky toefl ielts gre"
+  },
+  "slightly": {
+    "word": "slightly",
+    "phonetic": "/'slaitli/",
+    "meaning": "adv. 些微地, 苗条地",
+    "example_en": "Generally speaking, nobles were only very slightly affected by taxes.",
+    "example_cn": "总体来说，贵族受到税收的影响微乎其微。",
+    "syllables": "slight,ly",
+    "word_audio": "audio/words/slightly.mp3",
+    "example_audio": "audio/examples/slightly.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #407549 (Scott) / 中文 #13890569 (jan_OkulaJu)",
+    "tags": "cet4 cet6 toefl"
+  },
+  "slim": {
+    "word": "slim",
+    "phonetic": "/slim/",
+    "meaning": "a. 瘦的, 苗条的, 微小的, 稀少的, 微薄的；vi. 变苗条；vt. 使苗条",
+    "example_en": "She has blonde hair and a slim figure.",
+    "example_cn": "她有著一头金发，瘦高的身材。",
+    "syllables": "slim",
+    "word_audio": "audio/words/slim.mp3",
+    "example_audio": "audio/examples/slim.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7768503 (sharris123) / 中文 #5815581 (xjjAstrus)",
+    "tags": "gk cet6 ky toefl ielts"
+  },
+  "slip": {
+    "word": "slip",
+    "phonetic": "/slip/",
+    "meaning": "n. 滑, 滑行, 事故, 溜, 差错, 滑台, 下降, 插条, 后裔, 板条, 瘦长的年轻人；vi. 滑动, 滑倒, 失足, 溜走, 滑落, 犯错, 变坏；vt. 使滑动, 滑过, 摆脱, 闪开, 塞入, 从...取接枝；a. 滑动的, 滑移的, 活络的, 有活结的",
+    "example_en": "A slip of the tongue often brings about unexpected results.",
+    "example_cn": "一时失言常常会带来意想不到的结果。",
+    "syllables": "slip",
+    "word_audio": "audio/words/slip.mp3",
+    "example_audio": "audio/examples/slip.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #65489 (CM) / 中文 #350530 (nickyeow)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "slow": {
+    "word": "slow",
+    "phonetic": "/slәu/",
+    "meaning": "a. 慢的, 缓慢的, 迟缓的, 迟钝的, 冷漠的, 落后的；adv. 慢地, 迟缓地；v. (使)慢下来",
+    "example_en": "When you are driving, you should slow down on corners.",
+    "example_cn": "当您开车的时候，应该在转弯处减速。",
+    "syllables": "slow",
+    "word_audio": "audio/words/slow.mp3",
+    "example_audio": "audio/examples/slow.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #265581 (\\N) / 中文 #336008 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "slowly": {
+    "word": "slowly",
+    "phonetic": "/'slәuli/",
+    "meaning": "adv. 慢慢地, 迟缓地",
+    "example_en": "The cows were moving very slowly through the long green grass.",
+    "example_cn": "牛群在郁郁葱葱的草地上缓缓移动著。",
+    "syllables": "slow,ly",
+    "word_audio": "audio/words/slowly.mp3",
+    "example_audio": "audio/examples/slowly.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #19489 (CK) / 中文 #668854 (nickyeow)",
+    "tags": "cet4 cet6"
   }
 }

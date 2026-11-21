@@ -1,0 +1,62 @@
+{
+  "my": {
+    "word": "my",
+    "phonetic": "/mai/",
+    "meaning": "pron. 我的",
+    "example_en": "I wonder why they left my name off the list.",
+    "example_cn": "我奇怪他们为什么在表里把我的名字落下了。",
+    "syllables": "my",
+    "word_audio": "audio/words/my.mp3",
+    "example_audio": "audio/examples/my.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #38699 (CK) / 中文 #5883321 (verdastelo9604)",
+    "tags": "zk gk"
+  },
+  "myself": {
+    "word": "myself",
+    "phonetic": "/mai'self/",
+    "meaning": "pron. 我自己, 我亲自, 我独自",
+    "example_en": "I'd be unhappy, but I wouldn't kill myself.",
+    "example_cn": "我会不高兴，但我不会自杀。",
+    "syllables": "my,self",
+    "word_audio": "audio/words/myself.mp3",
+    "example_audio": "audio/examples/myself.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1359 (Zifre) / 中文 #54 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "mysterious": {
+    "word": "mysterious",
+    "phonetic": "/mis'tiәriәs/",
+    "meaning": "a. 神秘的, 难解的, 不可思议的",
+    "example_en": "The scientists have not found any explanation for the mysterious phenomenon.",
+    "example_cn": "科学家们尚未找到对这神秘现象的解释。",
+    "syllables": "mys,te,ri,ous",
+    "word_audio": "audio/words/mysterious.mp3",
+    "example_audio": "audio/examples/mysterious.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3513485 (Hybrid) / 中文 #12160441 (DaoSeng)",
+    "tags": "cet4 cet6 ky toefl"
+  },
+  "mystery": {
+    "word": "mystery",
+    "phonetic": "/'mistәri/",
+    "meaning": "n. 秘密, 神秘, 奥秘",
+    "example_en": "This letter is the only key to the mystery.",
+    "example_cn": "这封信是揭开谜团的唯一线索。",
+    "syllables": "",
+    "word_audio": "audio/words/mystery.mp3",
+    "example_audio": "audio/examples/mystery.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #58662 (\\N) / 中文 #678941 (Martha)",
+    "tags": "cet4 cet6 ky toefl"
+  },
+  "myth": {
+    "word": "myth",
+    "phonetic": "/miθ/",
+    "meaning": "n. 神话, 虚构的事, 虚构的人",
+    "example_en": "The myth offers insights into the ancient civilization.",
+    "example_cn": "神话让我们能透悉古文明。",
+    "syllables": "myth",
+    "word_audio": "audio/words/myth.mp3",
+    "example_audio": "audio/examples/myth.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #46053 (mamat) / 中文 #458579 (Rebeca)",
+    "tags": "cet6 ky toefl ielts"
+  }
+}

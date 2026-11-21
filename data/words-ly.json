@@ -1,0 +1,26 @@
+{
+  "lying": {
+    "word": "lying",
+    "phonetic": "/'laiiŋ/",
+    "meaning": "n. 说谎；a. 横躺的, 说谎的",
+    "example_en": "It's wasteful to leave the land lying idle.",
+    "example_cn": "让土地闲置著很浪费。",
+    "syllables": "ly,ing",
+    "word_audio": "audio/words/lying.mp3",
+    "example_audio": "audio/examples/lying.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #57673 (\\N) / 中文 #786091 (Martha)",
+    "tags": ""
+  },
+  "lyrics": {
+    "word": "lyrics",
+    "phonetic": "/lɪrɪks/",
+    "meaning": "n. 歌词",
+    "example_en": "I found the lyrics, but I can't copy-paste them.",
+    "example_cn": "我找到了歌词，但是没法转贴过来。",
+    "syllables": "lyr,ics",
+    "word_audio": "audio/words/lyrics.mp3",
+    "example_audio": "audio/examples/lyrics.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2592904 (WestofEden) / 中文 #8887774 (morningstar)",
+    "tags": ""
+  }
+}

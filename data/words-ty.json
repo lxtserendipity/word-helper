@@ -1,0 +1,38 @@
+{
+  "type": {
+    "word": "type",
+    "phonetic": "/taip/",
+    "meaning": "n. 类型, 样式, 典型, 榜样, 标志, 符号, 型, 式；vi. 打字；vt. 作为代表, 测定类型, 用打字机打",
+    "example_en": "We handle all type of books, both new and old.",
+    "example_cn": "我们处理各种书籍，包括新的和旧的。",
+    "syllables": "type",
+    "word_audio": "audio/words/type.mp3",
+    "example_audio": "audio/examples/type.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3063160 (trieuho) / 中文 #3063158 (trieuho)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "types": {
+    "word": "types",
+    "phonetic": "/taɪps/",
+    "meaning": "v. 打字（type的第三人称单数形式）",
+    "example_en": "China's territory is vast, thus the types of tea vary.",
+    "example_cn": "中国幅员辽阔,因而茶的品种繁多。",
+    "syllables": "types",
+    "word_audio": "audio/words/types.mp3",
+    "example_audio": "audio/examples/types.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11274931 (Aphima) / 中文 #1700074 (sadhen)",
+    "tags": "ielts"
+  },
+  "typical": {
+    "word": "typical",
+    "phonetic": "/'tipikl/",
+    "meaning": "a. 典型的, 象征性的",
+    "example_en": "This year's weather isn't very typical.",
+    "example_cn": "今年的天气不太正常。",
+    "syllables": "typ,i,cal",
+    "word_audio": "audio/words/typical.mp3",
+    "example_audio": "audio/examples/typical.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #717377 (CM) / 中文 #717375 (serendipity42)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  }
+}

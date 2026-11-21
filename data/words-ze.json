@@ -1,0 +1,14 @@
+{
+  "zero": {
+    "word": "zero",
+    "phonetic": "/'ziәrәu/",
+    "meaning": "n. 零, 零点, 零度, 无, 乌有, 最低点；a. 零的, 没有的；vt. 调零, 对(炮火等)作协调校正",
+    "example_en": "They conducted a series of experiments under zero gravity.",
+    "example_cn": "他们在无重力状态下进行了一连串的实验。",
+    "syllables": "ze,ro",
+    "word_audio": "audio/words/zero.mp3",
+    "example_audio": "audio/examples/zero.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #307581 (CK) / 中文 #779877 (nickyeow)",
+    "tags": "zk gk ielts"
+  }
+}

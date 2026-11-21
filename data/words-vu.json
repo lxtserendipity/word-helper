@@ -1,0 +1,14 @@
+{
+  "vulnerable": {
+    "word": "vulnerable",
+    "phonetic": "/'vʌlnәrәbl/",
+    "meaning": "a. 易受伤害的, 有弱点的, 易受影响的, 脆弱的, 成局的",
+    "example_en": "Because of a flaw in the original design, our website is vulnerable to SQL injection attacks.",
+    "example_cn": "由于最初设计中的一个缺陷，我们的网站易受到SQL注入攻击。",
+    "syllables": "vul,ner,a,ble",
+    "word_audio": "audio/words/vulnerable.mp3",
+    "example_audio": "audio/examples/vulnerable.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2915506 (vicch) / 中文 #2915505 (vicch)",
+    "tags": "cet6 ky toefl ielts gre"
+  }
+}

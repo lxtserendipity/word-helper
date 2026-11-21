@@ -1,0 +1,14 @@
+{
+  "yield": {
+    "word": "yield",
+    "phonetic": "/ji:ld/",
+    "meaning": "n. 生产量, 投资收益；vt. 出产, 给予, 让出, 放弃, 使屈服；vi. 出产, 屈服, 投降, 倒塌",
+    "example_en": "When the light is green, cars turning must yield to pedestrians.",
+    "example_cn": "绿灯时，拐弯车要让人。",
+    "syllables": "yield",
+    "word_audio": "audio/words/yield.mp3",
+    "example_audio": "audio/examples/yield.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1560363 (Mouseneb) / 中文 #421254 (sysko)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  }
+}

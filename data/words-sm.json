@@ -1,0 +1,110 @@
+{
+  "small": {
+    "word": "small",
+    "phonetic": "/smɒ:l/",
+    "meaning": "a. 小的, 少的, 小型的, 低微的, 小气的, 细微的；adv. 些微地；n. 狭小部分",
+    "example_en": "Our world is only one small part of the universe.",
+    "example_cn": "我们的世界只不过是宇宙的一小部分。",
+    "syllables": "small",
+    "word_audio": "audio/words/small.mp3",
+    "example_audio": "audio/examples/small.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #23378 (Swift) / 中文 #779841 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "smaller": {
+    "word": "smaller",
+    "phonetic": "/smɔlər/",
+    "meaning": "a. 较小, 更小的",
+    "example_en": "You're picking on someone smaller than you again!",
+    "example_cn": "你又在欺负弱小了！",
+    "syllables": "small,er",
+    "word_audio": "audio/words/smaller.mp3",
+    "example_audio": "audio/examples/smaller.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1636277 (fengli) / 中文 #1636276 (fengli)",
+    "tags": ""
+  },
+  "smart": {
+    "word": "smart",
+    "phonetic": "/smɑ:t/",
+    "meaning": "a. 聪明的, 漂亮的, 刺痛的, 剧烈的, 敏捷的, 巧妙的, 伶俐的, 潇洒的；n. 刺痛, 痛苦；vi. 刺痛",
+    "example_en": "I'm not as smart as I thought I was.",
+    "example_cn": "我没我想像的那么聪明。",
+    "syllables": "smart",
+    "word_audio": "audio/words/smart.mp3",
+    "example_audio": "audio/examples/smart.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5848578 (CK) / 中文 #12059090 (DaoSeng)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts gre"
+  },
+  "smash": {
+    "word": "smash",
+    "phonetic": "/smæʃ/",
+    "meaning": "n. 打碎, 粉碎, 打碎时哗啦声, 猛击, 扣球, 杀球, 经营失败, 破产, 硬币, 假硬币；a. 非常轰动的, 了不起的；vt. 打碎, 粉碎, 击溃, 使破产, 使裂变, 使用假硬币；vi. 碎裂, 猛撞, 破产, 扣球, 杀球；adv. 轰隆一声, 哗啦一声",
+    "example_en": "I am really extremely angry, so I plan to smash things to vent my anger.",
+    "example_cn": "我实在气得不得了，所以打算砸东西发泄。",
+    "syllables": "smash",
+    "word_audio": "audio/words/smash.mp3",
+    "example_audio": "audio/examples/smash.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #12627162 (weihaiping) / 中文 #1667396 (fengli)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "smell": {
+    "word": "smell",
+    "phonetic": "/smel/",
+    "meaning": "n. 味道, 气味, 嗅觉, 嗅, 臭味, 气息；vt. 闻, 探出, 察觉, 发出...的气味；vi. 嗅, 散发气味, 发臭",
+    "example_en": "The best fish smell when they are three days old.",
+    "example_cn": "最好的鱼三天就要发臭。",
+    "syllables": "smell",
+    "word_audio": "audio/words/smell.mp3",
+    "example_audio": "audio/examples/smell.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #30078 (Dejo) / 中文 #842667 (U2FS)",
+    "tags": "zk gk toefl"
+  },
+  "smile": {
+    "word": "smile",
+    "phonetic": "/smail/",
+    "meaning": "n. 微笑, 喜色, 笑容；vi. 微笑, 觉得好笑；vt. 微笑着表示",
+    "example_en": "Whenever I hear this song, I think of his smile.",
+    "example_cn": "只要听到这首歌，我就会想起他们的笑容。",
+    "syllables": "smile",
+    "word_audio": "audio/words/smile.mp3",
+    "example_audio": "audio/examples/smile.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #385367 (Mouseneb) / 中文 #382453 (ver)",
+    "tags": "zk gk"
+  },
+  "smoke": {
+    "word": "smoke",
+    "phonetic": "/smәuk/",
+    "meaning": "n. 烟, 雾气, 烟熏剂, 抽烟, 烟色；vi. 吸烟, 冒烟, 弥漫；vt. 以烟熏, 抽烟而导致...",
+    "example_en": "Look at that smoke. That building must be on fire.",
+    "example_cn": "你看，那边正在冒烟，那栋大厦一定是失火了。",
+    "syllables": "smoke",
+    "word_audio": "audio/words/smoke.mp3",
+    "example_audio": "audio/examples/smoke.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #68562 (\\N) / 中文 #488402 (nickyeow)",
+    "tags": "zk gk toefl ielts"
+  },
+  "smoking": {
+    "word": "smoking",
+    "phonetic": "/'smәukiŋ/",
+    "meaning": "n. 抽烟, 冒烟",
+    "example_en": "Quit smoking if you don't want to die early.",
+    "example_cn": "如果你想活得久一点就戒烟。",
+    "syllables": "smok,ing",
+    "word_audio": "audio/words/smoking.mp3",
+    "example_audio": "audio/examples/smoking.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4755347 (garborg) / 中文 #333559 (fucongcong)",
+    "tags": "gk ielts"
+  },
+  "smooth": {
+    "word": "smooth",
+    "phonetic": "/smu:ð/",
+    "meaning": "a. 平滑的, 平稳的, 流畅的, 和蔼的, 安祥的, 圆滑的, 调匀的, 无毛的；vt. 使光滑, 烫平, 使平和, 消除；vi. 变平滑, 变平静；n. 一块平地, 平滑部分",
+    "example_en": "It's as smooth as a baby's bottom.",
+    "example_cn": "它像婴儿的屁股一样光滑。",
+    "syllables": "smooth",
+    "word_audio": "audio/words/smooth.mp3",
+    "example_audio": "audio/examples/smooth.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #327779 (CM) / 中文 #8765053 (crescat)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts gre"
+  }
+}

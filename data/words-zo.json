@@ -1,0 +1,26 @@
+{
+  "zone": {
+    "word": "zone",
+    "phonetic": "/zәun/",
+    "meaning": "n. 地带, 带, 地区；vt. 环绕, 使分成地带；vi. 分成区",
+    "example_en": "You need to get out of your comfort zone.",
+    "example_cn": "你需要离开你的舒适区。",
+    "syllables": "zone",
+    "word_audio": "audio/words/zone.mp3",
+    "example_audio": "audio/examples/zone.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4297220 (Hybrid) / 中文 #8932001 (iiujik)",
+    "tags": "gk cet4 cet6 ky toefl gre"
+  },
+  "zoo": {
+    "word": "zoo",
+    "phonetic": "/zu:/",
+    "meaning": "n. 动物园",
+    "example_en": "I'm taking my son to the zoo this afternoon.",
+    "example_cn": "我今天下午带我儿子去动物园。",
+    "syllables": "zoo",
+    "word_audio": "audio/words/zoo.mp3",
+    "example_audio": "audio/examples/zoo.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1343500 (CK) / 中文 #10636640 (DaoSeng)",
+    "tags": "zk gk ielts"
+  }
+}

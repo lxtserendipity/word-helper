@@ -1,0 +1,110 @@
+{
+  "occasional": {
+    "word": "occasional",
+    "phonetic": "/ә'keiʒәnl/",
+    "meaning": "a. 偶然的, 临时的",
+    "example_en": "Tomorrow's weather should be sunny with occasional rain.",
+    "example_cn": "明天天气晴转阵雨。",
+    "syllables": "oc,ca,sion,al",
+    "word_audio": "audio/words/occasional.mp3",
+    "example_audio": "audio/examples/occasional.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #323216 (CK) / 中文 #2567436 (fenfang557)",
+    "tags": "cet4 cet6 ky toefl"
+  },
+  "occasionally": {
+    "word": "occasionally",
+    "phonetic": "/ә'keiʒәnli/",
+    "meaning": "adv. 有时候, 偶而",
+    "example_en": "The mother occasionally reread her son's letter.",
+    "example_cn": "这位母亲偶尔会重温她的儿子的信件。",
+    "syllables": "oc,ca,sion,al,ly",
+    "word_audio": "audio/words/occasionally.mp3",
+    "example_audio": "audio/examples/occasionally.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1532036 (LittleBoy) / 中文 #2567495 (fenfang557)",
+    "tags": "cet4 cet6 toefl"
+  },
+  "occasions": {
+    "word": "occasions",
+    "phonetic": "/əˈkeiʒənz/",
+    "meaning": "n. 机会( occasion的名词复数 ); 时刻; 原因; 需要",
+    "example_en": "Tom only wears a suit on special occasions.",
+    "example_cn": "汤姆只在特殊场合穿西装。",
+    "syllables": "oc,ca,sions",
+    "word_audio": "audio/words/occasions.mp3",
+    "example_audio": "audio/examples/occasions.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #682056 (Source_VOA) / 中文 #900055 (kanaorange)",
+    "tags": ""
+  },
+  "occupation": {
+    "word": "occupation",
+    "phonetic": "/.ɒkju'peiʃәn/",
+    "meaning": "n. 职业, 占有, 占有期, 占领, 占领军",
+    "example_en": "The \"family manager\" is a profession, occupation, vocation.",
+    "example_cn": "“一家之主”是一份专业工作、事业和使命。",
+    "syllables": "oc,cu,pa,tion",
+    "word_audio": "audio/words/occupation.mp3",
+    "example_audio": "audio/examples/occupation.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4826874 (Muelisto) / 中文 #5093970 (mirrorvan)",
+    "tags": "gk cet4 cet6 ky toefl ielts gre"
+  },
+  "occupied": {
+    "word": "occupied",
+    "phonetic": "/ɑkjəpaɪd/",
+    "meaning": "a. 已占用的；使用中的；无空闲的",
+    "example_en": "The city was soon occupied by the soldiers.",
+    "example_cn": "很快，城市就被士兵占领了。",
+    "syllables": "oc,cu,pied",
+    "word_audio": "audio/words/occupied.mp3",
+    "example_audio": "audio/examples/occupied.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #47355 (CM) / 中文 #334298 (fucongcong)",
+    "tags": ""
+  },
+  "occur": {
+    "word": "occur",
+    "phonetic": "/ә'kә:/",
+    "meaning": "vi. 发生, 被想到, 存在",
+    "example_en": "Does the error occur regularly or sporadically? Is the error reproducible?",
+    "example_cn": "错误是经常出现还是偶尔出现？错误是否能够模仿？",
+    "syllables": "oc,cur",
+    "word_audio": "audio/words/occur.mp3",
+    "example_audio": "audio/examples/occur.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #749473 (kroko) / 中文 #749474 (kroko)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "occurred": {
+    "word": "occurred",
+    "phonetic": "/əkɜrd/",
+    "meaning": "v. 发生（occur的过去分词）",
+    "example_en": "Please tell me in complete detail what occurred, when and where.",
+    "example_cn": "请给我统统说清楚什么时候在哪里发生了什么事。",
+    "syllables": "oc,curred",
+    "word_audio": "audio/words/occurred.mp3",
+    "example_audio": "audio/examples/occurred.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11277837 (Aphima) / 中文 #4147360 (sissima)",
+    "tags": ""
+  },
+  "ocean": {
+    "word": "ocean",
+    "phonetic": "/'әuʃәn/",
+    "meaning": "n. 海洋, 广阔, 许多, 一大片",
+    "example_en": "It is very pleasant to cross the ocean by ship.",
+    "example_cn": "乘船过海非常舒服。",
+    "syllables": "",
+    "word_audio": "audio/words/ocean.mp3",
+    "example_audio": "audio/examples/ocean.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #456139 (lukaszpp) / 中文 #847849 (fucongcong)",
+    "tags": "zk gk cet4 ky ielts"
+  },
+  "october": {
+    "word": "october",
+    "phonetic": "/ɒk'tәubә/",
+    "meaning": "n. 十月",
+    "example_en": "October is the tenth month of the year.",
+    "example_cn": "十月是一年中的第十个月。",
+    "syllables": "oc,to,ber",
+    "word_audio": "audio/words/october.mp3",
+    "example_audio": "audio/examples/october.mp3",
+    "source": "ECDICT（音标/释义）；项目人工修订双语例句",
+    "tags": "zk gk ielts"
+  }
+}

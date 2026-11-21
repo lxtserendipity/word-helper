@@ -1,0 +1,26 @@
+{
+  "odd": {
+    "word": "odd",
+    "phonetic": "/ɒd/",
+    "meaning": "a. 奇数的, 古怪的, 剩余的, 零散的, 各种各样的, 少量的；n. 奇特的事物, 怪人",
+    "example_en": "Even times odd is even, odd times odd is odd.",
+    "example_cn": "偶数乘以奇数是偶数，奇数乘以奇数是奇数。",
+    "syllables": "odd",
+    "word_audio": "audio/words/odd.mp3",
+    "example_audio": "audio/examples/odd.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #18141 (Zifre) / 中文 #454659 (peipei)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "odds": {
+    "word": "odds",
+    "phonetic": "/ɒdz/",
+    "meaning": "n. 可能性, 几率, 机会, 胜算, 不平等",
+    "example_en": "Those two departments are sometimes at odds with each other.",
+    "example_cn": "那两个部门有时候意见相左。",
+    "syllables": "odds",
+    "word_audio": "audio/words/odds.mp3",
+    "example_audio": "audio/examples/odds.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5144732 (thomasstrand) / 中文 #5144729 (thomasstrand)",
+    "tags": "ky toefl ielts gre"
+  }
+}

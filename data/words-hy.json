@@ -1,0 +1,14 @@
+{
+  "hydrogen": {
+    "word": "hydrogen",
+    "phonetic": "/'haidrәdʒәn/",
+    "meaning": "n. 氢",
+    "example_en": "A water molecule has two hydrogen atoms and one oxygen atom.",
+    "example_cn": "一个水分子是由两个氢原子和一个氧原子组成的。",
+    "syllables": "hy,dro,gen",
+    "word_audio": "audio/words/hydrogen.mp3",
+    "example_audio": "audio/examples/hydrogen.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #270937 (CK) / 中文 #481454 (nickyeow)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  }
+}

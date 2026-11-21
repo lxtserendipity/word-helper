@@ -1,0 +1,110 @@
+{
+  "awake": {
+    "word": "awake",
+    "phonetic": "/ә'weik/",
+    "meaning": "a. 醒着的；vt. 唤醒, 唤起, 使意识到；vi. 醒来, 被唤起, 意识到",
+    "example_en": "When the sisters came back, their mother was still awake.",
+    "example_cn": "在姐妹们回来的时候，她们的妈妈还醒着。",
+    "syllables": "",
+    "word_audio": "audio/words/awake.mp3",
+    "example_audio": "audio/examples/awake.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1819823 (Scott) / 中文 #8654595 (crescat)",
+    "tags": "zk gk cet4 cet6 ky"
+  },
+  "award": {
+    "word": "award",
+    "phonetic": "/ә'wɒ:d/",
+    "meaning": "n. 奖品, 裁定, 判决；vt. 授予, 给予",
+    "example_en": "In addition, we will issue the 'employee of the month' award afterwards.",
+    "example_cn": "另外，之后我们会颁发“每月最佳员工”奖。",
+    "syllables": "",
+    "word_audio": "audio/words/award.mp3",
+    "example_audio": "audio/examples/award.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2938697 (vicch) / 中文 #2938696 (vicch)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "awarded": {
+    "word": "awarded",
+    "phonetic": "/əwɔrdɪd/",
+    "meaning": "vt. 授予, 奖给, 判给（award的过去式与过去分词形式）",
+    "example_en": "He was awarded a grant to study in Germany.",
+    "example_cn": "他获得了一份去德国留学的奖学金。",
+    "syllables": "",
+    "word_audio": "audio/words/awarded.mp3",
+    "example_audio": "audio/examples/awarded.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #10534814 (sundown) / 中文 #6069412 (xjjAstrus)",
+    "tags": ""
+  },
+  "aware": {
+    "word": "aware",
+    "phonetic": "/ә'wєә/",
+    "meaning": "a. 知道的, 有觉悟的",
+    "example_en": "I'm sure they're all aware of what happened.",
+    "example_cn": "他们一定意识到发生什么事了。",
+    "syllables": "",
+    "word_audio": "audio/words/aware.mp3",
+    "example_audio": "audio/examples/aware.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2538081 (CK) / 中文 #13524180 (LeviHighway)",
+    "tags": "gk cet4 ky toefl ielts"
+  },
+  "awareness": {
+    "word": "awareness",
+    "phonetic": "/ә'weәnis/",
+    "meaning": "n. 意识, 认识",
+    "example_en": "It takes time to develop political awareness.",
+    "example_cn": "培养政治意识要花费时间。",
+    "syllables": "",
+    "word_audio": "audio/words/awareness.mp3",
+    "example_audio": "audio/examples/awareness.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2362013 (CK) / 中文 #2394469 (fenfang557)",
+    "tags": "toefl ielts"
+  },
+  "away": {
+    "word": "away",
+    "phonetic": "/ә'wei/",
+    "meaning": "adv. 离去",
+    "example_en": "Please take care of my dog while I am away.",
+    "example_cn": "麻烦在我离开的时候帮忙照顾我的狗。",
+    "syllables": "",
+    "word_audio": "audio/words/away.mp3",
+    "example_audio": "audio/examples/away.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #252062 (CC) / 中文 #12569600 (lnvq)",
+    "tags": "zk gk"
+  },
+  "awesome": {
+    "word": "awesome",
+    "phonetic": "/'ɒ:sәm/",
+    "meaning": "a. 引起敬畏的, 可怕的",
+    "example_en": "This room's pretty awesome, eh?",
+    "example_cn": "这个房间超赞的，对不对？",
+    "syllables": "awe,some",
+    "word_audio": "audio/words/awesome.mp3",
+    "example_audio": "audio/examples/awesome.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2296720 (FeuDRenais2) / 中文 #2254246 (KerenDeng)",
+    "tags": "gk"
+  },
+  "awful": {
+    "word": "awful",
+    "phonetic": "/'ɒ:ful/",
+    "meaning": "a. 可怕的, 庄严的, 虔敬的",
+    "example_en": "When I try to walk, I get an awful pain here.",
+    "example_cn": "我一走路，这里就很痛。",
+    "syllables": "aw,ful",
+    "word_audio": "audio/words/awful.mp3",
+    "example_audio": "audio/examples/awful.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #320516 (CK) / 中文 #430242 (nickyeow)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "awkward": {
+    "word": "awkward",
+    "phonetic": "/'ɒ:kwәd/",
+    "meaning": "a. 笨拙的, 棘手的",
+    "example_en": "Po-lin ran into his ex at the night market yesterday. It was super awkward.",
+    "example_cn": "柏霖昨天在夜市遇到前女友，尴尬到不行。",
+    "syllables": "awk,ward",
+    "word_audio": "audio/words/awkward.mp3",
+    "example_audio": "audio/examples/awkward.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13523807 (LeviHighway) / 中文 #13523782 (LeviHighway)",
+    "tags": "gk cet4 cet6 ky toefl ielts gre"
+  }
+}

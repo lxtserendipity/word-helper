@@ -1,0 +1,122 @@
+{
+  "vocal": {
+    "word": "vocal",
+    "phonetic": "/'vәukl/",
+    "meaning": "a. 嗓音的, 声音的, 有声的, 歌唱的；n. 元音, 声乐作品",
+    "example_en": "Public feeling against air pollution has at last become vocal.",
+    "example_cn": "公众终于对关于空气污染的意见直言不讳了。",
+    "syllables": "vo,cal",
+    "word_audio": "audio/words/vocal.mp3",
+    "example_audio": "audio/examples/vocal.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #275652 (sundown) / 中文 #2145918 (jimmy9pints)",
+    "tags": "cet6 ky toefl"
+  },
+  "voice": {
+    "word": "voice",
+    "phonetic": "/vɒis/",
+    "meaning": "n. 声音, 嗓音, 嗓子, 愿望, 发言权, 表达, 喉舌, 语态；vt. 表达, 吐露, 调音",
+    "example_en": "Kate's voice is clearly different from the other girls'.",
+    "example_cn": "Kate 的声音明显和其它女孩不同。",
+    "syllables": "voice",
+    "word_audio": "audio/words/voice.mp3",
+    "example_audio": "audio/examples/voice.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #62732 (CP) / 中文 #350683 (nickyeow)",
+    "tags": "zk gk cet4 cet6 ky"
+  },
+  "voices": {
+    "word": "voices",
+    "phonetic": "/vɔɪsəz/",
+    "meaning": "n. 声音",
+    "example_en": "You can identify children's voices without any problem.",
+    "example_cn": "你可以毫无问题地辨别孩子们的声音。",
+    "syllables": "voic,es",
+    "word_audio": "audio/words/voices.mp3",
+    "example_audio": "audio/examples/voices.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #245890 (mervert1) / 中文 #334749 (fucongcong)",
+    "tags": ""
+  },
+  "volume": {
+    "word": "volume",
+    "phonetic": "/'vɒljum/",
+    "meaning": "n. 册, 卷, 体积, 容量, 大量, 许多, 份量, 音量；vi. 成团卷起；vt. 把...收集成卷；a. 大量的",
+    "example_en": "Don't turn up the volume of TV anymore.",
+    "example_cn": "不要再调大电视的声音了。",
+    "syllables": "vol,ume",
+    "word_audio": "audio/words/volume.mp3",
+    "example_audio": "audio/examples/volume.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #54910 (\\N) / 中文 #1411623 (asosan)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "volumes": {
+    "word": "volumes",
+    "phonetic": "/'vɒlju:mz/",
+    "meaning": "n. 量( volume的复数形式 ); 书; 音量; 卷",
+    "example_en": "The dictionary comes in two volumes.",
+    "example_cn": "那本词典分为两卷。",
+    "syllables": "vol,umes",
+    "word_audio": "audio/words/volumes.mp3",
+    "example_audio": "audio/examples/volumes.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #46941 (CK) / 中文 #8798294 (crescat)",
+    "tags": ""
+  },
+  "voluntary": {
+    "word": "voluntary",
+    "phonetic": "/'vɒlәntәri/",
+    "meaning": "a. 自动的, 自愿的, 故意的, 志愿的, 自发的；n. 自愿行动, 志愿者, 自由调",
+    "example_en": "She can only go to the company to do voluntary work on Sundays.",
+    "example_cn": "她星期天也只能去公司做义务劳动了。",
+    "syllables": "",
+    "word_audio": "audio/words/voluntary.mp3",
+    "example_audio": "audio/examples/voluntary.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7790148 (sharris123) / 中文 #900749 (U2FS)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "volunteers": {
+    "word": "volunteers",
+    "phonetic": "/ˌvɔlənˈtiəz/",
+    "meaning": "n. 义务工作者( volunteer的名词复数 ); 志愿者; 自告奋勇者; 主动做某事的人；v. 自动提供, 自愿效劳( volunteer的第三人称单数 ); 主动建议（或告诉）; （未经当事人同意）举荐; 自愿参军, 当志愿兵",
+    "example_en": "The babies are taken care of by volunteers.",
+    "example_cn": "婴儿被志愿者们照顾着。",
+    "syllables": "vol,un,teers",
+    "word_audio": "audio/words/volunteers.mp3",
+    "example_audio": "audio/examples/volunteers.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #45866 (CM) / 中文 #2335949 (anndiana)",
+    "tags": "ielts"
+  },
+  "vote": {
+    "word": "vote",
+    "phonetic": "/vәut/",
+    "meaning": "n. 投票, 选举, 选票, 表决, 选举权, 得票数；vi. 投票, 选举；vt. 投票选举, 投票决定, 公认, 使投票",
+    "example_en": "The vote is unanimous.",
+    "example_cn": "选举一致通过了。",
+    "syllables": "vote",
+    "word_audio": "audio/words/vote.mp3",
+    "example_audio": "audio/examples/vote.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1241214 (xellugis) / 中文 #805192 (fucongcong)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "voted": {
+    "word": "voted",
+    "phonetic": "/voʊtɪd/",
+    "meaning": "表决的",
+    "example_en": "Strange to say, no one voted for the candidate.",
+    "example_cn": "奇怪的是，谁也没有投那候选人一票。",
+    "syllables": "vot,ed",
+    "word_audio": "audio/words/voted.mp3",
+    "example_audio": "audio/examples/voted.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #20628 (CK) / 中文 #343099 (nickyeow)",
+    "tags": ""
+  },
+  "voting": {
+    "word": "voting",
+    "phonetic": "/'vәutiŋ/",
+    "meaning": "n. 投票, 选举；a. 投票的, 选举的",
+    "example_en": "The opinion column discusses the importance of voting.",
+    "example_cn": "意见栏讨论了投票的重要性，",
+    "syllables": "vot,ing",
+    "word_audio": "audio/words/voting.mp3",
+    "example_audio": "audio/examples/voting.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13190448 (Nuel) / 中文 #13190534 (LeviHighway)",
+    "tags": ""
+  }
+}

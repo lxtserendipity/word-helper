@@ -1,0 +1,26 @@
+{
+  "ultimate": {
+    "word": "ultimate",
+    "phonetic": "/'ʌltimit/",
+    "meaning": "n. 终极, 根本, 顶点, 基本原则；a. 终极的, 根本的, 极限的, 最远的, 最后的, 最大的",
+    "example_en": "Our ultimate goal is to establish world peace.",
+    "example_cn": "我们的究极目标是树立世界和平。",
+    "syllables": "ul,ti,mate",
+    "word_audio": "audio/words/ultimate.mp3",
+    "example_audio": "audio/examples/ultimate.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #23432 (CK) / 中文 #6483612 (FAErika)",
+    "tags": "cet4 cet6 ky toefl gre"
+  },
+  "ultimately": {
+    "word": "ultimately",
+    "phonetic": "/'ʌltimәtli/",
+    "meaning": "adv. 最后, 最终",
+    "example_en": "Her line of reasoning is attractive, but ultimately fallacious.",
+    "example_cn": "她说理的主线引人注目，但从根本上是靠不住的。",
+    "syllables": "ul,ti,mate,ly",
+    "word_audio": "audio/words/ultimately.mp3",
+    "example_audio": "audio/examples/ultimately.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #950925 (darinmex) / 中文 #1397117 (mtdot)",
+    "tags": "cet4 cet6 ielts"
+  }
+}

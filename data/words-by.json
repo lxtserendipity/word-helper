@@ -1,0 +1,26 @@
+{
+  "by": {
+    "word": "by",
+    "phonetic": "/bai/",
+    "meaning": "prep. 被, 经, 由, 在...之旁；adv. 经过, 在近处",
+    "example_en": "Of us all, Tom was by far the best swimmer.",
+    "example_cn": "汤姆的泳术比我们所有人都要好得多。",
+    "syllables": "by",
+    "word_audio": "audio/words/by.mp3",
+    "example_audio": "audio/examples/by.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #249511 (CM) / 中文 #708761 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "bye": {
+    "word": "bye",
+    "phonetic": "/bai/",
+    "meaning": "interj. 再会, 回头见",
+    "example_en": "He departed without so much as saying good bye.",
+    "example_cn": "他连再见也不说就走了。",
+    "syllables": "bye",
+    "word_audio": "audio/words/bye.mp3",
+    "example_audio": "audio/examples/bye.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #290043 (\\N) / 中文 #339501 (nickyeow)",
+    "tags": "zk gk"
+  }
+}

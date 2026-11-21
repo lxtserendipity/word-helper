@@ -1,0 +1,14 @@
+{
+  "dvd": {
+    "word": "dvd",
+    "phonetic": "/dividi/",
+    "meaning": "abbr. 数字化视频光盘（Digital Video Disk）",
+    "example_en": "This is a DVD.",
+    "example_cn": "这是DVD。",
+    "syllables": "",
+    "word_audio": "audio/words/dvd.mp3",
+    "example_audio": "audio/examples/dvd.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #392212 (sysko) / 中文 #392211 (sysko)",
+    "tags": "zk gk"
+  }
+}

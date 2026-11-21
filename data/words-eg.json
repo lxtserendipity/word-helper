@@ -9,5 +9,17 @@
     "word_audio": "audio/words/egg.mp3",
     "example_audio": "audio/examples/egg.mp3",
     "source": "内置100词样板库"
+  },
+  "eggs": {
+    "word": "eggs",
+    "phonetic": "/ɛɡz/",
+    "meaning": "n. 鸡蛋；蛋（egg的复数形式）",
+    "example_en": "We need flour, sugar and eggs to make this cake.",
+    "example_cn": "我们需要面粉、砂糖和鸡蛋来做这个蛋糕。",
+    "syllables": "eggs",
+    "word_audio": "audio/words/eggs.mp3",
+    "example_audio": "audio/examples/eggs.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #61163 (papabear) / 中文 #349730 (nickyeow)",
+    "tags": ""
   }
 }

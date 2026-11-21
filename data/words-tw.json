@@ -1,0 +1,74 @@
+{
+  "twelve": {
+    "word": "twelve",
+    "phonetic": "/twelv/",
+    "meaning": "num. 十二, 十二个",
+    "example_en": "This trip of mine would need twelve days in total.",
+    "example_cn": "我这趟旅程一共需要十二天。",
+    "syllables": "twelve",
+    "word_audio": "audio/words/twelve.mp3",
+    "example_audio": "audio/examples/twelve.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11274694 (Aphima) / 中文 #421110 (sysko)",
+    "tags": "zk gk"
+  },
+  "twenty": {
+    "word": "twenty",
+    "phonetic": "/'twenti/",
+    "meaning": "num. 二十, 二十个",
+    "example_en": "Ten, twenty, thirty, forty, fifty, sixty, seventy, eighty, ninety, hundred.",
+    "example_cn": "十、二十、三十、四十、五十、六十、七十、八十、九十、一百。",
+    "syllables": "twen,ty",
+    "word_audio": "audio/words/twenty.mp3",
+    "example_audio": "audio/examples/twenty.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #622303 (Eldad) / 中文 #622486 (shanghainese)",
+    "tags": "zk gk"
+  },
+  "twice": {
+    "word": "twice",
+    "phonetic": "/twais/",
+    "meaning": "adv. 两次, 两倍",
+    "example_en": "A fox is not caught twice in the same snare.",
+    "example_cn": "一只狐狸不会两次掉入同一个陷阱里。",
+    "syllables": "twice",
+    "word_audio": "audio/words/twice.mp3",
+    "example_audio": "audio/examples/twice.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #24561 (CM) / 中文 #335132 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "twin": {
+    "word": "twin",
+    "phonetic": "/twin/",
+    "meaning": "n. 双胞胎中一人, 一对非常相像的人(或物)中的一个；a. 双胞胎的, 成对的, 孪生的；vi. 生双胞胎, 成对；vt. 怀(双胞胎), 使成对",
+    "example_en": "Ally loves playing with her twin sister Anne.",
+    "example_cn": "Ally喜欢和她的双胞胎妹妹Anne一起玩。",
+    "syllables": "twin",
+    "word_audio": "audio/words/twin.mp3",
+    "example_audio": "audio/examples/twin.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4404748 (Evie) / 中文 #7771995 (jiangche)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "twist": {
+    "word": "twist",
+    "phonetic": "/twist/",
+    "meaning": "n. 一扭, 扭曲, 曲折, 歪曲, 螺旋状, 新手法；vt. 拧, 扭, 捻, 编织, 使扭转, 缠绕, 盘绕, 歪曲, 使转动, 使苦恼, 使混乱, 使旋转；vi. 转向, 弯曲, 缠绕, 扭动, 呈螺旋形",
+    "example_en": "Don't twist my words around.",
+    "example_cn": "不要扭曲我说的话。",
+    "syllables": "twist",
+    "word_audio": "audio/words/twist.mp3",
+    "example_audio": "audio/examples/twist.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #656865 (Shishir) / 中文 #12850471 (DaoSeng)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "two": {
+    "word": "two",
+    "phonetic": "/tu:/",
+    "meaning": "num. 二, 二个",
+    "example_en": "The two men were seen to steal into the house.",
+    "example_cn": "那两个人偷偷溜进了房子里，给人看见了。",
+    "syllables": "two",
+    "word_audio": "audio/words/two.mp3",
+    "example_audio": "audio/examples/two.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #49955 (Dejo) / 中文 #421975 (nickyeow)",
+    "tags": "zk gk"
+  }
+}

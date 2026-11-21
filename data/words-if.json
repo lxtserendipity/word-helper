@@ -1,0 +1,14 @@
+{
+  "if": {
+    "word": "if",
+    "phonetic": "/if/",
+    "meaning": "conj. 如果, 是否, 无论何时, 假设, 即使；n. 条件",
+    "example_en": "I'll be in trouble if the story gets out.",
+    "example_cn": "如果有人把事情抖出来，我就麻烦了。",
+    "syllables": "if",
+    "word_audio": "audio/words/if.mp3",
+    "example_audio": "audio/examples/if.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #43309 (CK) / 中文 #1737896 (sadhen)",
+    "tags": "zk gk"
+  }
+}

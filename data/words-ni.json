@@ -1,4 +1,40 @@
 {
+  "nice": {
+    "word": "nice",
+    "phonetic": "/nais/",
+    "meaning": "a. 美好的, 和蔼的, 正派的, 做得好的, 精密的, 细微的, 挑剔的, 谨慎的",
+    "example_en": "Bob is such a nice person that everybody likes him.",
+    "example_cn": "鲍勃是个很好的人，大家都很喜欢他。",
+    "syllables": "nice",
+    "word_audio": "audio/words/nice.mp3",
+    "example_audio": "audio/examples/nice.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #33210 (CN) / 中文 #8845137 (crescat)",
+    "tags": "zk gk gre"
+  },
+  "nicely": {
+    "word": "nicely",
+    "phonetic": "/'naisli/",
+    "meaning": "adv. 漂亮地, 谨慎地, 恰好地",
+    "example_en": "Hopefully things will pan out nicely.",
+    "example_cn": "希望事情能顺利解决。",
+    "syllables": "nice,ly",
+    "word_audio": "audio/words/nicely.mp3",
+    "example_audio": "audio/examples/nicely.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #8053260 (deniko) / 中文 #13556466 (LeviHighway)",
+    "tags": ""
+  },
+  "nick": {
+    "word": "nick",
+    "phonetic": "/nik/",
+    "meaning": "n. 刻痕, 缺口, 划痕；vt. 刻痕于, 弄缺, 擦伤；vi. 狙击",
+    "example_en": "Every night, when all was quiet, he would sneak into his neighbour's garden to nick an apple.",
+    "example_cn": "每天晚上，当周围安静下来，他就会偷溜进邻居的花园里偷走一颗苹果。",
+    "syllables": "nick",
+    "word_audio": "audio/words/nick.mp3",
+    "example_audio": "audio/examples/nick.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11593549 (sundown) / 中文 #13050390 (maina)",
+    "tags": "gre"
+  },
   "night": {
     "word": "night",
     "phonetic": "/naɪt/",
@@ -9,5 +45,41 @@
     "word_audio": "audio/words/night.mp3",
     "example_audio": "audio/examples/night.mp3",
     "source": "内置100词样板库"
+  },
+  "nightmare": {
+    "word": "nightmare",
+    "phonetic": "/'naitmєә/",
+    "meaning": "n. 梦魇, 恶梦, 可怕的事物(或情景、人物)",
+    "example_en": "Eating lots at night can easily give you a nightmare.",
+    "example_cn": "晚上吃多了容易做噩梦。",
+    "syllables": "night,mare",
+    "word_audio": "audio/words/nightmare.mp3",
+    "example_audio": "audio/examples/nightmare.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7825925 (sharris123) / 中文 #2448817 (fenfang557)",
+    "tags": "cet6 ky ielts gre"
+  },
+  "nights": {
+    "word": "nights",
+    "phonetic": "/naits/",
+    "meaning": "n. 每夜, 在任何夜晚",
+    "example_en": "It was one of the best nights I've had.",
+    "example_cn": "这是我度过的最好的夜晚之一。",
+    "syllables": "nights",
+    "word_audio": "audio/words/nights.mp3",
+    "example_audio": "audio/examples/nights.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1655354 (Spamster) / 中文 #5574441 (verdastelo9604)",
+    "tags": ""
+  },
+  "nine": {
+    "word": "nine",
+    "phonetic": "/nain/",
+    "meaning": "num. 九, 九个",
+    "example_en": "The sum of two plus three plus four is nine.",
+    "example_cn": "二加三加四的和是九。",
+    "syllables": "nine",
+    "word_audio": "audio/words/nine.mp3",
+    "example_audio": "audio/examples/nine.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #72909 (CM) / 中文 #13124237 (LeviHighway)",
+    "tags": "zk gk"
   }
 }

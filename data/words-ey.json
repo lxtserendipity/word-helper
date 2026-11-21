@@ -1,0 +1,26 @@
+{
+  "eye": {
+    "word": "eye",
+    "phonetic": "/ai/",
+    "meaning": "n. 眼睛, 视力, 看；vt. 看, 注视",
+    "example_en": "An eye for an eye, a tooth for a tooth.",
+    "example_cn": "以眼还眼，以牙还牙。",
+    "syllables": "eye",
+    "word_audio": "audio/words/eye.mp3",
+    "example_audio": "audio/examples/eye.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6136 (CM) / 中文 #806252 (Martha)",
+    "tags": "zk gk ielts"
+  },
+  "eyes": {
+    "word": "eyes",
+    "phonetic": "/aɪz/",
+    "meaning": "n. 眼睛（eye的复数）",
+    "example_en": "I feel like I'm being drawn into your eyes.",
+    "example_cn": "我觉得自己好像被你的眼睛吸住了。",
+    "syllables": "eyes",
+    "word_audio": "audio/words/eyes.mp3",
+    "example_audio": "audio/examples/eyes.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #70430 (\\N) / 中文 #461499 (nickyeow)",
+    "tags": ""
+  }
+}

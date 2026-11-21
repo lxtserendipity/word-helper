@@ -1,0 +1,26 @@
+{
+  "ok": {
+    "word": "ok",
+    "phonetic": "/'әu'kei/",
+    "meaning": "a. 好, 不错, 可以；adv. 好, 不错, 可以；n. 批准, 认可",
+    "example_en": "Are you OK?",
+    "example_cn": "你还好吗？",
+    "syllables": "",
+    "word_audio": "audio/words/ok.mp3",
+    "example_audio": "audio/examples/ok.mp3",
+    "source": "ECDICT（音标/释义）；项目人工修订双语例句",
+    "tags": "zk gk"
+  },
+  "okay": {
+    "word": "okay",
+    "phonetic": "/әj'kei/",
+    "meaning": "a. 好, 可以, 行, 对, 好吗, 很好；adv. 好, 可以, 行, 对, 好吗, 很好；n. 同意, 签认, 批准, 认可；vt. 同意, 签认, 批准, 认可",
+    "example_en": "Why is it not okay if it's your sister?",
+    "example_cn": "为什么你姐姐不好？",
+    "syllables": "",
+    "word_audio": "audio/words/okay.mp3",
+    "example_audio": "audio/examples/okay.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11291122 (Aphima) / 中文 #3478446 (schlagermanx)",
+    "tags": "cet4 ky"
+  }
+}

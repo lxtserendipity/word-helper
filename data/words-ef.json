@@ -1,0 +1,86 @@
+{
+  "effect": {
+    "word": "effect",
+    "phonetic": "/i'fekt/",
+    "meaning": "n. 结果, 影响, 效果, 印象；vt. 实行, 引起, 完成",
+    "example_en": "Pollution has a disastrous effect on the ecology of a region.",
+    "example_cn": "环境污染可以对一个区域的生态造成极大的影响。",
+    "syllables": "ef,fect",
+    "word_audio": "audio/words/effect.mp3",
+    "example_audio": "audio/examples/effect.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #25709 (carlosalberto) / 中文 #903228 (nickyeow)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "effective": {
+    "word": "effective",
+    "phonetic": "/i'fektiv/",
+    "meaning": "a. 有效的, 有力的, 实际的；n. 有生力量",
+    "example_en": "This poison is very effective in getting rid of roaches.",
+    "example_cn": "这毒药用来治蟑螂很有效。",
+    "syllables": "ef,fec,tive",
+    "word_audio": "audio/words/effective.mp3",
+    "example_audio": "audio/examples/effective.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #56613 (CM) / 中文 #1401823 (nickyeow)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "effects": {
+    "word": "effects",
+    "phonetic": "/ɪfɛkts/",
+    "meaning": "n. 财物, 个人财产",
+    "example_en": "She seems to devote all her effects to her career.",
+    "example_cn": "她似乎把自己所有的精力都投入到了事业上。",
+    "syllables": "ef,fects",
+    "word_audio": "audio/words/effects.mp3",
+    "example_audio": "audio/examples/effects.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #314691 (\\N) / 中文 #1902268 (fercheung)",
+    "tags": "ielts"
+  },
+  "efficiency": {
+    "word": "efficiency",
+    "phonetic": "/i'fiʃәnsi/",
+    "meaning": "n. 效率, 效能, 功效",
+    "example_en": "The challenge we are going to face is how to increase work efficiency.",
+    "example_cn": "如何提高工作效率是我们现在要面临的难题。",
+    "syllables": "ef,fi,cien,cy",
+    "word_audio": "audio/words/efficiency.mp3",
+    "example_audio": "audio/examples/efficiency.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #9408515 (BobbyLee) / 中文 #2442099 (fenfang557)",
+    "tags": "cet4 cet6 ky toefl"
+  },
+  "efficient": {
+    "word": "efficient",
+    "phonetic": "/i'fiʃәnt/",
+    "meaning": "a. 有效率的, 能干的",
+    "example_en": "As people get older, their brain cells become less efficient.",
+    "example_cn": "随著人们年龄的增长，其脑细胞就变得比较没有效率。",
+    "syllables": "ef,fi,cient",
+    "word_audio": "audio/words/efficient.mp3",
+    "example_audio": "audio/examples/efficient.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #810542 (\\N) / 中文 #810619 (Martha)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "effort": {
+    "word": "effort",
+    "phonetic": "/'efәt/",
+    "meaning": "n. 努力, 成就",
+    "example_en": "With just a little more effort, he would have succeeded.",
+    "example_cn": "如果他再努力一点，就可能已经成功了。",
+    "syllables": "ef,fort",
+    "word_audio": "audio/words/effort.mp3",
+    "example_audio": "audio/examples/effort.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #31436 (CK) / 中文 #333662 (fucongcong)",
+    "tags": "zk gk cet4 cet6 ky"
+  },
+  "efforts": {
+    "word": "efforts",
+    "phonetic": "/ɛfərts/",
+    "meaning": "n. 努力；转向力（effort的复数）",
+    "example_en": "Whether you succeed or not depends on your own efforts.",
+    "example_cn": "你成功与否取决于你自身的努力。",
+    "syllables": "ef,forts",
+    "word_audio": "audio/words/efforts.mp3",
+    "example_audio": "audio/examples/efforts.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #271293 (CM) / 中文 #332945 (fucongcong)",
+    "tags": ""
+  }
+}

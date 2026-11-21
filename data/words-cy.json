@@ -1,0 +1,26 @@
+{
+  "cycle": {
+    "word": "cycle",
+    "phonetic": "/'saikl/",
+    "meaning": "n. 周期, 循环, 自行车, 一段时间, 整套；vi. 循环, 轮转, 骑自行车；vt. 使循环, 使轮转",
+    "example_en": "Usually I cycle or get the bus to work.",
+    "example_cn": "我通常骑自行车或乘公交车去上班。",
+    "syllables": "cy,cle",
+    "word_audio": "audio/words/cycle.mp3",
+    "example_audio": "audio/examples/cycle.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1477325 (CM) / 中文 #1477273 (GlossaMatik)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "cycling": {
+    "word": "cycling",
+    "phonetic": "/'saikliŋ/",
+    "meaning": "n. 骑脚踏车兜风, 骑脚踏车消遣",
+    "example_en": "You may go cycling if it doesn't rain.",
+    "example_cn": "如果不下雨的话，你可以去踏单车。",
+    "syllables": "cy,cling",
+    "word_audio": "audio/words/cycling.mp3",
+    "example_audio": "audio/examples/cycling.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #26805 (CK) / 中文 #489545 (nickyeow)",
+    "tags": "ielts"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "ill": {
+    "word": "ill",
+    "phonetic": "/il/",
+    "meaning": "n. 疾病, 坏事, 罪恶, 灾难；a. 生病的, 邪恶的, 不吉利的, 敌意的, 不良的, 不顺利的；adv. 有害地, 不幸地, 几乎不",
+    "example_en": "He seems to have been ill for a long time.",
+    "example_cn": "他好像已经病了很久了。",
+    "syllables": "ill",
+    "word_audio": "audio/words/ill.mp3",
+    "example_audio": "audio/examples/ill.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #38333 (CM) / 中文 #1016749 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "illegal": {
+    "word": "illegal",
+    "phonetic": "/i'li:gәl/",
+    "meaning": "a. 违法的, 不合规定的",
+    "example_en": "I've never done anything illegal in my life.",
+    "example_cn": "我没有做过非法的事。",
+    "syllables": "il,le,gal",
+    "word_audio": "audio/words/illegal.mp3",
+    "example_audio": "audio/examples/illegal.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6533414 (Hybrid) / 中文 #6534934 (kayano)",
+    "tags": "gk cet4 cet6 ky ielts gre"
+  },
+  "illness": {
+    "word": "illness",
+    "phonetic": "/'ilnis/",
+    "meaning": "n. 疾病, 恶意",
+    "example_en": "I believe this type of medicine will help your illness.",
+    "example_cn": "我相信这种药对你的病情有帮助。",
+    "syllables": "ill,ness",
+    "word_audio": "audio/words/illness.mp3",
+    "example_audio": "audio/examples/illness.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7832956 (sharris123) / 中文 #414457 (Rebeca)",
+    "tags": "zk gk cet4 ky ielts"
+  },
+  "illustrated": {
+    "word": "illustrated",
+    "phonetic": "/'ilәstreitid/",
+    "meaning": "n. 有插画的报章杂志",
+    "example_en": "The artist who illustrated this book is very good.",
+    "example_cn": "给这本书画插画的画家很好。",
+    "syllables": "il,lus,trat,ed",
+    "word_audio": "audio/words/illustrated.mp3",
+    "example_audio": "audio/examples/illustrated.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2267953 (_undertoad) / 中文 #6105226 (verdastelo9604)",
+    "tags": ""
+  }
+}

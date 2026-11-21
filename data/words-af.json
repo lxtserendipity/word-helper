@@ -1,4 +1,124 @@
 {
+  "affair": {
+    "word": "affair",
+    "phonetic": "/ә'fєә/",
+    "meaning": "n. 事件, 事务, 恋爱事件",
+    "example_en": "I don't want to be involved in this affair.",
+    "example_cn": "我可不想卷入这场纷争中去。",
+    "syllables": "af,fair",
+    "word_audio": "audio/words/affair.mp3",
+    "example_audio": "audio/examples/affair.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #253621 (CM) / 中文 #1188447 (wumuou)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "affairs": {
+    "word": "affairs",
+    "phonetic": "/əfɛrz/",
+    "meaning": "n. 事务, 事宜；风流韵事",
+    "example_en": "He has no right to interfere in our family affairs.",
+    "example_cn": "他无权干涉我们的家庭事务。",
+    "syllables": "af,fairs",
+    "word_audio": "audio/words/affairs.mp3",
+    "example_audio": "audio/examples/affairs.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #297389 (CK) / 中文 #8635806 (slo_oth)",
+    "tags": "ielts"
+  },
+  "affect": {
+    "word": "affect",
+    "phonetic": "/ә'fekt/",
+    "meaning": "vt. 影响, 感动, 假装, 模仿, 爱好, 倾向于；n. 自觉感情",
+    "example_en": "Other people's expectations affect how we behave.",
+    "example_cn": "其他人的期望会影响我们的行为。",
+    "syllables": "af,fect",
+    "word_audio": "audio/words/affect.mp3",
+    "example_audio": "audio/examples/affect.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #827844 (Scott) / 中文 #828692 (Martha)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "affected": {
+    "word": "affected",
+    "phonetic": "/ә'fektid/",
+    "meaning": "a. 假装的, 做作的, 受影响的",
+    "example_en": "Generally speaking, nobles were only very slightly affected by taxes.",
+    "example_cn": "总体来说，贵族受到税收的影响微乎其微。",
+    "syllables": "af,fect,ed",
+    "word_audio": "audio/words/affected.mp3",
+    "example_audio": "audio/examples/affected.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #407549 (Scott) / 中文 #13890569 (jan_OkulaJu)",
+    "tags": "toefl gre"
+  },
+  "affection": {
+    "word": "affection",
+    "phonetic": "/ә'fekʃәn/",
+    "meaning": "n. 影响, 病, 喜爱, 情感, 倾向",
+    "example_en": "Everyone knows of his affection for that dog.",
+    "example_cn": "人人都知道他对那狗的感情。",
+    "syllables": "af,fec,tion",
+    "word_audio": "audio/words/affection.mp3",
+    "example_audio": "audio/examples/affection.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2264196 (sharptoothed) / 中文 #5856776 (verdastelo9604)",
+    "tags": "gk cet4 cet6 ky toefl ielts gre"
+  },
+  "affects": {
+    "word": "affects",
+    "phonetic": "/əfɛkts/",
+    "meaning": "v. 影响；假装；喜欢（affect的三单形式）",
+    "example_en": "Acid rain in drinking water affects human health.",
+    "example_cn": "饮用水中的酸雨影响人类的健康。",
+    "syllables": "af,fects",
+    "word_audio": "audio/words/affects.mp3",
+    "example_audio": "audio/examples/affects.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #27097 (katix824) / 中文 #4262177 (egg0073)",
+    "tags": ""
+  },
+  "afford": {
+    "word": "afford",
+    "phonetic": "/ә'fɒ:d/",
+    "meaning": "vt. 买得起, 足以, 给予",
+    "example_en": "I can't afford to buy such an expensive car.",
+    "example_cn": "我买不起这么贵的轿车。",
+    "syllables": "af,ford",
+    "word_audio": "audio/words/afford.mp3",
+    "example_audio": "audio/examples/afford.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #41378 (CK) / 中文 #1401752 (sirpoot)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts"
+  },
+  "affordable": {
+    "word": "affordable",
+    "phonetic": "/əfɔrdəbəl/",
+    "meaning": "[计] 普及型",
+    "example_en": "The laptop provides cutting-edge technology at an affordable price.",
+    "example_cn": "这款笔记型电脑价格亲民，技术领先。",
+    "syllables": "",
+    "word_audio": "audio/words/affordable.mp3",
+    "example_audio": "audio/examples/affordable.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #10556777 (carlosalberto) / 中文 #13899840 (LeviHighway)",
+    "tags": "toefl gre"
+  },
+  "afraid": {
+    "word": "afraid",
+    "phonetic": "/ә'freid/",
+    "meaning": "a. 害怕的, 恐怕的, 遗憾的",
+    "example_en": "Don't be afraid to make mistakes when speaking English.",
+    "example_cn": "讲英语的时候不要怕会不会说错什么。",
+    "syllables": "",
+    "word_audio": "audio/words/afraid.mp3",
+    "example_audio": "audio/examples/afraid.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #26175 (megamanenm) / 中文 #476398 (minshirui)",
+    "tags": "zk gk"
+  },
+  "after": {
+    "word": "after",
+    "phonetic": "/'ɑ:ftә/",
+    "meaning": "prep. 在...之后, 由于；conj. 在...之后；adv. 后来",
+    "example_en": "The politician didn't appear in public after the incident.",
+    "example_cn": "发生了那件事以后，那位政治家一直没有公开露面。",
+    "syllables": "af,ter",
+    "word_audio": "audio/words/after.mp3",
+    "example_audio": "audio/examples/after.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #263665 (CK) / 中文 #694563 (nickyeow)",
+    "tags": "zk gk"
+  },
   "afternoon": {
     "word": "afternoon",
     "phonetic": "/ˌæftərˈnuːn/",
@@ -9,5 +129,17 @@
     "word_audio": "audio/words/afternoon.mp3",
     "example_audio": "audio/examples/afternoon.mp3",
     "source": "内置100词样板库"
+  },
+  "afterwards": {
+    "word": "afterwards",
+    "phonetic": "/'ɑ:ftәwәdz/",
+    "meaning": "adv. 然后, 后来",
+    "example_en": "Keep your eyes wide open before marriage, half shut afterwards.",
+    "example_cn": "婚前张开眼，婚后半闭眼。",
+    "syllables": "af,ter,wards",
+    "word_audio": "audio/words/afterwards.mp3",
+    "example_audio": "audio/examples/afterwards.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #238741 (CM) / 中文 #806179 (Martha)",
+    "tags": ""
   }
 }

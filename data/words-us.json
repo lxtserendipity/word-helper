@@ -1,4 +1,28 @@
 {
+  "us": {
+    "word": "us",
+    "phonetic": "/ʌs/",
+    "meaning": "pron. 我们",
+    "example_en": "We arrived to find a huge meal ready for us.",
+    "example_cn": "我们到达后发现一顿大餐已经为我们准备好了。",
+    "syllables": "us",
+    "word_audio": "audio/words/us.mp3",
+    "example_audio": "audio/examples/us.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #247287 (CK) / 中文 #340126 (nickyeow)",
+    "tags": "zk"
+  },
+  "usage": {
+    "word": "usage",
+    "phonetic": "/'ju:sidʒ/",
+    "meaning": "n. 用法, 使用, 习惯, 惯用法, 习惯法",
+    "example_en": "The proliferation of Internet usage has given birth to a new generation of young people.",
+    "example_cn": "互联网的广泛应用使新一代的年轻人诞生了。",
+    "syllables": "us,age",
+    "word_audio": "audio/words/usage.mp3",
+    "example_audio": "audio/examples/usage.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1963 (AlanF_US) / 中文 #502969 (fucongcong)",
+    "tags": "cet4 cet6 ky ielts"
+  },
   "use": {
     "word": "use",
     "phonetic": "/juːz/",
@@ -9,5 +33,113 @@
     "word_audio": "audio/words/use.mp3",
     "example_audio": "audio/examples/use.mp3",
     "source": "内置100词样板库"
+  },
+  "used": {
+    "word": "used",
+    "phonetic": "/'ju:st/",
+    "meaning": "a. 使用过的, 二手的, 习惯的",
+    "example_en": "I used to hate cooking, but now I like it.",
+    "example_cn": "以前我是讨厌做菜，可现在我很喜欢。",
+    "syllables": "used",
+    "word_audio": "audio/words/used.mp3",
+    "example_audio": "audio/examples/used.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7681641 (potatoindespair) / 中文 #3120846 (gdaniel)",
+    "tags": "zk cet4 cet6 ky"
+  },
+  "useful": {
+    "word": "useful",
+    "phonetic": "/'ju:sful/",
+    "meaning": "a. 有用的, 有益的",
+    "example_en": "The only useful answers are those that raise new questions.",
+    "example_cn": "只有能提出新问题的回答才是有用的回答。",
+    "syllables": "use,ful",
+    "word_audio": "audio/words/useful.mp3",
+    "example_audio": "audio/examples/useful.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1581 (CK) / 中文 #334330 (fucongcong)",
+    "tags": "zk gk cet4 cet6 ky ielts"
+  },
+  "useless": {
+    "word": "useless",
+    "phonetic": "/'ju:slis/",
+    "meaning": "a. 无用的, 无效的, 无益的",
+    "example_en": "Threatening me is useless, I won't say anything.",
+    "example_cn": "威胁我也没用，我什么都不会说的。",
+    "syllables": "use,less",
+    "word_audio": "audio/words/useless.mp3",
+    "example_audio": "audio/examples/useless.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5088333 (Zurich899) / 中文 #334560 (fucongcong)",
+    "tags": "gk cet4 cet6 toefl ielts"
+  },
+  "user": {
+    "word": "user",
+    "phonetic": "/'ju:zә/",
+    "meaning": "n. 使用者",
+    "example_en": "Many of the user reviews on Amazon are fake.",
+    "example_cn": "亚马逊网站上的许多用户评论都是虚假的。",
+    "syllables": "us,er",
+    "word_audio": "audio/words/user.mp3",
+    "example_audio": "audio/examples/user.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2311309 (CN) / 中文 #2307174 (Gustav249)",
+    "tags": "gk cet4 cet6"
+  },
+  "users": {
+    "word": "users",
+    "phonetic": "/juzərz/",
+    "meaning": "n. 使用者；受限用户（user的复数）",
+    "example_en": "With this upgrade, one obvious impact is that users will be obliged to reset their passwords.",
+    "example_cn": "这次升级的一个明显影响是用户会被强制重置密码。",
+    "syllables": "",
+    "word_audio": "audio/words/users.mp3",
+    "example_audio": "audio/examples/users.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2938661 (vicch) / 中文 #2938660 (vicch)",
+    "tags": ""
+  },
+  "uses": {
+    "word": "uses",
+    "phonetic": "/jusəz/",
+    "meaning": "abbr. 美国就业局（United States Employment Service）",
+    "example_en": "In fact, there are countless, varied uses for the Internet.",
+    "example_cn": "实际上，网络的作用有着无数的多种多样的。",
+    "syllables": "us,es",
+    "word_audio": "audio/words/uses.mp3",
+    "example_audio": "audio/examples/uses.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1208522 (eastasiastudent) / 中文 #1208520 (eastasiastudent)",
+    "tags": ""
+  },
+  "using": {
+    "word": "using",
+    "phonetic": "/juzɪŋ/",
+    "meaning": "v. use的现在分词：使用；利用",
+    "example_en": "We can see things in the distance using a telescope.",
+    "example_cn": "我们可以用望远镜来观察远方的事物。",
+    "syllables": "us,ing",
+    "word_audio": "audio/words/using.mp3",
+    "example_audio": "audio/examples/using.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #684011 (CK) / 中文 #1269868 (nickyeow)",
+    "tags": ""
+  },
+  "usual": {
+    "word": "usual",
+    "phonetic": "/'ju:ʒuәl/",
+    "meaning": "a. 平常的, 通常的",
+    "example_en": "This morning I got up an hour earlier than usual.",
+    "example_cn": "今早我比平时早了一个小时起床。",
+    "syllables": "",
+    "word_audio": "audio/words/usual.mp3",
+    "example_audio": "audio/examples/usual.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #242179 (CK) / 中文 #616218 (nickyeow)",
+    "tags": "zk gk cet4 cet6 ky ielts"
+  },
+  "usually": {
+    "word": "usually",
+    "phonetic": "/'ju:ʒuәli/",
+    "meaning": "adv. 通常, 大抵",
+    "example_en": "Yes, people usually curse at someone they are acquainted with.",
+    "example_cn": "对，人通常会对自己的熟人口出恶言。",
+    "syllables": "usu,al,ly",
+    "word_audio": "audio/words/usually.mp3",
+    "example_audio": "audio/examples/usually.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6153599 (rayshih715) / 中文 #6153596 (rayshih715)",
+    "tags": "gk"
   }
 }

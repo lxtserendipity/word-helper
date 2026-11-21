@@ -1,4 +1,52 @@
 {
+  "snack": {
+    "word": "snack",
+    "phonetic": "/snæk/",
+    "meaning": "n. 小吃, 点心, 快餐；vi. 吃零食, 吃快餐",
+    "example_en": "What does Tom eat for a mid-afternoon snack?",
+    "example_cn": "汤姆下午茶点心都吃什么？",
+    "syllables": "snack",
+    "word_audio": "audio/words/snack.mp3",
+    "example_audio": "audio/examples/snack.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1023801 (CK) / 中文 #13549620 (LeviHighway)",
+    "tags": "gk cet6 ky ielts"
+  },
+  "snake": {
+    "word": "snake",
+    "phonetic": "/sneik/",
+    "meaning": "n. 蛇, 阴险的人；vi. 曲折行进；vt. 迂回, 拉, 急抽",
+    "example_en": "We suspect it's about a poisoning by snake bite.",
+    "example_cn": "我们猜这是一种被蛇咬伤的毒。",
+    "syllables": "snake",
+    "word_audio": "audio/words/snake.mp3",
+    "example_audio": "audio/examples/snake.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #412787 (lunatic) / 中文 #811099 (fucongcong)",
+    "tags": "zk gk cet4 cet6 ky toefl"
+  },
+  "snap": {
+    "word": "snap",
+    "phonetic": "/snæp/",
+    "meaning": "vt. 使突然中断, 猛咬, 争夺, 拉断, 使有啪啪声, 厉声说, 突然射击, 用快照拍摄；vi. 咬, 扑, 抓, 折断, 劈啪地响, 厉声说, 砰然关上；n. 猛咬, 猛扑, 劈啪声, 申斥, 快照, 活力, 一般时期的寒冷天气, 揿钮；a. 突然的, 装搭扣的；adv. 猛地",
+    "example_en": "Sorry, I didn't mean to snap at you.",
+    "example_cn": "对不起，我并不想对你发火。",
+    "syllables": "snap",
+    "word_audio": "audio/words/snap.mp3",
+    "example_audio": "audio/examples/snap.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1005976 (darinmex) / 中文 #1151858 (sysko)",
+    "tags": "cet4 cet6 ky toefl"
+  },
+  "snow": {
+    "word": "snow",
+    "phonetic": "/snәu/",
+    "meaning": "n. 雪, 积雪, 下雪, 雪花形干扰；vi. 下雪, 似雪般落下；vt. 使雪白, 用雪覆盖, 使像雪般落下",
+    "example_en": "They found the track of a bear in the snow.",
+    "example_cn": "他们在雪地里找到了熊的脚印。",
+    "syllables": "snow",
+    "word_audio": "audio/words/snow.mp3",
+    "example_audio": "audio/examples/snow.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #306995 (Dejo) / 中文 #750607 (nickyeow)",
+    "tags": "zk gk"
+  },
   "snowy": {
     "word": "snowy",
     "phonetic": "/ˈsnoʊi/",

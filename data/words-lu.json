@@ -1,4 +1,28 @@
 {
+  "luck": {
+    "word": "luck",
+    "phonetic": "/lʌk/",
+    "meaning": "n. 运气, 幸运, 好运, 侥幸；vi. 靠好运成功",
+    "example_en": "I don't believe that black cats cause bad luck.",
+    "example_cn": "我不相信黑猫与厄运有关系。",
+    "syllables": "luck",
+    "word_audio": "audio/words/luck.mp3",
+    "example_audio": "audio/examples/luck.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #895859 (pauldhunt) / 中文 #10526741 (DaoSeng)",
+    "tags": "zk gk cet4 ky ielts"
+  },
+  "lucky": {
+    "word": "lucky",
+    "phonetic": "/'lʌki/",
+    "meaning": "a. 幸运的, 吉祥的, 好运的, 侥幸的",
+    "example_en": "You're lucky because he didn't bite you.",
+    "example_cn": "你真走运，因为他没咬你。",
+    "syllables": "",
+    "word_audio": "audio/words/lucky.mp3",
+    "example_audio": "audio/examples/lucky.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1560 (adiante19) / 中文 #334430 (fucongcong)",
+    "tags": "zk gk cet4 ky"
+  },
   "lunch": {
     "word": "lunch",
     "phonetic": "/lʌntʃ/",
@@ -9,5 +33,29 @@
     "word_audio": "audio/words/lunch.mp3",
     "example_audio": "audio/examples/lunch.mp3",
     "source": "内置100词样板库"
+  },
+  "lung": {
+    "word": "lung",
+    "phonetic": "/lʌŋ/",
+    "meaning": "n. 肺, 肺脏, 空地",
+    "example_en": "That man died of lung cancer a week ago.",
+    "example_cn": "那个男人在一周前死于肺癌。",
+    "syllables": "lung",
+    "word_audio": "audio/words/lung.mp3",
+    "example_audio": "audio/examples/lung.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #67968 (CK) / 中文 #8688132 (slo_oth)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "luxury": {
+    "word": "luxury",
+    "phonetic": "/'lʌkʃәri/",
+    "meaning": "n. 奢侈, 豪华；a. 奢侈的, 豪华的",
+    "example_en": "On the seventh floor, you can find four luxury restaurants.",
+    "example_cn": "在七楼，你可以找到四个豪华餐厅。",
+    "syllables": "lux,u,ry",
+    "word_audio": "audio/words/luxury.mp3",
+    "example_audio": "audio/examples/luxury.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3243828 (mervert1) / 中文 #8968582 (ZeroAurora)",
+    "tags": "cet4 cet6 ky toefl ielts gre"
   }
 }

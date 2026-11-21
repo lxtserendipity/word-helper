@@ -1,0 +1,14 @@
+{
+  "oak": {
+    "word": "oak",
+    "phonetic": "/әuk/",
+    "meaning": "n. 橡树, 橡木；a. 橡木制的",
+    "example_en": "Ziri saw a large claw mark on the oak tree.",
+    "example_cn": "齐里看到橡树上有一个很大的爪痕。",
+    "syllables": "oak",
+    "word_audio": "audio/words/oak.mp3",
+    "example_audio": "audio/examples/oak.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11249541 (Amastan) / 中文 #13573834 (LeviHighway)",
+    "tags": "cet6 ky gre"
+  }
+}

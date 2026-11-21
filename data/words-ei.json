@@ -1,0 +1,38 @@
+{
+  "eight": {
+    "word": "eight",
+    "phonetic": "/eit/",
+    "meaning": "num. 八, 八个",
+    "example_en": "I'll be back by seven or eight o'clock.",
+    "example_cn": "我会在七八点回家。",
+    "syllables": "eight",
+    "word_audio": "audio/words/eight.mp3",
+    "example_audio": "audio/examples/eight.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #72367 (CK) / 中文 #8936387 (crescat)",
+    "tags": "zk gk"
+  },
+  "eighth": {
+    "word": "eighth",
+    "phonetic": "/eitθ/",
+    "meaning": "num. 第八, 八分之一",
+    "example_en": "Neptune is the eighth planet of the solar system.",
+    "example_cn": "海王星是太阳系第八个行星。",
+    "syllables": "eighth",
+    "word_audio": "audio/words/eighth.mp3",
+    "example_audio": "audio/examples/eighth.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #22212 (CK) / 中文 #845140 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "either": {
+    "word": "either",
+    "phonetic": "/'i:ðә/",
+    "meaning": "a. (两者之中)任一的, (两者之中)各一的；pron. (两者之中)任一；conj. 或, 要么",
+    "example_en": "If you don't go skiing, I won't, either.",
+    "example_cn": "要是你不去滑雪我也不去。",
+    "syllables": "ei,ther",
+    "word_audio": "audio/words/either.mp3",
+    "example_audio": "audio/examples/either.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #71595 (CK) / 中文 #417375 (enzubii)",
+    "tags": "zk gk"
+  }
+}

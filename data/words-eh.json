@@ -1,0 +1,14 @@
+{
+  "eh": {
+    "word": "eh",
+    "phonetic": "/ei/",
+    "meaning": "interj. 啊!嗯!是吗?好吗?",
+    "example_en": "You're a friend of Tom's, eh?",
+    "example_cn": "你是汤姆的朋友，不是吗？",
+    "syllables": "eh",
+    "word_audio": "audio/words/eh.mp3",
+    "example_audio": "audio/examples/eh.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #16468 (Swift) / 中文 #845479 (Martha)",
+    "tags": ""
+  }
+}

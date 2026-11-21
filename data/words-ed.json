@@ -1,0 +1,98 @@
+{
+  "edge": {
+    "word": "edge",
+    "phonetic": "/edʒ/",
+    "meaning": "n. 边缘, 尖锐, 刀刃, 优势；vt. 使锐利, 挤进, 镶边；vi. 缓缓移动",
+    "example_en": "The laptop provides cutting-edge technology at an affordable price.",
+    "example_cn": "这款笔记型电脑价格亲民，技术领先。",
+    "syllables": "edge",
+    "word_audio": "audio/words/edge.mp3",
+    "example_audio": "audio/examples/edge.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #10556777 (carlosalberto) / 中文 #13899840 (LeviHighway)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts"
+  },
+  "edit": {
+    "word": "edit",
+    "phonetic": "/'edit/",
+    "meaning": "vt. 编辑, 编校, 修订, 剪辑",
+    "example_en": "It will be able to edit the pictures you don't like, then print them out.",
+    "example_cn": "它可以将你不喜欢的照片修好，然后在印出来。",
+    "syllables": "ed,it",
+    "word_audio": "audio/words/edit.mp3",
+    "example_audio": "audio/examples/edit.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7768543 (sharris123) / 中文 #1646923 (fengli)",
+    "tags": "cet6 ky ielts"
+  },
+  "edition": {
+    "word": "edition",
+    "phonetic": "/i'diʃәn/",
+    "meaning": "n. 版本, 版, 翻版",
+    "example_en": "Which is more complete, the first edition or the second?",
+    "example_cn": "第一还是第二的版本比较齐全？",
+    "syllables": "",
+    "word_audio": "audio/words/edition.mp3",
+    "example_audio": "audio/examples/edition.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #407965 (Dorenda) / 中文 #1424311 (sirpoot)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "editor": {
+    "word": "editor",
+    "phonetic": "/'editә/",
+    "meaning": "n. 编者, 编辑, 主笔, 编辑器, 编辑装置",
+    "example_en": "You don't want to be an editor?",
+    "example_cn": "你不想做编辑？",
+    "syllables": "ed,i,tor",
+    "word_audio": "audio/words/editor.mp3",
+    "example_audio": "audio/examples/editor.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2090865 (CK) / 中文 #5670859 (verdastelo9604)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "editorial": {
+    "word": "editorial",
+    "phonetic": "/.edi'tɒ:riәl/",
+    "meaning": "n. 社论, 评论；a. 编辑的, 主笔的, 社论的",
+    "example_en": "Bill is on the editorial staff.",
+    "example_cn": "比尔在编辑部工作。",
+    "syllables": "ed,i,to,ri,al",
+    "word_audio": "audio/words/editorial.mp3",
+    "example_audio": "audio/examples/editorial.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #34467 (CN) / 中文 #839574 (Martha)",
+    "tags": "cet4 cet6 ky ielts"
+  },
+  "educated": {
+    "word": "educated",
+    "phonetic": "/'edjukeitid/",
+    "meaning": "a. 受过教育的, 有教养的",
+    "example_en": "People are more educated now than they used to be.",
+    "example_cn": "现在的人教育程度比以前高得多。",
+    "syllables": "ed,u,cat,ed",
+    "word_audio": "audio/words/educated.mp3",
+    "example_audio": "audio/examples/educated.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #239588 (CK) / 中文 #332680 (fucongcong)",
+    "tags": "toefl"
+  },
+  "education": {
+    "word": "education",
+    "phonetic": "/.edju'keiʃәn/",
+    "meaning": "n. 教育, 训练, 教育学",
+    "example_en": "The parents want to give their son the best education.",
+    "example_cn": "父母想给儿子最好的教育。",
+    "syllables": "ed,u,ca,tion",
+    "word_audio": "audio/words/education.mp3",
+    "example_audio": "audio/examples/education.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #325719 (Dejo) / 中文 #5613614 (verdastelo9604)",
+    "tags": "zk gk cet4 ky toefl ielts"
+  },
+  "educational": {
+    "word": "educational",
+    "phonetic": "/.edju'keiʃәnl/",
+    "meaning": "a. 教育的, 教育性的",
+    "example_en": "Some people say that cartoons on television are educational in themselves.",
+    "example_cn": "有人说电视上的卡通本身是有教育意义的。",
+    "syllables": "ed,u,ca,tion,al",
+    "word_audio": "audio/words/educational.mp3",
+    "example_audio": "audio/examples/educational.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #39207 (\\N) / 中文 #350656 (nickyeow)",
+    "tags": "ielts"
+  }
+}

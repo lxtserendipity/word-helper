@@ -1,4 +1,40 @@
 {
+  "wrap": {
+    "word": "wrap",
+    "phonetic": "/ræp/",
+    "meaning": "n. 外套, 围巾, 包裹物, 限制, 约束, 秘密, 换行；vt. 包装, 卷, 缠绕, 包, 裹, 覆盖, 遮蔽, 隐藏, 掩护；vi. 缠绕, 穿外衣, 包起来",
+    "example_en": "Can you wrap it up for me? It's a gift.",
+    "example_cn": "可以帮我包起来吗？我拿来送人的。",
+    "syllables": "wrap",
+    "word_audio": "audio/words/wrap.mp3",
+    "example_audio": "audio/examples/wrap.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #704679 (papabear) / 中文 #2023499 (fercheung)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "wrestling": {
+    "word": "wrestling",
+    "phonetic": "/'resliŋ/",
+    "meaning": "n. 摔跤",
+    "example_en": "John is wrestling with Tom.",
+    "example_cn": "约翰和汤姆在摔角。",
+    "syllables": "wrest,ling",
+    "word_audio": "audio/words/wrestling.mp3",
+    "example_audio": "audio/examples/wrestling.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #52670 (CN) / 中文 #835635 (Martha)",
+    "tags": "toefl"
+  },
+  "wrist": {
+    "word": "wrist",
+    "phonetic": "/rist/",
+    "meaning": "n. 手腕, 腕关节",
+    "example_en": "That man grabbed the young girl's wrist.",
+    "example_cn": "那个男人抓住了这个年轻女孩的手腕。",
+    "syllables": "wrist",
+    "word_audio": "audio/words/wrist.mp3",
+    "example_audio": "audio/examples/wrist.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #388017 (CK) / 中文 #900218 (Martha)",
+    "tags": "gk cet4 cet6 ky toefl gre"
+  },
   "write": {
     "word": "write",
     "phonetic": "/raɪt/",
@@ -9,5 +45,89 @@
     "word_audio": "audio/words/write.mp3",
     "example_audio": "audio/examples/write.mp3",
     "source": "内置100词样板库"
+  },
+  "writer": {
+    "word": "writer",
+    "phonetic": "/'raitә/",
+    "meaning": "n. 作家, 撰稿者, 抄写员",
+    "example_en": "I respect him as a writer and as a man.",
+    "example_cn": "我尊重他这位作家，也尊重他这个人。",
+    "syllables": "writ,er",
+    "word_audio": "audio/words/writer.mp3",
+    "example_audio": "audio/examples/writer.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6404951 (Lemmih) / 中文 #6404950 (Lemmih)",
+    "tags": "cet4 cet6 ielts"
+  },
+  "writers": {
+    "word": "writers",
+    "phonetic": "/raɪtərz/",
+    "meaning": "n. 作家；作者（writer的复数）",
+    "example_en": "What do you think of those Japanese writers?",
+    "example_cn": "你觉得那些日本作家怎么样？",
+    "syllables": "writ,ers",
+    "word_audio": "audio/words/writers.mp3",
+    "example_audio": "audio/examples/writers.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #67010 (CM) / 中文 #786004 (fucongcong)",
+    "tags": ""
+  },
+  "writes": {
+    "word": "writes",
+    "phonetic": "/raits/",
+    "meaning": "v. 写( write的第三人称单数 ); 写信",
+    "example_en": "When he writes, he always keeps a dictionary at hand.",
+    "example_cn": "当他写字时, 他总是随手拿著一本字典。",
+    "syllables": "writes",
+    "word_audio": "audio/words/writes.mp3",
+    "example_audio": "audio/examples/writes.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #299426 (sundown) / 中文 #785230 (Martha)",
+    "tags": ""
+  },
+  "writing": {
+    "word": "writing",
+    "phonetic": "/'raitiŋ/",
+    "meaning": "n. 书写, 著作, 笔迹, 作品",
+    "example_en": "There was always too much superfluous writing in his essays.",
+    "example_cn": "在他的文章中总是有太多肤浅的桥段。",
+    "syllables": "writ,ing",
+    "word_audio": "audio/words/writing.mp3",
+    "example_audio": "audio/examples/writing.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1951 (AlanF_US) / 中文 #502940 (fucongcong)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "written": {
+    "word": "written",
+    "phonetic": "/'ritn/",
+    "meaning": "a. 书面的, 写成文字的；write的过去分词",
+    "example_en": "After the exam we compared the answers we'd written.",
+    "example_cn": "考试后，我们对了一下写的答案。",
+    "syllables": "writ,ten",
+    "word_audio": "audio/words/written.mp3",
+    "example_audio": "audio/examples/written.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #39452 (zumley) / 中文 #473013 (fucongcong)",
+    "tags": ""
+  },
+  "wrong": {
+    "word": "wrong",
+    "phonetic": "/rɒŋ/",
+    "meaning": "a. 错误的, 不正当的, 失常的；adv. 错误地",
+    "example_en": "Not only are you wrong, but I am wrong too.",
+    "example_cn": "错的不只是你，我自己也错了。",
+    "syllables": "wrong",
+    "word_audio": "audio/words/wrong.mp3",
+    "example_audio": "audio/examples/wrong.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #17681 (MTC) / 中文 #360674 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "wrote": {
+    "word": "wrote",
+    "phonetic": "/rәut/",
+    "meaning": "write的过去式",
+    "example_en": "Tom wrote his name in the sand with a stick.",
+    "example_cn": "汤姆用棍子在沙上写了他的名字。",
+    "syllables": "wrote",
+    "word_audio": "audio/words/wrote.mp3",
+    "example_audio": "audio/examples/wrote.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4849980 (Hybrid) / 中文 #5933782 (verdastelo9604)",
+    "tags": ""
   }
 }

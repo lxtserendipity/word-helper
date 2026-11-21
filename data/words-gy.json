@@ -1,0 +1,14 @@
+{
+  "gym": {
+    "word": "gym",
+    "phonetic": "/dʒim/",
+    "meaning": "n. +体育馆, 体育训练, 体育课, 体操",
+    "example_en": "I'm going to register at a gym.",
+    "example_cn": "我去注册一家健身房。",
+    "syllables": "gym",
+    "word_audio": "audio/words/gym.mp3",
+    "example_audio": "audio/examples/gym.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7156267 (Kiwi) / 中文 #6999507 (xjjAstrus)",
+    "tags": "zk ielts"
+  }
+}

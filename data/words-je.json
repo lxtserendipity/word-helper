@@ -1,0 +1,62 @@
+{
+  "jealous": {
+    "word": "jealous",
+    "phonetic": "/'dʒelәs/",
+    "meaning": "a. 嫉妒的, 羡慕的, 留心的, 戒备的",
+    "example_en": "I'm really jealous of your life right now.",
+    "example_cn": "我很羡慕你现在的生活。",
+    "syllables": "jeal,ous",
+    "word_audio": "audio/words/jealous.mp3",
+    "example_audio": "audio/examples/jealous.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1298427 (alec) / 中文 #1298065 (sysko)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "jeans": {
+    "word": "jeans",
+    "phonetic": "/dʒi:nz/",
+    "meaning": "n. 工装裤, 牛仔裤",
+    "example_en": "Meg was the only girl that was wearing jeans.",
+    "example_cn": "Meg是唯一一个穿牛仔裤的女生。",
+    "syllables": "jeans",
+    "word_audio": "audio/words/jeans.mp3",
+    "example_audio": "audio/examples/jeans.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #31817 (CN) / 中文 #405725 (fucongcong)",
+    "tags": "zk gk cet4 ky ielts"
+  },
+  "jersey": {
+    "word": "jersey",
+    "phonetic": "/'dʒә:zi/",
+    "meaning": "n. 运动衫",
+    "example_en": "Which Houston Rockets jersey looks the nicest?",
+    "example_cn": "哪一件休斯敦火箭球衣最好看？",
+    "syllables": "jer,sey",
+    "word_audio": "audio/words/jersey.mp3",
+    "example_audio": "audio/examples/jersey.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #9955403 (Akh2403) / 中文 #9955405 (Akh2403)",
+    "tags": ""
+  },
+  "jet": {
+    "word": "jet",
+    "phonetic": "/dʒet/",
+    "meaning": "n. 喷射流, 喷嘴, 煤玉；v. 射出, 迸出, 喷射；a. 黑而发亮的, 墨黑的",
+    "example_en": "Actually, I still haven't gotten over my jet lag.",
+    "example_cn": "我时差还没倒过来呢。",
+    "syllables": "jet",
+    "word_audio": "audio/words/jet.mp3",
+    "example_audio": "audio/examples/jet.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #14009888 (frpzzd) / 中文 #766469 (Vortarulo)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "jewelry": {
+    "word": "jewelry",
+    "phonetic": "/'dʒu:әlri/",
+    "meaning": "n. 珠宝, 珠宝类",
+    "example_en": "She was all eyes as he opened the jewelry box.",
+    "example_cn": "她非常注意地看著他打开了珠宝盒。",
+    "syllables": "jew,el,ry",
+    "word_audio": "audio/words/jewelry.mp3",
+    "example_audio": "audio/examples/jewelry.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #284170 (\\N) / 中文 #785139 (Martha)",
+    "tags": "gk ky toefl ielts"
+  }
+}

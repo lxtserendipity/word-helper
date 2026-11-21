@@ -1,0 +1,26 @@
+{
+  "psychological": {
+    "word": "psychological",
+    "phonetic": "/.saikә'lɒdʒikәl/",
+    "meaning": "a. 心理学的, 精神上的, 心灵的",
+    "example_en": "Those selected will have to face extensive medical and psychological tests.",
+    "example_cn": "被选上的将会面临大量的医学和精神测试。",
+    "syllables": "psy,cho,log,i,cal",
+    "word_audio": "audio/words/psychological.mp3",
+    "example_audio": "audio/examples/psychological.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1731 (Swift) / 中文 #501706 (fucongcong)",
+    "tags": "cet4 cet6 ielts"
+  },
+  "psychology": {
+    "word": "psychology",
+    "phonetic": "/sai'kɒlәdʒi/",
+    "meaning": "n. 心理学, 心理状态",
+    "example_en": "Psycho-horror films dealing with the mysteries of human psychology are popular these days.",
+    "example_cn": "这几年有关心理之谜的心理恐怖片很热门。",
+    "syllables": "psy,chol,o,gy",
+    "word_audio": "audio/words/psychology.mp3",
+    "example_audio": "audio/examples/psychology.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #329076 (fcbond) / 中文 #1996921 (Pengaterch)",
+    "tags": "gk cet6 ky toefl ielts gre"
+  }
+}

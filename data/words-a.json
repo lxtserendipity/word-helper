@@ -1,0 +1,14 @@
+{
+  "a": {
+    "word": "a",
+    "phonetic": "/ə; eɪ/",
+    "meaning": "art. 一（个、件、只等）；任一；每一；n. 字母A",
+    "example_en": "How could I be a robot? Robots don't dream.",
+    "example_cn": "我怎么可能是机器人呢？机器人不会做梦。",
+    "syllables": "a",
+    "word_audio": "audio/words/a.mp3",
+    "example_audio": "audio/examples/a.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1456 (Zifre) / 中文 #335041 (fucongcong)",
+    "tags": "zk gk"
+  }
+}

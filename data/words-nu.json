@@ -1,0 +1,98 @@
+{
+  "nuclear": {
+    "word": "nuclear",
+    "phonetic": "/'nju:kliә/",
+    "meaning": "a. 核子的, 原子能的, 核的, 中心的",
+    "example_en": "All humanity will suffer if a nuclear war breaks out.",
+    "example_cn": "一旦爆发核战争，受苦的将会是全人类。",
+    "syllables": "nu,cle,ar",
+    "word_audio": "audio/words/nuclear.mp3",
+    "example_audio": "audio/examples/nuclear.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #21731 (minshirui) / 中文 #1458910 (nickyeow)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "number": {
+    "word": "number",
+    "phonetic": "/'nʌmbә/",
+    "meaning": "n. 数, 数字, 数目, 号码；vt. 数, 计算, 共计；vi. 计算, 报数",
+    "example_en": "What number bus do I take to get to Waikiki?",
+    "example_cn": "我乘几路车去怀基基？",
+    "syllables": "num,ber",
+    "word_audio": "audio/words/number.mp3",
+    "example_audio": "audio/examples/number.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #29236 (CK) / 中文 #794181 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "numbers": {
+    "word": "numbers",
+    "phonetic": "/'nʌmbәz/",
+    "meaning": "n. 数字（number的复数）；算术",
+    "example_en": "Can you check Kuan-yu's report for me? The numbers look off.",
+    "example_cn": "冠宇那份报表你帮我看一下，我觉得数字怪怪的。",
+    "syllables": "num,bers",
+    "word_audio": "audio/words/numbers.mp3",
+    "example_audio": "audio/examples/numbers.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13523809 (LeviHighway) / 中文 #13523784 (LeviHighway)",
+    "tags": ""
+  },
+  "numerous": {
+    "word": "numerous",
+    "phonetic": "/'nju:mәrәs/",
+    "meaning": "a. 很多的, 数目众多的, 多数的",
+    "example_en": "Richard Roberts is the author of numerous books.",
+    "example_cn": "理察·罗伯茨是很多本书的作者。",
+    "syllables": "nu,mer,ous",
+    "word_audio": "audio/words/numerous.mp3",
+    "example_audio": "audio/examples/numerous.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #29683 (CN) / 中文 #8742135 (crescat)",
+    "tags": "cet4 cet6 ky toefl ielts gre"
+  },
+  "nurse": {
+    "word": "nurse",
+    "phonetic": "/nә:s/",
+    "meaning": "n. 护士, 保姆, 奶妈；vt. 看护, 照顾, 培养；vi. 喂奶, 看护病人",
+    "example_en": "The nurse will tell you how to do it.",
+    "example_cn": "护士会告诉你怎么做。",
+    "syllables": "nurse",
+    "word_audio": "audio/words/nurse.mp3",
+    "example_audio": "audio/examples/nurse.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #20988 (CK) / 中文 #332607 (fucongcong)",
+    "tags": "zk gk toefl ielts"
+  },
+  "nut": {
+    "word": "nut",
+    "phonetic": "/nʌt/",
+    "meaning": "n. 坚果, 核心, 螺帽",
+    "example_en": "The nut is round, but not everything round is a nut.",
+    "example_cn": "坚果是圆的，但不是光是圆的就是坚果。",
+    "syllables": "nut",
+    "word_audio": "audio/words/nut.mp3",
+    "example_audio": "audio/examples/nut.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5325209 (Adelpa) / 中文 #13725575 (DaoSeng)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "nutrition": {
+    "word": "nutrition",
+    "phonetic": "/nju:'triʃәn/",
+    "meaning": "n. 营养, 营养学",
+    "example_en": "She is careful about her child's nutrition.",
+    "example_cn": "她很关心孩子的营养问题。",
+    "syllables": "nu,tri,tion",
+    "word_audio": "audio/words/nutrition.mp3",
+    "example_audio": "audio/examples/nutrition.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #313982 (\\N) / 中文 #345694 (fucongcong)",
+    "tags": "gk cet6 ky toefl ielts gre"
+  },
+  "nuts": {
+    "word": "nuts",
+    "phonetic": "/nʌts/",
+    "meaning": "n. nut的复数：坚果；螺母；adj. 发疯的；热衷的",
+    "example_en": "I've got the bolts. Where are the nuts?",
+    "example_cn": "螺栓我找到了，螺帽在哪里？",
+    "syllables": "nuts",
+    "word_audio": "audio/words/nuts.mp3",
+    "example_audio": "audio/examples/nuts.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #10172845 (sundown) / 中文 #13549567 (LeviHighway)",
+    "tags": "ielts"
+  }
+}

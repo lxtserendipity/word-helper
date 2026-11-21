@@ -1,4 +1,112 @@
 {
+  "rubber": {
+    "word": "rubber",
+    "phonetic": "/'rʌbә/",
+    "meaning": "n. 橡皮, 橡胶, 做摩擦动作的人, 按摩师, 决胜盘；vt. 用橡胶制造, 涂橡胶于",
+    "example_en": "Sorry, I won't do it without a rubber.",
+    "example_cn": "对不起，但是如果不用避孕套的话我不做。",
+    "syllables": "rub,ber",
+    "word_audio": "audio/words/rubber.mp3",
+    "example_audio": "audio/examples/rubber.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #991158 (\\N) / 中文 #9054930 (xjjAstrus)",
+    "tags": "zk gk cet4 cet6 ky ielts"
+  },
+  "rude": {
+    "word": "rude",
+    "phonetic": "/ru:d/",
+    "meaning": "a. 粗鲁无礼的, 粗陋的, 粗暴的, 原始的, 未开化的, 大略的, 崎岖不平的, 狂暴的",
+    "example_en": "It is rude to talk when your mouth is full.",
+    "example_cn": "边吃东西边谈话是非常没有礼貌的。",
+    "syllables": "rude",
+    "word_audio": "audio/words/rude.mp3",
+    "example_audio": "audio/examples/rude.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #240515 (CM) / 中文 #363532 (nickyeow)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "rugby": {
+    "word": "rugby",
+    "phonetic": "/rʌɡbi/",
+    "meaning": "n. 橄榄球, 橄榄球赛",
+    "example_en": "I like rugby, but not as much as I like basketball.",
+    "example_cn": "我喜欢橄榄球，但不像我喜欢篮球那么喜欢。",
+    "syllables": "rug,by",
+    "word_audio": "audio/words/rugby.mp3",
+    "example_audio": "audio/examples/rugby.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #6796868 (CK) / 中文 #8605833 (slo_oth)",
+    "tags": "gk"
+  },
+  "ruin": {
+    "word": "ruin",
+    "phonetic": "/ruin/",
+    "meaning": "n. 毁灭, 推翻, 废墟；vi. 毁灭, 衰败, 破坏, 破产, 堕落；vt. 使毁灭, 毁坏, 使破产",
+    "example_en": "This scandal will likely ruin your chances of being elected.",
+    "example_cn": "这则丑闻很有可能会断送您的选举。",
+    "syllables": "ru,in",
+    "word_audio": "audio/words/ruin.mp3",
+    "example_audio": "audio/examples/ruin.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3231285 (CK) / 中文 #13911356 (jan_OkulaJu)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "ruined": {
+    "word": "ruined",
+    "phonetic": "/'ruind/",
+    "meaning": "a. 毁灭的, 没落的, 荒废的",
+    "example_en": "Actions are successfully achieved with deliberation but ruined by carelessness.",
+    "example_cn": "行成于思，毁于随。",
+    "syllables": "ru,ined",
+    "word_audio": "audio/words/ruined.mp3",
+    "example_audio": "audio/examples/ruined.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3806803 (serendipity42) / 中文 #3065737 (serendipity42)",
+    "tags": ""
+  },
+  "rule": {
+    "word": "rule",
+    "phonetic": "/ru:l/",
+    "meaning": "n. 规则, 统治, 控制, 支配, 规律, 标准, 章程, 破折号, 铅线；vt. 规定, 统治, 管理, 控制, 支配, 裁决；vi. 统治, 管辖, 裁定",
+    "example_en": "You can't apply this rule to every case.",
+    "example_cn": "你不能把这规则应用在所有事上。",
+    "syllables": "rule",
+    "word_audio": "audio/words/rule.mp3",
+    "example_audio": "audio/examples/rule.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #70091 (CK) / 中文 #347731 (nickyeow)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts"
+  },
+  "ruled": {
+    "word": "ruled",
+    "phonetic": "/ruld/",
+    "meaning": "a. 有横隔线的；有直线行的；受统治的",
+    "example_en": "The IMF ruled out any new loans to that country.",
+    "example_cn": "国际货币基金组织不考虑再借款给该国。",
+    "syllables": "ruled",
+    "word_audio": "audio/words/ruled.mp3",
+    "example_audio": "audio/examples/ruled.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #241420 (Swift) / 中文 #332919 (fucongcong)",
+    "tags": ""
+  },
+  "rules": {
+    "word": "rules",
+    "phonetic": "/rulz/",
+    "meaning": "n. 规则；条例（rule的复数形式）",
+    "example_en": "It's against the rules to smoke at the office.",
+    "example_cn": "在办公室吸烟违背我们的原则。",
+    "syllables": "rules",
+    "word_audio": "audio/words/rules.mp3",
+    "example_audio": "audio/examples/rules.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1476750 (weihaiping) / 中文 #1471139 (bfsutian)",
+    "tags": "ielts"
+  },
+  "ruling": {
+    "word": "ruling",
+    "phonetic": "/'ru:liŋ/",
+    "meaning": "n. 判决, 裁定, 统治；a. 统治的, 支配的, 普遍的",
+    "example_en": "I think a change of ruling party in Hungary will result in WWIII breaking out.",
+    "example_cn": "我认为匈牙利的执政党轮换将导致三战爆发。",
+    "syllables": "rul,ing",
+    "word_audio": "audio/words/ruling.mp3",
+    "example_audio": "audio/examples/ruling.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #10738165 (Cabo) / 中文 #13920625 (LeviHighway)",
+    "tags": ""
+  },
   "run": {
     "word": "run",
     "phonetic": "/rʌn/",
@@ -9,5 +117,65 @@
     "word_audio": "audio/words/run.mp3",
     "example_audio": "audio/examples/run.mp3",
     "source": "内置100词样板库"
+  },
+  "runner": {
+    "word": "runner",
+    "phonetic": "/'rʌnә/",
+    "meaning": "n. 跑步者, 赛跑者, 送信人, 走私船, 操作者, 滑槽",
+    "example_en": "The runner jumped over the hole in the ground.",
+    "example_cn": "那个赛跑运动员跃过了地面上的洞。",
+    "syllables": "run,ner",
+    "word_audio": "audio/words/runner.mp3",
+    "example_audio": "audio/examples/runner.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #681672 (Source_VOA) / 中文 #8739383 (crescat)",
+    "tags": "gk cet4 cet6"
+  },
+  "running": {
+    "word": "running",
+    "phonetic": "/'rʌniŋ/",
+    "meaning": "n. 赛跑, 流出, 运转；a. 流动的, 跑着的, 连续的",
+    "example_en": "This car is running less smoothly than it used to.",
+    "example_cn": "这辆车没有以前跑得那么顺畅了。",
+    "syllables": "run,ning",
+    "word_audio": "audio/words/running.mp3",
+    "example_audio": "audio/examples/running.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #58727 (timmartin) / 中文 #494501 (nickyeow)",
+    "tags": "gk"
+  },
+  "runs": {
+    "word": "runs",
+    "phonetic": "/rʌnz/",
+    "meaning": "n. 顺串；泻肚子；流量（run的复数形式）",
+    "example_en": "No one in the class runs as fast as he does.",
+    "example_cn": "班里没人和他跑得一般快。",
+    "syllables": "runs",
+    "word_audio": "audio/words/runs.mp3",
+    "example_audio": "audio/examples/runs.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #414192 (CK) / 中文 #10534900 (DaoSeng)",
+    "tags": ""
+  },
+  "rural": {
+    "word": "rural",
+    "phonetic": "/'ruәrәl/",
+    "meaning": "a. 乡下的, 田园的, 乡村风味的",
+    "example_en": "Many Chinese people make good guests, especially those from rural areas.",
+    "example_cn": "大多数中国人是非常好客的，尤其是住在农村的人。",
+    "syllables": "ru,ral",
+    "word_audio": "audio/words/rural.mp3",
+    "example_audio": "audio/examples/rural.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7798475 (sharris123) / 中文 #1750558 (sadhen)",
+    "tags": "cet4 cet6 ky toefl ielts gre"
+  },
+  "rush": {
+    "word": "rush",
+    "phonetic": "/rʌʃ/",
+    "meaning": "n. 匆促, 冲进, 急流, 灯心草；vi. 冲, 奔, 闯, 赶紧, 匆促行事, 涌现；vt. 使冲, 匆忙地做, 突袭, 飞跃, 用灯心草做；a. 紧急的",
+    "example_en": "There ought to be more buses during the rush hours.",
+    "example_cn": "交通高峰期该有更多公交车。",
+    "syllables": "rush",
+    "word_audio": "audio/words/rush.mp3",
+    "example_audio": "audio/examples/rush.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #29738 (Dejo) / 中文 #5591011 (verdastelo9604)",
+    "tags": "zk gk cet4 cet6 ky toefl"
   }
 }

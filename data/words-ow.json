@@ -1,0 +1,62 @@
+{
+  "owe": {
+    "word": "owe",
+    "phonetic": "/әu/",
+    "meaning": "vt. 亏欠, 负...债, 归功于, 怀有, 应给予, 感恩；vi. 欠钱",
+    "example_en": "I owe it you that I am still alive.",
+    "example_cn": "多亏了你，我还活着。",
+    "syllables": "owe",
+    "word_audio": "audio/words/owe.mp3",
+    "example_audio": "audio/examples/owe.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #246756 (CM) / 中文 #1750364 (sadhen)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "own": {
+    "word": "own",
+    "phonetic": "/әun/",
+    "meaning": "n. 自己的；a. 自己的, 嫡亲的, 同胞的；vt. 拥有, 支配, 自认, 承认, 顺从于；vi. 承认, 供认",
+    "example_en": "It is beyond my power to build my own house.",
+    "example_cn": "盖我自己的房子超出了我的能力范围。",
+    "syllables": "own",
+    "word_audio": "audio/words/own.mp3",
+    "example_audio": "audio/examples/own.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #264658 (Zifre) / 中文 #879159 (Martha)",
+    "tags": "zk gk"
+  },
+  "owner": {
+    "word": "owner",
+    "phonetic": "/'әunә/",
+    "meaning": "n. 拥有者, 物主, 所有人",
+    "example_en": "Nobody understood why the elephant suddenly turned on its owner.",
+    "example_cn": "没有人明白为什么大象突然攻击了它的主人。",
+    "syllables": "own,er",
+    "word_audio": "audio/words/owner.mp3",
+    "example_audio": "audio/examples/owner.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #792380 (CK) / 中文 #804997 (fucongcong)",
+    "tags": "zk gk cet4 cet6 ky"
+  },
+  "ownership": {
+    "word": "ownership",
+    "phonetic": "/'әunәʃip/",
+    "meaning": "n. 所有权, 物主身份",
+    "example_en": "Management of a company is different from ownership of a company.",
+    "example_cn": "管理一间公司和拥有一间公司是不能相提并论的两回事。",
+    "syllables": "own,er,ship",
+    "word_audio": "audio/words/ownership.mp3",
+    "example_audio": "audio/examples/ownership.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #22360 (orcrist) / 中文 #793862 (nickyeow)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "owns": {
+    "word": "owns",
+    "phonetic": "/oʊnz/",
+    "meaning": "n. 属于自己的东西（own的复数）",
+    "example_en": "I'm trying to find the person who owns this guitar.",
+    "example_cn": "我在找这把吉他的主人。",
+    "syllables": "owns",
+    "word_audio": "audio/words/owns.mp3",
+    "example_audio": "audio/examples/owns.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1553433 (CK) / 中文 #10560003 (DaoSeng)",
+    "tags": ""
+  }
+}

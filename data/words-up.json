@@ -1,0 +1,110 @@
+{
+  "up": {
+    "word": "up",
+    "phonetic": "/ʌp/",
+    "meaning": "a. 向上的, 起床的, 涨的；adv. 向上, 上涨；prep. 在...上面, 向...的较高处",
+    "example_en": "Bring the jack over. I'll jack up the car.",
+    "example_cn": "把千斤顶拿过来，我要把汽车撑起来。",
+    "syllables": "up",
+    "word_audio": "audio/words/up.mp3",
+    "example_audio": "audio/examples/up.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7222033 (\\N) / 中文 #5731245 (xjjAstrus)",
+    "tags": "zk gk"
+  },
+  "upcoming": {
+    "word": "upcoming",
+    "phonetic": "/'ʌp.kʌmiŋ/",
+    "meaning": "a. 即将来临的, 即将出现的",
+    "example_en": "Tom has no intention of asking Mary to the upcoming dance.",
+    "example_cn": "Tom没有意图去邀请Mary去即将来临的舞会。",
+    "syllables": "up,com,ing",
+    "word_audio": "audio/words/upcoming.mp3",
+    "example_audio": "audio/examples/upcoming.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1028713 (CK) / 中文 #4845045 (pig8322)",
+    "tags": ""
+  },
+  "update": {
+    "word": "update",
+    "phonetic": "/ʌp'deit/",
+    "meaning": "vt. 更新, 使现代化；n. 更新",
+    "example_en": "Could I get you to update this data for me?",
+    "example_cn": "你可以帮我更新这份资料吗？",
+    "syllables": "up,date",
+    "word_audio": "audio/words/update.mp3",
+    "example_audio": "audio/examples/update.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #60881 (CK) / 中文 #483728 (nickyeow)",
+    "tags": "cet6 ky ielts"
+  },
+  "updated": {
+    "word": "updated",
+    "phonetic": "/ʌp'deitid/",
+    "meaning": "a. 更新的；现代化的",
+    "example_en": "You haven't even updated the firmware?",
+    "example_cn": "你连刷机都没有刷过？",
+    "syllables": "up,dat,ed",
+    "word_audio": "audio/words/updated.mp3",
+    "example_audio": "audio/examples/updated.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4736949 (paper1n0) / 中文 #1766248 (sadhen)",
+    "tags": ""
+  },
+  "updates": {
+    "word": "updates",
+    "phonetic": "/ʌp'deits/",
+    "meaning": "n. 升级, 更新；补充资料（update复数形式）",
+    "example_en": "Thanks for the updates.",
+    "example_cn": "谢谢提供新消息。",
+    "syllables": "up,dates",
+    "word_audio": "audio/words/updates.mp3",
+    "example_audio": "audio/examples/updates.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2428962 (CM) / 中文 #7768245 (jiangche)",
+    "tags": ""
+  },
+  "upgrade": {
+    "word": "upgrade",
+    "phonetic": "/'ʌpgreid/",
+    "meaning": "n. 上坡, 升级, 上升；adv. 往上；vt. 使升级, 提升, 改良品种；vi. 升级",
+    "example_en": "You can upgrade your computer with more random access memory to make the PC faster.",
+    "example_cn": "您可以使用更多任何存取记忆体来升级您的电脑，以提高 PC 的运行速度。",
+    "syllables": "up,grade",
+    "word_audio": "audio/words/upgrade.mp3",
+    "example_audio": "audio/examples/upgrade.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3486985 (neron) / 中文 #13527700 (LeviHighway)",
+    "tags": "cet6 ky toefl gre"
+  },
+  "upon": {
+    "word": "upon",
+    "phonetic": "/ә'pɒn/",
+    "meaning": "prep. 在...之上, 迫近, 紧接着",
+    "example_en": "The rich are apt to look down upon the poor.",
+    "example_cn": "富人往往瞧不起穷人。",
+    "syllables": "up,on",
+    "word_audio": "audio/words/upon.mp3",
+    "example_audio": "audio/examples/upon.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #18512 (AlanF_US) / 中文 #2030754 (sadhen)",
+    "tags": "zk gk cet4 cet6 ky"
+  },
+  "upper": {
+    "word": "upper",
+    "phonetic": "/'ʌpә/",
+    "meaning": "a. 上面的, 较高的, 上级的, 上院的, 穿在外面的, 北部的, 地表的, 后期的；n. 鞋帮, 上齿",
+    "example_en": "The upper reaches of the river are very beautiful.",
+    "example_cn": "河的上游很美。",
+    "syllables": "up,per",
+    "word_audio": "audio/words/upper.mp3",
+    "example_audio": "audio/examples/upper.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2025084 (\\N) / 中文 #2025095 (iMaple)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "upset": {
+    "word": "upset",
+    "phonetic": "/ʌp'set/",
+    "meaning": "a. 弄翻的, 混乱的, 心烦的；vt. 弄翻, 颠覆, 推翻, 打乱, 使不适, 使心烦；vi. 翻倒",
+    "example_en": "Sometimes being overcautious in planning could upset the apple cart.",
+    "example_cn": "计划时如果过于谨慎的话，可能会反把计划搞乱。",
+    "syllables": "up,set",
+    "word_audio": "audio/words/upset.mp3",
+    "example_audio": "audio/examples/upset.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #238054 (\\N) / 中文 #364390 (nickyeow)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  }
+}

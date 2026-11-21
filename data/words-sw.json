@@ -1,4 +1,64 @@
 {
+  "swear": {
+    "word": "swear",
+    "phonetic": "/swєә/",
+    "meaning": "vt. 发誓, 咒骂, 使宣誓；vi. 发誓, 诅咒；n. 诅咒, 誓言",
+    "example_en": "I swear that I'll never do such a thing.",
+    "example_cn": "我发誓我不会做这种事。",
+    "syllables": "swear",
+    "word_audio": "audio/words/swear.mp3",
+    "example_audio": "audio/examples/swear.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7810503 (CM) / 中文 #5617156 (verdastelo9604)",
+    "tags": "gk cet4 cet6 ky ielts gre"
+  },
+  "sweat": {
+    "word": "sweat",
+    "phonetic": "/swet/",
+    "meaning": "n. 汗, 汗水, 水珠, 焦急；vi. 出汗, 渗出, 冒出水气, 结水珠, 烦恼, 懊恼；vt. 使出汗, 流出, 榨出, 使汗流浃背",
+    "example_en": "The sweat was dripping off my brow.",
+    "example_cn": "汗水从我的额头上落下。",
+    "syllables": "sweat",
+    "word_audio": "audio/words/sweat.mp3",
+    "example_audio": "audio/examples/sweat.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #21252 (moman) / 中文 #5585161 (verdastelo9604)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "sweep": {
+    "word": "sweep",
+    "phonetic": "/swi:p/",
+    "meaning": "n. 扫除, 打扫, 肃清, 视野, 范围, 全胜；vt. 扫除, 掸去, 猛拉, 扫荡, 肃清, 冲走, 刮起, 环视, 掠过, 扫射；vi. 扫, 打扫, 袭击, 席卷, 扫视, 掠过",
+    "example_en": "Spring in the north sends gales to sweep the roads.",
+    "example_cn": "北方的春天送来狂风扫路。",
+    "syllables": "sweep",
+    "word_audio": "audio/words/sweep.mp3",
+    "example_audio": "audio/examples/sweep.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2367646 (eastasiastudent) / 中文 #2367645 (GlossaMatik)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts"
+  },
+  "sweet": {
+    "word": "sweet",
+    "phonetic": "/swi:t/",
+    "meaning": "n. 甜蜜, 糖果, 情人；a. 甜的, 芳香的, 悦耳的, 漂亮的, 和蔼的, 不咸的, 灵活的, 轻快的",
+    "example_en": "Those grapes look sweet, but in fact they're sour.",
+    "example_cn": "那些葡萄看起来很甜，但其实是酸的。",
+    "syllables": "sweet",
+    "word_audio": "audio/words/sweet.mp3",
+    "example_audio": "audio/examples/sweet.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #49953 (CM) / 中文 #510838 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "swift": {
+    "word": "swift",
+    "phonetic": "/swift/",
+    "meaning": "n. 褐雨燕, 快速爬行的小蜥蜴, 蝙蝠蛾, 大滚筒；a. 迅速的, 快的, 敏捷的, 立刻的；adv. 迅速地, 敏捷地",
+    "example_en": "Life is short and time is swift.",
+    "example_cn": "人生苦短，岁月如梭。",
+    "syllables": "swift",
+    "word_audio": "audio/words/swift.mp3",
+    "example_audio": "audio/examples/swift.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #270589 (CK) / 中文 #12686376 (soueihin)",
+    "tags": "gk cet4 cet6 ky toefl ielts gre"
+  },
   "swim": {
     "word": "swim",
     "phonetic": "/swɪm/",
@@ -9,5 +69,41 @@
     "word_audio": "audio/words/swim.mp3",
     "example_audio": "audio/examples/swim.mp3",
     "source": "内置100词样板库"
+  },
+  "swimming": {
+    "word": "swimming",
+    "phonetic": "/'swimiŋ/",
+    "meaning": "n. 游泳, 眩晕",
+    "example_en": "While swimming in the pool, she lost her locker key.",
+    "example_cn": "她在游泳池游泳的时候把储物柜的钥匙弄丢了。",
+    "syllables": "swim,ming",
+    "word_audio": "audio/words/swimming.mp3",
+    "example_audio": "audio/examples/swimming.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #34399 (Zifre) / 中文 #410570 (nickyeow)",
+    "tags": "zk gk ielts"
+  },
+  "switch": {
+    "word": "switch",
+    "phonetic": "/switʃ/",
+    "meaning": "n. 开关, 电闸, 转换, 软枝, 鞭子, 道岔；vt. 转变, 切换, 摆动, 转换, 使转轨；vi. 转换, 变换, 摆动",
+    "example_en": "She groped for the light switch in the dark.",
+    "example_cn": "她摸黑摸不到灯的开关。",
+    "syllables": "switch",
+    "word_audio": "audio/words/switch.mp3",
+    "example_audio": "audio/examples/switch.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #312492 (CK) / 中文 #1020686 (Glossika)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "sword": {
+    "word": "sword",
+    "phonetic": "/sɒ:d/",
+    "meaning": "n. 刀, 剑, 战争, 武力, 剑状物",
+    "example_en": "Make the hoe your sword, and the sword your hoe.",
+    "example_cn": "化锄为剑，化剑为锄。",
+    "syllables": "sword",
+    "word_audio": "audio/words/sword.mp3",
+    "example_audio": "audio/examples/sword.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #774734 (FeuDRenais2) / 中文 #774733 (GlossaMatik)",
+    "tags": "gk cet4 cet6 ky"
   }
 }

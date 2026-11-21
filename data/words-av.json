@@ -1,0 +1,62 @@
+{
+  "available": {
+    "word": "available",
+    "phonetic": "/ә'veilәbl/",
+    "meaning": "a. 可利用的, 可获得的, 有效的",
+    "example_en": "There are many jobs available in the computer industry.",
+    "example_cn": "计算机产业能够提供相当多的就业岗位。",
+    "syllables": "",
+    "word_audio": "audio/words/available.mp3",
+    "example_audio": "audio/examples/available.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #54534 (CK) / 中文 #1898544 (fercheung)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts gre"
+  },
+  "avenue": {
+    "word": "avenue",
+    "phonetic": "/'ævәnju:/",
+    "meaning": "n. 大街, 途径, 林荫路",
+    "example_en": "They explored every avenue in an attempt to avoid war.",
+    "example_cn": "他们尽一切手段避免战争。",
+    "syllables": "av,en,ue",
+    "word_audio": "audio/words/avenue.mp3",
+    "example_audio": "audio/examples/avenue.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #307025 (CM) / 中文 #3857684 (Ben26)",
+    "tags": "gk cet4 ky toefl ielts"
+  },
+  "average": {
+    "word": "average",
+    "phonetic": "/'ævәridʒ/",
+    "meaning": "n. 平均, 平均数, 一般水平, 海损；a. 平均的, 中等的, 平常的；vt. 算出...平均数, 平均做, 均分, 使平衡；vi. 平均为, 呈中间色",
+    "example_en": "How many times a minute does the average person blink?",
+    "example_cn": "人平均一分钟眨几次眼睛？",
+    "syllables": "av,er,age",
+    "word_audio": "audio/words/average.mp3",
+    "example_audio": "audio/examples/average.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #950918 (darinmex) / 中文 #10752782 (GlossaMatik)",
+    "tags": "gk cet4 ky toefl ielts"
+  },
+  "aviation": {
+    "word": "aviation",
+    "phonetic": "/.eivi'eiʃәn/",
+    "meaning": "n. 航空, 航空学, 飞行术",
+    "example_en": "The aviation expert analyzed the statistics in detail.",
+    "example_cn": "航空专家详细分析了统计数据。",
+    "syllables": "",
+    "word_audio": "audio/words/aviation.mp3",
+    "example_audio": "audio/examples/aviation.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #47957 (\\N) / 中文 #5576759 (verdastelo9604)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "avoid": {
+    "word": "avoid",
+    "phonetic": "/ә'vɒid/",
+    "meaning": "vt. 避免, 防止, 撤消",
+    "example_en": "We got up at dawn to avoid a traffic jam.",
+    "example_cn": "我们黎明时起床以避开交通堵塞。",
+    "syllables": "",
+    "word_audio": "audio/words/avoid.mp3",
+    "example_audio": "audio/examples/avoid.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #263080 (Dejo) / 中文 #5670800 (verdastelo9604)",
+    "tags": "zk gk cet4 ky toefl ielts gre"
+  }
+}

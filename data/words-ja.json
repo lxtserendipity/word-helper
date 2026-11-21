@@ -1,0 +1,110 @@
+{
+  "jack": {
+    "word": "jack",
+    "phonetic": "/dʒæk/",
+    "meaning": "n. 插座, 千斤顶, 男人；vt. 抬起, 提醒, 扛举, 增加, 提高, 放弃；a. 雄的",
+    "example_en": "Bring the jack over. I'll jack up the car.",
+    "example_cn": "把千斤顶拿过来，我要把汽车撑起来。",
+    "syllables": "jack",
+    "word_audio": "audio/words/jack.mp3",
+    "example_audio": "audio/examples/jack.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7222033 (\\N) / 中文 #5731245 (xjjAstrus)",
+    "tags": "cet6"
+  },
+  "jacket": {
+    "word": "jacket",
+    "phonetic": "/'dʒækit/",
+    "meaning": "n. 夹克, 外套, 护套；vt. 给...穿夹克, 给...装护套",
+    "example_en": "Put this jacket on, and you'll be much warmer.",
+    "example_cn": "穿上外套吧！你会暖一些。",
+    "syllables": "jack,et",
+    "word_audio": "audio/words/jacket.mp3",
+    "example_audio": "audio/examples/jacket.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #61039 (CK) / 中文 #1261430 (tsayng)",
+    "tags": "zk gk cet4 cet6 ky ielts"
+  },
+  "jail": {
+    "word": "jail",
+    "phonetic": "/dʒeil/",
+    "meaning": "n. 监牢, 监狱, 拘留所；vt. 监禁, 下狱",
+    "example_en": "He has spent ten years in jail for murder.",
+    "example_cn": "他因为谋杀案在牢里待了十年。",
+    "syllables": "jail",
+    "word_audio": "audio/words/jail.mp3",
+    "example_audio": "audio/examples/jail.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1334559 (CM) / 中文 #5505597 (egg0073)",
+    "tags": "cet4 cet6 ielts"
+  },
+  "jam": {
+    "word": "jam",
+    "phonetic": "/dʒæm/",
+    "meaning": "n. 果酱, 拥塞之物, 堵塞, 困境；vt. 挤进, 使塞满, 混杂, 压碎, 使堵塞；vi. 堵塞, 轧住, 拥挤",
+    "example_en": "We got up at dawn to avoid a traffic jam.",
+    "example_cn": "我们黎明时起床以避开交通堵塞。",
+    "syllables": "jam",
+    "word_audio": "audio/words/jam.mp3",
+    "example_audio": "audio/examples/jam.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #263080 (Dejo) / 中文 #5670800 (verdastelo9604)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "january": {
+    "word": "january",
+    "phonetic": "/'dʒænjuәri/",
+    "meaning": "n. 一月",
+    "example_en": "January is the first month of the year.",
+    "example_cn": "一月是一年中的第一个月。",
+    "syllables": "",
+    "word_audio": "audio/words/january.mp3",
+    "example_audio": "audio/examples/january.mp3",
+    "source": "ECDICT（音标/释义）；项目人工修订双语例句",
+    "tags": "zk gk ielts"
+  },
+  "japan": {
+    "word": "japan",
+    "phonetic": "/dʒә'pæn/",
+    "meaning": "n. 日本",
+    "example_en": "Japan is an island country.",
+    "example_cn": "日本是一个岛国。",
+    "syllables": "ja,pan",
+    "word_audio": "audio/words/japan.mp3",
+    "example_audio": "audio/examples/japan.mp3",
+    "source": "ECDICT（音标/释义）；项目人工修订双语例句",
+    "tags": "zk gk"
+  },
+  "jar": {
+    "word": "jar",
+    "phonetic": "/dʒɑ:/",
+    "meaning": "n. 广口瓶, 震动, 刺耳声；vi. 震惊, 冲突, 发刺耳声, 不一致；vt. 震动, 刺激",
+    "example_en": "This jam jar's lid is stuck and won't open.",
+    "example_cn": "这个果酱瓶的盖子卡住了，打不开。",
+    "syllables": "jar",
+    "word_audio": "audio/words/jar.mp3",
+    "example_audio": "audio/examples/jar.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2610086 (WestofEden) / 中文 #8652785 (crescat)",
+    "tags": "gk cet4 cet6 ky toefl gre"
+  },
+  "jaw": {
+    "word": "jaw",
+    "phonetic": "/dʒɒ:/",
+    "meaning": "n. 颚, 颌；v. 闲谈, 教训, 唠叨",
+    "example_en": "He got a broken jaw and lost some teeth.",
+    "example_cn": "他磕碎了下巴，掉了几颗牙。",
+    "syllables": "jaw",
+    "word_audio": "audio/words/jaw.mp3",
+    "example_audio": "audio/examples/jaw.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #294880 (CK) / 中文 #812212 (fucongcong)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "jazz": {
+    "word": "jazz",
+    "phonetic": "/dʒæz/",
+    "meaning": "n. 爵士乐, 喧闹；a. 爵士乐的, 喧吵的；vi. 演奏爵士乐, 跳爵士舞, 游荡；vt. 奏爵士乐, 使活泼",
+    "example_en": "Tom started playing jazz after studying classical music for many years.",
+    "example_cn": "在学习古典音乐多年后，汤姆开始演奏爵士了。",
+    "syllables": "jazz",
+    "word_audio": "audio/words/jazz.mp3",
+    "example_audio": "audio/examples/jazz.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #8578234 (CK) / 中文 #13278129 (Enzo)",
+    "tags": "gk cet4 ky gre"
+  }
+}

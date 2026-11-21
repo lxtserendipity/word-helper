@@ -1,4 +1,28 @@
 {
+  "ye": {
+    "word": "ye",
+    "phonetic": "/ji:/",
+    "meaning": "abbr. 亚萨卡, 乒乓底板（Yasaka Extra）；酵母抽提物（Yeast Extracts）",
+    "example_en": "Should one say \"thou\" or \"ye\"?",
+    "example_cn": "应该说“你”还是“您”？",
+    "syllables": "ye",
+    "word_audio": "audio/words/ye.mp3",
+    "example_audio": "audio/examples/ye.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5550961 (adamtrousers) / 中文 #1187186 (Vortarulo)",
+    "tags": ""
+  },
+  "yeah": {
+    "word": "yeah",
+    "phonetic": "/jɑ:/",
+    "meaning": "adv. (非正式)是, 是的",
+    "example_en": "Then, let's go and eat, yeah?",
+    "example_cn": "那，我们去吃饭，好吗？",
+    "syllables": "yeah",
+    "word_audio": "audio/words/yeah.mp3",
+    "example_audio": "audio/examples/yeah.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7772880 (sharris123) / 中文 #6057699 (xjjAstrus)",
+    "tags": ""
+  },
   "year": {
     "word": "year",
     "phonetic": "/jɪr/",
@@ -10,6 +34,18 @@
     "example_audio": "audio/examples/year.mp3",
     "source": "内置100词样板库"
   },
+  "years": {
+    "word": "years",
+    "phonetic": "/jɪrz/",
+    "meaning": "n. 年代；岁月；年；年龄",
+    "example_en": "You look the way your father did thirty years ago.",
+    "example_cn": "你看上去就像是三十年前你父亲的样子。",
+    "syllables": "years",
+    "word_audio": "audio/words/years.mp3",
+    "example_audio": "audio/examples/years.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #16822 (Swift) / 中文 #775857 (Martha)",
+    "tags": ""
+  },
   "yellow": {
     "word": "yellow",
     "phonetic": "/ˈjeloʊ/",
@@ -20,5 +56,41 @@
     "word_audio": "audio/words/yellow.mp3",
     "example_audio": "audio/examples/yellow.mp3",
     "source": "内置100词样板库"
+  },
+  "yes": {
+    "word": "yes",
+    "phonetic": "/jes/",
+    "meaning": "adv. 是；n. 是, 同意；v. 同意",
+    "example_en": "Why yes, Mr. Fluff is a service animal.",
+    "example_cn": "对什么？毛毛先生是服务性动物。",
+    "syllables": "yes",
+    "word_audio": "audio/words/yes.mp3",
+    "example_audio": "audio/examples/yes.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2736629 (afyodor) / 中文 #13138912 (LeviHighway)",
+    "tags": "zk gk"
+  },
+  "yesterday": {
+    "word": "yesterday",
+    "phonetic": "/'jestәdi/",
+    "meaning": "n. 昨天；adv. 昨天",
+    "example_en": "I wore a hat yesterday because it was very cold.",
+    "example_cn": "昨天的天气很冷，所以我戴了一顶帽子。",
+    "syllables": "yes,ter,day",
+    "word_audio": "audio/words/yesterday.mp3",
+    "example_audio": "audio/examples/yesterday.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #244527 (CK) / 中文 #689784 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "yet": {
+    "word": "yet",
+    "phonetic": "/jet/",
+    "meaning": "adv. 还, 尚, 仍然, 已经, 然而；conj. 然而",
+    "example_en": "Tom isn't here yet, but we expect him soon.",
+    "example_cn": "汤姆还不在这里，但我们期待他很快就来。",
+    "syllables": "yet",
+    "word_audio": "audio/words/yet.mp3",
+    "example_audio": "audio/examples/yet.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1024696 (CK) / 中文 #6624716 (verdastelo9604)",
+    "tags": "zk gk"
   }
 }

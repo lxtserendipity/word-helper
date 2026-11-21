@@ -1,0 +1,110 @@
+{
+  "tube": {
+    "word": "tube",
+    "phonetic": "/tju:b/",
+    "meaning": "n. 管, 软管, 隧道；vt. 把...装管, 使通过管子",
+    "example_en": "You can't put toothpaste back in the tube.",
+    "example_cn": "不能把牙膏塞回管里。",
+    "syllables": "tube",
+    "word_audio": "audio/words/tube.mp3",
+    "example_audio": "audio/examples/tube.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1954714 (CK) / 中文 #2271194 (Tximist)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "tuesday": {
+    "word": "tuesday",
+    "phonetic": "/'tju:zdi/",
+    "meaning": "n. 星期二",
+    "example_en": "The meeting is on Tuesday.",
+    "example_cn": "会议在星期二举行。",
+    "syllables": "tues,day",
+    "word_audio": "audio/words/tuesday.mp3",
+    "example_audio": "audio/examples/tuesday.mp3",
+    "source": "ECDICT（音标/释义）；项目人工修订双语例句",
+    "tags": "zk gk ielts"
+  },
+  "tune": {
+    "word": "tune",
+    "phonetic": "/tju:n/",
+    "meaning": "n. 歌曲, 主旋律, 心情, 声调, 和谐, 一致, 语调, 程度；vt. 为...调音, 调整, 调谐, 使一致；vi. 协调, 调谐",
+    "example_en": "The piano was out of tune; it sounded very bad.",
+    "example_cn": "钢琴走调了，音色很难听。",
+    "syllables": "tune",
+    "word_audio": "audio/words/tune.mp3",
+    "example_audio": "audio/examples/tune.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #34906 (AlanF_US) / 中文 #340148 (nickyeow)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "tunnel": {
+    "word": "tunnel",
+    "phonetic": "/'tʌnl/",
+    "meaning": "n. 隧道, 地下道；vi. 挖隧道；vt. 掘隧道于",
+    "example_en": "On entering a dark tunnel, we could see nothing.",
+    "example_cn": "走进了漆黑的隧道后，我们甚么也看不见。",
+    "syllables": "tun,nel",
+    "word_audio": "audio/words/tunnel.mp3",
+    "example_audio": "audio/examples/tunnel.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #28471 (Dejo) / 中文 #364922 (nickyeow)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "turkey": {
+    "word": "turkey",
+    "phonetic": "/'tә:ki/",
+    "meaning": "n. 火鸡, 无用的家伙, 土耳其",
+    "example_en": "She's vegetarian, so she ate tofu instead of turkey.",
+    "example_cn": "她是素食者，所以她没吃火鸡，而是吃了豆腐。",
+    "syllables": "tur,key",
+    "word_audio": "audio/words/turkey.mp3",
+    "example_audio": "audio/examples/turkey.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2032995 (Spamster) / 中文 #5248183 (xjjAstrus)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "turn": {
+    "word": "turn",
+    "phonetic": "/tә:n/",
+    "meaning": "n. 转弯, 转动, 旋转, 翻转, 一圈, 顺次, 改动, 变化, 性格, 特色, 形状, 转折；vt. 使旋转, 转弯, 转动, 使转向, 驱赶, 阻挡, 兑换, 改写, 使作对, 绕过, 使流通；vi. 转动, 转弯, 转向, 翻转, 回转, 改变, 转身, 变成, 变质, 晕眩, 易脱手",
+    "example_en": "Go along this street and turn right at the bank.",
+    "example_cn": "请沿着这条路走，在银行那里向右转。",
+    "syllables": "turn",
+    "word_audio": "audio/words/turn.mp3",
+    "example_audio": "audio/examples/turn.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #57809 (CK) / 中文 #429404 (aliene)",
+    "tags": "zk gk"
+  },
+  "turned": {
+    "word": "turned",
+    "phonetic": "/tɜrnd/",
+    "meaning": "a. 变质的；被转动的；[金属加工]车削的",
+    "example_en": "I put the book down and turned on the light.",
+    "example_cn": "我把书放下来然后开灯。",
+    "syllables": "turned",
+    "word_audio": "audio/words/turned.mp3",
+    "example_audio": "audio/examples/turned.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #261744 (CK) / 中文 #10252129 (GlossaMatik)",
+    "tags": ""
+  },
+  "turning": {
+    "word": "turning",
+    "phonetic": "/'tә:niŋ/",
+    "meaning": "n. 旋转, 转弯处, 车削工作",
+    "example_en": "I'm cold. Would you mind turning the heating on?",
+    "example_cn": "我很冷。你介意把暖气打开吗？",
+    "syllables": "turn,ing",
+    "word_audio": "audio/words/turning.mp3",
+    "example_audio": "audio/examples/turning.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1497819 (CK) / 中文 #9956932 (GlossaMatik)",
+    "tags": "cet4 cet6 ielts"
+  },
+  "turns": {
+    "word": "turns",
+    "phonetic": "/tɜrnz/",
+    "meaning": "n. 转弯；匝数；圈数（turn的复数形式）；手动车床",
+    "example_en": "I am by turns an optimist and a pessimist.",
+    "example_cn": "我时而乐观，时而悲观。",
+    "syllables": "turns",
+    "word_audio": "audio/words/turns.mp3",
+    "example_audio": "audio/examples/turns.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #257347 (\\N) / 中文 #867908 (sysko)",
+    "tags": ""
+  }
+}

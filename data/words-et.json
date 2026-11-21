@@ -1,0 +1,62 @@
+{
+  "etc": {
+    "word": "etc",
+    "phonetic": "/ɛtsɛtərə/",
+    "meaning": "及其他, 等等",
+    "example_en": "He told his best friends Tom, Mary, etc. that he has cancer.",
+    "example_cn": "他告诉他最好的朋友汤姆、玛丽等人，他得了癌症。",
+    "syllables": "",
+    "word_audio": "audio/words/etc.mp3",
+    "example_audio": "audio/examples/etc.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4903726 (DostKaplan) / 中文 #13785706 (LeviHighway)",
+    "tags": ""
+  },
+  "eternal": {
+    "word": "eternal",
+    "phonetic": "/i'tә:nl/",
+    "meaning": "a. 永恒的, 永远的, 不灭的",
+    "example_en": "The eternal silence of these infinite spaces terrifies me.",
+    "example_cn": "这些无限空间的永恒沉默使我恐惧。",
+    "syllables": "",
+    "word_audio": "audio/words/eternal.mp3",
+    "example_audio": "audio/examples/eternal.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #56788 (\\N) / 中文 #340097 (nickyeow)",
+    "tags": "cet6 ky toefl ielts gre"
+  },
+  "ethical": {
+    "word": "ethical",
+    "phonetic": "/'eθikәl/",
+    "meaning": "a. 伦理的, 民族的, 民族特有的",
+    "example_en": "Would it be ethical to sacrifice one person to save many?",
+    "example_cn": "为了救许多人牺牲一个人是否道德？",
+    "syllables": "eth,i,cal",
+    "word_audio": "audio/words/ethical.mp3",
+    "example_audio": "audio/examples/ethical.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #652444 (darinmex) / 中文 #812366 (fucongcong)",
+    "tags": "cet6"
+  },
+  "ethics": {
+    "word": "ethics",
+    "phonetic": "/'eθiks/",
+    "meaning": "n. 道德规范",
+    "example_en": "The senator was censured by the congressional ethics committee.",
+    "example_cn": "议员受到了议会道德委员会的谴责。",
+    "syllables": "eth,ics",
+    "word_audio": "audio/words/ethics.mp3",
+    "example_audio": "audio/examples/ethics.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #640841 (darinmex) / 中文 #812281 (fucongcong)",
+    "tags": "cet6 toefl gre"
+  },
+  "ethnic": {
+    "word": "ethnic",
+    "phonetic": "/'eθnik/",
+    "meaning": "a. 人种的, 种族的",
+    "example_en": "Hanfu is the traditional clothing used by the ethnic Han of China, before the Qing dynasty.",
+    "example_cn": "汉服是中国汉族于清以前的传统服饰。",
+    "syllables": "eth,nic",
+    "word_audio": "audio/words/ethnic.mp3",
+    "example_audio": "audio/examples/ethnic.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5651216 (Mar1L) / 中文 #5649287 (xjjAstrus)",
+    "tags": "cet6 ky toefl ielts gre"
+  }
+}

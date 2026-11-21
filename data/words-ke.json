@@ -1,0 +1,110 @@
+{
+  "keen": {
+    "word": "keen",
+    "phonetic": "/ki:n/",
+    "meaning": "a. 锋利的, 敏锐的, 强烈的, 敏捷的, 热心的, 渴望的；n. 挽歌, 痛哭；v. 唱挽歌, 痛哭",
+    "example_en": "That young man is very keen on cycling.",
+    "example_cn": "那年轻人很喜欢骑自行车。",
+    "syllables": "keen",
+    "word_audio": "audio/words/keen.mp3",
+    "example_audio": "audio/examples/keen.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #68269 (Zifre) / 中文 #736409 (yujianing)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "keep": {
+    "word": "keep",
+    "phonetic": "/ki:p/",
+    "meaning": "n. 生计, 维持, 保持；vt. 保持, 保存, 遵守, 看守, 整理, 维持, 履行, 经营, 拘留, 记帐；vi. 保持, 继续不断",
+    "example_en": "If we don't keep walking, we'll be late.",
+    "example_cn": "如果我们不继续赶路，我们会迟到的。",
+    "syllables": "keep",
+    "word_audio": "audio/words/keep.mp3",
+    "example_audio": "audio/examples/keep.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2476333 (CM) / 中文 #2482650 (fenfang557)",
+    "tags": "zk gk ielts"
+  },
+  "keeper": {
+    "word": "keeper",
+    "phonetic": "/'ki:pә/",
+    "meaning": "n. 监护人, 管理人, 看守人",
+    "example_en": "He's a goal keeper.",
+    "example_cn": "他是守门员。",
+    "syllables": "keep,er",
+    "word_audio": "audio/words/keeper.mp3",
+    "example_audio": "audio/examples/keeper.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #845928 (U2FS) / 中文 #845931 (U2FS)",
+    "tags": "gk cet4 cet6"
+  },
+  "keeping": {
+    "word": "keeping",
+    "phonetic": "/'ki:piŋ/",
+    "meaning": "n. 保管, 供养, 一致",
+    "example_en": "By the way, how many of you are keeping a diary?",
+    "example_cn": "对了，你们当中写日记的有几位？",
+    "syllables": "keep,ing",
+    "word_audio": "audio/words/keeping.mp3",
+    "example_audio": "audio/examples/keeping.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #38052 (CM) / 中文 #1319920 (shanghainese)",
+    "tags": ""
+  },
+  "keeps": {
+    "word": "keeps",
+    "phonetic": "/kips/",
+    "meaning": "n. 罐笼座；盖子（keep的复数形式）",
+    "example_en": "When he writes, he always keeps a dictionary at hand.",
+    "example_cn": "当他写字时, 他总是随手拿著一本字典。",
+    "syllables": "keeps",
+    "word_audio": "audio/words/keeps.mp3",
+    "example_audio": "audio/examples/keeps.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #299426 (sundown) / 中文 #785230 (Martha)",
+    "tags": ""
+  },
+  "kept": {
+    "word": "kept",
+    "phonetic": "/kept/",
+    "meaning": "keep的过去式和过去分词",
+    "example_en": "I am sorry to have kept you waiting so long.",
+    "example_cn": "对不起，让你久等了。",
+    "syllables": "kept",
+    "word_audio": "audio/words/kept.mp3",
+    "example_audio": "audio/examples/kept.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #54635 (CK) / 中文 #840872 (nickyeow)",
+    "tags": ""
+  },
+  "key": {
+    "word": "key",
+    "phonetic": "/ki:/",
+    "meaning": "n. 钥匙, 键, 解答, 关键, 要害, 基调, 线索, 答案, 暗礁；vt. 调音, 锁上, 提供线索；vi. 使用钥匙",
+    "example_en": "New Year's Day is the key to the year.",
+    "example_cn": "元旦是一年的关键。",
+    "syllables": "key",
+    "word_audio": "audio/words/key.mp3",
+    "example_audio": "audio/examples/key.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #27390 (zvzuibqx) / 中文 #806769 (Martha)",
+    "tags": "zk gk ielts"
+  },
+  "keyboard": {
+    "word": "keyboard",
+    "phonetic": "/'ki:bɒ:d/",
+    "meaning": "n. 键盘",
+    "example_en": "I'm just a raccoon with a PC and a MIDI keyboard.",
+    "example_cn": "我只是一只拥有电脑和 MIDI 键盘的浣熊。",
+    "syllables": "key,board",
+    "word_audio": "audio/words/keyboard.mp3",
+    "example_audio": "audio/examples/keyboard.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #9279934 (DJ_Saidez) / 中文 #13527688 (LeviHighway)",
+    "tags": "zk gk cet4 cet6 ky toefl"
+  },
+  "keys": {
+    "word": "keys",
+    "phonetic": "/kiz/",
+    "meaning": "n. 关键帧；（钢琴等的）键；密钥（key的复数）",
+    "example_en": "I'm looking for my keys. Have you seen them?",
+    "example_cn": "我正在找钥匙，你看见了吗？",
+    "syllables": "keys",
+    "word_audio": "audio/words/keys.mp3",
+    "example_audio": "audio/examples/keys.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2103987 (CK) / 中文 #2317102 (User5120)",
+    "tags": "ielts"
+  }
+}

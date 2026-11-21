@@ -1,0 +1,14 @@
+{
+  "ice": {
+    "word": "ice",
+    "phonetic": "/ais/",
+    "meaning": "n. 冰, 冰淇淋, 糖衣, 冷若冰霜, 矜持, 贿赂；vt. 使结冰, 冰镇, 覆以糖衣；vi. 结冰",
+    "example_en": "The ice was thick enough for me to walk on.",
+    "example_cn": "冰厚得足以让我在上面走路。",
+    "syllables": "ice",
+    "word_audio": "audio/words/ice.mp3",
+    "example_audio": "audio/examples/ice.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #44326 (CK) / 中文 #430994 (fucongcong)",
+    "tags": "zk gk ielts"
+  }
+}

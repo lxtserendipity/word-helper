@@ -1,0 +1,122 @@
+{
+  "ve": {
+    "word": "ve",
+    "phonetic": "/vi/",
+    "meaning": "委内瑞拉",
+    "example_en": "You can't be hungry. You've just had dinner.",
+    "example_cn": "你刚刚才吃过晚饭，不可能饿得这么快的。",
+    "syllables": "ve",
+    "word_audio": "audio/words/ve.mp3",
+    "example_audio": "audio/examples/ve.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #17882 (CK) / 中文 #472659 (nickyeow)",
+    "tags": ""
+  },
+  "vegetable": {
+    "word": "vegetable",
+    "phonetic": "/'vedʒәtәbl/",
+    "meaning": "n. 蔬菜, 植物, 无精打采之人；a. 蔬菜的, 植物的",
+    "example_en": "Due to the heavy rain, vegetable prices have risen.",
+    "example_cn": "多亏了这场大雨，蔬菜价格直线上升。",
+    "syllables": "ve,get,able",
+    "word_audio": "audio/words/vegetable.mp3",
+    "example_audio": "audio/examples/vegetable.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7776806 (sharris123) / 中文 #2337125 (anndiana)",
+    "tags": "zk gk toefl ielts"
+  },
+  "vehicles": {
+    "word": "vehicles",
+    "phonetic": "/vihɪkəlz/",
+    "meaning": "n. 交通工具；车辆（vehicle的复数形式）",
+    "example_en": "The number of motor vehicles in the city has increased.",
+    "example_cn": "城市里的机动车数量增加了。",
+    "syllables": "ve,hi,cles",
+    "word_audio": "audio/words/vehicles.mp3",
+    "example_audio": "audio/examples/vehicles.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5241596 (cinqhiboux) / 中文 #5234825 (xjjAstrus)",
+    "tags": ""
+  },
+  "venture": {
+    "word": "venture",
+    "phonetic": "/'ventʃә/",
+    "meaning": "n. 冒险, 风险；vt. 敢于, 冒...的危险；vi. 冒险",
+    "example_en": "Who will provide capital for the venture?",
+    "example_cn": "谁来为风险投资提供资金？",
+    "syllables": "ven,ture",
+    "word_audio": "audio/words/venture.mp3",
+    "example_audio": "audio/examples/venture.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #47257 (CC) / 中文 #332673 (fucongcong)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "venue": {
+    "word": "venue",
+    "phonetic": "/'venju:/",
+    "meaning": "n. 犯罪地点, 审判地, 发生地点",
+    "example_en": "Inside the venue, sounds of clapping, whistling, yelling, laughing blended together.",
+    "example_cn": "会场内，掌声、哨声、喊声、笑声乱成了一锅粥。",
+    "syllables": "ven,ue",
+    "word_audio": "audio/words/venue.mp3",
+    "example_audio": "audio/examples/venue.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11277875 (Aphima) / 中文 #3709241 (trieuho)",
+    "tags": "toefl"
+  },
+  "verse": {
+    "word": "verse",
+    "phonetic": "/vә:s/",
+    "meaning": "n. 诗, 韵文, 诗句；vt. 用诗表达；vi. 作诗",
+    "example_en": "He translated the verse into English.",
+    "example_cn": "他把诗翻译成英语。",
+    "syllables": "verse",
+    "word_audio": "audio/words/verse.mp3",
+    "example_audio": "audio/examples/verse.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1315801 (CK) / 中文 #10021369 (GlossaMatik)",
+    "tags": "cet6 ky toefl gre"
+  },
+  "version": {
+    "word": "version",
+    "phonetic": "/'vә:ʒәn/",
+    "meaning": "n. 一种描述, 版本, 译文",
+    "example_en": "I don't believe Tom's version of the story.",
+    "example_cn": "我不相信汤姆的说法。",
+    "syllables": "ver,sion",
+    "word_audio": "audio/words/version.mp3",
+    "example_audio": "audio/examples/version.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #8462987 (Ergulis) / 中文 #8463573 (gumblex)",
+    "tags": "gk cet4 cet6 ky toefl ielts"
+  },
+  "versions": {
+    "word": "versions",
+    "phonetic": "/vɜrʒənz/",
+    "meaning": "n. 版本；译本",
+    "example_en": "They gave different versions of the accident.",
+    "example_cn": "人们对于这场事故有很多种说法。",
+    "syllables": "ver,sions",
+    "word_audio": "audio/words/versions.mp3",
+    "example_audio": "audio/examples/versions.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #305783 (\\N) / 中文 #3648022 (arabela)",
+    "tags": ""
+  },
+  "very": {
+    "word": "very",
+    "phonetic": "/'veri/",
+    "meaning": "a. 真正的, 恰好的, 十足的, 特有的；adv. 非常, 完全",
+    "example_en": "He must be very angry to say such a thing.",
+    "example_cn": "他一定是十分生气了，不然他不会说出这样的话来的。",
+    "syllables": "",
+    "word_audio": "audio/words/very.mp3",
+    "example_audio": "audio/examples/very.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #41599 (Swift) / 中文 #459812 (nickyeow)",
+    "tags": "zk gk"
+  },
+  "veteran": {
+    "word": "veteran",
+    "phonetic": "/'vetәrәn/",
+    "meaning": "n. 老手, 退伍军人, 老兵, 老树；a. 老兵的, 老练的, 经验丰富的",
+    "example_en": "Tom is a Vietnam veteran.",
+    "example_cn": "汤姆是一个越军退役军人。",
+    "syllables": "vet,er,an",
+    "word_audio": "audio/words/veteran.mp3",
+    "example_audio": "audio/examples/veteran.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5085379 (Hybrid) / 中文 #5085423 (Jubilee11)",
+    "tags": "cet4 cet6 ky toefl ielts gre"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "on": {
+    "word": "on",
+    "phonetic": "/ɒn/",
+    "meaning": "prep. 在...之上；adv. ...上去；a. 正起作用的",
+    "example_en": "We must pay a toll to drive on this road.",
+    "example_cn": "我们必得缴通行税才能在这条道路上行驶。",
+    "syllables": "on",
+    "word_audio": "audio/words/on.mp3",
+    "example_audio": "audio/examples/on.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #57571 (CK) / 中文 #863175 (U2FS)",
+    "tags": "zk gk ielts"
+  },
+  "once": {
+    "word": "once",
+    "phonetic": "/wʌns/",
+    "meaning": "adv. 一次, 曾经, 一旦；conj. 一旦, 一经；n. 一次；a. 从前的",
+    "example_en": "Nancy never fails to write to me once a month.",
+    "example_cn": "南希每个月都会写信给我，风雨不改。",
+    "syllables": "once",
+    "word_audio": "audio/words/once.mp3",
+    "example_audio": "audio/examples/once.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #36179 (Dejo) / 中文 #616262 (nickyeow)",
+    "tags": "zk gk ielts"
+  },
+  "one": {
+    "word": "one",
+    "phonetic": "/wʌn/",
+    "meaning": "n. 一(个)；pron. 一, 任何人；num. 一, 一个；a. 一致的, 完整的",
+    "example_en": "I need a pencil. Can I use one of yours?",
+    "example_cn": "我需要一支铅笔，我能用你的其中一支吗？",
+    "syllables": "one",
+    "word_audio": "audio/words/one.mp3",
+    "example_audio": "audio/examples/one.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #25775 (CK) / 中文 #810975 (fucongcong)",
+    "tags": "zk gk ielts"
+  },
+  "ones": {
+    "word": "ones",
+    "phonetic": "/wʌnz/",
+    "meaning": "n. 刻录软件",
+    "example_en": "The youngest siblings are in general the most beautiful ones.",
+    "example_cn": "最小的兄弟姐妹一般都最漂亮。",
+    "syllables": "ones",
+    "word_audio": "audio/words/ones.mp3",
+    "example_audio": "audio/examples/ones.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1802597 (Scott) / 中文 #9961393 (GlossaMatik)",
+    "tags": ""
+  },
+  "ongoing": {
+    "word": "ongoing",
+    "phonetic": "/'ɒngәuiŋ/",
+    "meaning": "a. 前进的, 进行的, 不间断的；n. 前进, 发展",
+    "example_en": "It's an ongoing investigation.",
+    "example_cn": "调查进行中。",
+    "syllables": "on,go,ing",
+    "word_audio": "audio/words/ongoing.mp3",
+    "example_audio": "audio/examples/ongoing.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3725665 (CM) / 中文 #13118950 (LeviHighway)",
+    "tags": "toefl ielts"
+  },
+  "online": {
+    "word": "online",
+    "phonetic": "/ɔnlaɪn/",
+    "meaning": "[计] 联机",
+    "example_en": "Tom doesn't care about protecting his personal information online.",
+    "example_cn": "汤姆上网时并不在乎个人资讯的保护。",
+    "syllables": "on,line",
+    "word_audio": "audio/words/online.mp3",
+    "example_audio": "audio/examples/online.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #8133576 (marioo) / 中文 #13524177 (LeviHighway)",
+    "tags": "ielts"
+  },
+  "only": {
+    "word": "only",
+    "phonetic": "/'әunli/",
+    "meaning": "a. 唯一的, 仅有的, 最佳的；adv. 只有, 仅仅, 只能；conj. 但是, 不过",
+    "example_en": "The only useful answers are those that raise new questions.",
+    "example_cn": "只有能提出新问题的回答才是有用的回答。",
+    "syllables": "on,ly",
+    "word_audio": "audio/words/only.mp3",
+    "example_audio": "audio/examples/only.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1581 (CK) / 中文 #334330 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "onto": {
+    "word": "onto",
+    "phonetic": "/'ɒntu:/",
+    "meaning": "prep. 在...之上",
+    "example_en": "It is dangerous to jump onto a moving train.",
+    "example_cn": "跳上一列正在开的火车是很危险的。",
+    "syllables": "on,to",
+    "word_audio": "audio/words/onto.mp3",
+    "example_audio": "audio/examples/onto.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #280200 (CM) / 中文 #333528 (fucongcong)",
+    "tags": "gk cet4 ky"
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "yoga": {
+    "word": "yoga",
+    "phonetic": "/'jәugә/",
+    "meaning": "n. 瑜珈",
+    "example_en": "There's a guy in my yoga class.",
+    "example_cn": "有个小伙子在我的瑜伽班里。",
+    "syllables": "yo,ga",
+    "word_audio": "audio/words/yoga.mp3",
+    "example_audio": "audio/examples/yoga.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2905563 (Hybrid) / 中文 #5576805 (verdastelo9604)",
+    "tags": "ielts"
+  },
+  "you": {
+    "word": "you",
+    "phonetic": "/ju:/",
+    "meaning": "pron. 你, 你们",
+    "example_en": "If you don't hurry, you'll miss the train.",
+    "example_cn": "如果你不抓紧的话，你就会赶不上火车。",
+    "syllables": "you",
+    "word_audio": "audio/words/you.mp3",
+    "example_audio": "audio/examples/you.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #19703 (CK) / 中文 #2065370 (sadhen)",
+    "tags": "zk gk"
+  },
+  "young": {
+    "word": "young",
+    "phonetic": "/jʌŋ/",
+    "meaning": "a. 年轻的, 无经验的, 朝气蓬勃的；n. 青年们, 幼小动物, 崽",
+    "example_en": "Wearing second-hand clothes is now popular among young people.",
+    "example_cn": "二手服饰在时下年轻人之间蔚为风潮。",
+    "syllables": "young",
+    "word_audio": "audio/words/young.mp3",
+    "example_audio": "audio/examples/young.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #265804 (sundown) / 中文 #1228973 (tsayng)",
+    "tags": "zk gk"
+  },
+  "younger": {
+    "word": "younger",
+    "phonetic": "/'jʌŋgә/",
+    "meaning": "n. 年纪较小者；a. 较年轻的",
+    "example_en": "When I hear that song, I remember my younger days.",
+    "example_cn": "每次听到这首歌，都会让我回忆起自己年轻的时候。",
+    "syllables": "young,er",
+    "word_audio": "audio/words/younger.mp3",
+    "example_audio": "audio/examples/younger.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #388361 (CK) / 中文 #8742128 (crescat)",
+    "tags": ""
+  },
+  "your": {
+    "word": "your",
+    "phonetic": "/juә/",
+    "meaning": "pron. 你的, 你们的",
+    "example_en": "You work as hard as he did at your age.",
+    "example_cn": "你跟他在你这个年纪时一样努力工作。",
+    "syllables": "your",
+    "word_audio": "audio/words/your.mp3",
+    "example_audio": "audio/examples/your.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #15848 (Zifre) / 中文 #775636 (Martha)",
+    "tags": "zk gk"
+  },
+  "yours": {
+    "word": "yours",
+    "phonetic": "/juәz/",
+    "meaning": "pron. 你的(东西), 你们的(东西)",
+    "example_en": "I need a pencil. Can I use one of yours?",
+    "example_cn": "我需要一支铅笔，我能用你的其中一支吗？",
+    "syllables": "yours",
+    "word_audio": "audio/words/yours.mp3",
+    "example_audio": "audio/examples/yours.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #25775 (CK) / 中文 #810975 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "yourself": {
+    "word": "yourself",
+    "phonetic": "/juә'self/",
+    "meaning": "pron. 你自己",
+    "example_en": "It is sometimes difficult to make yourself understood in public.",
+    "example_cn": "有时很难在公众场合表达你自己的意思。",
+    "syllables": "your,self",
+    "word_audio": "audio/words/yourself.mp3",
+    "example_audio": "audio/examples/yourself.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #240470 (CM) / 中文 #780242 (Martha)",
+    "tags": "zk gk"
+  },
+  "youth": {
+    "word": "youth",
+    "phonetic": "/ju:θ/",
+    "meaning": "n. 年轻, 青年时代, 青年们, 青春",
+    "example_en": "The youth of our land are not interested in politics.",
+    "example_cn": "我们国家的年轻人对政治普遍不感兴趣。",
+    "syllables": "youth",
+    "word_audio": "audio/words/youth.mp3",
+    "example_audio": "audio/examples/youth.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #453875 (saasmath) / 中文 #10262818 (DaoSeng)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "youtube": {
+    "word": "youtube",
+    "phonetic": "/jutjub/",
+    "meaning": "n. 视频网站（可以让用户免费上传、观赏、分享视频短片的热门视频共享网站）",
+    "example_en": "My parents say that YouTube and streaming services cheapen the magic of film.",
+    "example_cn": "我父母说，YouTube 和串流平台让电影的魔力大打折扣。",
+    "syllables": "you,tube",
+    "word_audio": "audio/words/youtube.mp3",
+    "example_audio": "audio/examples/youtube.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #13697462 (frpzzd) / 中文 #13840858 (LeviHighway)",
+    "tags": ""
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "square": {
+    "word": "square",
+    "phonetic": "/skwєә/",
+    "meaning": "n. 正方形, 街区, 广场, 平方, 直角尺；a. 正方形的, 正直的, 公正的, 平方的, 方正的, 结清的；adv. 成直角地, 对准地；vi. 一致, 符合, 结清；vt. 使成方形, 使平方自乘, 调正, 结清, 使一致",
+    "example_en": "The inverse of a non-square matrix is a dangerous thing.",
+    "example_cn": "非方矩阵的逆阵是一个危险的东西。",
+    "syllables": "square",
+    "word_audio": "audio/words/square.mp3",
+    "example_audio": "audio/examples/square.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #396116 (FeuDRenais) / 中文 #396119 (GlossaMatik)",
+    "tags": "zk gk cet4 cet6 ky toefl ielts gre"
+  }
+}

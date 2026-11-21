@@ -1,0 +1,38 @@
+{
+  "other": {
+    "word": "other",
+    "phonetic": "/'ʌðә/",
+    "meaning": "a. 其他的, 另外的, 从前的；pron. 其他的, 他人, 另外一个",
+    "example_en": "Can't you move your stuff to the other room?",
+    "example_cn": "你不能把你的东西搬去另一个房间吗？",
+    "syllables": "oth,er",
+    "word_audio": "audio/words/other.mp3",
+    "example_audio": "audio/examples/other.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3329790 (CK) / 中文 #9961255 (GlossaMatik)",
+    "tags": "zk gk"
+  },
+  "others": {
+    "word": "others",
+    "phonetic": "/ʌðərz/",
+    "meaning": "pron. 其他人",
+    "example_en": "Some of my classmates like volleyball and others enjoy tennis.",
+    "example_cn": "我有些同学喜欢排球，也有些喜欢网球。",
+    "syllables": "oth,ers",
+    "word_audio": "audio/words/others.mp3",
+    "example_audio": "audio/examples/others.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #34995 (CM) / 中文 #346846 (nickyeow)",
+    "tags": ""
+  },
+  "otherwise": {
+    "word": "otherwise",
+    "phonetic": "/'ʌðәwaiz/",
+    "meaning": "adv. 否则, 不同地, 别的方式",
+    "example_en": "Tom is suspicious of Mary even though he declares otherwise.",
+    "example_cn": "汤姆虽然说了一套，但依然怀疑玛丽。",
+    "syllables": "oth,er,wise",
+    "word_audio": "audio/words/otherwise.mp3",
+    "example_audio": "audio/examples/otherwise.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4445309 (LB) / 中文 #5574542 (verdastelo9604)",
+    "tags": "gk cet4 cet6 ky ielts"
+  }
+}

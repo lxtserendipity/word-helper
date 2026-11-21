@@ -1,0 +1,38 @@
+{
+  "era": {
+    "word": "era",
+    "phonetic": "/'iәrә/",
+    "meaning": "n. 时代, 纪元, 时期",
+    "example_en": "The invention of the transistor marked a new era.",
+    "example_cn": "晶体管的发明标志著一个新时代的开始。",
+    "syllables": "",
+    "word_audio": "audio/words/era.mp3",
+    "example_audio": "audio/examples/era.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #36922 (CM) / 中文 #340174 (nickyeow)",
+    "tags": "cet4 cet6 ky toefl"
+  },
+  "error": {
+    "word": "error",
+    "phonetic": "/'erә/",
+    "meaning": "n. 错误, 过失, 失误, 误差",
+    "example_en": "Does the error occur regularly or sporadically? Is the error reproducible?",
+    "example_cn": "错误是经常出现还是偶尔出现？错误是否能够模仿？",
+    "syllables": "er,ror",
+    "word_audio": "audio/words/error.mp3",
+    "example_audio": "audio/examples/error.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #749473 (kroko) / 中文 #749474 (kroko)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "errors": {
+    "word": "errors",
+    "phonetic": "/ɛrərz/",
+    "meaning": "n. 误差；错误；差错（error的复数）",
+    "example_en": "Not complying with the naming conventions will result in parse errors.",
+    "example_cn": "不遵守命名规则会导致解析错误。",
+    "syllables": "er,rors",
+    "word_audio": "audio/words/errors.mp3",
+    "example_audio": "audio/examples/errors.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2915542 (vicch) / 中文 #2915541 (vicch)",
+    "tags": ""
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "glad": {
+    "word": "glad",
+    "phonetic": "/glæd/",
+    "meaning": "a. 高兴的, 喜欢的, 情愿的",
+    "example_en": "I'm glad to hear you're happy in Australia.",
+    "example_cn": "很高兴听说你在澳洲过得很开心。",
+    "syllables": "glad",
+    "word_audio": "audio/words/glad.mp3",
+    "example_audio": "audio/examples/glad.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7158916 (CK) / 中文 #13846665 (LeviHighway)",
+    "tags": "zk gk"
+  },
+  "glance": {
+    "word": "glance",
+    "phonetic": "/'glɑ:ns/",
+    "meaning": "n. 一瞥, 闪光, 掠过, 辉矿类；vi. 扫视, 闪光, 掠过, 提到, 略说；vt. 扫视, 反射, 使掠过",
+    "example_en": "She cast a shy glance on the young man.",
+    "example_cn": "她羞怯地看了一眼那个年轻人。",
+    "syllables": "glance",
+    "word_audio": "audio/words/glance.mp3",
+    "example_audio": "audio/examples/glance.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #12426328 (Miktsoanit) / 中文 #804946 (Martha)",
+    "tags": "gk cet4 cet6 ky gre"
+  },
+  "glass": {
+    "word": "glass",
+    "phonetic": "/glɑ:s/",
+    "meaning": "n. 玻璃, 玻璃杯, 透镜；vt. 装玻璃于, 反射, 反映；vi. 成玻璃状",
+    "example_en": "A glass of cold water is very refreshing in hot weather.",
+    "example_cn": "一杯冷水在暑热的天气里十分提神。",
+    "syllables": "glass",
+    "word_audio": "audio/words/glass.mp3",
+    "example_audio": "audio/examples/glass.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #267091 (CK) / 中文 #1397306 (mtdot)",
+    "tags": "zk gk ielts"
+  },
+  "glasses": {
+    "word": "glasses",
+    "phonetic": "/'glɑ:siz/",
+    "meaning": "n. 眼镜；双筒望远镜；玻璃（glass的复数形式）",
+    "example_en": "Even with his glasses, he doesn't see very well.",
+    "example_cn": "他就算带了眼镜也看得不很清楚。",
+    "syllables": "glass,es",
+    "word_audio": "audio/words/glasses.mp3",
+    "example_audio": "audio/examples/glasses.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #293022 (CM) / 中文 #6822723 (basilhan)",
+    "tags": ""
+  },
+  "global": {
+    "word": "global",
+    "phonetic": "/'glәubl/",
+    "meaning": "a. 通用的, 全球的, 球形的, 综合的, 普遍的",
+    "example_en": "As global warming increases, sea levels get higher and higher.",
+    "example_cn": "海面随着全球变暖的加剧而越来越高。",
+    "syllables": "glob,al",
+    "word_audio": "audio/words/global.mp3",
+    "example_audio": "audio/examples/global.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #758813 (CM) / 中文 #758811 (eastasiastudent)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "globe": {
+    "word": "globe",
+    "phonetic": "/glәub/",
+    "meaning": "n. 球, 球状物, 地球仪, 天体；v. (使)成球状",
+    "example_en": "The globe is similar in shape to an orange.",
+    "example_cn": "地球的外形和橙子相似。",
+    "syllables": "globe",
+    "word_audio": "audio/words/globe.mp3",
+    "example_audio": "audio/examples/globe.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #461157 (jeanne) / 中文 #334742 (fucongcong)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "glorious": {
+    "word": "glorious",
+    "phonetic": "/'glɒ:riәs/",
+    "meaning": "a. 光荣的",
+    "example_en": "Therefore, for the glorious God, you must accept each other, and accept Jesus Christ in the same way.",
+    "example_cn": "所以，为了荣耀上帝，你们要彼此接纳，就像基督接纳你们一样。",
+    "syllables": "glo,ri,ous",
+    "word_audio": "audio/words/glorious.mp3",
+    "example_audio": "audio/examples/glorious.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7834193 (sharris123) / 中文 #6321626 (adamtrousers)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "glory": {
+    "word": "glory",
+    "phonetic": "/'glɒ:ri/",
+    "meaning": "n. 光荣, 荣耀, 荣誉, 壮丽, 繁荣；vi. 自豪",
+    "example_en": "The religion was in its glory in those days.",
+    "example_cn": "这个宗教当时处于全盛时期。",
+    "syllables": "glo,ry",
+    "word_audio": "audio/words/glory.mp3",
+    "example_audio": "audio/examples/glory.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #279911 (\\N) / 中文 #1516169 (gonnastop)",
+    "tags": "gk cet4 cet6 ky"
+  }
+}

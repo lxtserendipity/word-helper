@@ -1,0 +1,50 @@
+{
+  "ignorance": {
+    "word": "ignorance",
+    "phonetic": "/'ignәrәns/",
+    "meaning": "n. 无知, 愚味",
+    "example_en": "The world's evil almost always comes from ignorance.",
+    "example_cn": "世上的罪恶差不多总是由愚昧无知造成的。",
+    "syllables": "ig,no,rance",
+    "word_audio": "audio/words/ignorance.mp3",
+    "example_audio": "audio/examples/ignorance.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #3622109 (weihaiping) / 中文 #3554253 (sadhen)",
+    "tags": "cet6 ky toefl ielts"
+  },
+  "ignorant": {
+    "word": "ignorant",
+    "phonetic": "/'ignәrәnt/",
+    "meaning": "a. 无知识的, 不知道的, 由无知产生的",
+    "example_en": "I am quite ignorant of the plan.",
+    "example_cn": "我对这个计划一无所知。",
+    "syllables": "ig,no,rant",
+    "word_audio": "audio/words/ignorant.mp3",
+    "example_audio": "audio/examples/ignorant.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #254306 (\\N) / 中文 #380728 (sherryyyf)",
+    "tags": "cet4 cet6 ky toefl gre"
+  },
+  "ignore": {
+    "word": "ignore",
+    "phonetic": "/ig'nɒ:/",
+    "meaning": "vt. 不理睬, 忽视, 驳回, 忽略",
+    "example_en": "We must not ignore populations suffering under misgovernment.",
+    "example_cn": "我们不能忽视暴政之下饱受苦难的人民。",
+    "syllables": "ig,nore",
+    "word_audio": "audio/words/ignore.mp3",
+    "example_audio": "audio/examples/ignore.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #636331 (blay_paul) / 中文 #13901030 (jan_OkulaJu)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "ignored": {
+    "word": "ignored",
+    "phonetic": "/ɪɡnɔrd/",
+    "meaning": "v. 忽略；不理会；不顾（ignore的过去分词）",
+    "example_en": "Facts do not cease to exist because they are ignored.",
+    "example_cn": "不是因为某人不理事实它们就会不复存在了。",
+    "syllables": "ig,nored",
+    "word_audio": "audio/words/ignored.mp3",
+    "example_audio": "audio/examples/ignored.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #690956 (Scott) / 中文 #691171 (U2FS)",
+    "tags": ""
+  }
+}

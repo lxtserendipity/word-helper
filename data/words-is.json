@@ -1,0 +1,74 @@
+{
+  "is": {
+    "word": "is",
+    "phonetic": "/iz/",
+    "meaning": "be的现在式第三人称",
+    "example_en": "A fox is not caught twice in the same snare.",
+    "example_cn": "一只狐狸不会两次掉入同一个陷阱里。",
+    "syllables": "is",
+    "word_audio": "audio/words/is.mp3",
+    "example_audio": "audio/examples/is.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #24561 (CM) / 中文 #335132 (fucongcong)",
+    "tags": ""
+  },
+  "island": {
+    "word": "island",
+    "phonetic": "/'ailәnd/",
+    "meaning": "n. 岛, 岛屿, 孤立地区, 安全岛；vt. 使成岛状, 孤立",
+    "example_en": "Thanks to the favorable wind, we soon reached the island.",
+    "example_cn": "多亏了顺风，我们很快就到了那个小岛。",
+    "syllables": "is,land",
+    "word_audio": "audio/words/island.mp3",
+    "example_audio": "audio/examples/island.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #266985 (\\N) / 中文 #842449 (Martha)",
+    "tags": "zk gk cet4 cet6 ky ielts"
+  },
+  "isolated": {
+    "word": "isolated",
+    "phonetic": "/'aisәleitid/",
+    "meaning": "a. 孤立的, 孤零零的",
+    "example_en": "Several cottages have been isolated by the flood water.",
+    "example_cn": "好几间小屋被洪水孤立起来了。",
+    "syllables": "",
+    "word_audio": "audio/words/isolated.mp3",
+    "example_audio": "audio/examples/isolated.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #24660 (CK) / 中文 #847808 (fucongcong)",
+    "tags": "toefl ielts"
+  },
+  "issue": {
+    "word": "issue",
+    "phonetic": "/'isju/",
+    "meaning": "n. 发行, 问题, 后果, 流出, 出口, 争端；vi. 发行, 流出, 造成...结果, 传下；vt. 使流出, 放出, 发行, 发布, 发给",
+    "example_en": "We have different ways of thinking with regard to this issue.",
+    "example_cn": "关于这一点，我的想法和你不同。",
+    "syllables": "is,sue",
+    "word_audio": "audio/words/issue.mp3",
+    "example_audio": "audio/examples/issue.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #567985 (FeuDRenais) / 中文 #454807 (nickyeow)",
+    "tags": "cet4 cet6 ky toefl ielts gre"
+  },
+  "issued": {
+    "word": "issued",
+    "phonetic": "/ɪʃud/",
+    "meaning": "v. 发布, 发行（issue的过去分词形式）",
+    "example_en": "The meteorological bureau has issued a red rainstorm alert.",
+    "example_cn": "气象局发布了暴雨红色预警。",
+    "syllables": "is,sued",
+    "word_audio": "audio/words/issued.mp3",
+    "example_audio": "audio/examples/issued.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #14034677 (jan_OkulaJu) / 中文 #14034673 (jan_OkulaJu)",
+    "tags": ""
+  },
+  "issues": {
+    "word": "issues",
+    "phonetic": "/ɪʃuz/",
+    "meaning": "n. 议题, 问题；争点；债券（issue的复数）",
+    "example_en": "She has dropped out of school due to health issues.",
+    "example_cn": "她因为健康因素休学了。",
+    "syllables": "is,sues",
+    "word_audio": "audio/words/issues.mp3",
+    "example_audio": "audio/examples/issues.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #7819860 (sharris123) / 中文 #768290 (Martha)",
+    "tags": "ielts"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "ghost": {
+    "word": "ghost",
+    "phonetic": "/gәust/",
+    "meaning": "n. 鬼, 灵魂, 幻影, 一丝, 一点；v. 鬼似地游荡",
+    "example_en": "The boy fell of fright when he saw a ghost.",
+    "example_cn": "那个男孩子见到鬼的时候吓了一跳。",
+    "syllables": "ghost",
+    "word_audio": "audio/words/ghost.mp3",
+    "example_audio": "audio/examples/ghost.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #5149834 (Teteu80) / 中文 #5149838 (JimmyUK)",
+    "tags": "cet4 ky"
+  }
+}

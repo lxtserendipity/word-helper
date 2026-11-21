@@ -1,0 +1,26 @@
+{
+  "urban": {
+    "word": "urban",
+    "phonetic": "/'ә:bәn/",
+    "meaning": "a. 都市的, 住在都市的, 习惯于都市的",
+    "example_en": "What's new about this way of urban living?",
+    "example_cn": "这种新型的城市生活有什么特点？",
+    "syllables": "ur,ban",
+    "word_audio": "audio/words/urban.mp3",
+    "example_audio": "audio/examples/urban.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #765139 (eastasiastudent) / 中文 #765138 (eastasiastudent)",
+    "tags": "gk cet4 cet6 ky toefl"
+  },
+  "urge": {
+    "word": "urge",
+    "phonetic": "/ә:dʒ/",
+    "meaning": "n. 冲动, 推动力, 迫切的要求；vt. 驱策, 力劝, 竭力主张, 推动；vi. 强烈要求",
+    "example_en": "Lawyers will urge the parents to take further legal action.",
+    "example_cn": "律师们会力劝家长们采取进一步的法律行动。",
+    "syllables": "urge",
+    "word_audio": "audio/words/urge.mp3",
+    "example_audio": "audio/examples/urge.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4932026 (trieuho) / 中文 #4932027 (trieuho)",
+    "tags": "gk cet4 cet6 ky toefl"
+  }
+}

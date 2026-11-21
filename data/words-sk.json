@@ -1,0 +1,122 @@
+{
+  "sketch": {
+    "word": "sketch",
+    "phonetic": "/sketʃ/",
+    "meaning": "n. 素描, 草图, 小品；v. 描绘略图, 画素描或速写",
+    "example_en": "Tom ripped a page out of his sketch book.",
+    "example_cn": "汤姆从他的绘画本上撕下了一页。",
+    "syllables": "sketch",
+    "word_audio": "audio/words/sketch.mp3",
+    "example_audio": "audio/examples/sketch.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2957962 (CK) / 中文 #3035555 (vicch)",
+    "tags": "cet4 cet6 ky toefl ielts"
+  },
+  "ski": {
+    "word": "ski",
+    "phonetic": "/ski:/",
+    "meaning": "n. 滑雪橇；vi. 滑雪",
+    "example_en": "I want to buy a pair of ski boots.",
+    "example_cn": "我想买一双滑雪靴。",
+    "syllables": "ski",
+    "word_audio": "audio/words/ski.mp3",
+    "example_audio": "audio/examples/ski.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #253956 (CK) / 中文 #512089 (fucongcong)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "skill": {
+    "word": "skill",
+    "phonetic": "/'skil/",
+    "meaning": "n. 技术, 技巧, 技能, 熟练, 熟练工人",
+    "example_en": "Fluency in English is a very marketable skill today.",
+    "example_cn": "流利的英语在今天是一种十分抢手的技能。",
+    "syllables": "skill",
+    "word_audio": "audio/words/skill.mp3",
+    "example_audio": "audio/examples/skill.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #243013 (CM) / 中文 #811914 (Martha)",
+    "tags": "zk gk cet4 cet6 ky ielts"
+  },
+  "skilled": {
+    "word": "skilled",
+    "phonetic": "/'skild/",
+    "meaning": "a. 熟练的",
+    "example_en": "The position requires applicants to be skilled in spoken English.",
+    "example_cn": "这份职位要求应征者有一定的英语口语表达能力。",
+    "syllables": "skilled",
+    "word_audio": "audio/words/skilled.mp3",
+    "example_audio": "audio/examples/skilled.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #26209 (auxitt) / 中文 #604477 (xiuqin)",
+    "tags": "gk cet4 cet6 ky"
+  },
+  "skills": {
+    "word": "skills",
+    "phonetic": "/skɪlz/",
+    "meaning": "n. 技术；技能；技巧（skill的复数形式）",
+    "example_en": "You have to acquire real skills, not just superficial knowledge.",
+    "example_cn": "你要学的是实实在在的技能，而不单是表面的知识。",
+    "syllables": "skills",
+    "word_audio": "audio/words/skills.mp3",
+    "example_audio": "audio/examples/skills.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #644323 (blay_paul) / 中文 #1345603 (nickyeow)",
+    "tags": "ielts"
+  },
+  "skin": {
+    "word": "skin",
+    "phonetic": "/skin/",
+    "meaning": "n. 皮肤, 皮；vt. 剥皮, 在...植皮；vi. 长皮, 愈合, 蜕皮",
+    "example_en": "Anger me again, I might just peel your skin off.",
+    "example_cn": "再惹我生气，小心我扒了你的皮！",
+    "syllables": "skin",
+    "word_audio": "audio/words/skin.mp3",
+    "example_audio": "audio/examples/skin.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #11274935 (Aphima) / 中文 #2348898 (xuan)",
+    "tags": "gk cet4 cet6 ky ielts"
+  },
+  "skip": {
+    "word": "skip",
+    "phonetic": "/skip/",
+    "meaning": "n. 跳跃, 跳读；vi. 跳越, 跳读, 跳绳, 遗漏, 跳级；vt. 跳过, 遗漏",
+    "example_en": "My physics teacher doesn't care if I skip classes.",
+    "example_cn": "我的物理老师不在乎我是否逃课。",
+    "syllables": "skip",
+    "word_audio": "audio/words/skip.mp3",
+    "example_audio": "audio/examples/skip.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1392 (LittleBoy) / 中文 #358065 (mountaintree)",
+    "tags": "gk cet6 ky toefl ielts"
+  },
+  "skirt": {
+    "word": "skirt",
+    "phonetic": "/skә:t/",
+    "meaning": "n. 裙子, 下摆, 边缘, 郊区；vt. 位于...边缘, 绕过, 回避；vi. 位于边缘",
+    "example_en": "I like this skirt. May I try it on?",
+    "example_cn": "这条裙子挺漂亮的，可以试穿吗？",
+    "syllables": "skirt",
+    "word_audio": "audio/words/skirt.mp3",
+    "example_audio": "audio/examples/skirt.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #57281 (CK) / 中文 #425947 (nickyeow)",
+    "tags": "zk gk ielts gre"
+  },
+  "skull": {
+    "word": "skull",
+    "phonetic": "/skʌl/",
+    "meaning": "n. 头盖骨, 头脑, 好学生",
+    "example_en": "Tom has a tattoo of a skull on his chest.",
+    "example_cn": "汤姆在胸上有个头骨文身。",
+    "syllables": "skull",
+    "word_audio": "audio/words/skull.mp3",
+    "example_audio": "audio/examples/skull.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #4501225 (CK) / 中文 #6119479 (verdastelo9604)",
+    "tags": "ky toefl"
+  },
+  "sky": {
+    "word": "sky",
+    "phonetic": "/skai/",
+    "meaning": "n. 天空, 天色, 天堂；vt. 击向空中, 挂在高处；vi. 高涨",
+    "example_en": "There is a mass of dark clouds in the sky.",
+    "example_cn": "空中有一大片乌云。",
+    "syllables": "sky",
+    "word_audio": "audio/words/sky.mp3",
+    "example_audio": "audio/examples/sky.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #18326 (Zifre) / 中文 #336887 (fucongcong)",
+    "tags": "zk gk"
+  }
+}

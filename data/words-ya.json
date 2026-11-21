@@ -1,0 +1,38 @@
+{
+  "ya": {
+    "word": "ya",
+    "phonetic": "/'jә/",
+    "meaning": "abbr. 年轻人（young adult）；偏航轴（yaw axis）",
+    "example_en": "How've ya' been lately?",
+    "example_cn": "最近咋样？",
+    "syllables": "ya",
+    "word_audio": "audio/words/ya.mp3",
+    "example_audio": "audio/examples/ya.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #2296713 (FeuDRenais2) / 中文 #2254255 (KerenDeng)",
+    "tags": ""
+  },
+  "yard": {
+    "word": "yard",
+    "phonetic": "/jɑ:d/",
+    "meaning": "n. 码, 庭院, 工场",
+    "example_en": "Give him an inch and he'll take a yard.",
+    "example_cn": "得寸进尺。",
+    "syllables": "yard",
+    "word_audio": "audio/words/yard.mp3",
+    "example_audio": "audio/examples/yard.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #1818 (CK) / 中文 #454088 (fucongcong)",
+    "tags": "zk gk cet4 cet6 ky ielts"
+  },
+  "yards": {
+    "word": "yards",
+    "phonetic": "/jɑrdz/",
+    "meaning": "n. 码数（yard复数形式）",
+    "example_en": "It's rare to find big yards in Japan.",
+    "example_cn": "能在日本找到这样的大的院子实属罕见。",
+    "syllables": "yards",
+    "word_audio": "audio/words/yards.mp3",
+    "example_audio": "audio/examples/yards.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #281227 (CK) / 中文 #1235644 (sunnywqing)",
+    "tags": ""
+  }
+}

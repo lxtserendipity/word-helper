@@ -1,0 +1,26 @@
+{
+  "europe": {
+    "word": "europe",
+    "phonetic": "/'juәrәp/",
+    "meaning": "n. 欧洲",
+    "example_en": "France is in Europe.",
+    "example_cn": "法国位于欧洲。",
+    "syllables": "eu,rope",
+    "word_audio": "audio/words/europe.mp3",
+    "example_audio": "audio/examples/europe.mp3",
+    "source": "ECDICT（音标/释义）；项目人工修订双语例句",
+    "tags": "zk ielts"
+  },
+  "european": {
+    "word": "european",
+    "phonetic": "/.juәrә'pi:әn/",
+    "meaning": "n. 欧洲人；a. 欧洲的, 欧洲人的",
+    "example_en": "She lives in a European country.",
+    "example_cn": "她住在一个欧洲国家。",
+    "syllables": "",
+    "word_audio": "audio/words/european.mp3",
+    "example_audio": "audio/examples/european.mp3",
+    "source": "ECDICT（音标/释义）；项目人工修订双语例句",
+    "tags": "zk gk ielts"
+  }
+}

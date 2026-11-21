@@ -1,0 +1,62 @@
+{
+  "it": {
+    "word": "it",
+    "phonetic": "/it/",
+    "meaning": "pron. 它",
+    "example_en": "Had I known about it, I would have told you.",
+    "example_cn": "如果我知道的话，我早就已经告诉你了。",
+    "syllables": "it",
+    "word_audio": "audio/words/it.mp3",
+    "example_audio": "audio/examples/it.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #30820 (CK) / 中文 #411572 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "item": {
+    "word": "item",
+    "phonetic": "/'aitәm/",
+    "meaning": "n. 项目, 条款, 一则, 项",
+    "example_en": "The first item he bought was an alarm clock.",
+    "example_cn": "他买的第一项东西是一个闹钟。",
+    "syllables": "",
+    "word_audio": "audio/words/item.mp3",
+    "example_audio": "audio/examples/item.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #284097 (CK) / 中文 #2052492 (sadhen)",
+    "tags": "cet4 ky ielts"
+  },
+  "items": {
+    "word": "items",
+    "phonetic": "/aɪtəmz/",
+    "meaning": "n. 项目；名目；所有物品（item的复数形式）",
+    "example_en": "There, pandas have been trained to perform dozens of items.",
+    "example_cn": "在那里，人们把熊猫训练得能表演许多节目。",
+    "syllables": "",
+    "word_audio": "audio/words/items.mp3",
+    "example_audio": "audio/examples/items.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #766012 (eastasiastudent) / 中文 #766011 (eastasiastudent)",
+    "tags": "ielts"
+  },
+  "its": {
+    "word": "its",
+    "phonetic": "/its/",
+    "meaning": "pron. 它的",
+    "example_en": "The manners and customs of a country reflect its culture.",
+    "example_cn": "一个国家的风俗习惯反映了它的文化。",
+    "syllables": "its",
+    "word_audio": "audio/words/its.mp3",
+    "example_audio": "audio/examples/its.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #67247 (\\N) / 中文 #344419 (fucongcong)",
+    "tags": "zk gk"
+  },
+  "itself": {
+    "word": "itself",
+    "phonetic": "/it'self/",
+    "meaning": "pron. 它本身, 它自己",
+    "example_en": "Just pull the door shut. It'll lock by itself.",
+    "example_cn": "只要推门就好了。它自己会锁上的。",
+    "syllables": "it,self",
+    "word_audio": "audio/words/itself.mp3",
+    "example_audio": "audio/examples/itself.mp3",
+    "source": "ECDICT（音标/释义）；Tatoeba 英文 #646044 (darinmex) / 中文 #812338 (fucongcong)",
+    "tags": "zk gk"
+  }
+}
