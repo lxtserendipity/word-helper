@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "name": "5000词通用学习库",
   "count": 5000,
   "voice": "en-US-JennyNeural",
@@ -5005,5 +5005,7 @@
     "zero": "words-ze.json",
     "zone": "words-zo.json",
     "zoo": "words-zo.json"
-  }
+  },
+  "syllables_complete": true,
+  "syllables_filled": 456
 }

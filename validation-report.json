@@ -6,9 +6,23 @@
   "word_audio_count": 5000,
   "example_audio_count": 5000,
   "audio_checked": true,
-  "syllable_blank_count": 456,
+  "syllable_blank_count": 0,
   "errors": [],
   "status": "passed",
+  "index_version": 3,
+  "syllable_filled_count": 456,
+  "syllable_fields_complete": true,
+  "syllable_reconstruction_errors": [],
+  "syllable_selection_source_counts": {
+    "kaikki": 111,
+    "morphology": 102,
+    "manual": 193,
+    "nltk_ssp": 45,
+    "eng_syl": 5
+  },
+  "non_syllable_field_regression": "passed: all 5000 records unchanged except syllables",
+  "unchanged_syllable_fields": 4544,
+  "audio_hash_regression": "passed: all 10000 MP3 files identical to previous pack",
   "audio_duration_checked": true,
   "audio_duration_errors": [],
   "audio_missing_files": 0,
@@ -25,7 +39,7 @@
   "common_word_regression": "passed",
   "independent_attribution_audit": "passed",
   "javascript_syntax_check": "passed",
-  "browser_static_lookup": "passed: years",
+  "browser_static_lookup": "passed: university u,ni,ver,si,ty",
   "browser_word_audio": "passed: database HTTP 200",
   "browser_example_audio": "passed: database HTTP 200"
 }

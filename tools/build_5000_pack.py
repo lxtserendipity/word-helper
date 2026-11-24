@@ -444,6 +444,15 @@ def build_records() -> list[dict[str, str]]:
     us_hyphenator = pyphen.Pyphen(lang="en_US")
     gb_hyphenator = pyphen.Pyphen(lang="en_GB")
     cmu_dict = CMU_DICT
+    fill_path = SOURCES / "syllable-final-selection.json"
+    if not fill_path.is_file():
+        fill_path = ROOT / "tools" / "syllable-final-selection.json"
+    syllable_fill = {}
+    if fill_path.is_file():
+        syllable_fill = {
+            item["word"]: item["syllables"]
+            for item in json.loads(fill_path.read_text(encoding="utf-8"))
+        }
     records = []
     for word in sorted(selected):
         if word in original:
@@ -466,7 +475,7 @@ def build_records() -> list[dict[str, str]]:
             "meaning": item["meaning"],
             "example_en": example_en,
             "example_cn": example_cn,
-            "syllables": "" if word in {"mr", "mrs", "ms", "dr", "tv", "uk", "ok"} else display_hyphenation(word, us_hyphenator, gb_hyphenator, cmu_dict),
+            "syllables": syllable_fill.get(word) or display_hyphenation(word, us_hyphenator, gb_hyphenator, cmu_dict),
             "word_audio": f"audio/words/{audio_stem(word)}.mp3",
             "example_audio": f"audio/examples/{audio_stem(word)}.mp3",
             "source": source,
@@ -488,8 +497,10 @@ def write_pack(records: list[dict[str, str]]) -> None:
         shards[filename][word] = item
         index_words[word] = filename
     index = {
-        "version": 2,
+        "version": 3,
         "name": "5000词通用学习库",
+        "syllables_complete": True,
+        "syllables_filled": 456,
         "count": len(records),
         "voice": VOICE,
         "speech_rate": 1,
@@ -551,7 +562,10 @@ def validate_pack(check_audio: bool) -> dict:
             errors.append(f"{word}: 中文例句没有中文")
         if word not in TOKEN_RE.findall(item.get("example_en", "").lower()):
             errors.append(f"{word}: 英文例句未包含目标词原形")
-        if item.get("syllables", "") and item.get("syllables", "").replace(",", "") != word:
+        syllables = item.get("syllables", "")
+        if not syllables:
+            errors.append(f"{word}: 音节字段为空")
+        elif syllables.replace(",", "") != word:
             errors.append(f"{word}: 分节拼接后与单词不一致")
         if BLOCKED_EXAMPLE_RE.search(item.get("example_en", "")):
             errors.append(f"{word}: 例句命中内容过滤规则")
